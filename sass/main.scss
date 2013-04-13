@@ -1,0 +1,16 @@
+// Command to run in theme folder: sass --watch sass/main.scss:css/main.css --unix-newlines --scss 
+
+//! ==  Setupfiles ==
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3";
+@import "compass/utilities";
+
+@import 'settings'; // The settings (variables) for this project
+@import 'helpers/extend'; // has a set of default mixins
+@import 'helpers/grid';
+@import 'helpers/normalize';
+// @import 'helpers/normalize.drupal';
+
+@import 'general'; // base styles + header + footer
+
+@import 'front'; // frontpage styles

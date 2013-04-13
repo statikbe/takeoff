@@ -1,0 +1,104 @@
+// Micro clearfix provides an easy way to contain floats without adding additional markup
+// Acknowledgements
+// Micro clearfix: [Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/)
+@mixin cf {
+  zoom:1;
+  &:before, &:after { content:""; display:table; }
+  &:after { clear:both; }
+}
+// Example usage:
+//
+//    // Contain all floats within .wrapper
+//    .wrapper {
+//      @include cf;
+//      .content,
+//      .sidebar {
+//        float : left;
+//      }
+//    }
+
+// A CSS image replacement method that does not require the use of text-indent.
+%ext-hide-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+// Examples usage:
+//
+//   .ir {
+//     @include hide-text;
+//   }
+
+// A CSS image replacement method that does not require the use of text-indent.
+%ext-inline-block {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+// Examples usage:
+//
+//   a.button {
+//     @include inline-block;
+//   }
+
+// RWD Breakpoints
+@mixin breakpoint($point) {
+  @if $point == papa-bear {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == mama-bear {
+    @media (max-width: 1250px) { @content; }
+  }
+  @else if $point == baby-bear {
+    @media (max-width: 650px)  { @content; }
+  }
+}
+// Examples usage:
+// .page-wrap {
+//  width: 75%;
+//  @include breakpoint(papa-bear) { width: 60%; }
+//  @include breakpoint(mama-bear) { width: 80%; }
+//  @include breakpoint(baby-bear) { width: 95%; }
+// }
+
+
+// A method that adds the browser prefix to a function.
+@mixin prefixr ($property, $value, $prefixes: webkit moz o spec) {
+
+  @each $prefix in $prefixes {
+
+    @if $prefix == webkit {
+      -webkit-#{$property}: $value;
+    }
+    @else if $prefix == moz {
+      -moz-#{$property}: $value;
+    }
+    @else if $prefix == ms {
+      -ms-#{$property}: $value;
+    }
+    @else if $prefix == o {
+      -o-#{$property}: $value;
+    }
+    @else if $prefix == spec {
+      #{$property}: $value;
+    }
+    @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+// Example usage: 
+//   
+//   Possible prefixes: webkit, moz, ms, o, spec
+//   
+//    @include prefixr(border-radius, $radii, webkit ms spec);
+
+%ext-listreset { list-style: none; margin: 0; padding: 0; 
+  li { margin: 0; padding: 0; }
+}
+
+
+@mixin font-size($value, $base: $base-font-size) {
+  font-size: ($value/$base)+em;
+}

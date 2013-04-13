@@ -1,0 +1,9 @@
+.content-genres { float: right; 
+  ul { @extend %listreset; 
+    li { float: left; margin: 0 0 0 0.5em; }
+    a { display: block; width: 5.5em; height: 5.5em; background: $yellow; border-radius: 100%; line-height: 5.5; text-align: center; text-decoration: none; }
+  }
+}
+.content-upcoming { clear: both;
+
+}
