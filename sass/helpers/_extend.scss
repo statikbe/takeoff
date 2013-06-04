@@ -42,15 +42,18 @@
 //   }
 
 // RWD Breakpoints
-@mixin breakpoint($point) {
-  @if $point == papa-bear {
-    @media (max-width: 1600px) { @content; }
+@mixin breakpoint($point, $query: max-width) {
+  @if $point == large {
+    @media ($query: 60em) { @content; }
   }
-  @else if $point == mama-bear {
-    @media (max-width: 1250px) { @content; }
+  @else if $point == medium {
+    @media ($query: 1250px) { @content; }
   }
-  @else if $point == baby-bear {
-    @media (max-width: 650px)  { @content; }
+  @else if $point == small {
+    @media ($query: 40em)  { @content; }
+  }
+  @else {
+    @media ($query: $point)  { @content; }
   }
 }
 // Examples usage:
@@ -59,6 +62,7 @@
 //  @include breakpoint(papa-bear) { width: 60%; }
 //  @include breakpoint(mama-bear) { width: 80%; }
 //  @include breakpoint(baby-bear) { width: 95%; }
+//  @include breakpoint(30em, min-width) { margin-top: 10px;  }
 // }
 
 
@@ -88,13 +92,13 @@
   }
 }
 
-// Example usage: 
-//   
+// Example usage:
+//
 //   Possible prefixes: webkit, moz, ms, o, spec
-//   
+//
 //    @include prefixr(border-radius, $radii, webkit ms spec);
 
-%ext-listreset { list-style: none; margin: 0; padding: 0; 
+%ext-listreset { list-style: none; margin: 0; padding: 0;
   li { margin: 0; padding: 0; }
 }
 
