@@ -1,0 +1,31 @@
+/*! Button */
+.btn {
+  @include transition(all .3s);
+  @include border-radius($brd-radius);
+  font-weight: $extra-bold;
+  font-size: fs(12px);
+  text-transform: uppercase;
+  padding: 0.75em 1.25em;
+  display: inline-block;
+  margin-right: 0.5em;
+  background-color: $highlight-color;
+  color: $white;
+  &:hover {
+    background-color: draken($highlight-color, 5%);
+    color: $white;
+  }
+}
+input.btn,
+button.btn {
+  border: none;
+}
+a.btn {
+  text-decoration: none;
+  line-height: normal;
+}
+
+.btn-prefix:before {
+  font-family: $font-family-icons;
+  content: attr(data-icon);
+  margin-right: 0.5em;
+}

@@ -1,0 +1,11 @@
+.pagination {
+  text-align: center;
+  padding: 1em 0;
+  ul {
+    @include listreset;
+    li {
+      display: inline-block;
+      margin: 0 .25em;
+    }
+  }
+}

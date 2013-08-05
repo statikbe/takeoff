@@ -21,8 +21,26 @@
       <div class="main" role="main">
         <h1>Ipsum Pellentesque Malesuada Vestibulum</h1>
         <h2>Ipsum Pellentesque Malesuada</h2>
-        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper.</p>
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada magna mollis euismod. <a href="#">Nullam quis</a> risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper.</p>
         <p>Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+
+        <form action="/user" method="post" id="user-login" accept-charset="UTF-8">
+          <div class="form-item form-type-textfield form-item-name">
+            <label for="edit-name">Gebruikersnaam <span class="form-required" title="Dit veld is verplicht.">*</span></label>
+            <input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">
+            <div class="description">Vul uw gebruikersnaam in.</div>
+          </div>
+          <div class="form-item form-type-password form-item-pass">
+            <label for="edit-pass">Wachtwoord <span class="form-required" title="Dit veld is verplicht.">*</span></label>
+            <input type="password" id="edit-pass" name="pass" size="60" maxlength="128" class="form-text required">
+            <div class="description">Geef het wachtwoord dat bij uw gebruikersnaam hoort.</div>
+          </div>
+
+          <div class="form-actions form-wrapper" id="edit-actions">
+            <input type="submit" id="edit-submit" name="op" value="Inloggen" class="form-submit">
+          </div>
+        </form>
+
       </div> <!-- /.main -->
 
       <aside role="complementary">

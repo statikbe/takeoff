@@ -1,0 +1,87 @@
+// Variables
+
+//! Colors
+$darkgray: #404040;
+$blue: blue;
+$black: #111;
+$white: #fff;
+$bgcolor: #dde7e6;
+
+//! Font families
+$font-family-sans: 'Arial', sans-serif;
+$font-family-icons: 'icons';
+
+//! Font weights
+$thin: 100;
+$light: 300;
+$regular: 400;
+$semibold: 600;
+$bold: 700;
+$extra-bold: 800;
+
+//! Extra
+$brd-radius: 4px;
+$link-color: $blue;
+$highlight-color: $link-color;
+
+//! Base variables
+$base-font-style: normal;
+$base-font-size: 14px;
+$base-font-weight: $regular;
+$base-line-height: 22px;
+$base-font-color: $darkgray;
+$base-font-family: $font-family-sans;
+
+//! Breakpoints
+$bp-large: 60em;
+$bp-medium: 50em;
+$bp-menu: 45em;
+$bp-small: 40em;
+$bp-mini: 30em;
+
+// Font face
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Lato Black'), local('Lato-Black'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/G2uphNnNqGFMHLRsO_72ngLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Lato Italic'), local('Lato-Italic'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'icons';
+  src:url('../fonts/icons.eot');
+  src:url('../fonts/icons.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/icons.woff') format('woff'),
+    url('../fonts/icons.ttf') format('truetype'),
+    url('../fonts/icons.svg#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+//! Base64
+$bgimg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAQpCAMAAAA3e5fzAAAABGdBTUEAALGPC/xhBQAAAMZQTFRFt8fGvMbH1eHf1N7f1tzcytTTusbG3uTk1t/c2uTjzdfWxtLS2OHe0dvaucnI2ePiu8fH1uLguMjH1tza09zbztjXz9nY0drZ1d7b2OHgy9TTx9HQws7O1N3a1+PhzdbVvMrKxNDQ2+TjztfW0NnYwM7O1t/e1+Df0tva1dvb1+DducfHu8vKzNXUusjIytPSvszMydPSyNLRusrJv83Nu8nJ3ePjvcvL2+HhxdHRw8/P2uDg1uDf2eLh2uPi3OLi2OLh1+HgvCMkdAAAARBJREFUSMet0QlXwjAMAOB4IN4gHuCBggNEwVvua/7/P2XWFdZ2abPu+b6XdWmSvr0OdmALyrAHFQCMCvRQGfUYbxmdom8PA28N8eyL6T6rYTHK7QN+MNbMPK2NdT9thzvCVGiiaW5NYSLXxIRxhFz125QvhZ5RPg3RTiG1m3jP6Mbw6vQAAUb8potrgagHhEN0qbnStJyqUpcUV6pK3oUTdCE9s3bhXKqjGqobaop91Nl4SukQzJ4XxjGK1mtpphmTZhZjB/uMOrkSwRlaZO2LFYkJ2lJaoAP06BB1Jf1LVglCge9deFj/TXtH6O3XIenhOvOay+dcybgJP//1nbZzzfssaTcV7dwTzoTtzUnhH3agzVHn5vSGAAAAAElFTkSuQmCC);

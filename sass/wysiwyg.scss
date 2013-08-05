@@ -3,7 +3,10 @@
 
 @import 'variables', 'helpers/functions', 'helpers/mixins', 'helpers/grid';
 
+@import 'common/normalize.drupal';
 @import 'common/normalize', 'common/base', 'common/general';
 
-@import 'components/layout';
-@import 'components/all';
+body {
+  padding: 1em;
+  background: $white !important;
+}

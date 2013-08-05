@@ -1,0 +1,10 @@
+.breadcrumb {
+  font-size: fs(11px);
+  color: $base-font-color;
+  margin-bottom: 1em;
+  a,
+  span {
+    color: $base-font-color;
+    text-decoration: none;
+  }
+}
