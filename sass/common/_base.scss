@@ -46,9 +46,6 @@ p {
 
 img {
   vertical-align: top;
-  @include breakpoint($bp-medium) {
-      max-width: 95%; height: auto;
-  }
 }
 
 /*! = Sticky footer = */
