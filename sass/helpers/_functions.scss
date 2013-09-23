@@ -22,10 +22,8 @@
     @return #{$target/$context}$unit;
 }
 @function fs( $target, $context: $base-font-size, $unit: em ) {
-    @return #{$target/$context}$unit;
+  @return #{round(($target/$context)*1000)/1000}$unit;
 }
 @function lh( $target, $context: $base-font-size ) {
-    @return ($target/$context);
+  @return round(($target/$context)*1000)/1000;
 }
-
-
