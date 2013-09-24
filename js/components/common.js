@@ -1,4 +1,4 @@
-define(function() {
+define(['jquery'], function($) {
   var _initialize = function() {
     // console.log('common init');
     this.toggleSubmenu();

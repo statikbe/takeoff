@@ -1,4 +1,4 @@
-define(['jquery', 'modernizr'], function() {
+define(['jquery', 'modernizr'], function($, Modernizr) {
   var _initialize = function() {
     var component = $('body').data('component');
 
