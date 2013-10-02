@@ -11,7 +11,7 @@
   background-color: $highlight-color;
   color: $white;
   &:hover {
-    background-color: draken($highlight-color, 5%);
+    background-color: darken($highlight-color, 5%);
     color: $white;
   }
 }
