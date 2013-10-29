@@ -7,11 +7,15 @@
 ::-moz-selection { background: rgba($highlight-color,0.8); color: #fff; text-shadow: none; }
 ::selection { background: rgba($highlight-color,0.8); color: #fff; text-shadow: none; }
 
-div, p, ul, li, header, footer, input, input[type=search], textarea { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+main, aside, article, section, div, p, ul, li, header, footer, input, input[type=search], textarea { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 %heading-base-style {
-  display: block; margin: 0 0 0.5em;
+  display: block;
+  margin: 0 0 0.5em;
+  line-height: 1.2;
+  text-transform: none;
   a {
+    color: inherit;
     text-decoration: none;
   }
 }
@@ -32,8 +36,11 @@ h4 {
   font-size: fs(14px);
 }
 
-a {
+a, input, button {
   @include transition(all .2s ease-in-out);
+}
+
+a {
   color: $link-color;
   &:hover {
     color: lighten($link-color, 10%);
@@ -48,6 +55,14 @@ img {
   vertical-align: top;
 }
 
+table {
+  width: 100%;
+  td {
+    padding: 0;
+    vertical-align: top;
+  }
+}
+
 /*! = Sticky footer = */
 // html, body {
 //   height: 100%;
@@ -60,12 +75,14 @@ img {
 //   &:after { content: ""; display: block; height: 16em; }
 // }
 
-html {}
+html {
+
+}
 
 body {
-    font-family: $base-font-family;
-    font-size: percentage($base-font-size / 16px);
-    color: $base-font-color;
-    line-height: lh($base-line-height);
-    font-weight: $base-font-weight;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: percentage($base-font-size / 16px);
+  font-weight: $base-font-weight;
+  line-height: lh($base-line-height);
 }
