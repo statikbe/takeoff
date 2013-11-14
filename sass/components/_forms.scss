@@ -23,7 +23,16 @@ textarea {
   }
 }
 
-input[type=submit] {
+input[type=radio],
+input[type=checkbox] {
+  vertical-align: 2px;
+  label + & {
+    margin-right: 0;
+    margin-left: 5px;
+  }
+}
+
+[type=submit] {
   @extend .btn;
 }
 

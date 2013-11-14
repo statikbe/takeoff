@@ -1,3 +1,7 @@
+@-ms-viewport{
+  width: extend-to-zoom;
+  zoom: 1.0;
+}
 
 /*! == MODAL == **/
 .modal-open .dropdown-menu { z-index: 2050; }

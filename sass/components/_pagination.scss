@@ -1,11 +1,44 @@
 .pagination {
+  clear: both;
+  @include cf;
+  @include listreset;
+  clear: both;
+  margin: 20px 0 0;
+  line-height: 22px;
   text-align: center;
-  padding: 1em 0;
-  ul {
-    @include listreset;
-    li {
-      display: inline-block;
-      margin: 0 .25em;
+  li {
+    float: left;
+    margin-right: 5px;
+    &.prev, &.next {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      a {
+        background: none;
+        font-size: fs(20px);
+        &:hover {
+
+        }
+      }
+    }
+    &.here {
+      a {
+        background: $black;
+        color: $white;
+        &:hover {
+
+        }
+      }
+    }
+  }
+  a {
+    display: block;
+    width: 22px;
+    background: $black;
+    color: $white;
+    text-decoration: none;
+    &:hover {
+      background: $black;
+      color: $white;
     }
   }
 }

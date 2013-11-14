@@ -2,6 +2,7 @@ define(['jquery'], function($) {
   var _initialize = function() {
     // console.log('common init');
     this.toggleSubmenu();
+    this.svgFallback();
   };
 
   var _toggleSubmenu = function() {
@@ -20,6 +21,22 @@ define(['jquery'], function($) {
     });
   };
 
+  var _svgFallback = function() {
+    if (!Modernizr.svg) {
+      var $html = $('html'),
+          $img = $('img[src$=".svg"]'),
+          fallback = $img.attr('data-url'),
+          width = $img.attr('width');
+          height = $img.attr('height');
+
+      $img.attr('src', fallback);
+      // IE8 fix
+      if ($html.hasClass('lt-ie9')) {
+        $img.parent('a').css({ 'width' : width , 'height' : height });
+      }
+    }
+  };
+
   var _finalize = function() {
     // console.log('common finalize');
   };
@@ -27,6 +44,7 @@ define(['jquery'], function($) {
   return {
     init: _initialize,
     toggleSubmenu: _toggleSubmenu,
+    svgFallback: _svgFallback,
     finalize: _finalize
   };
 });
