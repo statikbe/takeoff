@@ -1,4 +1,7 @@
-define(['jquery'], function($) {
+window.app = window.app || {};
+
+app.common = (function($, undefined) {
+
   var _initialize = function() {
     // console.log('common init');
     this.toggleSubmenu();
@@ -47,4 +50,5 @@ define(['jquery'], function($) {
     svgFallback: _svgFallback,
     finalize: _finalize
   };
-});
+
+})(jQuery);
