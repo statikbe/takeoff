@@ -1,8 +1,8 @@
 /*! Button */
 .btn {
-  @include transition(all .3s);
-  @include border-radius($brd-radius);
-  font-weight: $extra-bold;
+  transition: all .3s;
+  border-radius: $bd-radius;
+  font-weight: $bold;
   font-size: fs(12px);
   text-transform: uppercase;
   padding: 0.75em 1.25em;
@@ -10,8 +10,9 @@
   margin-right: 0.5em;
   background-color: $highlight-color;
   color: $white;
+  @extend %ext-darker-gradiant;
   &:hover {
-    background-color: darken($highlight-color, 5%);
+    background-color: darken($highlight-color, 15%);
     color: $white;
   }
 }

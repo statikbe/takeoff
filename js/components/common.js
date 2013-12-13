@@ -2,9 +2,24 @@ window.app = window.app || {};
 
 app.common = (function($, undefined) {
 
+  var $document = $(document),
+      $window = $(window);
+
   var _initialize = function() {
+    // First set window size
+    this.windowResize();
+    $window.on('resize', debounce(app.common.windowResize, 250, false));
+
     this.fixDrupaljQuery();
     this.svgFallback();
+  };
+
+  var _windowResize = function() {
+    $.extend(app.variables, {
+      windowWidth: $window.width(),
+      windowHeight: $window.height()
+    });
+    console.log(app.variables);
   };
 
   var _fixDrupaljQuery = function() {
@@ -41,7 +56,7 @@ app.common = (function($, undefined) {
       e.preventDefault();
       $(this).next('ul').toggle();
     });
-  }
+  };
 
   var _finalize = function() {
     // console.log('common finalize');
@@ -49,6 +64,7 @@ app.common = (function($, undefined) {
 
   return {
     init: _initialize,
+    windowResize: _windowResize,
     fixDrupaljQuery: _fixDrupaljQuery,
     toggleSubmenu: _toggleSubmenu,
     svgFallback: _svgFallback,
@@ -56,3 +72,19 @@ app.common = (function($, undefined) {
   };
 
 })(jQuery);
+
+// Helper functions for common.js
+window.debounce = function(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};

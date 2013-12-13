@@ -19,7 +19,7 @@ app.main = (function($, undefined) {
 
     // Hit up the page component
     if(component) {
-      var components = component.split(' ');;
+      var components = component.split(' ');
       for(var comp in components) {
         this.fire(components[comp]);
       }

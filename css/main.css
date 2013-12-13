@@ -1,54 +1,19 @@
 @font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Lato Regular"), local("Lato-Regular"), url(http://themes.googleusercontent.com/static/fonts/lato/v6/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format("woff");
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Lato Bold"), local("Lato-Bold"), url(http://themes.googleusercontent.com/static/fonts/lato/v6/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format("woff");
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 900;
-  src: local("Lato Black"), local("Lato-Black"), url(http://themes.googleusercontent.com/static/fonts/lato/v6/G2uphNnNqGFMHLRsO_72ngLUuEpTyoUstqEm5AMlJo4.woff) format("woff");
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local("Lato Italic"), local("Lato-Italic"), url(http://themes.googleusercontent.com/static/fonts/lato/v6/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format("woff");
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local("Lato Bold Italic"), local("Lato-BoldItalic"), url(http://themes.googleusercontent.com/static/fonts/lato/v6/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format("woff");
-}
-
-@font-face {
   font-family: 'icons';
   src: url("../fonts/icons.eot");
-  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff") format("woff"), url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icons") format("svg");
+  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"),url("../fonts/icons.woff") format("woff"),url("../fonts/icons.ttf") format("truetype"),url("../fonts/icons.svg#icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
+.btn {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(17,17,17,0.2)));
+  background-image: -webkit-linear-gradient(transparent, rgba(17,17,17,0.2));
+  background-image: linear-gradient(transparent, rgba(17,17,17,0.2));
+}
+
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
-/* ==========================================================================
-   HTML5 display definitions
-   ========================================================================== */
-/**
- * Correct `block` display not defined in IE 8/9.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\0000322}}
+
 article,
 aside,
 details,
@@ -64,141 +29,70 @@ summary {
   display: block;
 }
 
-/**
- * Correct `inline-block` display not defined in IE 8/9.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\0000332}}
 audio,
 canvas,
 video {
   display: inline-block;
 }
 
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\0000341}}
 audio:not([controls]) {
   display: none;
   height: 0;
 }
 
-/**
- * Address styling not present in IE 8/9.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\0000350}}
 [hidden] {
   display: none;
 }
 
-/* ==========================================================================
-   Base
-   ========================================================================== */
-/**
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\0000364}}
 html {
   font-family: sans-serif;
-  /* 1 */
   -ms-text-size-adjust: 100%;
-  /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */
 }
 
-/**
- * Remove default margin.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\0000374}}
 body {
   margin: 0;
 }
 
-/* ==========================================================================
-   Links
-   ========================================================================== */
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\0000386}}
 a:focus {
   outline: thin dotted;
 }
 
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\0000395}}
 a:active,
 a:hover {
   outline: 0;
 }
 
-/* ==========================================================================
-   Typography
-   ========================================================================== */
-/**
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari 5, and Chrome.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003108}}
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 
-/**
- * Address styling not present in IE 8/9, Safari 5, and Chrome.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003117}}
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
-/**
- * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003126}}
 b,
 strong {
   font-weight: bold;
 }
 
-/**
- * Address styling not present in Safari 5 and Chrome.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003134}}
 dfn {
   font-style: italic;
 }
 
-/**
- * Address differences between Firefox and other browsers.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003142}}
 hr {
   -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
 
-/**
- * Address styling not present in IE 8/9.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003152}}
 mark {
   background: #ff0;
   color: #000;
 }
 
-/**
- * Correct font family set oddly in Safari 5 and Chrome.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003164}}
 code,
 kbd,
 pre,
@@ -207,34 +101,18 @@ samp {
   font-size: 1em;
 }
 
-/**
- * Improve readability of pre-formatted text in all browsers.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003173}}
 pre {
   white-space: pre-wrap;
 }
 
-/**
- * Set consistent quote types.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003181}}
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
-/**
- * Address inconsistent and variable font size in all browsers.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003189}}
 small {
   font-size: 80%;
 }
 
-/**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003198}}
 sub,
 sup {
   font-size: 75%;
@@ -243,314 +121,216 @@ sup {
   vertical-align: baseline;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003205}}
 sup {
   top: -0.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003209}}
 sub {
   bottom: -0.25em;
 }
 
-/* ==========================================================================
-   Embedded content
-   ========================================================================== */
-/**
- * Remove border when inside `a` element in IE 8/9.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003221}}
 img {
   border: 0;
 }
 
-/**
- * Correct overflow displayed oddly in IE 9.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003229}}
 svg:not(:root) {
   overflow: hidden;
 }
 
-/* ==========================================================================
-   Figures
-   ========================================================================== */
-/**
- * Address margin not present in IE 8/9 and Safari 5.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003241}}
 figure {
   margin: 0;
 }
 
-/* ==========================================================================
-   Forms
-   ========================================================================== */
-/**
- * Define consistent border, margin, and padding.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003253}}
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
 
-/**
- * 1. Correct `color` not being inherited in IE 8/9.
- * 2. Remove padding so people aren't caught out if they zero out fieldsets.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003264}}
 legend {
   border: 0;
-  /* 1 */
   padding: 0;
-  /* 2 */
 }
 
-/**
- * 1. Correct font family not being inherited in all browsers.
- * 2. Correct font size not being inherited in all browsers.
- * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003278}}
 button,
 input,
 select,
 textarea {
   font-family: inherit;
-  /* 1 */
   font-size: 100%;
-  /* 2 */
   margin: 0;
-  /* 3 */
 }
 
-/**
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003290}}
 button,
 input {
   line-height: normal;
 }
 
-/**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
- * Correct `select` style inheritance in Firefox 4+ and Opera.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003302}}
 button,
 select {
   text-transform: none;
 }
 
-/**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003317}}
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
-  /* 2 */
   cursor: pointer;
-  /* 3 */
 }
 
-/**
- * Re-set default cursor for disabled elements.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003327}}
 button[disabled],
 html input[disabled] {
   cursor: default;
 }
 
-/**
- * 1. Address box sizing set to `content-box` in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003337}}
 input[type="checkbox"],
 input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  /* 1 */
   padding: 0;
-  /* 2 */
 }
 
-/**
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof).
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003348}}
-input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
-  box-sizing: content-box;
-}
-
-/**
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003361}}
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-/**
- * Remove inner padding and border in Firefox 4+.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003370}}
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
-/**
- * 1. Remove default vertical scrollbar in IE 8/9.
- * 2. Improve readability and alignment in all browsers.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003380}}
 textarea {
   overflow: auto;
-  /* 1 */
   vertical-align: top;
-  /* 2 */
 }
 
-/* ==========================================================================
-   Tables
-   ========================================================================== */
-/**
- * Remove most spacing between table cells.
- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_normalize\.scss}line{font-family:\00003393}}
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
-/* ==========================================================================
-   HTML5 display definitions
-   ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\000037}}
+
 ::-moz-selection {
-  background: rgba(0, 0, 255, 0.8);
+  background: rgba(0,0,255,0.8);
   color: #fff;
   text-shadow: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\000038}}
 ::selection {
-  background: rgba(0, 0, 255, 0.8);
+  background: rgba(0,0,255,0.8);
   color: #fff;
   text-shadow: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000310}}
-main, aside, article, section, div, p, ul, li, header, footer, input, input[type=search], textarea {
-  -moz-box-sizing: border-box;
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000312}}
-h1, h2, h3, h4 {
+.heading,
+h1,
+.heading--1,
+h2,
+.heading--2,
+h3,
+.heading--3,
+h4,
+.heading--4 {
   display: block;
   margin: 0 0 0.5em;
   line-height: 1.2;
   text-transform: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000317}}
-h1 a, h2 a, h3 a, h4 a {
+
+.heading a,
+h1 a,
+.heading--1 a,
+h2 a,
+.heading--2 a,
+h3 a,
+.heading--3 a,
+h4 a,
+.heading--4 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000322}}
-h1 {
+h1,
+.heading--1 {
   font-size: 2em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000326}}
-h2 {
+h2,
+.heading--2 {
   font-size: 1.571em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000330}}
-h3 {
+h3,
+.heading--3 {
   font-size: 1.286em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000334}}
-h4 {
+h4,
+.heading--4 {
   font-size: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000339}}
-a, input, button {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+a,
+input,
+button {
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000343}}
 a {
   color: blue;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000345}}
+
 a:hover {
-  color: #3333ff;
+  color: #33f;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000349}}
 p {
-  margin: 1em 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000351}}
-p:first-child {
-  margin-top: 0;
+  margin: 0 0 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000354}}
 img {
   vertical-align: top;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000358}}
 table {
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000360}}
+
 table td {
   padding: 0;
   vertical-align: top;
 }
 
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border-radius: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
 /*! = Sticky footer = */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_base\.scss}line{font-family:\0000382}}
+
 body {
   color: #404040;
-  font-family: "Arial", sans-serif;
+  font-family: "Arial",sans-serif;
   font-size: 87.5%;
   font-weight: 400;
   line-height: 1.571;
@@ -562,27 +342,23 @@ body {
 }
 
 /*! == MODAL == **/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\000037}}
+
 .modal-open .dropdown-menu {
   z-index: 2050;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\000038}}
 .modal-open .dropdown.open {
   *z-index: 2050;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\000039}}
 .modal-open .popover {
   z-index: 2060;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000310}}
 .modal-open .tooltip {
   z-index: 2070;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000311}}
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -593,18 +369,16 @@ body {
   background-color: #000000;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000312}}
 .modal-backdrop.fade {
   opacity: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000313}}
-.modal-backdrop, .modal-backdrop.fade.in {
+.modal-backdrop,
+.modal-backdrop.fade.in {
   opacity: 0.8;
   filter: alpha(opacity=80);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000314}}
 .modal {
   position: fixed;
   top: 50%;
@@ -616,66 +390,49 @@ body {
   margin: -250px 0 0 -280px;
   background-color: #ffffff;
   border: 1px solid #999;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0,0,0,0.3);
   *border: 1px solid #999;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
   border-radius: 6px;
-  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 7px rgba(0,0,0,0.3);
   -webkit-background-clip: padding-box;
-  -moz-background-clip: padding-box;
   background-clip: padding-box;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000315}}
 .modal.fade {
   -webkit-transition: opacity .3s linear, top .3s ease-out;
-  -moz-transition: opacity .3s linear, top .3s ease-out;
-  -ms-transition: opacity .3s linear, top .3s ease-out;
-  -o-transition: opacity .3s linear, top .3s ease-out;
   transition: opacity .3s linear, top .3s ease-out;
   top: -25%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000316}}
 .modal.fade.in {
   top: 50%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000317}}
 .modal-header {
   padding: 9px 15px;
   border-bottom: 1px solid #eee;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000318}}
 .modal-header .close {
   margin-top: 2px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000319}}
 .modal-body {
   padding: 15px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000320}}
 .modal-body .modal-form {
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000321}}
 .modal-footer {
   padding: 14px 15px 15px;
   margin-bottom: 0;
   background-color: #f5f5f5;
   border-top: 1px solid #ddd;
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
   -webkit-box-shadow: inset 0 1px 0 #ffffff;
-  -moz-box-shadow: inset 0 1px 0 #ffffff;
   box-shadow: inset 0 1px 0 #ffffff;
   *zoom: 1;
   behavior: url(/sites/all/themes/hearen_theme/js/libs/PIE.htc);
@@ -683,43 +440,38 @@ body {
   z-index: 1;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000322}}
-.modal-footer:before, .modal-footer:after {
+.modal-footer:before,
+.modal-footer:after {
   display: table;
   content: "";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000323}}
 .modal-footer:after {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000324}}
-.modal-footer .btn, .modal-footer input[type=submit] {
+.modal-footer .btn {
   float: right;
   margin-left: 5px;
   margin-bottom: 0;
 }
 
 /*! == ALERT == **/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000327}}
+
 .alert {
   padding: 8px 35px 8px 14px;
   margin-bottom: 18px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   border-radius: 4px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000328}}
-.alert, .alert-heading {
+.alert,
+.alert-heading {
   color: #c09853;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000329}}
 .alert .close {
   position: relative;
   top: -2px;
@@ -727,105 +479,89 @@ body {
   line-height: 18px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000330}}
 .alert-success {
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000331}}
-.alert-success, .alert-success .alert-heading {
+.alert-success,
+.alert-success .alert-heading {
   color: #468847;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000332}}
-.alert-danger, .alert-error {
+.alert-danger,
+.alert-error {
   background-color: #f2dede;
   border-color: #eed3d7;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000333}}
-.alert-danger, .alert-error, .alert-danger .alert-heading, .alert-error .alert-heading {
+.alert-danger,
+.alert-error,
+.alert-danger .alert-heading,
+.alert-error .alert-heading {
   color: #b94a48;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000334}}
 .alert-info {
   background-color: #d9edf7;
   border-color: #bce8f1;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000335}}
-.alert-info, .alert-info .alert-heading {
+.alert-info,
+.alert-info .alert-heading {
   color: #3a87ad;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000336}}
 .alert-block {
   padding-top: 14px;
   padding-bottom: 14px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000337}}
-.alert-block > p, .alert-block > ul {
+.alert-block>p,
+.alert-block>ul {
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000338}}
-.alert-block p + p {
+.alert-block p+p {
   margin-top: 5px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000339}}
 .alert a {
   color: #444;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000340}}
 .alert-error a {
   color: #b94a48;
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000341}}
 .alert-success a {
   color: #468847;
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000343}}
 .fade {
   -webkit-transition: opacity 0.15s linear;
-  -moz-transition: opacity 0.15s linear;
-  -ms-transition: opacity 0.15s linear;
-  -o-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
   opacity: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000344}}
 .fade.in {
   opacity: 1;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000345}}
 .collapse {
   -webkit-transition: height 0.35s ease;
-  -moz-transition: height 0.35s ease;
-  -ms-transition: height 0.35s ease;
-  -o-transition: height 0.35s ease;
   transition: height 0.35s ease;
   position: relative;
   overflow: hidden;
   height: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000346}}
 .collapse.in {
   height: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000347}}
 .close {
   float: right;
   font-size: 20px;
@@ -838,7 +574,6 @@ body {
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000348}}
 .close:hover {
   color: #000000;
   text-decoration: none;
@@ -848,7 +583,7 @@ body {
 }
 
 /*! == Helper classes == */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000351}}
+
 .ir {
   background-color: transparent;
   border: 0;
@@ -856,7 +591,6 @@ body {
   *text-indent: -9999px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000352}}
 .ir:before {
   content: "";
   display: block;
@@ -864,13 +598,11 @@ body {
   height: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000353}}
 .superhidden {
   display: none !important;
   visibility: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000354}}
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -882,7 +614,6 @@ body {
   width: 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000356}}
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -893,49 +624,41 @@ body {
   width: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000357}}
 .invisible {
   visibility: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000359}}
 .clearfix:before,
 .clearfix:after {
   content: " ";
   display: table;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000360}}
 .clearfix:after {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/_general\.scss}line{font-family:\0000361}}
 .clearfix {
   *zoom: 1;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_layout\.scss}line{font-family:\000031}}
 .container {
   max-width: 960px;
   margin: 0 auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_layout\.scss}line{font-family:\000035}}
 .sidebar {
   float: left;
   padding-right: 20px;
   width: 25%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_layout\.scss}line{font-family:\0000310}}
 .main {
   float: left;
   width: 75%;
 }
 
 @media (max-width: 40em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_layout\.scss}line{font-family:\0000316}}
   .main,
   .sidebar {
     float: none;
@@ -943,35 +666,38 @@ body {
     width: auto;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_layout\.scss}line{font-family:\0000323}}
+
 .panel-2col {
   zoom: 1;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/helpers\/_mixins\.scss}line{font-family:\000036}}
-.panel-2col:before, .panel-2col:after {
+
+.panel-2col:before,
+.panel-2col:after {
   content: "";
   display: table;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/helpers\/_mixins\.scss}line{font-family:\000037}}
+
 .panel-2col:after {
   clear: both;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_layout\.scss}line{font-family:\0000325}}
-.panel-2col > .panel-col-first {
+
+.panel-2col>.panel-col-first {
   float: left;
   width: 65%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_layout\.scss}line{font-family:\0000329}}
-.panel-2col > .panel-col-last {
+
+.panel-2col>.panel-col-last {
   float: right;
   width: 35%;
   padding-left: 20px;
 }
 
 /*! Header */
+
 /*! Sidebar */
+
 /*! Footer */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_breadcrumbs\.scss}line{font-family:\000031}}
+
 .breadcrumb {
   clear: both;
   margin: 10px 0;
@@ -979,25 +705,23 @@ body {
   font-size: 0.857em;
   font-weight: bold;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_breadcrumbs\.scss}line{font-family:\000037}}
-.breadcrumb span, .breadcrumb a {
+
+.breadcrumb span,
+.breadcrumb a {
   color: #404040;
   font-weight: normal;
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_forms\.scss}line{font-family:\000031}}
 form {
   margin-bottom: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_forms\.scss}line{font-family:\000035}}
 label {
   font-weight: 700;
   line-height: 1.571;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_forms\.scss}line{font-family:\0000315}}
 input[type=text],
 input[type=password],
 input[type=email],
@@ -1007,9 +731,9 @@ textarea {
   border: 1px solid silver;
   padding: 7px;
   width: 100%;
-  background-color: white;
+  background-color: #fff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_forms\.scss}line{font-family:\0000320}}
+
 input[type=text]:focus,
 input[type=password]:focus,
 input[type=email]:focus,
@@ -1020,73 +744,71 @@ textarea:focus {
   border-color: #5a5a5a;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_forms\.scss}line{font-family:\0000330}}
+input[type=radio],
+input[type=checkbox] {
+  vertical-align: 2px;
+}
+
+label+input[type=radio],
+label+input[type=checkbox] {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
 label.radio {
   font-weight: 400;
 }
 
-/* SEARCH FORM */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_forms\.scss}line{font-family:\0000345}}
 .form-item {
   margin: .5em 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_forms\.scss}line{font-family:\0000348}}
 .form-field {
   margin-left: 9em;
   min-height: 33px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_forms\.scss}line{font-family:\0000353}}
 .form-actions {
   margin-top: 1.5em;
 }
 
 /*! Button */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_btn\.scss}line{font-family:\000032}}
-.btn, input[type=submit] {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
+
+.btn {
+  -webkit-transition: all .3s;
+  transition: all .3s;
   border-radius: 4px;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.857em;
   text-transform: uppercase;
   padding: 0.75em 1.25em;
   display: inline-block;
   margin-right: 0.5em;
   background-color: blue;
-  color: white;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_btn\.scss}line{font-family:\0000313}}
-.btn:hover, input[type=submit]:hover {
-  background-color: #0000e6;
-  color: white;
+  color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_btn\.scss}line{font-family:\0000319}}
-input.btn, input[type=submit],
+.btn:hover {
+  background-color: #0000b3;
+  color: #fff;
+}
+
+input.btn,
 button.btn {
   border: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_btn\.scss}line{font-family:\0000322}}
 a.btn {
   text-decoration: none;
   line-height: normal;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_btn\.scss}line{font-family:\0000327}}
 .btn-prefix:before {
   font-family: "icons";
   content: attr(data-icon);
   margin-right: 0.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_pagination\.scss}line{font-family:\000031}}
 .pagination {
   clear: both;
   zoom: 1;
@@ -1098,79 +820,86 @@ a.btn {
   line-height: 22px;
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/helpers\/_mixins\.scss}line{font-family:\000036}}
-.pagination:before, .pagination:after {
+
+.pagination:before,
+.pagination:after {
   content: "";
   display: table;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/helpers\/_mixins\.scss}line{font-family:\000037}}
+
 .pagination:after {
   clear: both;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/helpers\/_mixins\.scss}line{font-family:\0000343}}
+
 .pagination li {
   margin: 0;
   padding: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_pagination\.scss}line{font-family:\000039}}
+
+.pagination li:before {
+  display: none;
+  content: '';
+}
+
 .pagination li {
   float: left;
   margin-right: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_pagination\.scss}line{font-family:\0000312}}
-.pagination li.prev, .pagination li.next {
+
+.pagination li.prev,
+.pagination li.next {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_pagination\.scss}line{font-family:\0000315}}
-.pagination li.prev a, .pagination li.next a {
+
+.pagination li.prev a,
+.pagination li.next a {
   background: none;
   font-size: 1.429em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_pagination\.scss}line{font-family:\0000324}}
+
 .pagination li.here a {
-  background: #111111;
-  color: white;
+  background: #111;
+  color: #fff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_pagination\.scss}line{font-family:\0000333}}
+
 .pagination a {
   display: block;
   width: 22px;
-  background: #111111;
-  color: white;
+  background: #111;
+  color: #fff;
   text-decoration: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_pagination\.scss}line{font-family:\0000339}}
+
 .pagination a:hover {
-  background: #111111;
-  color: white;
+  background: #111;
+  color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\000031}}
 .gallery {
   zoom: 1;
   clear: both;
   margin-bottom: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/helpers\/_mixins\.scss}line{font-family:\000036}}
-.gallery:before, .gallery:after {
+
+.gallery:before,
+.gallery:after {
   content: "";
   display: table;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/helpers\/_mixins\.scss}line{font-family:\000037}}
+
 .gallery:after {
   clear: both;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\000035}}
+
 .gallery img {
   width: 100%;
   height: auto;
 }
 
-/* COLORBOX */
-/** ColorBox core style: The following CSS is consistent between example themes and should not be altered. **/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000313}}
-#colorbox, #cboxOverlay, #cboxWrapper {
+#colorbox,
+#cboxOverlay,
+#cboxWrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -1178,36 +907,32 @@ a.btn {
   overflow: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000320}}
 #cboxOverlay {
   position: fixed;
   width: 100%;
   height: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000325}}
-#cboxMiddleLeft, #cboxBottomLeft {
+#cboxMiddleLeft,
+#cboxBottomLeft {
   clear: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000328}}
 #cboxContent {
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000331}}
 #cboxLoadedContent {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000335}}
 #cboxTitle {
   margin: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000336}}
-#cboxLoadingOverlay, #cboxLoadingGraphic {
+#cboxLoadingOverlay,
+#cboxLoadingGraphic {
   position: absolute;
   top: 0;
   left: 0;
@@ -1215,12 +940,13 @@ a.btn {
   height: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000343}}
-#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+#cboxPrevious,
+#cboxNext,
+#cboxClose,
+#cboxSlideshow {
   cursor: pointer;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000346}}
 .cboxPhoto {
   float: left;
   display: block;
@@ -1230,7 +956,6 @@ a.btn {
   -ms-interpolation-mode: bicubic;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000354}}
 .cboxIframe {
   display: block;
   width: 100%;
@@ -1238,33 +963,28 @@ a.btn {
   border: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000360}}
-#colorbox, #cboxContent, #cboxLoadedContent {
+#colorbox,
+#cboxContent,
+#cboxLoadedContent {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 
-/** Colorbox user added styles **/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000365}}
 #cboxOverlay {
   background: #e6e6e6;
-  background: rgba(230, 230, 230, 0.9);
+  background: rgba(230,230,230,0.9);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000369}}
 #cboxContent {
   position: relative;
-  background: white;
+  background: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000375}}
 #cboxPrevious,
 #cboxNext,
 #cboxClose {
   -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   position: absolute;
@@ -1274,48 +994,44 @@ a.btn {
   padding: 0;
   margin-top: -0.5em;
   border: none;
-  color: white;
+  color: #fff;
   font-size: 2em;
   line-height: 1.6;
   text-align: center;
-  background: #111111;
+  background: #111;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000395}}
 #cboxPrevious,
 #cboxNext {
   padding-bottom: 0.2em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\0000398}}
 #cboxPrevious {
   left: -0.4em;
   text-indent: 0.4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\00003101}}
+
 #cboxPrevious:hover {
   left: -2px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\00003104}}
+
 #cboxPrevious:active {
   left: -4px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\00003108}}
 #cboxNext {
   right: -0.4em;
   text-indent: -0.4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\00003111}}
+
 #cboxNext:hover {
   right: -2px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\00003114}}
+
 #cboxNext:active {
   right: -4px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_gallery\.scss}line{font-family:\00003118}}
 #cboxClose {
   top: 10px;
   right: 10px;
@@ -1323,7 +1039,6 @@ a.btn {
   margin: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_carousel\.scss}line{font-family:\000031}}
 .carousel {
   position: relative;
   z-index: 10;
@@ -1332,7 +1047,6 @@ a.btn {
   margin-bottom: 40px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_carousel\.scss}line{font-family:\000039}}
 .carousel-item {
   position: absolute;
   top: 0;
@@ -1340,12 +1054,11 @@ a.btn {
   width: 100%;
   height: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_carousel\.scss}line{font-family:\0000315}}
+
 .carousel-item:first-child {
   z-index: 100;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_carousel\.scss}line{font-family:\0000320}}
 .carousel-controls {
   position: absolute;
   z-index: 150;
@@ -1353,16 +1066,13 @@ a.btn {
   left: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_carousel\.scss}line{font-family:\0000328}}
 .carousel-prev,
 .carousel-next {
   cursor: pointer;
   float: left;
   width: 40px;
   margin: 0 10px;
-  background: #111111;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
+  background: #111;
   border-radius: 100%;
   color: white;
   font-size: 2.143em;
@@ -1370,82 +1080,66 @@ a.btn {
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_carousel\.scss}line{font-family:\0000343}}
 .carousel-prev {
   text-indent: -1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/components\/_carousel\.scss}line{font-family:\0000346}}
 .carousel-next {
   float: right;
   text-indent: 1px;
 }
 
 @media print {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\000032}}
   * {
     background: transparent !important;
     color: #000 !important;
-    /* Black prints faster: h5bp.com/s */
+    -webkit-box-shadow: none !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000310}}
   a,
   a:visited {
     text-decoration: underline;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000314}}
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000318}}
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-  /*
-   * Don't show links for images, or javascript/internal links
-   */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000328}}
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000333}}
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000338}}
   thead {
     display: table-header-group;
-    /* h5bp.com/t */
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000343}}
   tr,
   img {
     page-break-inside: avoid;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000347}}
   img {
     max-width: 100% !important;
   }
 
-  @page {
+@page {
     margin: 0.5cm;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000357}}
   p,
   h2,
   h3 {
@@ -1453,7 +1147,6 @@ a.btn {
     widows: 3;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/TALWEB\/public\/assets\/sass\/common\/print\.scss}line{font-family:\0000363}}
   h2,
   h3 {
     page-break-after: avoid;

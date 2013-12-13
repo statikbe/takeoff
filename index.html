@@ -8,7 +8,7 @@
   <title></title>
   <link rel="stylesheet" href="css/main.css">
   <!--[if lt IE 9]>
-      <script src="js/libs/html5shiv.js"></script>
+      <script type="text/javascript" src="js/build/polyfill.min.js"></script>
   <![endif]-->
 </head>
 <body>
@@ -40,7 +40,7 @@
           </div>
 
           <div class="form-actions form-wrapper" id="edit-actions">
-            <input type="submit" id="edit-submit" name="op" value="Inloggen" class="form-submit">
+            <button type="submit" id="edit-submit" name="op" class="btn form-submit">Inloggen</button>
           </div>
         </form>
 
@@ -55,10 +55,13 @@
 
     </footer> <!-- /footer -->
   </div>
-  <script type="text/javascript" src="js/libs/modernizr.custom.min.js"></script>
-  <script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>
 
-  <script type="text/javascript" src="js/components/common.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript">
+      window.app = window.app || {};
+      app.variables = {
+          assetsPath: "/"
+      };
+  </script>
+  <script type="text/javascript" src="js/build/main.min.js"></script>
 </body>
 </html>
