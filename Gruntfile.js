@@ -87,28 +87,50 @@ module.exports = function(grunt) {
             }
         },
 
+        // NOTIFY
+        notify: {
+            css: {
+                options: {
+                    message: 'CSS task complete'
+                }
+            },
+            js: {
+                options: {
+                    message: 'JS task complete'
+                }
+            },
+            img: {
+                options: {
+                    message: 'IMG task complete'
+                }
+            }
+        },
+
         // WATCH
         watch: {
             options: {
                 livereload: true
             },
-            scripts: {
+            js: {
                 files: ['js/**/*.js'],
-                tasks: ['js'],
+                tasks: ['js', 'notify:js'],
                 options: {
                     spawn: false,
                 },
             },
             css: {
                 files: ['sass/**/*.scss'],
-                tasks: ['css'],
+                tasks: ['css', 'notify:css'],
                 options: {
                     spawn: false,
                 }
             },
             images: {
-                tasks: ['img'],
-                files: ['img/**/*.{png,jpg,gif,ico}']
+                files: ['img/**/*.{png,jpg,gif,ico}'],
+                tasks: ['img', 'notify:img']
+            },
+            html: {
+                files: ['*.html']
             }
         }
 
