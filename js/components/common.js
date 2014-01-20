@@ -19,7 +19,6 @@ app.common = (function($, undefined) {
       windowWidth: $window.width(),
       windowHeight: $window.height()
     });
-    console.log(app.variables);
   };
 
   var _fixDrupaljQuery = function() {
