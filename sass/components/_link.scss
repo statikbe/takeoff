@@ -1,3 +1,5 @@
-.link__no-border {
-  border-bottom: 0;
+.link {
+  &.-no-border {
+    border-bottom: 0;
+  }
 }
