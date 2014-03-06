@@ -28,11 +28,11 @@
     height: 40px;
     padding: 0 20px;
   }
-  &.-pink {
+  &.-blue {
     @extend %ext-lighter-gradiant;
-    background-color: $pink-50;
+    background-color: $blue-50;
     &:hover {
-      background-color: darken($pink-50, 10%);
+      background-color: darken($blue-50, 10%);
     }
   }
   &.-link {

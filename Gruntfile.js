@@ -75,8 +75,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'build/css/main.css': 'sass/main.scss',
-                    'build/css/wysiwyg.css': 'sass/wysiwyg.scss',
-                    'build/css/register.css': 'sass/register.scss'
+                    'build/css/wysiwyg.css': 'sass/wysiwyg.scss'
                 }
             }
         },
