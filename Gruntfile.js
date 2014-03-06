@@ -12,13 +12,13 @@ module.exports = function(grunt) {
                     'js/components/*.js', // All JS in the components folder
                     'js/main.js'  // The pbig main file!
                 ],
-                dest: 'js/build/main.js'
+                dest: 'build/js/main.js'
             },
             polyfill: {
                 src: [
                     'js/polyfill/*.js' // All JS in the polyfill folder
                 ],
-                dest: 'js/build/polyfill.js'
+                dest: 'build/js/polyfill.js'
             }
         },
 
@@ -26,20 +26,20 @@ module.exports = function(grunt) {
         uglify: {
             main: {
                 options: {
-                    sourceMap: 'js/build/map/main.map.js',
-                    sourceMappingURL: '/js/build/map/main.map.js',
+                    sourceMap: '../public/js/map/main.map.js',
+                    sourceMappingURL: 'map/main.map.js',
                 },
                 files: {
-                    'js/build/main.min.js': ['js/build/main.js']
+                    '../public/js/main.min.js': ['build/js/main.js']
                 }
             },
             polyfill: {
                 options: {
-                    sourceMap: 'js/build/map/polyfill.map.js',
-                    sourceMappingURL: '/js/build/map/polyfill.map.js',
+                    sourceMap: '../public/js/map/polyfill.map.js',
+                    sourceMappingURL: 'map/polyfill.map.js',
                 },
                 files: {
-                    'js/build/polyfill.min.js': ['js/build/polyfill.js']
+                    '../public/js/polyfill.min.js': ['build/js/polyfill.js']
                 }
             }
         },
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'img/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'img/'
+                    dest: '../public/img/'
                 }]
             }
         },
@@ -74,8 +74,9 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'css/main.css': 'sass/main.scss',
-                    'css/wysiwyg.css': 'sass/wysiwyg.scss'
+                    'build/css/main.css': 'sass/main.scss',
+                    'build/css/wysiwyg.css': 'sass/wysiwyg.scss',
+                    'build/css/register.css': 'sass/register.scss'
                 }
             }
         },
@@ -83,7 +84,18 @@ module.exports = function(grunt) {
         // AUTOPREFIXT
         autoprefixer: {
             dist: {
-                src: 'css/*.css'
+                src: 'build/css/*.css'
+            }
+        },
+
+        // CSSMIN
+        cssmin: {
+            minify: {
+                expand: true,
+                cwd: 'build/css/',
+                src: ['*.css', '!*.min.css'],
+                dest: '../public/css/',
+                ext: '.min.css'
             }
         },
 
@@ -144,7 +156,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['imagemin']);
-    grunt.registerTask('css', ['sass', 'autoprefixer']);
+    grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
     grunt.registerTask('build', ['css', 'js', 'img']);
 
 };

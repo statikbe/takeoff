@@ -1,11 +1,12 @@
 // Variables
 
 //! Colors
-$darkgray: #404040;
-$blue: blue;
+$gray-75: #404040;
+$gray-50: #888;
+$blue-50: blue;
+$red-50: red;
 $black: #111;
 $white: #fff;
-$bgcolor: #dde7e6;
 
 //! Font families
 $font-family-sans: 'Arial', sans-serif;
@@ -20,16 +21,18 @@ $bold: 700;
 $extra-bold: 800;
 
 //! Extra
-$bd-radius: 4px;
-$link-color: $blue;
+$bd-radius: 3px;
+$link-color: $blue-50;
 $highlight-color: $link-color;
+$root-font-size: 16px;
 
 //! Base variables
 $base-font-style: normal;
-$base-font-size: 14px;
+$base-font-size: 16px;
 $base-font-weight: $regular;
 $base-line-height: 22px;
-$base-font-color: $darkgray;
+$base-font-color: $gray-75;
+$base-background-color: $white;
 $base-font-family: $font-family-sans;
 
 //! Breakpoints

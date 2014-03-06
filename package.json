@@ -16,6 +16,7 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-sass": "~0.6.0",
     "grunt-autoprefixer": "~0.4.2",
-    "grunt-notify": "~0.2.17"
+    "grunt-notify": "~0.2.17",
+    "grunt-contrib-cssmin": "~0.8.0"
   }
 }

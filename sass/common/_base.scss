@@ -41,7 +41,7 @@ h4,
 }
 
 a, input, button {
-  transition: all .2s ease-in-out;
+  transition: box-shadow .2s ease-in-out;
 }
 
 a {
@@ -89,13 +89,13 @@ textarea {
 // }
 
 html {
-
+  background-color: $base-background-color;
 }
 
 body {
   color: $base-font-color;
   font-family: $base-font-family;
-  font-size: percentage($base-font-size / 16px);
+  @include fsRem($base-font-size);
   font-weight: $base-font-weight;
   line-height: lh($base-line-height);
 }

@@ -1,32 +1,75 @@
 /*! Button */
 .btn {
-  transition: all .3s;
-  border-radius: $bd-radius;
-  font-weight: $bold;
-  font-size: fs(12px);
+  // transition: all .3s;
+  font-weight: $regular;
   text-transform: uppercase;
-  padding: 0.75em 1.25em;
   display: inline-block;
-  margin-right: 0.5em;
-  background-color: $highlight-color;
+  background-color: $black;
   color: $white;
-  @extend %ext-darker-gradiant;
+  border: none;
+  height: 35px;
+  padding: 0 15px;
+  @include fsRem(12px);
+  line-height: 1;
+  border-radius: $bd-radius;
+  background-clip: padding-box;
   &:hover {
-    background-color: darken($highlight-color, 15%);
+    background-color: $gray-75;
     color: $white;
   }
-}
-input.btn,
-button.btn {
-  border: none;
-}
+
+  + .btn {
+    margin-left: 10px;
+  }
+
+  // Modifiers
+  &.-large {
+    @include fsRem(15px);
+    height: 40px;
+    padding: 0 20px;
+  }
+  &.-pink {
+    @extend %ext-lighter-gradiant;
+    background-color: $pink-50;
+    &:hover {
+      background-color: darken($pink-50, 10%);
+    }
+  }
+  &.-link {
+    @include fsRem($base-font-size);
+    background: transparent;
+    padding: 0;
+    text-transform: none;
+    height: auto;
+    @extend a;
+  }
+
+  // Children
+  .icon {
+    margin-right: 10px;
+    border: 2px solid $white;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    width: 26px;
+    padding: 3px;
+    position: relative;
+    top: 1px;
+  }
+  em {
+    text-transform: none;
+    font-weight: $regular;
+    @include fsRem(13px);}
+
+  }
 a.btn {
   text-decoration: none;
-  line-height: normal;
+  line-height: 35px;
+  &.-large {
+    line-height: 40px;
+  }
+  &.-link {
+    line-height: lh($base-line-height);
+  }
 }
 
-.btn-prefix:before {
-  font-family: $font-family-icons;
-  content: attr(data-icon);
-  margin-right: 0.5em;
-}
