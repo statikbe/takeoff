@@ -88,11 +88,10 @@ textarea {
 //   &:after { content: ""; display: block; height: 16em; }
 // }
 
-html {
-  background-color: $base-background-color;
-}
+html {}
 
 body {
+  background-color: $base-background-color;
   color: $base-font-color;
   font-family: $base-font-family;
   @include fsRem($base-font-size);
