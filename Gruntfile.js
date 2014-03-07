@@ -56,7 +56,8 @@ module.exports = function(grunt) {
         imagemin: {
             dynamic: {
                 options: {
-                    pngquant: true
+                    pngquant: true,
+                    force: true
                 },
                 files: [{
                     expand: true,
