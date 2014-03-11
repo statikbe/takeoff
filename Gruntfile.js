@@ -5,7 +5,6 @@ module.exports = function(grunt) {
 
         // CONCAT FILES
         concat: {
-            // 2. Configuration for concatinating files goes here.
             main: {
                 src: [
                     'js/libs/*.js', // All JS in the libs folder
@@ -63,9 +62,24 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'img/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: '../public/img/'
+                    dest: 'build/img/'
                 }]
             }
+        },
+
+        // Copy
+        copy: {
+            images: {
+                cwd: 'build/img/',
+                src: '**',
+                expand: true,
+                dest: '../public/img',
+                filter: 'isFile',
+            },
+            fonts: {
+                src: 'fonts/*',
+                dest: '../public/'
+            },
         },
 
         // SASS
@@ -143,20 +157,24 @@ module.exports = function(grunt) {
             },
             html: {
                 files: ['*.html']
+            },
+            fonts: {
+                files: ['fonts/**'],
+                tasks: ['fonts']
             }
         }
 
 
     });
 
-    // 3. Where we tell Grunt we plan to use this plug-in.
+    // 2. Where we tell Grunt we plan to use this plug-in.
     require('load-grunt-tasks')(grunt);
 
-    // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
+    // 3. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
-    grunt.registerTask('img', ['imagemin']);
+    grunt.registerTask('img', ['imagemin', 'copy:images']);
+    grunt.registerTask('fonts', ['copy:fonts']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
-    grunt.registerTask('build', ['css', 'js', 'img']);
-
+    grunt.registerTask('build', ['css', 'js', 'img', 'fonts']);
 };
