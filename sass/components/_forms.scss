@@ -1,5 +1,4 @@
 .form {
-
   // Modifiers
   &.-inline {
     @include cf;
@@ -68,6 +67,13 @@
   &.-checkbox {
     font-weight: $regular;
     padding-bottom: 0;
+    position: relative;
+    padding-left: 25px;
+    input {
+      position: absolute;
+      left: 0;
+      top: 2px;
+    }
   }
   &[for] {
     cursor: pointer;
@@ -77,20 +83,23 @@
 .form__text,
 .form__textarea {
   border: none;
-  padding: 0 15px;
-  height: 40px;
+  padding: 5px 15px;
   width: 100%;
   background-color: $white;
   &:focus {
     outline: none;
     background-color: $white;
-    box-shadow: 0 0 10px 2px rgba($blue-50, .5);
-    &::-webkit-input-placeholder { color: transparent; }
-    &::-moz-placeholder { color: transparent; }
+    box-shadow: 0 0 10px 2px rgba(blue, .5);
+    &::-webkit-input-placeholder {
+      color: transparent;
+    }
+    &::-moz-placeholder {
+      color: transparent;
+    }
   }
   &.parsley-error {
     // border: 2px solid $red-50;
-    background-color: lighten($red-50, 40%);
+    background-color: lighten(red, 40%);
   }
 }
 .form__textarea {
@@ -107,6 +116,17 @@
   }
 }
 
+.form__fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form__actions {
+  clear: both;
+  margin-top: 10px;
+}
+
 .form__select {
   margin-top: 10px;
 }
@@ -121,7 +141,7 @@
 .parsley-errors-list {
   @include listreset;
   @include fsRem(13px);
-  color: $red-50;
+  color: red;
   margin: 5px 0;
   font-weight: $bold;
 }

@@ -1,21 +1,20 @@
-.image--responsive {
-  max-width: 100%;
-  height: auto;
-}
-
-.image--full-width {
-  width: 100%;
-  height: auto;
-}
-
-.image--right {
-  float: right;
-  margin-left: 20px;
-  margin-bottom: 10px;
-}
-
-.image--left {
-  float: left;
-  margin-right: 20px;
-  margin-bottom: 10px;
+.image {
+  &.-responsive {
+    max-width: 100%;
+    height: auto;
+  }
+  &.-full-width {
+    width: 100%;
+    height: auto;
+  }
+  &.-right {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  &.-left {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
 }

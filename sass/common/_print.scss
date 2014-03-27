@@ -11,14 +11,6 @@
         text-decoration: underline;
     }
 
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-
     /*
      * Don't show links for images, or javascript/internal links
      */

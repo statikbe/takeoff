@@ -12,14 +12,14 @@ app.main = (function($, undefined) {
   };
 
   var _initialize = function() {
-    var component = $('body').data('component');
+    var dataComponents = $('body').data('components');
 
     // hit up common first.
     this.fire('common');
 
     // Hit up the page component
-    if(component) {
-      var components = component.split(' ');
+    if(dataComponents) {
+      var components = dataComponents.split(' ');
       for(var comp in components) {
         this.fire(components[comp]);
       }
@@ -39,3 +39,5 @@ app.main = (function($, undefined) {
 $(document).ready(function() {
   app.main.init();
 });
+
+//! DONT ADD ANYTHING IN THIS FILE, USE COMMON.JS PLEASE.

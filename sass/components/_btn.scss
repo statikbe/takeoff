@@ -1,21 +1,18 @@
 /*! Button */
 .btn {
-  // transition: all .3s;
-  font-weight: $regular;
+  transition: background $base-transition-duration $base-transition-easing;
   text-transform: uppercase;
   display: inline-block;
-  background-color: $black;
-  color: $white;
+  background-color: black;
+  color: white;
   border: none;
   height: 35px;
-  padding: 0 15px;
-  @include fsRem(12px);
+  padding: 5px 15px;
   line-height: 1;
-  border-radius: $bd-radius;
-  background-clip: padding-box;
-  &:hover {
-    background-color: $gray-75;
-    color: $white;
+  &:hover,
+  &:focus {
+    background-color: gray;
+    color: black;
   }
 
   + .btn {
@@ -25,51 +22,19 @@
   // Modifiers
   &.-large {
     @include fsRem(15px);
-    height: 40px;
-    padding: 0 20px;
-  }
-  &.-blue {
-    @extend %ext-lighter-gradiant;
-    background-color: $blue-50;
-    &:hover {
-      background-color: darken($blue-50, 10%);
-    }
+    padding: 10px 20px;
   }
   &.-link {
     @include fsRem($base-font-size);
+    line-height: lh($base-line-height);
     background: transparent;
     padding: 0;
     text-transform: none;
-    height: auto;
     @extend a;
   }
+}
 
-  // Children
-  .icon {
-    margin-right: 10px;
-    border: 2px solid $white;
-    border-radius: 50%;
-    display: inline-block;
-    text-align: center;
-    width: 26px;
-    padding: 3px;
-    position: relative;
-    top: 1px;
-  }
-  em {
-    text-transform: none;
-    font-weight: $regular;
-    @include fsRem(13px);}
-
-  }
 a.btn {
   text-decoration: none;
-  line-height: 35px;
-  &.-large {
-    line-height: 40px;
-  }
-  &.-link {
-    line-height: lh($base-line-height);
-  }
 }
 

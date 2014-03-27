@@ -1,14 +1,12 @@
 .pagination {
-  clear: both;
-  @include cf;
   @include listreset;
   clear: both;
   margin: 20px 0 0;
   line-height: 22px;
   text-align: center;
   li {
-    float: left;
-    margin-right: 5px;
+    display: inline-block;
+    margin: 0 3px;
     &.prev, &.next {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;

@@ -39,21 +39,16 @@ h4,
   @extend .heading;
   font-size: fs(14px);
 }
-
-a, input, button {
-  transition: box-shadow .2s ease-in-out;
-}
-
 a {
   color: $link-color;
+  transition: color .2s ease-in-out, background .2s ease-in-out, border .2s ease-in-out;
   &:hover {
     color: lighten($link-color, 10%);
   }
 }
 p {
-  margin: 0 0 1em;
+  margin: 0 0 20px;
 }
-
 img {
   vertical-align: top;
 }
@@ -65,6 +60,47 @@ table {
     vertical-align: top;
   }
 }
+
+ul, ol {
+  @include listreset();
+  margin: 0 0 1em;
+  li {
+    position: relative;
+    padding-left: 16px;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      color: $green;
+    }
+  }
+  ul, ol {
+    margin-bottom: 0;
+  }
+}
+
+ul {
+  li {
+    &:before {
+      content: "\00BB";
+    }
+  }
+}
+
+ol {
+  counter-reset: numbering;
+  li {
+    &:before {
+      content: counter(numbering) ".";
+      counter-increment: numbering;
+      position: absolute;
+    }
+  }
+}
+
+
+
 
 button,
 html input[type="button"], /* 1 */
@@ -91,6 +127,7 @@ textarea {
 html {}
 
 body {
+  min-width: 300px;
   background-color: $base-background-color;
   color: $base-font-color;
   font-family: $base-font-family;

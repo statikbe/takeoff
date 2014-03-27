@@ -1,11 +1,16 @@
 .container {
   @include cf;
-  // max-width: 980px;
-  width: 980px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 0 10px;
 }
 
+.grid-1 {
+  @include column(1);
+  &:nth-child(12n+13) {
+    clear: left;
+  }
+}
 .grid-2 {
   @include column(2);
   &:nth-child(6n+7) {
