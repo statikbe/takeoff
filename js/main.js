@@ -1,4 +1,5 @@
 window.app = window.app || {};
+app.variables = app.variables || {};
 
 app.main = (function($, undefined) {
 
