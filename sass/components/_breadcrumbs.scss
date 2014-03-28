@@ -1,12 +1,16 @@
 .breadcrumb {
   clear: both;
-  margin: 10px 0;
+  margin: 20px 0;
   color: $base-font-color;
   font-size: fs(12px);
   font-weight: bold;
-  span, a {
-    color: $base-font-color;
-    font-weight: normal;
+  a {
     text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .active {
+    color: $blue;
   }
 }

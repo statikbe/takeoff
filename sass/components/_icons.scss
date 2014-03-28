@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'icons';
+  src: url('../fonts/icons.eot');
+  src: url('../fonts/icons.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.icon {
+  font-family: $font-family-icons;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: lh(18px);
+  display: inline-block;
+  vertical-align: top;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Modifiers
+  &.-download:before {
+    content: "\7d";
+  }
+  &.-search:before {
+    content: "\73";
+  }
+  &.-info:before {
+    content: "\69";
+  }
+  &.-instagram:before {
+    content: "\49";
+  }
+  &.-facebook:before {
+    content: "\46";
+  }
+  &.-twitter:before {
+    content: "\54";
+  }
+  &.-close:before {
+    content: "\78";
+  }
+  &.-warning:before {
+    content: "\21";
+  }
+  &.-pen:before {
+    content: "\70";
+  }
+  &.-previous:before {
+    content: "\33";
+  }
+  &.-next:before {
+    content: "\34";
+  }
+  &.-mail:before {
+    content: "\4d";
+  }
+  &.-globe:before {
+    content: "\47";
+  }
+  &.-feed:before {
+    content: "\46";
+  }
+  &.-heart:before {
+    content: "\68";
+  }
+  &.-bubble:before {
+    content: "\62";
+  }
+  &.-bell:before {
+    content: "\42";
+  }
+  &.-plus:before {
+    content: '\26';
+  }
+  &.-profile:before {
+    content: '\70';
+  }
+  &.-previous:before {
+    content: '\50';
+  }
+  &.-next:before {
+    content: '\4e';
+  }
+  &.-up:before {
+    content: '\55';
+  }
+  &.-down:before {
+    content: '\44';
+  }
+}
+
+
+.icon-download {
+  @extend .icon;
+  &:before {
+    content: "\64";
+  }
+}
+.icon-trash {
+  @extend .icon;
+  &:before {
+    content: "\43";
+  }
+}

@@ -1,18 +1,3 @@
-@function px-to-percentage($width, $parentwidth: $basewidth) {
-  @return percentage($width / $parentwidth);
-}
-
-// Add percentage of white to a color
-@function tint($color, $percent){
-  @return mix(white, $color, $percent);
-}
-
-// Add percentage of black to a color
-@function shade($color, $percent){
-  @return mix(black, $color, $percent);
-}
-
-
 // Based on the relative-size function from Stitch, http://stitchcss.com/
 // To use rems, pass in `rem` as the last parameter
 @function relative-size( $target, $context: $base-font-size, $unit: em ) {
@@ -21,9 +6,10 @@
 @function rs( $target, $context: $base-font-size, $unit: em ) {
     @return #{$target/$context}$unit;
 }
-@function fs( $target, $context: $base-font-size, $unit: em ) {
+@function fs( $target, $context: $root-font-size, $unit: rem ) {
   @return #{round(($target/$context)*1000)/1000}$unit;
 }
+
 @function lh( $target, $context: $base-font-size ) {
   @return round(($target/$context)*1000)/1000;
 }

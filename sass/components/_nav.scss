@@ -1,0 +1,70 @@
+.nav {
+  line-height: 1;
+  ul {
+    @include listreset;
+    @include cf;
+  }
+  li {
+    float: left;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  &.-service {
+    float: right;
+    margin-bottom: 15px;
+    li + li {
+      &:before {
+        content: '\2022';
+        display: inline-block;
+        margin: 0 5px;
+      }
+    }
+  } // end .-service
+
+  &.-main {
+    @include fsRem(16px);
+    font-weight: $bold;
+    clear: right;
+    float: right;
+    a {
+      display: block;
+      color: black;
+      background: gray;
+      padding: 8px 10px;
+      &:hover,
+      &.active {
+        color: cyan;
+      }
+    }
+  } // end .-main
+
+  &.-language {
+    float: right;
+    text-transform: uppercase;
+    font-weight: $bold;
+    margin-top: 20px;
+    li {
+      float: none;
+      margin-bottom: 5px;
+    }
+    a {
+      color: black;
+      background: gray;
+      display: block;
+      padding: 10px;
+      &:hover,
+      &.active {
+        color: pink;
+      }
+    }
+  } // end .-language
+
+  &.-list {
+    line-height: lh($base-line-height);
+    li {
+      float: none;
+    }
+  } // end .-list
+}

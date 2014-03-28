@@ -1,31 +1,40 @@
 /*! Button */
 .btn {
-  @include transition(all .3s);
-  @include border-radius($brd-radius);
-  font-weight: $extra-bold;
-  font-size: fs(12px);
+  transition: background $base-transition-duration $base-transition-easing;
   text-transform: uppercase;
-  padding: 0.75em 1.25em;
   display: inline-block;
-  margin-right: 0.5em;
-  background-color: $highlight-color;
-  color: $white;
-  &:hover {
-    background-color: darken($highlight-color, 5%);
-    color: $white;
+  background-color: black;
+  color: white;
+  border: none;
+  height: 35px;
+  padding: 5px 15px;
+  line-height: 1;
+  &:hover,
+  &:focus {
+    background-color: gray;
+    color: black;
+  }
+
+  + .btn {
+    margin-left: 10px;
+  }
+
+  // Modifiers
+  &.-large {
+    @include fsRem(15px);
+    padding: 10px 20px;
+  }
+  &.-link {
+    @include fsRem($base-font-size);
+    line-height: lh($base-line-height);
+    background: transparent;
+    padding: 0;
+    text-transform: none;
+    @extend a;
   }
 }
-input.btn,
-button.btn {
-  border: none;
-}
+
 a.btn {
   text-decoration: none;
-  line-height: normal;
 }
 
-.btn-prefix:before {
-  font-family: $font-family-icons;
-  content: attr(data-icon);
-  margin-right: 0.5em;
-}

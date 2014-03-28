@@ -1,7 +1,7 @@
 //! ==  Setupfiles ==
-@import 'compass/css3', 'compass/utilities';
+// @import 'compass/css3', 'compass/utilities';
 
-@import 'variables', 'helpers/functions', 'helpers/mixins', 'helpers/grid';
+@import 'variables', 'helpers/functions', 'helpers/mixins', 'helpers/grid', 'helpers/extends';
 
 @import 'common/normalize', 'common/base', 'common/general';
 

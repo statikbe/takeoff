@@ -58,7 +58,7 @@
   border:0;
 }
 #colorbox, #cboxContent, #cboxLoadedContent {
-  @include box-sizing(content-box);
+  box-sizing: content-box;
 }
 
 /** Colorbox user added styles **/
@@ -73,7 +73,7 @@
 #cboxPrevious,
 #cboxNext,
 #cboxClose {
-  @include transition(all 0.2s ease-in-out);
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
   position: absolute;
   z-index: 200;

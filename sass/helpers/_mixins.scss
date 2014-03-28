@@ -6,22 +6,6 @@
   &:before, &:after { content:""; display:table; }
   &:after { clear:both; }
 }
-// Example usage:
-//
-//    // Contain all floats within .wrapper
-//    .wrapper {
-//      @include cf;
-//      .content,
-//      .sidebar {
-//        float : left;
-//      }
-//    }
-
-// Examples usage:
-//
-//   a.button {
-//     @include inline-block;
-//   }
 
 // RWD Breakpoints
 @mixin breakpoint($point, $query: max-width) {
@@ -29,26 +13,15 @@
     @content;
   }
 }
-// Examples usage:
-// .page-wrap {
-//  width: 75%;
-//  @include breakpoint(large) { width: 60%; }
-//  @include breakpoint(medium) { width: 80%; }
-//  @include breakpoint(small) { width: 95%; }
-//  @include breakpoint(30em, min-width) { margin-top: 10px;  }
-// }
 
+// Reset the list
 @mixin listreset {
   list-style: none;
   margin: 0;
   padding: 0;
-  li {
-    margin: 0;
-    padding: 0;
-    &:before {
-      display: none;
-      content: '';
-    }
+  li:before {
+    display: none;
+    content: '';
   }
 }
 
@@ -57,4 +30,10 @@
   font: 0/0 a;
   text-shadow: none;
   color: transparent;
+}
+
+// Convert a px font size to rem
+@mixin fsRem($font-size) {
+  font-size: $font-size;
+  font-size: fs($font-size);
 }
