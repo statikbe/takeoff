@@ -41,7 +41,7 @@ h4,
 }
 a {
   color: $link-color;
-  transition: color .2s ease-in-out, background .2s ease-in-out, border .2s ease-in-out;
+  @include transitions((color, background, border));
   &:hover {
     color: lighten($link-color, 10%);
   }
@@ -98,9 +98,6 @@ ol {
     }
   }
 }
-
-
-
 
 button,
 html input[type="button"], /* 1 */

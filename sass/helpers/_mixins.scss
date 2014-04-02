@@ -37,3 +37,15 @@
   font-size: $font-size;
   font-size: fs($font-size);
 }
+
+// Easily add transitions
+@mixin transitions($list, $time: $base-transition-duration, $easing: $base-transition-easing) {
+    $transitions: ();
+
+    @each $transition in $list {
+      $trans: unquote("#{$transition} #{$time} #{$easing}");
+      $transitions: append($transitions, $trans, comma);
+    }
+
+  transition: #{$transitions};
+}
