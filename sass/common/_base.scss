@@ -83,7 +83,7 @@ ul, ol {
 ul {
   li {
     &:before {
-      content: "\00BB";
+      content: "\bb";
     }
   }
 }
