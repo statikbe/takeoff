@@ -26,7 +26,7 @@ module.exports = function(grunt) {
             main: {
                 options: {
                     sourceMap: '../public/js/map/main.map.js',
-                    sourceMappingURL: 'map/main.map.js',
+                    sourceMappingURL: 'map/main.map.js'
                 },
                 files: {
                     '../public/js/main.min.js': ['build/js/main.js']
@@ -67,19 +67,44 @@ module.exports = function(grunt) {
             }
         },
 
-        // Copy
+        // SVGMIN
+        svgmin: {
+            options: {
+                plugins: [
+                  { removeViewBox: false },
+                  { removeUselessStrokeAndFill: false }
+                ]
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'img/svg',
+                    src: ['**/*.svg'],
+                    dest: 'build/img/svg/'
+                }]
+            }
+        },
+
+        // COPY
         copy: {
             images: {
                 cwd: 'build/img/',
-                src: '**',
+                src: '**/*.*',
                 expand: true,
                 dest: '../public/img',
-                filter: 'isFile',
+                filter: 'isFile'
             },
             fonts: {
                 src: 'fonts/*',
                 dest: '../public/'
             },
+            svgs: {
+                cwd: 'build/img/svg',
+                src: '**/*.*',
+                expand: true,
+                dest: '../public/img/svg',
+                filter: 'isFile'
+            }
         },
 
         // SASS
@@ -129,6 +154,11 @@ module.exports = function(grunt) {
                 options: {
                     message: 'IMG task complete'
                 }
+            },
+            svg: {
+                options: {
+                    message: 'SVG task complete'
+                }
             }
         },
 
@@ -155,6 +185,10 @@ module.exports = function(grunt) {
                 files: ['img/**/*.{png,jpg,gif,ico}'],
                 tasks: ['img', 'notify:img']
             },
+            svgs: {
+                files: ['img/**/*.svg'],
+                tasks: ['svg', 'notify:svg']
+            },
             html: {
                 files: ['*.html']
             },
@@ -162,8 +196,21 @@ module.exports = function(grunt) {
                 files: ['fonts/**'],
                 tasks: ['fonts']
             }
-        }
+        },
 
+        // SVG2PNG
+        svg2png: {
+            all: {
+                // specify files in array format with multiple src-dest mapping
+                files: [
+                    // rasterize all SVG files in "img" and its subdirectories to "img/png"
+                    {
+                        src: ['img/**/*.svg'],
+                        dest: 'img/svg/fallback/'
+                    }
+                ]
+            }
+        }
 
     });
 
@@ -173,8 +220,9 @@ module.exports = function(grunt) {
     // 3. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('svg', ['svg2png', 'svgmin', 'copy:svgs']);
     grunt.registerTask('img', ['imagemin', 'copy:images']);
     grunt.registerTask('fonts', ['copy:fonts']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
-    grunt.registerTask('build', ['css', 'js', 'img', 'fonts']);
+    grunt.registerTask('build', ['css', 'js', 'img', 'svg', 'fonts']);
 };
