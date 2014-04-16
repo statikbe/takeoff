@@ -85,6 +85,20 @@ module.exports = function(grunt) {
             }
         },
 
+        // SVG2PNG
+        svg2png: {
+            all: {
+                // specify files in array format with multiple src-dest mapping
+                files: [
+                    // rasterize all SVG files in "img" and its subdirectories to "img/png"
+                    {
+                        src: ['img/**/*.svg'],
+                        dest: 'img/svg/fallback/'
+                    }
+                ]
+            }
+        },
+
         // COPY
         copy: {
             images: {
@@ -124,6 +138,16 @@ module.exports = function(grunt) {
         autoprefixer: {
             dist: {
                 src: 'build/css/*.css'
+            }
+        },
+
+        // LEGACCSY
+        legacssy: {
+            dist: {
+                files: {
+                    'build/css/main-legacy.css': 'build/css/main.css',
+                    'build/css/register-legacy.css': 'build/css/register.css',
+                },
             }
         },
 
@@ -196,20 +220,6 @@ module.exports = function(grunt) {
                 files: ['fonts/**'],
                 tasks: ['fonts']
             }
-        },
-
-        // SVG2PNG
-        svg2png: {
-            all: {
-                // specify files in array format with multiple src-dest mapping
-                files: [
-                    // rasterize all SVG files in "img" and its subdirectories to "img/png"
-                    {
-                        src: ['img/**/*.svg'],
-                        dest: 'img/svg/fallback/'
-                    }
-                ]
-            }
         }
 
     });
@@ -223,6 +233,6 @@ module.exports = function(grunt) {
     grunt.registerTask('svg', ['svg2png', 'svgmin', 'copy:svgs']);
     grunt.registerTask('img', ['imagemin', 'copy:images']);
     grunt.registerTask('fonts', ['copy:fonts']);
-    grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
     grunt.registerTask('build', ['css', 'js', 'img', 'svg', 'fonts']);
 };
