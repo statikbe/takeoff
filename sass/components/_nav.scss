@@ -1,4 +1,4 @@
-.nav {
+%ext-default-nav {
   line-height: 1;
   ul {
     @include listreset;
@@ -10,8 +10,11 @@
   a {
     text-decoration: none;
   }
+}
 
+.nav {
   &.-service {
+    @extend %ext-default-nav;
     float: right;
     margin-bottom: 15px;
     li + li {
@@ -24,6 +27,7 @@
   } // end .-service
 
   &.-main {
+    @extend %ext-default-nav;
     @include fsRem(16px);
     font-weight: $bold;
     clear: right;
