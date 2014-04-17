@@ -12,6 +12,8 @@ app.common = (function($, undefined) {
 
     this.fixDrupaljQuery();
     this.svgFallback();
+
+    _flyoutNavigation();
   };
 
   var _windowResize = function() {
@@ -23,6 +25,14 @@ app.common = (function($, undefined) {
 
   var _fixDrupaljQuery = function() {
     jQuery.browser = jQuery.browser || {msie: navigator.userAgent.match(/msie/i) ? true : false};
+  };
+
+  var _flyoutNavigation = function() {
+    $('#toggle-flyout-nav').flyoutNav({
+      back: function() {
+        return '<span class="icon -previous"></span> Terug';
+      }
+    });
   };
 
   var _svgFallback = function() {
