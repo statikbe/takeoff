@@ -199,7 +199,7 @@ module.exports = function(grunt) {
         // WATCH
         watch: {
             options: {
-                livereload: true
+                livereload: false
             },
             js: {
                 files: ['js/**/*.js'],
