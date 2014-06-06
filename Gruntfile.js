@@ -8,6 +8,7 @@ module.exports = function(grunt) {
             main: {
                 src: [
                     'js/libs/*.js', // All JS in the libs folder
+                    '!js/libs/modernizr.custom.min.js', // Exclude modernizr to load it at the top
                     'js/components/*.js', // All JS in the components folder
                     'js/main.js'  // The pbig main file!
                 ],
@@ -39,6 +40,11 @@ module.exports = function(grunt) {
                 },
                 files: {
                     '../public/js/polyfill.min.js': ['build/js/polyfill.js']
+                }
+            },
+            modernizr: {
+                files: {
+                    '../public/js/modernizr.min.js': ['js/libs/modernizr.custom.min.js']
                 }
             }
         },
