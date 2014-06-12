@@ -1,6 +1,6 @@
 .form {
   // Modifiers
-  &.-inline {
+  &--inline {
     @include cf;
     .form__item {
       float: left;
@@ -8,7 +8,7 @@
     }
   }
   // Search form
-  &.-search {
+  &--search {
     @include column(4);
     float: right;
     clear: right;
@@ -31,7 +31,7 @@
     }
   }
   // Newsletter form
-  &.-newsletter {
+  &--newsletter {
     padding-right: 35px;
     position: relative;
     .form__label {
@@ -63,8 +63,8 @@
   line-height: lh(22px);
   display: block;
   padding-bottom: 5px;
-  &.-radio,
-  &.-checkbox {
+  &--radio,
+  &--checkbox {
     font-weight: $regular;
     padding-bottom: 0;
     position: relative;

@@ -20,11 +20,11 @@
   }
 
   // Modifiers
-  &.-large {
+  &--large {
     @include fsRem(15px);
     padding: 10px 20px;
   }
-  &.-link {
+  &--link {
     @include fsRem($base-font-size);
     line-height: lh($base-line-height);
     background: transparent;

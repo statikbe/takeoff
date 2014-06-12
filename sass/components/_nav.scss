@@ -13,7 +13,7 @@
 }
 
 .nav {
-  &.-service {
+  &--service {
     @extend %ext-default-nav;
     float: right;
     margin-bottom: 15px;
@@ -26,7 +26,7 @@
     }
   } // end .-service
 
-  &.-main {
+  &--main {
     @extend %ext-default-nav;
     @include fsRem(16px);
     font-weight: $bold;
@@ -44,7 +44,7 @@
     }
   } // end .-main
 
-  &.-language {
+  &--language {
     float: right;
     text-transform: uppercase;
     font-weight: $bold;
@@ -65,7 +65,7 @@
     }
   } // end .-language
 
-  &.-list {
+  &--list {
     line-height: lh($base-line-height);
     li {
       float: none;

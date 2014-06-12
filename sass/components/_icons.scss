@@ -22,73 +22,73 @@
   -moz-osx-font-smoothing: grayscale;
 
   // Modifiers
-  &.-download:before {
+  &--download:before {
     content: "\7d";
   }
-  &.-search:before {
+  &--search:before {
     content: "\73";
   }
-  &.-info:before {
+  &--info:before {
     content: "\69";
   }
-  &.-instagram:before {
+  &--instagram:before {
     content: "\49";
   }
-  &.-facebook:before {
+  &--facebook:before {
     content: "\46";
   }
-  &.-twitter:before {
+  &--twitter:before {
     content: "\54";
   }
-  &.-close:before {
+  &--close:before {
     content: "\78";
   }
-  &.-warning:before {
+  &--warning:before {
     content: "\21";
   }
-  &.-pen:before {
+  &--pen:before {
     content: "\70";
   }
-  &.-previous:before {
+  &--previous:before {
     content: "\33";
   }
-  &.-next:before {
+  &--next:before {
     content: "\34";
   }
-  &.-mail:before {
+  &--mail:before {
     content: "\4d";
   }
-  &.-globe:before {
+  &--globe:before {
     content: "\47";
   }
-  &.-feed:before {
+  &--feed:before {
     content: "\46";
   }
-  &.-heart:before {
+  &--heart:before {
     content: "\68";
   }
-  &.-bubble:before {
+  &--bubble:before {
     content: "\62";
   }
-  &.-bell:before {
+  &--bell:before {
     content: "\42";
   }
-  &.-plus:before {
+  &--plus:before {
     content: '\26';
   }
-  &.-profile:before {
+  &--profile:before {
     content: '\70';
   }
-  &.-previous:before {
+  &--previous:before {
     content: '\50';
   }
-  &.-next:before {
+  &--next:before {
     content: '\4e';
   }
-  &.-up:before {
+  &--up:before {
     content: '\55';
   }
-  &.-down:before {
+  &--down:before {
     content: '\44';
   }
 }
