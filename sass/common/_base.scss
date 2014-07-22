@@ -45,7 +45,7 @@ a {
   @include transitions((color, background, border));
   color: $link-color;
   &:visited {
-    color: $brown;
+    color: adjust-hue($link-color, 10);
   }
 }
 p {
@@ -91,7 +91,7 @@ html {
       top: 0;
       left: -100%;
       z-index: 10;
-      background: $red;
+      background: $black;
     }
   }
   &.wf-active,
