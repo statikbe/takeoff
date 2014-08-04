@@ -7,16 +7,25 @@
 }
 a.show-mobile-nav {
   float: left;
-  border: 1px solid $white;
-  border-radius: $bd-radius;
   display: block;
-  line-height: 1;
   margin-right: 20px;
-  margin-top: 20px;
-  padding: 10px;
+  padding: 0 0 0 15px;
   text-decoration: none;
+  position: relative;
   &:hover {
 
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 13px;
+    height: 2px;
+    background: #000;
+    box-shadow:
+      0 8px 0 0 #000,
+      0 4px 0 0 #000;
   }
   @include breakpoint($bp-small) {
     display: none;
