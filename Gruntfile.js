@@ -25,19 +25,11 @@ module.exports = function(grunt) {
         // UGLIFY FILES
         uglify: {
             main: {
-                options: {
-                    sourceMap: '../public/js/map/main.map.js',
-                    sourceMappingURL: 'map/main.map.js'
-                },
                 files: {
                     '../public/js/main.min.js': ['build/js/main.js']
                 }
             },
             polyfill: {
-                options: {
-                    sourceMap: '../public/js/map/polyfill.map.js',
-                    sourceMappingURL: 'map/polyfill.map.js',
-                },
                 files: {
                     '../public/js/polyfill.min.js': ['build/js/polyfill.js']
                 }
