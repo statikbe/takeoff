@@ -38,16 +38,20 @@ app.common = (function($, undefined) {
   var _svgFallback = function() {
     if (!Modernizr.svg) {
       var $html = $('html'),
-          $img = $('img[src$=".svg"]'),
-          fallback = $img.attr('data-url'),
-          width = $img.attr('width');
-          height = $img.attr('height');
+          $imgs = $('img[src$=".svg"]');
 
-      $img.attr('src', fallback);
-      // IE8 fix
-      if ($html.hasClass('lt-ie9')) {
-        $img.parent('a').css({ 'width' : width , 'height' : height });
-      }
+      $imgs.each(function(k,v){
+        var $img = $(v),
+            fallback = $img.attr('data-url'),
+            width = $img.attr('width'),
+            height = $img.attr('height');
+
+        $img.attr('src', fallback);
+        // IE8 fix
+        if ($html.hasClass('lt-ie9')) {
+          $img.parent('a').css({ 'width' : width , 'height' : height });
+        }
+      });
     }
   };
 
