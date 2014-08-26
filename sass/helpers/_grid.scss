@@ -1,18 +1,203 @@
 // Defaults which you can freely override
 $gutter-width: 20px;
 $columns: 12;
+$container-width: 1200px;
 
-.row {
-  @include cf;
-  margin-left: -10px;
-  margin-right: -10px;
-}
 @mixin column($x, $y: $columns) {
   float: left;
   padding-left: ($gutter-width/2);
   padding-right: ($gutter-width/2);
   width: round(percentage($x / $y)*1000)/1000;
+  min-height: 1px;
 }
-@mixin column-push($x, $y: $columns) {
-  margin-left: round(percentage($x / $y)*1000)/1000;
+
+.container {
+  @include cf;
+  // position: relative;
+  z-index: 10;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+  &--relative {
+    position: relative;
+    z-index: 20;
+  }
 }
+
+.grid {
+  @include cf;
+  margin-left: -10px;
+  margin-right: -10px;
+  &--vr-m {
+    margin-bottom: $vr-m;
+  }
+  &--vr-l {
+    margin-bottom: $vr-l;
+  }
+}
+[class*=g__] {
+  min-height: 1px;
+}
+
+.grid {
+  &--eqh {
+    .flexbox & {
+      display: flex;
+      flex-wrap: wrap;
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+.flexbox {
+  .eqh {
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-content: stretch;
+      &__child {
+        flex-grow: 1;
+      }
+    }
+  }
+  &--end {
+    display: flex;
+    align-items: flex-end;
+  }
+  &--center {
+    display: flex;
+    align-items: center;
+  }
+}
+
+$breakpoints:
+  $bp-large   "l",
+  $bp-medium  "m",
+  $bp-small   "s",
+  $bp-mini    "i",
+  $bp-tiny    "t";
+
+$colspans: $columns;
+$cols: 4;
+
+@mixin grid__item--border($colspan) {
+  position: relative;
+  padding-bottom: 20px;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    right: $gutter-width/2;
+    left: $gutter-width/2;
+    display: block;
+    border-top: 1px solid $gray-25;
+    .section--bg & {
+      border-top-color: $gray-50;
+    }
+  }
+}
+
+// Creates all the standalone grid child classes
+// Examples: .grid__3, .grid__6
+@for $colspan from 1 through $colspans {
+  .grid__#{$colspan} {
+    @include column($colspan);
+  }
+}
+
+// Creates all the breakpoint grid classes
+// Examples: .grid--bp-m-2-col, .grid--bp-s-1-col
+@each $bp in $breakpoints {
+  @include breakpoint(nth($bp, 1), 'max-width'){
+    .grid--bp-#{nth($bp, 2)} {
+      @for $colspan from 1 through $colspans {
+        &-#{$colspan}-col {
+          > .grid__item {
+            width: percentage(round((100/$colspan)*1000)/100000);
+            margin-top: 0;
+            &:nth-child(n+#{($colspan+1)}) {
+              margin-top: 20px;
+            }
+          }
+          &.grid--connected {
+            > .grid__item {
+              margin-top: 0;
+            }
+          }
+          &.grid--narrow {
+            > .grid__item {
+              &:nth-child(n+#{($colspan+1)}) {
+                margin-top: 15px;
+              }
+            }
+          }
+          &.grid--border {
+            > .grid__item {
+              @include grid__item--border($colspan);
+            }
+          }
+        }
+      }
+    }
+  };
+}
+
+// Creates all the breakpoint grid ITEM classes
+// Example: .grid--bp-m__8
+@each $bp in $breakpoints {
+  @include breakpoint(nth($bp, 1), 'max-width'){
+    .grid--bp-#{nth($bp, 2)} {
+      @for $colspan from 1 through $colspans {
+        &__#{$colspan} {
+          @include column($colspan);
+        }
+      }
+    }
+  };
+}
+
+// Creates the default grid classes
+// Example: .grid--1-col
+@for $colspan from 1 through $colspans {
+  .grid-- {
+    &#{$colspan}-col {
+      > .grid__item {
+        @if ($colspan == 1) {
+          float: none;
+          width: 100%;
+        }
+        @include column($columns / $colspan);
+        &:nth-child(#{$colspan}n+#{($colspan+1)}) {
+          clear: left;
+        }
+        &:nth-child(n+#{($colspan+1)}) {
+          margin-top: 20px;
+        }
+      }
+      &.grid--border {
+        > .grid__item {
+          @include grid__item--border($colspan);
+        }
+      }
+      &.grid--narrow {
+        > .grid__item {
+          &:nth-child(n+#{($colspan+1)}) {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// TODO: Write functions to add a vertical divider
+
+// .grid--border.grid--2-col.grid--divider {
+//   background: linear-gradient(to right, transparent, $gray-10, transparent);
+//   background-position: 50%;
+//   background-repeat: repeat-y;
+//   background-size: 1px auto;
+// }
