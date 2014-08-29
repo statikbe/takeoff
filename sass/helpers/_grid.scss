@@ -112,43 +112,6 @@ $cols: 4;
   }
 }
 
-// Creates all the breakpoint grid classes
-// Examples: .grid--bp-m-2-col, .grid--bp-s-1-col
-@each $bp in $breakpoints {
-  @include breakpoint(nth($bp, 1), 'max-width'){
-    .grid--bp-#{nth($bp, 2)} {
-      @for $colspan from 1 through $colspans {
-        &-#{$colspan}-col {
-          > .grid__item {
-            width: percentage(round((100/$colspan)*1000)/100000);
-            margin-top: 0;
-            &:nth-child(n+#{($colspan+1)}) {
-              margin-top: 20px;
-            }
-          }
-          &.grid--connected {
-            > .grid__item {
-              margin-top: 0;
-            }
-          }
-          &.grid--narrow {
-            > .grid__item {
-              &:nth-child(n+#{($colspan+1)}) {
-                margin-top: 15px;
-              }
-            }
-          }
-          &.grid--border {
-            > .grid__item {
-              @include grid__item--border($colspan);
-            }
-          }
-        }
-      }
-    }
-  };
-}
-
 // Creates all the breakpoint grid ITEM classes
 // Example: .grid--bp-m__8
 @each $bp in $breakpoints {
@@ -195,6 +158,43 @@ $cols: 4;
       }
     }
   }
+}
+
+// Creates all the breakpoint grid classes
+// Examples: .grid--bp-m-2-col, .grid--bp-s-1-col
+@each $bp in $breakpoints {
+  @include breakpoint(nth($bp, 1), 'max-width'){
+    .grid--bp-#{nth($bp, 2)} {
+      @for $colspan from 1 through $colspans {
+        &-#{$colspan}-col {
+          > .grid__item {
+            width: percentage(round((100/$colspan)*1000)/100000);
+            margin-top: 0;
+            &:nth-child(n+#{($colspan+1)}) {
+              margin-top: 20px;
+            }
+          }
+          &.grid--connected {
+            > .grid__item {
+              margin-top: 0;
+            }
+          }
+          &.grid--narrow {
+            > .grid__item {
+              &:nth-child(n+#{($colspan+1)}) {
+                margin-top: 15px;
+              }
+            }
+          }
+          &.grid--border {
+            > .grid__item {
+              @include grid__item--border($colspan);
+            }
+          }
+        }
+      }
+    }
+  };
 }
 
 // TODO: Write functions to add a vertical divider

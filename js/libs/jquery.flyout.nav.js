@@ -46,7 +46,6 @@
             // Close the nav
             $flyout.find('.flyout-close').on('click', function(e) {
                 e.preventDefault();
-                console.log('Log message');
                 $body.removeClass(settings.activeBodyClass);
             });
         });
