@@ -36,12 +36,12 @@
 
 // Easily add transitions
 @mixin transitions($list, $time: $base-transition-duration, $easing: $base-transition-easing) {
-    $transitions: ();
+  $transitions: ();
 
-    @each $transition in $list {
-      $trans: unquote("#{$transition} #{$time} #{$easing}");
-      $transitions: append($transitions, $trans, comma);
-    }
+  @each $transition in $list {
+    $trans: unquote("#{$transition} #{$time} #{$easing}");
+    $transitions: append($transitions, $trans, comma);
+  }
 
   transition: #{$transitions};
 }

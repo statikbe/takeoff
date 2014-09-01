@@ -89,17 +89,22 @@ $cols: 4;
 
 @mixin grid__item--border($colspan) {
   position: relative;
-  padding-bottom: 20px;
-  &:after {
+  &:before {
     content: '';
     position: absolute;
-    bottom: 3px;
+    top: -3px;
     right: $gutter-width/2;
     left: $gutter-width/2;
     display: block;
-    border-top: 1px solid $gray-25;
-    .section--bg & {
-      border-top-color: $gray-50;
+    border-top: none;
+  }
+  &:nth-child(n+#{($colspan+1)}) {
+    padding-top: 20px;
+    &:before {
+      border-top: 1px solid $gray-25;
+      .section--bg & {
+        border-top-color: $gray-10;
+      }
     }
   }
 }
