@@ -102,9 +102,6 @@ $cols: 4;
     padding-top: 20px;
     &:before {
       border-top: 1px solid $gray-25;
-      .section--bg & {
-        border-top-color: $gray-10;
-      }
     }
   }
 }
