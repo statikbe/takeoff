@@ -112,11 +112,10 @@ body {
   font-weight: $base-font-weight;
   line-height: lh($base-line-height);
   .js & {
-    visibility: hidden;
+    visibility: hidden !important;
   }
-  .wf-active &,
-  .wf-inactive & {
-    visibility: visible;
+  .js-done & {
+    visibility: visible !important;
   }
 }
 

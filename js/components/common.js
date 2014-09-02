@@ -3,7 +3,9 @@ window.app = window.app || {};
 app.common = (function($, undefined) {
 
   var $document = $(document),
-      $window = $(window);
+      $window = $(window),
+      $html = $('html'),
+      $body = $('body');
 
   var _initialize = function() {
     // First set window size
@@ -72,7 +74,9 @@ app.common = (function($, undefined) {
   };
 
   var _finalize = function() {
-    // console.log('common finalize');
+    $window.on('load', function(){
+      $html.addClass('js-done');
+    });
   };
 
   return {
