@@ -1,10 +1,34 @@
-//! ==  Setupfiles ==
-// @import 'compass/css3', 'compass/utilities';
+@import "core/normalize";
 
-@import 'variables', 'helpers/functions', 'helpers/mixins', 'helpers/grid', 'helpers/extends';
+@import "core/variables";
+@import "core/animations";
+@import "core/mixins";
 
-// @import 'common/normalize.drupal';
-@import 'common/normalize', 'common/base', 'common/general';
+@import "core/grid";
+@import "core/type";
+@import "core/scaffold";
+@import "core/tables";
+@import "core/buttons";
+@import "core/forms";
+@import "core/icons";
+@import "core/images";
+
+// Components
+@import 'components/header';
+@import 'components/breadcrumbs';
+@import 'components/notice';
+@import 'components/main';
+@import 'components/pagination';
+@import 'components/sidebar';
+@import 'components/footer';
+
+@import 'components/gallery';
+@import 'components/carousel';
+
+// Print
+@import "core/print";
+
+
 
 body {
   padding: 1em;
@@ -13,16 +37,6 @@ body {
 
 
 /* Tinymc */
-.image-left {
-  float: left;
-  margin: 0 15px 15px 0;
-}
-
-.image-right {
-  float: right;
-  margin: 0 0 15px 15px;
-}
-
 ul {
   @include listreset();
   li {
@@ -32,7 +46,7 @@ ul {
     line-height: 1.7;
     &:before {
       content: 'bb';
-      color: $highlight-color;
+      color: $color-link;
       position: absolute;
       top: 0;
       left: 0;
@@ -41,7 +55,7 @@ ul {
   ul {
     margin: 5px 0 5px 10px;
     li:before {
-      color: darken($highlight-color, 10%);
+      color: darken($color-link, 10%);
     }
   }
   ol {
@@ -60,8 +74,8 @@ ol {
     &:before {
       content: counter(numbering);
       counter-increment: numbering;
-      color: $highlight-color;
-      font-weight: $bold;
+      color: $color-link;
+      font-weight: $font-weight-bold;
       position: absolute;
       top: 3px;
       left: 0;
@@ -70,13 +84,13 @@ ol {
   ul {
     margin: 5px 0 5px 10px;
     li:before {
-      background: darken($highlight-color, 10%);
+      background: darken($color-link, 10%);
     }
   }
   ol {
     margin: 5px 0 5px 10px;
     li:before {
-      color: darken($highlight-color, 10%);
+      color: darken($color-link, 10%);
     }
   }
 }
