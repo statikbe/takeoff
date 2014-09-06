@@ -73,7 +73,7 @@
 #cboxPrevious,
 #cboxNext,
 #cboxClose {
-  transition: all 0.2s ease-in-out;
+  @include transitions((all));
   cursor: pointer;
   position: absolute;
   z-index: 200;

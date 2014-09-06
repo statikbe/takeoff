@@ -1,0 +1,75 @@
+/*! Button */
+// Button
+.btn {
+  @include button-variant($white, $gray-75, $gray-75);
+  @include transitions((background, border));
+  display: inline-block;
+  background: $gray-75;
+  border-radius: $border-radius-base;
+  color: $white;
+  border: 1px solid $gray-75;
+  padding: 10px 15px;
+
+  // Disabled
+  &--disabled,
+  &[disabled] {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  + .btn {
+    margin-left: $vr-s;
+  }
+
+  // Modifiers
+  &--brand {
+    @include button-variant($white, $color-brand-primary, $color-brand-primary);
+  }
+  @each $type, $color in $notice-colors {
+    &--#{$type} {
+      @include button-variant($white, hsl(hue($color), 50%, 60%), hsl(hue($color), 50%, 60%));
+    }
+  }
+
+  &--link {
+    @include fsRem($font-size-base);
+    @extend a;
+    background: none;
+    border: none;
+    padding: 0;
+    text-transform: none;
+    color: $color-link;
+    &:visited {
+      color: $color-link-visited;
+    }
+    &:hover {
+      color: $color-link-hover;
+      background: none;
+    }
+  }
+
+  &--small {
+    padding: 5px 10px;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+}
+
+.btn--close {
+  @include fsRem(18px);
+  padding: 5px;
+  background: $white;
+  border-color: $white;
+  &:hover,
+  &:focus {
+    border-color: $white;
+    background: $white;
+  }
+}
+
+a.btn {
+  text-decoration: none;
+}

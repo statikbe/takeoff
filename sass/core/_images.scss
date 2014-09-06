@@ -1,3 +1,8 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .image {
   &--responsive {
     max-width: 100%;
@@ -9,17 +14,13 @@
   }
   &--right {
     float: right;
-    margin-left: 20px;
-    margin-bottom: 10px;
+    margin-left: $vr-m;
+    margin-bottom: $vr-s;
   }
   &--left {
     float: left;
-    margin-right: 20px;
-    margin-bottom: 10px;
+    margin-right: $vr-m;
+    margin-bottom: $vr-s;
   }
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}

@@ -27,7 +27,7 @@ a.show-mobile-nav {
       0 8px 0 0 #000,
       0 4px 0 0 #000;
   }
-  @include breakpoint($bp-small) {
+  @include breakpoint(map-get($breakpoints, sml) {
     display: none;
   }
 }
