@@ -1,5 +1,17 @@
 module.exports = function(grunt) {
-    // 1. All configuration goes here
+    // Grunt options
+    var target = grunt.option('target') || '../pubic';
+
+    var uglifyTargets = {
+        main: {},
+        polyfill: {},
+        modernizr: {}
+    };
+    uglifyTargets['main'][target + '/js/main.min.js'] = ['build/js/main.js'];
+    uglifyTargets['polyfill'][target + '/js/polyfill.min.js'] = ['build/js/polyfill.js'];
+
+
+    // All configuration goes here
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -10,7 +22,7 @@ module.exports = function(grunt) {
                     'js/libs/*.js', // All JS in the libs folder
                     '!js/libs/modernizr.custom.min.js', // Exclude modernizr to load it at the top
                     'js/components/*.js', // All JS in the components folder
-                    'js/main.js'  // The pbig main file!
+                    'js/main.js'  // The big main file!
                 ],
                 dest: 'build/js/main.js'
             },
@@ -25,19 +37,18 @@ module.exports = function(grunt) {
         // UGLIFY FILES
         uglify: {
             main: {
-                files: {
-                    '../public/js/main.min.js': ['build/js/main.js']
-                }
+                files: uglifyTargets['main']
             },
             polyfill: {
-                files: {
-                    '../public/js/polyfill.min.js': ['build/js/polyfill.js']
-                }
+                files: uglifyTargets['polyfill']
             },
-            modernizr: {
-                files: {
-                    '../public/js/modernizr.min.js': ['js/libs/modernizr.custom.min.js']
-                }
+            singles: {
+                files: [{
+                  expand: true,
+                  cwd: 'js/singles',
+                  src: '**/*.js',
+                  dest: target + '/js'
+              }]
             }
         },
 
@@ -100,7 +111,7 @@ module.exports = function(grunt) {
         // CLEAN
         clean: {
             img: {
-                src: ['build/img', '../public/img']
+                src: ['build/img', target + '/img']
             },
             options: {
                 'force': true
@@ -113,18 +124,18 @@ module.exports = function(grunt) {
                 cwd: 'build/img/',
                 src: '**/*.*',
                 expand: true,
-                dest: '../public/img',
+                dest: target + '/img',
                 filter: 'isFile'
             },
             fonts: {
                 src: 'fonts/*',
-                dest: '../public/'
+                dest: target + '/'
             },
             svgs: {
                 cwd: 'build/img/svg',
                 src: '**/*.*',
                 expand: true,
-                dest: '../public/img/svg',
+                dest: target + '/img/svg',
                 filter: 'isFile'
             }
         },
@@ -165,7 +176,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'build/css/',
                 src: ['*.css', '!*.min.css'],
-                dest: '../public/css/',
+                dest: target + '/css/',
                 ext: '.min.css'
             }
         },
@@ -232,10 +243,10 @@ module.exports = function(grunt) {
 
     });
 
-    // 2. Where we tell Grunt we plan to use this plug-in.
+    // Where we tell Grunt we plan to use this plug-in.
     require('load-grunt-tasks')(grunt);
 
-    // 3. Where we tell Grunt what to do when we type "grunt" into the terminal.
+    // Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);

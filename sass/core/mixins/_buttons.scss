@@ -21,6 +21,7 @@
   &.active,
   .open > &.dropdown-toggle {
     background-image: none;
+    box-shadow: inset 1px 1px 0 rgba($black, 0.35);
   }
   &--disabled,
   &[disabled] {

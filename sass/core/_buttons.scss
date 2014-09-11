@@ -3,12 +3,14 @@
 .btn {
   @include button-variant($white, $gray-75, $gray-75);
   @include transitions((background, border));
+  font-weight: $font-weight-regular;
+  color: $white;
   display: inline-block;
   background: $gray-75;
   border-radius: $border-radius-base;
-  color: $white;
   border: 1px solid $gray-75;
   padding: 10px 15px;
+
 
   // Disabled
   &--disabled,
@@ -48,8 +50,18 @@
     }
   }
 
+  &--large {
+    @include fsRem($font-size-large);
+    padding: 10px 15px;
+  }
+
   &--small {
     padding: 5px 10px;
+  }
+
+  &--xsmall {
+    @include fsRem($font-size-small);
+    padding: 0px 10px;
   }
 
   &--block {
