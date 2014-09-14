@@ -121,6 +121,8 @@
   }
   .form__select {
     width: calc(100% + 15px);
+    position: relative;
+    z-index: $zindex-layer-1;
   }
 }
 

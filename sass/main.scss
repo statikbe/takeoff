@@ -13,8 +13,8 @@
 @import "core/scaffold";
 @import "core/tables";
 @import "core/buttons";
-@import "core/forms";
 @import "core/icons";
+@import "core/forms";
 @import "core/images";
 
 // Components
@@ -29,6 +29,8 @@
 @import "components/dropdown";
 @import 'components/gallery';
 @import 'components/carousel';
+@import 'components/nav';
+@import 'components/tabs';
 
 // Print
 @import "core/print";

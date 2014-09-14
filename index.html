@@ -132,11 +132,7 @@
         return ParsleyField.$element.closest('.form__item');
       },
       errorsContainer: function (ParsleyField) {
-        var $errorsContainer = $('<ul class="parsley-errors-list" />'),
-            $parent = ParsleyField.$element.closest('.form__item');
-
-        $errorsContainer.insertAfter($parent);
-        return $errorsContainer;
+        return ParsleyField.$element.closest('.form__item');
       }
     };
   </script>

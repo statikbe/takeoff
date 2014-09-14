@@ -29,7 +29,7 @@
   &--main {
     @extend %ext-default-nav;
     @include fsRem(16px);
-    font-weight: $bold;
+    font-weight: $font-weight-bold;
     clear: right;
     float: right;
     a {
@@ -47,7 +47,7 @@
   &--language {
     float: right;
     text-transform: uppercase;
-    font-weight: $bold;
+    font-weight: $font-weight-bold;
     margin-top: 20px;
     li {
       float: none;

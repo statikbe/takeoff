@@ -11,6 +11,10 @@
   border: 1px solid $gray-75;
   padding: 10px 15px;
 
+  &:active,
+  &.active {
+    outline: 0;
+  }
 
   // Disabled
   &--disabled,

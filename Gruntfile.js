@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
     // Grunt options
-    var target = grunt.option('target') || '../pubic';
+    var target = grunt.option('target') || '../public';
 
     var uglifyTargets = {
         main: {},
@@ -20,7 +20,8 @@ module.exports = function(grunt) {
             main: {
                 src: [
                     'js/libs/*.js', // All JS in the libs folder
-                    '!js/libs/modernizr.custom.min.js', // Exclude modernizr to load it at the top
+                    'js/libs/bootstrap/*.js', // All JS in the bootstrap folder
+                    '!js/bootstrap/excludes/*', // Exclude some of the bootstrap files
                     'js/components/*.js', // All JS in the components folder
                     'js/main.js'  // The big main file!
                 ],
