@@ -23,17 +23,27 @@
     cursor: not-allowed;
   }
 
-  + .btn {
-    margin-left: $vr-s;
-  }
+  // + .btn {
+  //   margin-left: $vr-s;
+  // }
 
   // Modifiers
+  &--default {
+    @include button-variant($color-text, $white, $gray-25);
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+      background-color: $gray-0;
+    }
+  }
   &--brand {
     @include button-variant($white, $color-brand-primary, $color-brand-primary);
   }
   @each $type, $color in $notice-colors {
     &--#{$type} {
-      @include button-variant($white, hsl(hue($color), 50%, 60%), hsl(hue($color), 50%, 60%));
+      @include button-variant($white, hsl(hue($color), 50%, 60%), hsl(hue($color), 50%, 50%));
     }
   }
 

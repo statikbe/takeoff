@@ -1,22 +1,12 @@
 .pagination {
   @include listreset;
   clear: both;
-  margin: 20px 0 0;
-  line-height: 22px;
+  margin: $vr-m 0;
   text-align: center;
   li {
     display: inline-block;
-    margin: 0 3px;
-    &.prev, &.next {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      a {
-        background: none;
-        font-size: fs(20px);
-        &:hover {
-
-        }
-      }
+    & + li {
+      margin-left: 5px;
     }
     &.here {
       a {
@@ -29,14 +19,7 @@
     }
   }
   a {
-    display: block;
-    width: 22px;
-    background: $black;
-    color: $white;
+    display: inline-block;
     text-decoration: none;
-    &:hover {
-      background: $black;
-      color: $white;
-    }
   }
 }

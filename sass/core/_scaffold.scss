@@ -31,7 +31,8 @@ html {
     }
   }
   &.wf-active,
-  &.wf-inactive {
+  &.wf-inactive,
+  &.js-done {
     &:before,
     &:after {
       display: none;

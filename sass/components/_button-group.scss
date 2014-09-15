@@ -1,0 +1,64 @@
+.btn-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  > .btn {
+    position: relative;
+    float: left;
+    border-radius: 0;
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+    &:focus {
+      outline: 0;
+    }
+    &:first-of-type {
+      border-top-left-radius: $border-radius-base;
+      border-bottom-left-radius: $border-radius-base;
+    }
+    &:last-of-type {
+      border-top-right-radius: $border-radius-base;
+      border-bottom-right-radius: $border-radius-base;
+    }
+  }
+
+  .btn + .btn {
+    margin-left: -1px;
+  }
+
+}
+
+
+// Justified button groups
+// ----------------------
+.btn-group--justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  > .btn,
+  > .btn-group {
+    float: none;
+    display: table-cell;
+    width: 1%;
+  }
+  > .btn-group .btn {
+    width: 100%;
+  }
+
+  > .btn-group .dropdown-menu {
+    left: auto;
+  }
+}
+
+
+// Button toolbar
+.btn-toolbar {
+  > .btn-group + .btn-group {
+    margin-left: 5px;
+  }
+}
