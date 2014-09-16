@@ -1,7 +1,7 @@
 %ext-input-style {
   @include transitions((color, background, border));
   border: 1px solid $gray-25;
-  padding: 10px 15px;
+  padding: 5px 10px;
   width: 100%;
   background-color: $white;
   line-height: normal;
@@ -160,17 +160,19 @@
 }
 .form__select-item {
   @extend %ext-input-style;
+  .form__select {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    border: none;
+    border-radius: 0;
+    &:focus {
+      outline: none;
+    }
+  }
 }
 .form__select {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-  appearance: textfield;
-  border: none;
-  border-radius: 0;
   background: none;
-  &:focus {
-    outline: none;
-  }
 }
 
 .form__radio,
@@ -185,11 +187,16 @@
 .form__actions {
   clear: both;
   margin-top: $vr-s;
+  .btn + .btn {
+    margin-left: 5px;
+  }
 }
 
-.form__description {
+.form__description,
+.form__help {
   @include fsRem(13px);
-  font-style: italic;
+  // font-style: italic;
+  clear: both;
   color: $gray-50;
 }
 

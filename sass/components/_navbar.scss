@@ -29,6 +29,7 @@
   > li {
     float: left;
     > a {
+      font-weight: $font-weight-bold;
       display: inline-block;
       padding: $vr-s;
       color: $gray-0;
