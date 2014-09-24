@@ -89,6 +89,14 @@
 
 .form__group {
   margin-bottom: $vr-m;
+  h1,
+  h2,
+  h3,
+  h4 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }
 .form__item {
   margin-bottom: $vr-m;

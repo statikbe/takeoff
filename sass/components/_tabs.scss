@@ -53,3 +53,13 @@
     }
   }
 }
+
+.tabs__content {
+  > .tabs__pane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}
+

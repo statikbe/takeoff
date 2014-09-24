@@ -23,6 +23,10 @@
     cursor: not-allowed;
   }
 
+  > .icon:first-child {
+    margin-right: 5px;
+  }
+
   // + .btn {
   //   margin-left: $vr-s;
   // }

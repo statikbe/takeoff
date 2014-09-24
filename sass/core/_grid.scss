@@ -62,6 +62,20 @@
   }
 }
 
+// Creates all the offset class
+// Example: .grid--bp-med__offset-8
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, 'min-width') {
+    .grid--bp-#{$bp}__offset {
+      @for $column from 1 through $grid-columns {
+        &-#{$column} {
+          @include make-column-push($column);
+        }
+      }
+    }
+  }
+}
+
 // Creates the default grid classes
 // Example: .grid--1-col
 // @for $column from 1 through $grid-columns {
