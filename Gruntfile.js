@@ -165,8 +165,7 @@ module.exports = function(grunt) {
         legacssy: {
             dist: {
                 files: {
-                    'build/css/main-legacy.css': 'build/css/main.css',
-                    'build/css/register-legacy.css': 'build/css/register.css',
+                    'build/css/main-legacy.css': 'build/css/main.css'
                 },
             }
         },
