@@ -42,11 +42,11 @@
 
 // Creates all the standalone grid child classes
 // Examples: .grid__3, .grid__6
-// @for $column from 1 through $grid-columns {
-//   .grid__#{$column} {
-//     @include make-column($column);
-//   }
-// }
+@for $column from 1 through $grid-columns {
+  .grid__#{$column} {
+    @include make-column($column);
+  }
+}
 
 // Creates all the breakpoint grid ITEM classes
 // Example: .grid--bp-m__8
