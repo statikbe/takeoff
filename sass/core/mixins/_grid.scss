@@ -19,6 +19,7 @@
 // Creates a single column
 @mixin make-column($index, $columns: $grid-columns, $gutter: $grid-gutter-width) {
   @include cf();
+  display: block;
   float: left;
   padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);

@@ -39,9 +39,11 @@
   min-height: 1px;
 }
 
-
 // Creates all the standalone grid child classes
 // Examples: .grid__3, .grid__6
+.grid__0 {
+  display: none;
+}
 @for $column from 1 through $grid-columns {
   .grid__#{$column} {
     @include make-column($column);
