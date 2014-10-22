@@ -156,6 +156,12 @@
   small {
     color: $gray-25;
   }
+  & + & {
+    margin-left: 10px;
+  }
+}
+p.form__label {
+  font-weight: $font-weight-regular;
 }
 
 .form__text {

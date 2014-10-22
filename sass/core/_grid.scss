@@ -51,7 +51,7 @@
 }
 
 // Creates all the breakpoint grid ITEM classes
-// Example: .grid--bp-m__8
+// Example: .grid--bp-med__8
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width') {
     .grid--bp-#{$bp} {
