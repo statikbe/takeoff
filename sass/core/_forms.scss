@@ -187,6 +187,7 @@ p.form__label {
 }
 .form__select {
   background: none;
+  display: block;
 }
 
 .form__radio,
@@ -196,6 +197,10 @@ p.form__label {
     margin-right: 0;
     margin-left: 5px;
   }
+}
+
+.form__file {
+  display: block;
 }
 
 .form__actions {
