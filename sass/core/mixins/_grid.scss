@@ -39,7 +39,7 @@
   &:before {
     content: '';
     position: absolute;
-    top: -(#{$vr-m + 1});
+    top: -($vr-m + 1);
     right: ($grid-gutter-width / 2);
     left: ($grid-gutter-width / 2);
     display: block;
