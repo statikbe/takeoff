@@ -85,6 +85,11 @@
   //     right: 0;
   //   }
   // }
+  &.is-submitted {
+    .form__item {
+      opacity: .5;
+    }
+  }
 }
 
 .form__group {

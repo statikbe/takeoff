@@ -12,7 +12,6 @@ app.common = (function($, undefined) {
     this.windowResize();
     $window.on('resize', debounce(app.common.windowResize, 250, false));
 
-    this.fixDrupaljQuery();
     this.svgFallback();
 
     _flyoutNavigation();
@@ -23,10 +22,6 @@ app.common = (function($, undefined) {
       windowWidth: $window.width(),
       windowHeight: $window.height()
     });
-  };
-
-  var _fixDrupaljQuery = function() {
-    jQuery.browser = jQuery.browser || {msie: navigator.userAgent.match(/msie/i) ? true : false};
   };
 
   var _flyoutNavigation = function() {
@@ -82,7 +77,6 @@ app.common = (function($, undefined) {
   return {
     init: _initialize,
     windowResize: _windowResize,
-    fixDrupaljQuery: _fixDrupaljQuery,
     toggleSubmenu: _toggleSubmenu,
     svgFallback: _svgFallback,
     finalize: _finalize
