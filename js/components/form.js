@@ -14,7 +14,6 @@ app.form = (function($, undefined) {
     $form
       .data('is-submitted', true)
       .addClass('is-submitted');
-    return false;
   };
 
   return {
