@@ -117,8 +117,9 @@
     width: 15px;
     text-align: center;
     color: $gray-25;
-    top: 9px;
-    left: 10px;
+    top: 50%;
+    margin-top: -($vr-s);
+    left: 7px;
   }
 }
 .form__input-item {
@@ -148,7 +149,7 @@
     font-weight: $font-weight-regular;
     padding-bottom: 0;
     position: relative;
-    padding-left: 25px;
+    padding-left: 20px;
     input {
       position: absolute;
       left: 0;
@@ -193,6 +194,7 @@ p.form__label {
 .form__select {
   background: none;
   display: block;
+  cursor: pointer;
 }
 
 .form__radio,
