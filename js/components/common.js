@@ -30,7 +30,6 @@ app.common = (function($, undefined) {
         return '<span class="icon -previous"></span> Terug';
       }
     });
-    console.console.log('dsdfgdfg');
   };
 
   var _svgFallback = function() {
