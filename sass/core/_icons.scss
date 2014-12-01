@@ -1,0 +1,1538 @@
+// Include fonts
+//
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('#{$fonts-path}/fontawesome-webfont.eot');
+  src: url('#{$fonts-path}/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+    url('#{$fonts-path}/fontawesome-webfont.woff') format('woff'),
+    url('#{$fonts-path}/fontawesome-webfont.ttf') format('truetype'),
+    url('#{$fonts-path}/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Base class definition
+.#{$fonts-icon-class} {
+  display: inline-block;
+  font-weight: $font-weight-regular;
+  font-family: $font-family-icons;
+  font-style: normal;
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+// Spinning icons
+.#{$fonts-icon-class}--spin {
+  animation: spin 2s infinite linear;
+}
+
+// Icons
+.#{$fonts-icon-class}--glass:before {
+  content: "\f000";
+}
+.#{$fonts-icon-class}--music:before {
+  content: "\f001";
+}
+.#{$fonts-icon-class}--search:before {
+  content: "\f002";
+}
+.#{$fonts-icon-class}--envelope-o:before {
+  content: "\f003";
+}
+.#{$fonts-icon-class}--heart:before {
+  content: "\f004";
+}
+.#{$fonts-icon-class}--star:before {
+  content: "\f005";
+}
+.#{$fonts-icon-class}--star-o:before {
+  content: "\f006";
+}
+.#{$fonts-icon-class}--user:before {
+  content: "\f007";
+}
+.#{$fonts-icon-class}--film:before {
+  content: "\f008";
+}
+.#{$fonts-icon-class}--th-large:before {
+  content: "\f009";
+}
+.#{$fonts-icon-class}--th:before {
+  content: "\f00a";
+}
+.#{$fonts-icon-class}--th-list:before {
+  content: "\f00b";
+}
+.#{$fonts-icon-class}--check:before {
+  content: "\f00c";
+}
+.#{$fonts-icon-class}--remove:before,
+.#{$fonts-icon-class}--close:before,
+.#{$fonts-icon-class}--times:before {
+  content: "\f00d";
+}
+.#{$fonts-icon-class}--search-plus:before {
+  content: "\f00e";
+}
+.#{$fonts-icon-class}--search-minus:before {
+  content: "\f010";
+}
+.#{$fonts-icon-class}--power-off:before {
+  content: "\f011";
+}
+.#{$fonts-icon-class}--signal:before {
+  content: "\f012";
+}
+.#{$fonts-icon-class}--gear:before,
+.#{$fonts-icon-class}--cog:before {
+  content: "\f013";
+}
+.#{$fonts-icon-class}--trash-o:before {
+  content: "\f014";
+}
+.#{$fonts-icon-class}--home:before {
+  content: "\f015";
+}
+.#{$fonts-icon-class}--file-o:before {
+  content: "\f016";
+}
+.#{$fonts-icon-class}--clock-o:before {
+  content: "\f017";
+}
+.#{$fonts-icon-class}--road:before {
+  content: "\f018";
+}
+.#{$fonts-icon-class}--download:before {
+  content: "\f019";
+}
+.#{$fonts-icon-class}--arrow-circle-o-down:before {
+  content: "\f01a";
+}
+.#{$fonts-icon-class}--arrow-circle-o-up:before {
+  content: "\f01b";
+}
+.#{$fonts-icon-class}--inbox:before {
+  content: "\f01c";
+}
+.#{$fonts-icon-class}--play-circle-o:before {
+  content: "\f01d";
+}
+.#{$fonts-icon-class}--rotate-right:before,
+.#{$fonts-icon-class}--repeat:before {
+  content: "\f01e";
+}
+.#{$fonts-icon-class}--refresh:before {
+  content: "\f021";
+}
+.#{$fonts-icon-class}--list-alt:before {
+  content: "\f022";
+}
+.#{$fonts-icon-class}--lock:before {
+  content: "\f023";
+}
+.#{$fonts-icon-class}--flag:before {
+  content: "\f024";
+}
+.#{$fonts-icon-class}--headphones:before {
+  content: "\f025";
+}
+.#{$fonts-icon-class}--volume-off:before {
+  content: "\f026";
+}
+.#{$fonts-icon-class}--volume-down:before {
+  content: "\f027";
+}
+.#{$fonts-icon-class}--volume-up:before {
+  content: "\f028";
+}
+.#{$fonts-icon-class}--qrcode:before {
+  content: "\f029";
+}
+.#{$fonts-icon-class}--barcode:before {
+  content: "\f02a";
+}
+.#{$fonts-icon-class}--tag:before {
+  content: "\f02b";
+}
+.#{$fonts-icon-class}--tags:before {
+  content: "\f02c";
+}
+.#{$fonts-icon-class}--book:before {
+  content: "\f02d";
+}
+.#{$fonts-icon-class}--bookmark:before {
+  content: "\f02e";
+}
+.#{$fonts-icon-class}--print:before {
+  content: "\f02f";
+}
+.#{$fonts-icon-class}--camera:before {
+  content: "\f030";
+}
+.#{$fonts-icon-class}--font:before {
+  content: "\f031";
+}
+.#{$fonts-icon-class}--bold:before {
+  content: "\f032";
+}
+.#{$fonts-icon-class}--italic:before {
+  content: "\f033";
+}
+.#{$fonts-icon-class}--text-height:before {
+  content: "\f034";
+}
+.#{$fonts-icon-class}--text-width:before {
+  content: "\f035";
+}
+.#{$fonts-icon-class}--align-left:before {
+  content: "\f036";
+}
+.#{$fonts-icon-class}--align-center:before {
+  content: "\f037";
+}
+.#{$fonts-icon-class}--align-right:before {
+  content: "\f038";
+}
+.#{$fonts-icon-class}--align-justify:before {
+  content: "\f039";
+}
+.#{$fonts-icon-class}--list:before {
+  content: "\f03a";
+}
+.#{$fonts-icon-class}--dedent:before,
+.#{$fonts-icon-class}--outdent:before {
+  content: "\f03b";
+}
+.#{$fonts-icon-class}--indent:before {
+  content: "\f03c";
+}
+.#{$fonts-icon-class}--video-camera:before {
+  content: "\f03d";
+}
+.#{$fonts-icon-class}--photo:before,
+.#{$fonts-icon-class}--image:before,
+.#{$fonts-icon-class}--picture-o:before {
+  content: "\f03e";
+}
+.#{$fonts-icon-class}--pencil:before {
+  content: "\f040";
+}
+.#{$fonts-icon-class}--map-marker:before {
+  content: "\f041";
+}
+.#{$fonts-icon-class}--adjust:before {
+  content: "\f042";
+}
+.#{$fonts-icon-class}--tint:before {
+  content: "\f043";
+}
+.#{$fonts-icon-class}--edit:before,
+.#{$fonts-icon-class}--pencil-square-o:before {
+  content: "\f044";
+}
+.#{$fonts-icon-class}--share-square-o:before {
+  content: "\f045";
+}
+.#{$fonts-icon-class}--check-square-o:before {
+  content: "\f046";
+}
+.#{$fonts-icon-class}--arrows:before {
+  content: "\f047";
+}
+.#{$fonts-icon-class}--step-backward:before {
+  content: "\f048";
+}
+.#{$fonts-icon-class}--fast-backward:before {
+  content: "\f049";
+}
+.#{$fonts-icon-class}--backward:before {
+  content: "\f04a";
+}
+.#{$fonts-icon-class}--play:before {
+  content: "\f04b";
+}
+.#{$fonts-icon-class}--pause:before {
+  content: "\f04c";
+}
+.#{$fonts-icon-class}--stop:before {
+  content: "\f04d";
+}
+.#{$fonts-icon-class}--forward:before {
+  content: "\f04e";
+}
+.#{$fonts-icon-class}--fast-forward:before {
+  content: "\f050";
+}
+.#{$fonts-icon-class}--step-forward:before {
+  content: "\f051";
+}
+.#{$fonts-icon-class}--eject:before {
+  content: "\f052";
+}
+.#{$fonts-icon-class}--chevron-left:before {
+  content: "\f053";
+}
+.#{$fonts-icon-class}--chevron-right:before {
+  content: "\f054";
+}
+.#{$fonts-icon-class}--plus-circle:before {
+  content: "\f055";
+}
+.#{$fonts-icon-class}--minus-circle:before {
+  content: "\f056";
+}
+.#{$fonts-icon-class}--times-circle:before {
+  content: "\f057";
+}
+.#{$fonts-icon-class}--check-circle:before {
+  content: "\f058";
+}
+.#{$fonts-icon-class}--question-circle:before {
+  content: "\f059";
+}
+.#{$fonts-icon-class}--info-circle:before {
+  content: "\f05a";
+}
+.#{$fonts-icon-class}--crosshairs:before {
+  content: "\f05b";
+}
+.#{$fonts-icon-class}--times-circle-o:before {
+  content: "\f05c";
+}
+.#{$fonts-icon-class}--check-circle-o:before {
+  content: "\f05d";
+}
+.#{$fonts-icon-class}--ban:before {
+  content: "\f05e";
+}
+.#{$fonts-icon-class}--arrow-left:before {
+  content: "\f060";
+}
+.#{$fonts-icon-class}--arrow-right:before {
+  content: "\f061";
+}
+.#{$fonts-icon-class}--arrow-up:before {
+  content: "\f062";
+}
+.#{$fonts-icon-class}--arrow-down:before {
+  content: "\f063";
+}
+.#{$fonts-icon-class}--mail-forward:before,
+.#{$fonts-icon-class}--share:before {
+  content: "\f064";
+}
+.#{$fonts-icon-class}--expand:before {
+  content: "\f065";
+}
+.#{$fonts-icon-class}--compress:before {
+  content: "\f066";
+}
+.#{$fonts-icon-class}--plus:before {
+  content: "\f067";
+}
+.#{$fonts-icon-class}--minus:before {
+  content: "\f068";
+}
+.#{$fonts-icon-class}--asterisk:before {
+  content: "\f069";
+}
+.#{$fonts-icon-class}--exclamation-circle:before {
+  content: "\f06a";
+}
+.#{$fonts-icon-class}--gift:before {
+  content: "\f06b";
+}
+.#{$fonts-icon-class}--leaf:before {
+  content: "\f06c";
+}
+.#{$fonts-icon-class}--fire:before {
+  content: "\f06d";
+}
+.#{$fonts-icon-class}--eye:before {
+  content: "\f06e";
+}
+.#{$fonts-icon-class}--eye-slash:before {
+  content: "\f070";
+}
+.#{$fonts-icon-class}--warning:before,
+.#{$fonts-icon-class}--exclamation-triangle:before {
+  content: "\f071";
+}
+.#{$fonts-icon-class}--plane:before {
+  content: "\f072";
+}
+.#{$fonts-icon-class}--calendar:before {
+  content: "\f073";
+}
+.#{$fonts-icon-class}--random:before {
+  content: "\f074";
+}
+.#{$fonts-icon-class}--comment:before {
+  content: "\f075";
+}
+.#{$fonts-icon-class}--magnet:before {
+  content: "\f076";
+}
+.#{$fonts-icon-class}--chevron-up:before {
+  content: "\f077";
+}
+.#{$fonts-icon-class}--chevron-down:before {
+  content: "\f078";
+}
+.#{$fonts-icon-class}--retweet:before {
+  content: "\f079";
+}
+.#{$fonts-icon-class}--shopping-cart:before {
+  content: "\f07a";
+}
+.#{$fonts-icon-class}--folder:before {
+  content: "\f07b";
+}
+.#{$fonts-icon-class}--folder-open:before {
+  content: "\f07c";
+}
+.#{$fonts-icon-class}--arrows-v:before {
+  content: "\f07d";
+}
+.#{$fonts-icon-class}--arrows-h:before {
+  content: "\f07e";
+}
+.#{$fonts-icon-class}--bar-chart-o:before,
+.#{$fonts-icon-class}--bar-chart:before {
+  content: "\f080";
+}
+.#{$fonts-icon-class}--twitter-square:before {
+  content: "\f081";
+}
+.#{$fonts-icon-class}--facebook-square:before {
+  content: "\f082";
+}
+.#{$fonts-icon-class}--camera-retro:before {
+  content: "\f083";
+}
+.#{$fonts-icon-class}--key:before {
+  content: "\f084";
+}
+.#{$fonts-icon-class}--gears:before,
+.#{$fonts-icon-class}--cogs:before {
+  content: "\f085";
+}
+.#{$fonts-icon-class}--comments:before {
+  content: "\f086";
+}
+.#{$fonts-icon-class}--thumbs-o-up:before {
+  content: "\f087";
+}
+.#{$fonts-icon-class}--thumbs-o-down:before {
+  content: "\f088";
+}
+.#{$fonts-icon-class}--star-half:before {
+  content: "\f089";
+}
+.#{$fonts-icon-class}--heart-o:before {
+  content: "\f08a";
+}
+.#{$fonts-icon-class}--sign-out:before {
+  content: "\f08b";
+}
+.#{$fonts-icon-class}--linkedin-square:before {
+  content: "\f08c";
+}
+.#{$fonts-icon-class}--thumb-tack:before {
+  content: "\f08d";
+}
+.#{$fonts-icon-class}--external-link:before {
+  content: "\f08e";
+}
+.#{$fonts-icon-class}--sign-in:before {
+  content: "\f090";
+}
+.#{$fonts-icon-class}--trophy:before {
+  content: "\f091";
+}
+.#{$fonts-icon-class}--github-square:before {
+  content: "\f092";
+}
+.#{$fonts-icon-class}--upload:before {
+  content: "\f093";
+}
+.#{$fonts-icon-class}--lemon-o:before {
+  content: "\f094";
+}
+.#{$fonts-icon-class}--phone:before {
+  content: "\f095";
+}
+.#{$fonts-icon-class}--square-o:before {
+  content: "\f096";
+}
+.#{$fonts-icon-class}--bookmark-o:before {
+  content: "\f097";
+}
+.#{$fonts-icon-class}--phone-square:before {
+  content: "\f098";
+}
+.#{$fonts-icon-class}--twitter:before {
+  content: "\f099";
+}
+.#{$fonts-icon-class}--facebook:before {
+  content: "\f09a";
+}
+.#{$fonts-icon-class}--github:before {
+  content: "\f09b";
+}
+.#{$fonts-icon-class}--unlock:before {
+  content: "\f09c";
+}
+.#{$fonts-icon-class}--credit-card:before {
+  content: "\f09d";
+}
+.#{$fonts-icon-class}--rss:before {
+  content: "\f09e";
+}
+.#{$fonts-icon-class}--hdd-o:before {
+  content: "\f0a0";
+}
+.#{$fonts-icon-class}--bullhorn:before {
+  content: "\f0a1";
+}
+.#{$fonts-icon-class}--bell:before {
+  content: "\f0f3";
+}
+.#{$fonts-icon-class}--certificate:before {
+  content: "\f0a3";
+}
+.#{$fonts-icon-class}--hand-o-right:before {
+  content: "\f0a4";
+}
+.#{$fonts-icon-class}--hand-o-left:before {
+  content: "\f0a5";
+}
+.#{$fonts-icon-class}--hand-o-up:before {
+  content: "\f0a6";
+}
+.#{$fonts-icon-class}--hand-o-down:before {
+  content: "\f0a7";
+}
+.#{$fonts-icon-class}--arrow-circle-left:before {
+  content: "\f0a8";
+}
+.#{$fonts-icon-class}--arrow-circle-right:before {
+  content: "\f0a9";
+}
+.#{$fonts-icon-class}--arrow-circle-up:before {
+  content: "\f0aa";
+}
+.#{$fonts-icon-class}--arrow-circle-down:before {
+  content: "\f0ab";
+}
+.#{$fonts-icon-class}--globe:before {
+  content: "\f0ac";
+}
+.#{$fonts-icon-class}--wrench:before {
+  content: "\f0ad";
+}
+.#{$fonts-icon-class}--tasks:before {
+  content: "\f0ae";
+}
+.#{$fonts-icon-class}--filter:before {
+  content: "\f0b0";
+}
+.#{$fonts-icon-class}--briefcase:before {
+  content: "\f0b1";
+}
+.#{$fonts-icon-class}--arrows-alt:before {
+  content: "\f0b2";
+}
+.#{$fonts-icon-class}--group:before,
+.#{$fonts-icon-class}--users:before {
+  content: "\f0c0";
+}
+.#{$fonts-icon-class}--chain:before,
+.#{$fonts-icon-class}--link:before {
+  content: "\f0c1";
+}
+.#{$fonts-icon-class}--cloud:before {
+  content: "\f0c2";
+}
+.#{$fonts-icon-class}--flask:before {
+  content: "\f0c3";
+}
+.#{$fonts-icon-class}--cut:before,
+.#{$fonts-icon-class}--scissors:before {
+  content: "\f0c4";
+}
+.#{$fonts-icon-class}--copy:before,
+.#{$fonts-icon-class}--files-o:before {
+  content: "\f0c5";
+}
+.#{$fonts-icon-class}--paperclip:before {
+  content: "\f0c6";
+}
+.#{$fonts-icon-class}--save:before,
+.#{$fonts-icon-class}--floppy-o:before {
+  content: "\f0c7";
+}
+.#{$fonts-icon-class}--square:before {
+  content: "\f0c8";
+}
+.#{$fonts-icon-class}--navicon:before,
+.#{$fonts-icon-class}--reorder:before,
+.#{$fonts-icon-class}--bars:before {
+  content: "\f0c9";
+}
+.#{$fonts-icon-class}--list-ul:before {
+  content: "\f0ca";
+}
+.#{$fonts-icon-class}--list-ol:before {
+  content: "\f0cb";
+}
+.#{$fonts-icon-class}--strikethrough:before {
+  content: "\f0cc";
+}
+.#{$fonts-icon-class}--underline:before {
+  content: "\f0cd";
+}
+.#{$fonts-icon-class}--table:before {
+  content: "\f0ce";
+}
+.#{$fonts-icon-class}--magic:before {
+  content: "\f0d0";
+}
+.#{$fonts-icon-class}--truck:before {
+  content: "\f0d1";
+}
+.#{$fonts-icon-class}--pinterest:before {
+  content: "\f0d2";
+}
+.#{$fonts-icon-class}--pinterest-square:before {
+  content: "\f0d3";
+}
+.#{$fonts-icon-class}--google-plus-square:before {
+  content: "\f0d4";
+}
+.#{$fonts-icon-class}--google-plus:before {
+  content: "\f0d5";
+}
+.#{$fonts-icon-class}--money:before {
+  content: "\f0d6";
+}
+.#{$fonts-icon-class}--caret-down:before {
+  content: "\f0d7";
+}
+.#{$fonts-icon-class}--caret-up:before {
+  content: "\f0d8";
+}
+.#{$fonts-icon-class}--caret-left:before {
+  content: "\f0d9";
+}
+.#{$fonts-icon-class}--caret-right:before {
+  content: "\f0da";
+}
+.#{$fonts-icon-class}--columns:before {
+  content: "\f0db";
+}
+.#{$fonts-icon-class}--unsorted:before,
+.#{$fonts-icon-class}--sort:before {
+  content: "\f0dc";
+}
+.#{$fonts-icon-class}--sort-down:before,
+.#{$fonts-icon-class}--sort-desc:before {
+  content: "\f0dd";
+}
+.#{$fonts-icon-class}--sort-up:before,
+.#{$fonts-icon-class}--sort-asc:before {
+  content: "\f0de";
+}
+.#{$fonts-icon-class}--envelope:before {
+  content: "\f0e0";
+}
+.#{$fonts-icon-class}--linkedin:before {
+  content: "\f0e1";
+}
+.#{$fonts-icon-class}--rotate-left:before,
+.#{$fonts-icon-class}--undo:before {
+  content: "\f0e2";
+}
+.#{$fonts-icon-class}--legal:before,
+.#{$fonts-icon-class}--gavel:before {
+  content: "\f0e3";
+}
+.#{$fonts-icon-class}--dashboard:before,
+.#{$fonts-icon-class}--tachometer:before {
+  content: "\f0e4";
+}
+.#{$fonts-icon-class}--comment-o:before {
+  content: "\f0e5";
+}
+.#{$fonts-icon-class}--comments-o:before {
+  content: "\f0e6";
+}
+.#{$fonts-icon-class}--flash:before,
+.#{$fonts-icon-class}--bolt:before {
+  content: "\f0e7";
+}
+.#{$fonts-icon-class}--sitemap:before {
+  content: "\f0e8";
+}
+.#{$fonts-icon-class}--umbrella:before {
+  content: "\f0e9";
+}
+.#{$fonts-icon-class}--paste:before,
+.#{$fonts-icon-class}--clipboard:before {
+  content: "\f0ea";
+}
+.#{$fonts-icon-class}--lightbulb-o:before {
+  content: "\f0eb";
+}
+.#{$fonts-icon-class}--exchange:before {
+  content: "\f0ec";
+}
+.#{$fonts-icon-class}--cloud-download:before {
+  content: "\f0ed";
+}
+.#{$fonts-icon-class}--cloud-upload:before {
+  content: "\f0ee";
+}
+.#{$fonts-icon-class}--user-md:before {
+  content: "\f0f0";
+}
+.#{$fonts-icon-class}--stethoscope:before {
+  content: "\f0f1";
+}
+.#{$fonts-icon-class}--suitcase:before {
+  content: "\f0f2";
+}
+.#{$fonts-icon-class}--bell-o:before {
+  content: "\f0a2";
+}
+.#{$fonts-icon-class}--coffee:before {
+  content: "\f0f4";
+}
+.#{$fonts-icon-class}--cutlery:before {
+  content: "\f0f5";
+}
+.#{$fonts-icon-class}--file-text-o:before {
+  content: "\f0f6";
+}
+.#{$fonts-icon-class}--building-o:before {
+  content: "\f0f7";
+}
+.#{$fonts-icon-class}--hospital-o:before {
+  content: "\f0f8";
+}
+.#{$fonts-icon-class}--ambulance:before {
+  content: "\f0f9";
+}
+.#{$fonts-icon-class}--medkit:before {
+  content: "\f0fa";
+}
+.#{$fonts-icon-class}--fighter-jet:before {
+  content: "\f0fb";
+}
+.#{$fonts-icon-class}--beer:before {
+  content: "\f0fc";
+}
+.#{$fonts-icon-class}--h-square:before {
+  content: "\f0fd";
+}
+.#{$fonts-icon-class}--plus-square:before {
+  content: "\f0fe";
+}
+.#{$fonts-icon-class}--angle-double-left:before {
+  content: "\f100";
+}
+.#{$fonts-icon-class}--angle-double-right:before {
+  content: "\f101";
+}
+.#{$fonts-icon-class}--angle-double-up:before {
+  content: "\f102";
+}
+.#{$fonts-icon-class}--angle-double-down:before {
+  content: "\f103";
+}
+.#{$fonts-icon-class}--angle-left:before {
+  content: "\f104";
+}
+.#{$fonts-icon-class}--angle-right:before {
+  content: "\f105";
+}
+.#{$fonts-icon-class}--angle-up:before {
+  content: "\f106";
+}
+.#{$fonts-icon-class}--angle-down:before {
+  content: "\f107";
+}
+.#{$fonts-icon-class}--desktop:before {
+  content: "\f108";
+}
+.#{$fonts-icon-class}--laptop:before {
+  content: "\f109";
+}
+.#{$fonts-icon-class}--tablet:before {
+  content: "\f10a";
+}
+.#{$fonts-icon-class}--mobile-phone:before,
+.#{$fonts-icon-class}--mobile:before {
+  content: "\f10b";
+}
+.#{$fonts-icon-class}--circle-o:before {
+  content: "\f10c";
+}
+.#{$fonts-icon-class}--quote-left:before {
+  content: "\f10d";
+}
+.#{$fonts-icon-class}--quote-right:before {
+  content: "\f10e";
+}
+.#{$fonts-icon-class}--spinner:before {
+  content: "\f110";
+}
+.#{$fonts-icon-class}--circle:before {
+  content: "\f111";
+}
+.#{$fonts-icon-class}--mail-reply:before,
+.#{$fonts-icon-class}--reply:before {
+  content: "\f112";
+}
+.#{$fonts-icon-class}--github-alt:before {
+  content: "\f113";
+}
+.#{$fonts-icon-class}--folder-o:before {
+  content: "\f114";
+}
+.#{$fonts-icon-class}--folder-open-o:before {
+  content: "\f115";
+}
+.#{$fonts-icon-class}--smile-o:before {
+  content: "\f118";
+}
+.#{$fonts-icon-class}--frown-o:before {
+  content: "\f119";
+}
+.#{$fonts-icon-class}--meh-o:before {
+  content: "\f11a";
+}
+.#{$fonts-icon-class}--gamepad:before {
+  content: "\f11b";
+}
+.#{$fonts-icon-class}--keyboard-o:before {
+  content: "\f11c";
+}
+.#{$fonts-icon-class}--flag-o:before {
+  content: "\f11d";
+}
+.#{$fonts-icon-class}--flag-checkered:before {
+  content: "\f11e";
+}
+.#{$fonts-icon-class}--terminal:before {
+  content: "\f120";
+}
+.#{$fonts-icon-class}--code:before {
+  content: "\f121";
+}
+.#{$fonts-icon-class}--mail-reply-all:before,
+.#{$fonts-icon-class}--reply-all:before {
+  content: "\f122";
+}
+.#{$fonts-icon-class}--star-half-empty:before,
+.#{$fonts-icon-class}--star-half-full:before,
+.#{$fonts-icon-class}--star-half-o:before {
+  content: "\f123";
+}
+.#{$fonts-icon-class}--location-arrow:before {
+  content: "\f124";
+}
+.#{$fonts-icon-class}--crop:before {
+  content: "\f125";
+}
+.#{$fonts-icon-class}--code-fork:before {
+  content: "\f126";
+}
+.#{$fonts-icon-class}--unlink:before,
+.#{$fonts-icon-class}--chain-broken:before {
+  content: "\f127";
+}
+.#{$fonts-icon-class}--question:before {
+  content: "\f128";
+}
+.#{$fonts-icon-class}--info:before {
+  content: "\f129";
+}
+.#{$fonts-icon-class}--exclamation:before {
+  content: "\f12a";
+}
+.#{$fonts-icon-class}--superscript:before {
+  content: "\f12b";
+}
+.#{$fonts-icon-class}--subscript:before {
+  content: "\f12c";
+}
+.#{$fonts-icon-class}--eraser:before {
+  content: "\f12d";
+}
+.#{$fonts-icon-class}--puzzle-piece:before {
+  content: "\f12e";
+}
+.#{$fonts-icon-class}--microphone:before {
+  content: "\f130";
+}
+.#{$fonts-icon-class}--microphone-slash:before {
+  content: "\f131";
+}
+.#{$fonts-icon-class}--shield:before {
+  content: "\f132";
+}
+.#{$fonts-icon-class}--calendar-o:before {
+  content: "\f133";
+}
+.#{$fonts-icon-class}--fire-extinguisher:before {
+  content: "\f134";
+}
+.#{$fonts-icon-class}--rocket:before {
+  content: "\f135";
+}
+.#{$fonts-icon-class}--maxcdn:before {
+  content: "\f136";
+}
+.#{$fonts-icon-class}--chevron-circle-left:before {
+  content: "\f137";
+}
+.#{$fonts-icon-class}--chevron-circle-right:before {
+  content: "\f138";
+}
+.#{$fonts-icon-class}--chevron-circle-up:before {
+  content: "\f139";
+}
+.#{$fonts-icon-class}--chevron-circle-down:before {
+  content: "\f13a";
+}
+.#{$fonts-icon-class}--html5:before {
+  content: "\f13b";
+}
+.#{$fonts-icon-class}--css3:before {
+  content: "\f13c";
+}
+.#{$fonts-icon-class}--anchor:before {
+  content: "\f13d";
+}
+.#{$fonts-icon-class}--unlock-alt:before {
+  content: "\f13e";
+}
+.#{$fonts-icon-class}--bullseye:before {
+  content: "\f140";
+}
+.#{$fonts-icon-class}--ellipsis-h:before {
+  content: "\f141";
+}
+.#{$fonts-icon-class}--ellipsis-v:before {
+  content: "\f142";
+}
+.#{$fonts-icon-class}--rss-square:before {
+  content: "\f143";
+}
+.#{$fonts-icon-class}--play-circle:before {
+  content: "\f144";
+}
+.#{$fonts-icon-class}--ticket:before {
+  content: "\f145";
+}
+.#{$fonts-icon-class}--minus-square:before {
+  content: "\f146";
+}
+.#{$fonts-icon-class}--minus-square-o:before {
+  content: "\f147";
+}
+.#{$fonts-icon-class}--level-up:before {
+  content: "\f148";
+}
+.#{$fonts-icon-class}--level-down:before {
+  content: "\f149";
+}
+.#{$fonts-icon-class}--check-square:before {
+  content: "\f14a";
+}
+.#{$fonts-icon-class}--pencil-square:before {
+  content: "\f14b";
+}
+.#{$fonts-icon-class}--external-link-square:before {
+  content: "\f14c";
+}
+.#{$fonts-icon-class}--share-square:before {
+  content: "\f14d";
+}
+.#{$fonts-icon-class}--compass:before {
+  content: "\f14e";
+}
+.#{$fonts-icon-class}--toggle-down:before,
+.#{$fonts-icon-class}--caret-square-o-down:before {
+  content: "\f150";
+}
+.#{$fonts-icon-class}--toggle-up:before,
+.#{$fonts-icon-class}--caret-square-o-up:before {
+  content: "\f151";
+}
+.#{$fonts-icon-class}--toggle-right:before,
+.#{$fonts-icon-class}--caret-square-o-right:before {
+  content: "\f152";
+}
+.#{$fonts-icon-class}--euro:before,
+.#{$fonts-icon-class}--eur:before {
+  content: "\f153";
+}
+.#{$fonts-icon-class}--gbp:before {
+  content: "\f154";
+}
+.#{$fonts-icon-class}--dollar:before,
+.#{$fonts-icon-class}--usd:before {
+  content: "\f155";
+}
+.#{$fonts-icon-class}--rupee:before,
+.#{$fonts-icon-class}--inr:before {
+  content: "\f156";
+}
+.#{$fonts-icon-class}--cny:before,
+.#{$fonts-icon-class}--rmb:before,
+.#{$fonts-icon-class}--yen:before,
+.#{$fonts-icon-class}--jpy:before {
+  content: "\f157";
+}
+.#{$fonts-icon-class}--ruble:before,
+.#{$fonts-icon-class}--rouble:before,
+.#{$fonts-icon-class}--rub:before {
+  content: "\f158";
+}
+.#{$fonts-icon-class}--won:before,
+.#{$fonts-icon-class}--krw:before {
+  content: "\f159";
+}
+.#{$fonts-icon-class}--bitcoin:before,
+.#{$fonts-icon-class}--btc:before {
+  content: "\f15a";
+}
+.#{$fonts-icon-class}--file:before {
+  content: "\f15b";
+}
+.#{$fonts-icon-class}--file-text:before {
+  content: "\f15c";
+}
+.#{$fonts-icon-class}--sort-alpha-asc:before {
+  content: "\f15d";
+}
+.#{$fonts-icon-class}--sort-alpha-desc:before {
+  content: "\f15e";
+}
+.#{$fonts-icon-class}--sort-amount-asc:before {
+  content: "\f160";
+}
+.#{$fonts-icon-class}--sort-amount-desc:before {
+  content: "\f161";
+}
+.#{$fonts-icon-class}--sort-numeric-asc:before {
+  content: "\f162";
+}
+.#{$fonts-icon-class}--sort-numeric-desc:before {
+  content: "\f163";
+}
+.#{$fonts-icon-class}--thumbs-up:before {
+  content: "\f164";
+}
+.#{$fonts-icon-class}--thumbs-down:before {
+  content: "\f165";
+}
+.#{$fonts-icon-class}--youtube-square:before {
+  content: "\f166";
+}
+.#{$fonts-icon-class}--youtube:before {
+  content: "\f167";
+}
+.#{$fonts-icon-class}--xing:before {
+  content: "\f168";
+}
+.#{$fonts-icon-class}--xing-square:before {
+  content: "\f169";
+}
+.#{$fonts-icon-class}--youtube-play:before {
+  content: "\f16a";
+}
+.#{$fonts-icon-class}--dropbox:before {
+  content: "\f16b";
+}
+.#{$fonts-icon-class}--stack-overflow:before {
+  content: "\f16c";
+}
+.#{$fonts-icon-class}--instagram:before {
+  content: "\f16d";
+}
+.#{$fonts-icon-class}--flickr:before {
+  content: "\f16e";
+}
+.#{$fonts-icon-class}--adn:before {
+  content: "\f170";
+}
+.#{$fonts-icon-class}--bitbucket:before {
+  content: "\f171";
+}
+.#{$fonts-icon-class}--bitbucket-square:before {
+  content: "\f172";
+}
+.#{$fonts-icon-class}--tumblr:before {
+  content: "\f173";
+}
+.#{$fonts-icon-class}--tumblr-square:before {
+  content: "\f174";
+}
+.#{$fonts-icon-class}--long-arrow-down:before {
+  content: "\f175";
+}
+.#{$fonts-icon-class}--long-arrow-up:before {
+  content: "\f176";
+}
+.#{$fonts-icon-class}--long-arrow-left:before {
+  content: "\f177";
+}
+.#{$fonts-icon-class}--long-arrow-right:before {
+  content: "\f178";
+}
+.#{$fonts-icon-class}--apple:before {
+  content: "\f179";
+}
+.#{$fonts-icon-class}--windows:before {
+  content: "\f17a";
+}
+.#{$fonts-icon-class}--android:before {
+  content: "\f17b";
+}
+.#{$fonts-icon-class}--linux:before {
+  content: "\f17c";
+}
+.#{$fonts-icon-class}--dribbble:before {
+  content: "\f17d";
+}
+.#{$fonts-icon-class}--skype:before {
+  content: "\f17e";
+}
+.#{$fonts-icon-class}--foursquare:before {
+  content: "\f180";
+}
+.#{$fonts-icon-class}--trello:before {
+  content: "\f181";
+}
+.#{$fonts-icon-class}--female:before {
+  content: "\f182";
+}
+.#{$fonts-icon-class}--male:before {
+  content: "\f183";
+}
+.#{$fonts-icon-class}--gittip:before {
+  content: "\f184";
+}
+.#{$fonts-icon-class}--sun-o:before {
+  content: "\f185";
+}
+.#{$fonts-icon-class}--moon-o:before {
+  content: "\f186";
+}
+.#{$fonts-icon-class}--archive:before {
+  content: "\f187";
+}
+.#{$fonts-icon-class}--bug:before {
+  content: "\f188";
+}
+.#{$fonts-icon-class}--vk:before {
+  content: "\f189";
+}
+.#{$fonts-icon-class}--weibo:before {
+  content: "\f18a";
+}
+.#{$fonts-icon-class}--renren:before {
+  content: "\f18b";
+}
+.#{$fonts-icon-class}--pagelines:before {
+  content: "\f18c";
+}
+.#{$fonts-icon-class}--stack-exchange:before {
+  content: "\f18d";
+}
+.#{$fonts-icon-class}--arrow-circle-o-right:before {
+  content: "\f18e";
+}
+.#{$fonts-icon-class}--arrow-circle-o-left:before {
+  content: "\f190";
+}
+.#{$fonts-icon-class}--toggle-left:before,
+.#{$fonts-icon-class}--caret-square-o-left:before {
+  content: "\f191";
+}
+.#{$fonts-icon-class}--dot-circle-o:before {
+  content: "\f192";
+}
+.#{$fonts-icon-class}--wheelchair:before {
+  content: "\f193";
+}
+.#{$fonts-icon-class}--vimeo-square:before {
+  content: "\f194";
+}
+.#{$fonts-icon-class}--turkish-lira:before,
+.#{$fonts-icon-class}--try:before {
+  content: "\f195";
+}
+.#{$fonts-icon-class}--plus-square-o:before {
+  content: "\f196";
+}
+.#{$fonts-icon-class}--space-shuttle:before {
+  content: "\f197";
+}
+.#{$fonts-icon-class}--slack:before {
+  content: "\f198";
+}
+.#{$fonts-icon-class}--envelope-square:before {
+  content: "\f199";
+}
+.#{$fonts-icon-class}--wordpress:before {
+  content: "\f19a";
+}
+.#{$fonts-icon-class}--openid:before {
+  content: "\f19b";
+}
+.#{$fonts-icon-class}--institution:before,
+.#{$fonts-icon-class}--bank:before,
+.#{$fonts-icon-class}--university:before {
+  content: "\f19c";
+}
+.#{$fonts-icon-class}--mortar-board:before,
+.#{$fonts-icon-class}--graduation-cap:before {
+  content: "\f19d";
+}
+.#{$fonts-icon-class}--yahoo:before {
+  content: "\f19e";
+}
+.#{$fonts-icon-class}--google:before {
+  content: "\f1a0";
+}
+.#{$fonts-icon-class}--reddit:before {
+  content: "\f1a1";
+}
+.#{$fonts-icon-class}--reddit-square:before {
+  content: "\f1a2";
+}
+.#{$fonts-icon-class}--stumbleupon-circle:before {
+  content: "\f1a3";
+}
+.#{$fonts-icon-class}--stumbleupon:before {
+  content: "\f1a4";
+}
+.#{$fonts-icon-class}--delicious:before {
+  content: "\f1a5";
+}
+.#{$fonts-icon-class}--digg:before {
+  content: "\f1a6";
+}
+.#{$fonts-icon-class}--pied-piper:before {
+  content: "\f1a7";
+}
+.#{$fonts-icon-class}--pied-piper-alt:before {
+  content: "\f1a8";
+}
+.#{$fonts-icon-class}--drupal:before {
+  content: "\f1a9";
+}
+.#{$fonts-icon-class}--joomla:before {
+  content: "\f1aa";
+}
+.#{$fonts-icon-class}--language:before {
+  content: "\f1ab";
+}
+.#{$fonts-icon-class}--fax:before {
+  content: "\f1ac";
+}
+.#{$fonts-icon-class}--building:before {
+  content: "\f1ad";
+}
+.#{$fonts-icon-class}--child:before {
+  content: "\f1ae";
+}
+.#{$fonts-icon-class}--paw:before {
+  content: "\f1b0";
+}
+.#{$fonts-icon-class}--spoon:before {
+  content: "\f1b1";
+}
+.#{$fonts-icon-class}--cube:before {
+  content: "\f1b2";
+}
+.#{$fonts-icon-class}--cubes:before {
+  content: "\f1b3";
+}
+.#{$fonts-icon-class}--behance:before {
+  content: "\f1b4";
+}
+.#{$fonts-icon-class}--behance-square:before {
+  content: "\f1b5";
+}
+.#{$fonts-icon-class}--steam:before {
+  content: "\f1b6";
+}
+.#{$fonts-icon-class}--steam-square:before {
+  content: "\f1b7";
+}
+.#{$fonts-icon-class}--recycle:before {
+  content: "\f1b8";
+}
+.#{$fonts-icon-class}--automobile:before,
+.#{$fonts-icon-class}--car:before {
+  content: "\f1b9";
+}
+.#{$fonts-icon-class}--cab:before,
+.#{$fonts-icon-class}--taxi:before {
+  content: "\f1ba";
+}
+.#{$fonts-icon-class}--tree:before {
+  content: "\f1bb";
+}
+.#{$fonts-icon-class}--spotify:before {
+  content: "\f1bc";
+}
+.#{$fonts-icon-class}--deviantart:before {
+  content: "\f1bd";
+}
+.#{$fonts-icon-class}--soundcloud:before {
+  content: "\f1be";
+}
+.#{$fonts-icon-class}--database:before {
+  content: "\f1c0";
+}
+.#{$fonts-icon-class}--file-pdf-o:before {
+  content: "\f1c1";
+}
+.#{$fonts-icon-class}--file-word-o:before {
+  content: "\f1c2";
+}
+.#{$fonts-icon-class}--file-excel-o:before {
+  content: "\f1c3";
+}
+.#{$fonts-icon-class}--file-powerpoint-o:before {
+  content: "\f1c4";
+}
+.#{$fonts-icon-class}--file-photo-o:before,
+.#{$fonts-icon-class}--file-picture-o:before,
+.#{$fonts-icon-class}--file-image-o:before {
+  content: "\f1c5";
+}
+.#{$fonts-icon-class}--file-zip-o:before,
+.#{$fonts-icon-class}--file-archive-o:before {
+  content: "\f1c6";
+}
+.#{$fonts-icon-class}--file-sound-o:before,
+.#{$fonts-icon-class}--file-audio-o:before {
+  content: "\f1c7";
+}
+.#{$fonts-icon-class}--file-movie-o:before,
+.#{$fonts-icon-class}--file-video-o:before {
+  content: "\f1c8";
+}
+.#{$fonts-icon-class}--file-code-o:before {
+  content: "\f1c9";
+}
+.#{$fonts-icon-class}--vine:before {
+  content: "\f1ca";
+}
+.#{$fonts-icon-class}--codepen:before {
+  content: "\f1cb";
+}
+.#{$fonts-icon-class}--jsfiddle:before {
+  content: "\f1cc";
+}
+.#{$fonts-icon-class}--life-bouy:before,
+.#{$fonts-icon-class}--life-buoy:before,
+.#{$fonts-icon-class}--life-saver:before,
+.#{$fonts-icon-class}--support:before,
+.#{$fonts-icon-class}--life-ring:before {
+  content: "\f1cd";
+}
+.#{$fonts-icon-class}--circle-o-notch:before {
+  content: "\f1ce";
+}
+.#{$fonts-icon-class}--ra:before,
+.#{$fonts-icon-class}--rebel:before {
+  content: "\f1d0";
+}
+.#{$fonts-icon-class}--ge:before,
+.#{$fonts-icon-class}--empire:before {
+  content: "\f1d1";
+}
+.#{$fonts-icon-class}--git-square:before {
+  content: "\f1d2";
+}
+.#{$fonts-icon-class}--git:before {
+  content: "\f1d3";
+}
+.#{$fonts-icon-class}--hacker-news:before {
+  content: "\f1d4";
+}
+.#{$fonts-icon-class}--tencent-weibo:before {
+  content: "\f1d5";
+}
+.#{$fonts-icon-class}--qq:before {
+  content: "\f1d6";
+}
+.#{$fonts-icon-class}--wechat:before,
+.#{$fonts-icon-class}--weixin:before {
+  content: "\f1d7";
+}
+.#{$fonts-icon-class}--send:before,
+.#{$fonts-icon-class}--paper-plane:before {
+  content: "\f1d8";
+}
+.#{$fonts-icon-class}--send-o:before,
+.#{$fonts-icon-class}--paper-plane-o:before {
+  content: "\f1d9";
+}
+.#{$fonts-icon-class}--history:before {
+  content: "\f1da";
+}
+.#{$fonts-icon-class}--circle-thin:before {
+  content: "\f1db";
+}
+.#{$fonts-icon-class}--header:before {
+  content: "\f1dc";
+}
+.#{$fonts-icon-class}--paragraph:before {
+  content: "\f1dd";
+}
+.#{$fonts-icon-class}--sliders:before {
+  content: "\f1de";
+}
+.#{$fonts-icon-class}--share-alt:before {
+  content: "\f1e0";
+}
+.#{$fonts-icon-class}--share-alt-square:before {
+  content: "\f1e1";
+}
+.#{$fonts-icon-class}--bomb:before {
+  content: "\f1e2";
+}
+.#{$fonts-icon-class}--soccer-ball-o:before,
+.#{$fonts-icon-class}--futbol-o:before {
+  content: "\f1e3";
+}
+.#{$fonts-icon-class}--tty:before {
+  content: "\f1e4";
+}
+.#{$fonts-icon-class}--binoculars:before {
+  content: "\f1e5";
+}
+.#{$fonts-icon-class}--plug:before {
+  content: "\f1e6";
+}
+.#{$fonts-icon-class}--slideshare:before {
+  content: "\f1e7";
+}
+.#{$fonts-icon-class}--twitch:before {
+  content: "\f1e8";
+}
+.#{$fonts-icon-class}--yelp:before {
+  content: "\f1e9";
+}
+.#{$fonts-icon-class}--newspaper-o:before {
+  content: "\f1ea";
+}
+.#{$fonts-icon-class}--wifi:before {
+  content: "\f1eb";
+}
+.#{$fonts-icon-class}--calculator:before {
+  content: "\f1ec";
+}
+.#{$fonts-icon-class}--paypal:before {
+  content: "\f1ed";
+}
+.#{$fonts-icon-class}--google-wallet:before {
+  content: "\f1ee";
+}
+.#{$fonts-icon-class}--cc-visa:before {
+  content: "\f1f0";
+}
+.#{$fonts-icon-class}--cc-mastercard:before {
+  content: "\f1f1";
+}
+.#{$fonts-icon-class}--cc-discover:before {
+  content: "\f1f2";
+}
+.#{$fonts-icon-class}--cc-amex:before {
+  content: "\f1f3";
+}
+.#{$fonts-icon-class}--cc-paypal:before {
+  content: "\f1f4";
+}
+.#{$fonts-icon-class}--cc-stripe:before {
+  content: "\f1f5";
+}
+.#{$fonts-icon-class}--bell-slash:before {
+  content: "\f1f6";
+}
+.#{$fonts-icon-class}--bell-slash-o:before {
+  content: "\f1f7";
+}
+.#{$fonts-icon-class}--trash:before {
+  content: "\f1f8";
+}
+.#{$fonts-icon-class}--copyright:before {
+  content: "\f1f9";
+}
+.#{$fonts-icon-class}--at:before {
+  content: "\f1fa";
+}
+.#{$fonts-icon-class}--eyedropper:before {
+  content: "\f1fb";
+}
+.#{$fonts-icon-class}--paint-brush:before {
+  content: "\f1fc";
+}
+.#{$fonts-icon-class}--birthday-cake:before {
+  content: "\f1fd";
+}
+.#{$fonts-icon-class}--area-chart:before {
+  content: "\f1fe";
+}
+.#{$fonts-icon-class}--pie-chart:before {
+  content: "\f200";
+}
+.#{$fonts-icon-class}--line-chart:before {
+  content: "\f201";
+}
+.#{$fonts-icon-class}--lastfm:before {
+  content: "\f202";
+}
+.#{$fonts-icon-class}--lastfm-square:before {
+  content: "\f203";
+}
+.#{$fonts-icon-class}--toggle-off:before {
+  content: "\f204";
+}
+.#{$fonts-icon-class}--toggle-on:before {
+  content: "\f205";
+}
+.#{$fonts-icon-class}--bicycle:before {
+  content: "\f206";
+}
+.#{$fonts-icon-class}--bus:before {
+  content: "\f207";
+}
+.#{$fonts-icon-class}--ioxhost:before {
+  content: "\f208";
+}
+.#{$fonts-icon-class}--angellist:before {
+  content: "\f209";
+}
+.#{$fonts-icon-class}--cc:before {
+  content: "\f20a";
+}
+.#{$fonts-icon-class}--shekel:before,
+.#{$fonts-icon-class}--sheqel:before,
+.#{$fonts-icon-class}--ils:before {
+  content: "\f20b";
+}
+.#{$fonts-icon-class}--meanpath:before {
+  content: "\f20c";
+}
+

@@ -1,0 +1,65 @@
+// Grid system
+
+// Centered container element
+@mixin container-fluid($gutter: $grid-gutter-width) {
+  @include cf();
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+
+// Creates a wrapper for a series of columns
+@mixin make-row($gutter: $grid-gutter-width) {
+  @include cf();
+  margin-left:  ($gutter / -2);
+  margin-right: ($gutter / -2);
+}
+
+// Creates a single column
+@mixin make-column($index, $columns: $grid-columns, $gutter: $grid-gutter-width) {
+  @include cf();
+  display: block;
+  float: left;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+  width: round(percentage($index / $columns)*1000)/1000;
+  min-height: 1px;
+}
+
+@mixin make-column-push($index, $columns: $grid-columns) {
+  margin-left: round(percentage($index / $columns)*1000)/1000;
+}
+
+// Grid Framework
+
+// add a border to every grid item
+@mixin grid__item--border($colspan) {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -($vr-m + 1);
+    right: ($grid-gutter-width / 2);
+    left: ($grid-gutter-width / 2);
+    display: block;
+    border-top: none;
+  }
+  &:nth-child(n+#{($colspan+1)}) {
+    margin-top: $vr-l;
+    &:before {
+      border-top: 1px solid $gray-25;
+      .section--bg & {
+        border-top-color: $gray-50;
+      }
+    }
+  }
+  @if $colspan != 1 {
+    &:nth-child(-n+#{($colspan)}) {
+      margin-top: 0;
+      &:before {
+        display: none;
+      }
+    }
+  }
+}

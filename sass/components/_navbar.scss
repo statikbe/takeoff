@@ -1,0 +1,63 @@
+.navbar {
+  @include clearfix();
+  background: $gray-100;
+  color: $white;
+  margin-bottom: $vr-m;
+}
+
+
+// Brand/project name
+.navbar__brand {
+  color: $white;
+  background: $color-brand-primary;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+  float: left;
+  padding: $vr-s;
+  text-transform: uppercase;
+  // @include fsRem($font-size-large);
+  &:hover,
+  &:focus,
+  &:visited {
+    color: $white;
+  }
+}
+
+.navbar__nav {
+  @include listreset;
+  float: left;
+  > li {
+    float: left;
+    > a {
+      font-weight: $font-weight-bold;
+      display: inline-block;
+      padding: $vr-s;
+      color: $gray-0;
+      text-decoration: none;
+      &:hover {
+        color: $white;
+        background: $gray-75;
+      }
+      .icon:first-child {
+        margin-right: 5px;
+      }
+      .icon:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.navbar__form {
+  margin-top: 4px;
+  padding: 0 $vr-s;
+  color: $color-text;
+}
+
+
+.navbar__left {
+  float: left;
+}
+.navbar__right {
+  float: right;
+}
