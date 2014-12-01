@@ -1,0 +1,105 @@
+/*! Button */
+// Button
+.btn {
+  @include button-variant($white, $gray-75, $gray-75);
+  @include transitions((background, border));
+  font-weight: $font-weight-regular;
+  color: $white;
+  display: inline-block;
+  background: $gray-75;
+  border-radius: $border-radius-base;
+  border: 1px solid $gray-75;
+  padding: 5px 15px;
+
+  &:active,
+  &.active {
+    outline: 0;
+  }
+
+  // Disabled
+  &--disabled,
+  &[disabled] {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  > .icon:first-child {
+    margin-right: 5px;
+  }
+
+  // + .btn {
+  //   margin-left: $vr-s;
+  // }
+
+  // Modifiers
+  &--default {
+    @include button-variant($color-text, $white, $gray-25);
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+      background-color: $gray-0;
+    }
+  }
+  &--brand {
+    @include button-variant($white, $color-brand-primary, $color-brand-primary);
+  }
+  @each $type, $color in $notice-colors {
+    &--#{$type} {
+      @include button-variant($white, hsl(hue($color), 50%, 60%), hsl(hue($color), 50%, 50%));
+    }
+  }
+
+  &--link {
+    @include fsRem($font-size-base);
+    @extend a;
+    background: none;
+    border: none;
+    padding: 0;
+    text-transform: none;
+    color: $color-link;
+    &:visited {
+      color: $color-link-visited;
+    }
+    &:hover {
+      color: $color-link-hover;
+      background: none;
+    }
+  }
+
+  &--large {
+    @include fsRem($font-size-large);
+    padding: 10px 15px;
+  }
+
+  &--small {
+    padding: 2px 10px;
+  }
+
+  &--xsmall {
+    @include fsRem($font-size-small);
+    padding: 0px 10px;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+}
+
+.btn--close {
+  @include fsRem(18px);
+  padding: 5px;
+  background: $white;
+  border-color: $white;
+  &:hover,
+  &:focus {
+    border-color: $white;
+    background: $white;
+  }
+}
+
+a.btn {
+  text-decoration: none;
+}

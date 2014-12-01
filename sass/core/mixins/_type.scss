@@ -1,0 +1,41 @@
+// Functions
+//
+// Based on the relative-size function from Stitch, http://stitchcss.com/
+@function relative-size( $target, $context: $font-size-base, $unit: rem ) {
+  @return #{$target/$context}$unit;
+}
+@function rs( $target, $context: $font-size-base, $unit: rem ) {
+  @return relative-size($target, $context, $unit);
+}
+@function fs( $target, $context: $font-size-root, $unit: rem ) {
+  @return #{round(($target/$context)*1000)/1000}$unit;
+}
+@function lh( $target, $context: $font-size-base ) {
+  @return round(($target/$context)*1000)/1000;
+}
+
+%ext-listreset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+// Reset the list
+@mixin listreset {
+  @extend %ext-listreset;
+  // ul {
+  //   @extend %ext-listreset;
+  // }
+}
+
+// A CSS image replacement method that does not require the use of text-indent.
+@mixin hide-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+// Convert a px font size to rem
+@mixin fsRem($font-size) {
+  font-size: $font-size;
+  font-size: fs($font-size);
+}
