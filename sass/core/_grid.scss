@@ -26,6 +26,11 @@
       @include grid__item--border(1);
     }
   }
+  &--inv {
+    > [class*=grid__] {
+      float: right;
+    }
+  }
 }
 .grid__item {
   @include make-column($grid-columns, $grid-columns);
@@ -47,6 +52,12 @@
 @for $column from 1 through $grid-columns {
   .grid__#{$column} {
     @include make-column($column);
+    @if ($column == $grid-columns) {
+      margin-top: $vr-m;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }
 
@@ -57,7 +68,11 @@
     .grid--bp-#{$bp} {
       @for $column from 1 through $grid-columns {
         &__#{$column} {
+          margin-top: 0;
           @include make-column($column);
+          + [class*="#{$bp}__#{$grid-columns}"] {
+            margin-top: $vr-m;
+          }
         }
       }
     }
@@ -79,67 +94,57 @@
 }
 
 // Creates the default grid classes
-// Example: .grid--1-col
-// @for $column from 1 through $grid-columns {
-//   .grid-- {
-//     &#{$column}-col {
-//       > .grid__item {
-//         @if ($column == 1) {
-//           float: none;
-//           width: 100%;
-//         }
-//         @include make-column($grid-columns / $column);
-//         &:nth-child(#{$column}n+#{($column+1)}) {
-//           clear: left;
-//         }
-//         &:nth-child(n+#{($column+1)}) {
-//           margin-top: $vr-m;
-//         }
-//       }
-//       &.grid--border {
-//         > .grid__item {
-//           @include grid__item--border($column);
-//         }
-//       }
-//       &.grid--narrow {
-//         > .grid__item {
-//           &:nth-child(n+#{($column+1)}) {
-//             margin-top: 15px;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+// Example: .grid--2-col
+@each $px in $breakpoints {
+  .grid {
+    @for $column from 2 through $grid-columns {
+      &--#{$column}-col {
+        > .grid__item {
+          @include make-column($grid-columns / $column);
+          &:nth-child(n+#{($column+1)}) {
+            margin-top: $vr-m;
+          }
+          &:nth-child(-n+#{($column)}) {
+            margin-top: 0;
+          }
+          &:nth-child(#{$column}n+#{($column+1)}) {
+            clear: left;
+          }
+        }
+        &.grid--border {
+          > .grid__item {
+            @include grid__item--border($column);
+          }
+        }
+      }
+    }
+  }
+}
 
 // Creates all the breakpoint grid classes
-// Examples: .grid--bp-m-2-col, .grid--bp-s-1-col
+// Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width'){
     .grid--bp-#{$bp} {
       @for $column from 1 through $grid-columns {
         &-#{$column}-col {
           > .grid__item {
-            margin-top: 0;
             @include make-column($grid-columns / $column);
+            &:nth-child(-n+#{($column)}) {
+              margin-top: 0;
+            }
             &:nth-child(n+#{($column+1)}) {
               margin-top: $vr-m;
+            }
+            &:nth-child(n+1) {
+              clear: none;
+            }
+            &:nth-child(#{$column}n+#{($column+1)}) {
+              clear: left;
             }
             @if $column != 1 {
               &:nth-child(-n+#{($column)}) {
                 margin-top: 0;
-              }
-            }
-          }
-          &.grid--connected {
-            > .grid__item {
-              margin-top: 0;
-            }
-          }
-          &.grid--narrow {
-            > .grid__item {
-              &:nth-child(n+#{($column+1)}) {
-                margin-top: 15px;
               }
             }
           }
@@ -165,33 +170,43 @@
 
 .grid {
   &--eqh {
-    .flexbox & {
-      display: flex;
-      flex-wrap: wrap;
-      &:before,
-      &:after {
-        display: none;
-      }
+    display: flex;
+    flex-wrap: wrap;
+    &:before,
+    &:after {
+      display: block;
     }
   }
-}
-.flexbox {
   .eqh {
     &__item {
       display: flex;
       flex-direction: column;
       align-content: stretch;
-      &__child {
-        flex-grow: 1;
+      &:before,
+      &:after {
+        display: none;
       }
     }
+    &__panel {
+      flex: 1;
+    }
   }
-  &--end {
+}
+.eqh {
+  &__item {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-content: stretch;
+    &__child {
+      flex-grow: 1;
+    }
   }
-  &--center {
-    display: flex;
-    align-items: center;
-  }
+}
+&--end {
+  display: flex;
+  align-items: flex-end;
+}
+&--center {
+  display: flex;
+  align-items: center;
 }
