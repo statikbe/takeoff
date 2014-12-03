@@ -26,6 +26,9 @@
   &--alt {
     color: $headings-color-alt;
   }
+  &:first-child {
+    margin-top: 0;
+  }
 }
 .heading--1 {
   @extend .heading;
