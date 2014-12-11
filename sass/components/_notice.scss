@@ -1,7 +1,7 @@
 .notice {
   border: 1px solid;
-  padding: $vr-m;
-  padding-right: $vr-l;
+  padding: $rh-sml;
+  padding-right: $rh-med;
   margin-bottom: $line-height-base;
   position: relative;
 
@@ -24,7 +24,7 @@
     margin-bottom: 0;
   }
   > p + p {
-    margin-top: $vr-s;
+    margin-top: $rh-xsm;
   }
   .btn--close {
     position: absolute;

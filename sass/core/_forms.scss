@@ -28,7 +28,7 @@
 }
 
 .form {
-  margin-bottom: $vr-m;
+  margin-bottom: $rh-sml;
   // Modifiers
 
   // &--inline {
@@ -93,7 +93,7 @@
 }
 
 .form__group {
-  margin-bottom: $vr-m;
+  margin-bottom: $rh-sml;
   h1,
   h2,
   h3,
@@ -104,7 +104,7 @@
   }
 }
 .form__item {
-  margin-bottom: $vr-m;
+  margin-bottom: $rh-sml;
   &--radios,
   &--checkboxes {}
 }
@@ -118,7 +118,7 @@
     text-align: center;
     color: $gray-25;
     top: 50%;
-    margin-top: -($vr-s);
+    margin-top: -($rh-xsm);
     left: 7px;
   }
 }
@@ -212,7 +212,7 @@ p.form__label {
 
 .form__actions {
   clear: both;
-  margin-top: $vr-s;
+  margin-top: $rh-xsm;
   .btn + .btn {
     margin-left: 5px;
   }

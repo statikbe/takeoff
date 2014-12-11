@@ -14,13 +14,13 @@ img {
   }
   &--right {
     float: right;
-    margin-left: $vr-m;
-    margin-bottom: $vr-s;
+    margin-left: $rh-sml;
+    margin-bottom: $rh-xsm;
   }
   &--left {
     float: left;
-    margin-right: $vr-m;
-    margin-bottom: $vr-s;
+    margin-right: $rh-sml;
+    margin-bottom: $rh-xsm;
   }
 }
 

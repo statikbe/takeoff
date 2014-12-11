@@ -103,10 +103,12 @@ $grid-columns: 12 !default;
 $grid-container-width: 1200px !default;
 
 
-// Vertical Rhythm
-$vr-s: ($line-height-base / 2);
-$vr-m: $line-height-base;
-$vr-l: ($line-height-base * 2);
+// Rhythm
+$rh-xxs: 5px;
+$rh-xsm: 10px;
+$rh-sml: 20px;
+$rh-med: 30px;
+$rh-lrg: 50px;
 
 // Transitions
 // -----------
