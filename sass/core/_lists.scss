@@ -1,0 +1,102 @@
+%list {
+  @include listreset();
+  margin: 0 0 $line-height-paragraph;
+  li {
+    @extend %list-li;
+    + li,
+    > ul,
+    > ol {
+      margin-top: round($line-height-paragraph / 2);
+    }
+  }
+  ul, ol {
+    @include listreset();
+    margin-bottom: 0;
+  }
+}
+
+%list-li {
+  position: relative;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    color: $blue-75;
+  }
+}
+
+%ul-li {
+  padding-left: 16px;
+  &:before {
+    content: "\203a";
+    top: -0.25em;
+    font-size: 130%;
+  }
+}
+
+%ul {
+  @extend %list;
+  li {
+    @extend %ul-li;
+  }
+}
+%ol {
+  @extend %list;
+  counter-reset: numbering;
+  li {
+    padding-left: 32px;
+    &:before {
+      content: counter(numbering) ".";
+      counter-increment: numbering;
+      position: absolute;
+      width: 28px;
+    }
+    ol {
+      counter-reset: numbering;
+    }
+  }
+}
+
+.wysiwyg ul,
+.list--unordered {
+  @extend %ul;
+}
+.wysiwyg ol,
+.list--ordered {
+  @extend %ol;
+}
+
+.list {
+  &--reset {
+    @include listreset;
+  }
+  &--unstyled {
+    @extend .list--reset;
+    li {
+      + li {
+        margin-top: round($line-height-paragraph / 2);
+      }
+    }
+  }
+  &--hz {
+    @include cf;
+    @include listreset;
+    margin-top: -(round($rh-t / 2) * 2);
+    margin-bottom: $line-height-paragraph;
+    li {
+      float: left;
+      margin: round($rh-t / 2);
+    }
+  }
+  &--border {
+    @include listreset;
+    li {
+      + li {
+        margin-top: $rh-s;
+        padding-top: $rh-s;
+        border-top: 1px solid $gray-10;
+      }
+    }
+  }
+}

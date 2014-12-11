@@ -1,5 +1,3 @@
-/*! Button */
-// Button
 .btn {
   @include button-variant($white, $gray-75, $gray-75);
   @include transitions((background, border));

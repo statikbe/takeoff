@@ -1,9 +1,10 @@
 %ext-input-style {
   @include transitions((color, background, border));
-  border: 1px solid $gray-25;
-  padding: 5px 10px;
   width: 100%;
+  padding: 14px 15px;
+  border: 1px solid $gray-25;
   background-color: $white;
+  color: $color-text;
   line-height: normal;
   &:focus {
     outline: none;
@@ -22,8 +23,7 @@
     background: $gray-0;
   }
   .parsley-error & {
-    // border: 2px solid $red-50;
-    background-color: lighten(map-get($notice-colors, 'danger'), 55%);
+    background-color: lighten(map-get($notice-colors, 'danger'), 52%);
   }
 }
 
@@ -37,6 +37,28 @@
   //     float: left;
   //     margin-bottom: 0;
   //   }
+  // }
+
+  // &--hz {
+  //   margin: 0;
+  //   @include breakpoint(map-get($breakpoints, xsm)){
+  //     position: relative;
+  //     .form__fields {
+  //       padding-right: 180px;
+  //     }
+  //     .form__actions {
+  //       position: absolute;
+  //       right: 0;
+  //       bottom: 0;
+  //       width: 160px;
+  //       margin: 0;
+  //     }
+  //     .form__btn {
+  //       display: block;
+  //       width: 100%;
+  //       min-width: initial;
+  //     }
+  //   };
   // }
 
   // Search form
@@ -86,8 +108,19 @@
   //   }
   // }
   &.is-submitted {
-    .form__item {
-      opacity: .5;
+    position: relative;
+    opacity: .5;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      cursor: wait;
+      cursor: progress;
     }
   }
 }
@@ -113,13 +146,12 @@
   position: relative;
   label {
     position: absolute;
+    top: 9px;
+    left: 10px;
     z-index: 1;
     width: 15px;
-    text-align: center;
     color: $gray-25;
-    top: 50%;
-    margin-top: -($rh-xsm);
-    left: 7px;
+    text-align: center;
   }
 }
 .form__input-item {
@@ -176,7 +208,6 @@ p.form__label {
 .form__textarea {
   @extend %ext-input-style;
   min-height: 100px;
-  padding: 7px;
 }
 .form__select-item {
   @extend %ext-input-style;
@@ -218,15 +249,40 @@ p.form__label {
   }
 }
 
+.form__btn {
+  @extend .btn;
+  min-width: 140px;
+  .is-submitted & {
+    background: rgba($purple-75, .5);
+    overflow: hidden;
+    cursor: not-allowed;
+    box-shadow: 2px 2px 0 rgba($purple-100, .5);
+    &:before {
+      content: '';
+      display: block;
+      animation: move .75s linear infinite;
+      position: absolute;
+      top: 0;
+      left: -100%;
+      z-index: 10;
+      height: 3px;
+      width: 100%;
+      background: $purple-100;
+    }
+  }
+
 .form__description,
 .form__help {
-  @include fsRem(13px);
-  // font-style: italic;
   clear: both;
   color: $gray-50;
+  @include fsRem(13px);
+  // font-style: italic;
 }
 
 // Error handeling
+.parsley-errors-container {
+  clear: both;
+}
 .parsley-errors-list {
   @include listreset;
   @include fsRem(13px);
