@@ -69,9 +69,17 @@ app.common = (function($, undefined) {
   };
 
   var _finalize = function() {
+    var doneClass = 'js-done';
+
     $window.on('load', function(){
-      $html.addClass('js-done');
+      $html.addClass(doneClass);
     });
+    function delayedJS() {
+      if(!$html.hasClass(doneClass)) {
+        $html.addClass(doneClass);
+      }
+    }
+    window.setTimeout(delayedJS, 4000);
   };
 
   return {
