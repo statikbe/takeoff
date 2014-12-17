@@ -100,9 +100,10 @@ module.exports = function(grunt) {
             all: {
                 // specify files in array format with multiple src-dest mapping
                 files: [
-                    // rasterize all SVG files in "img" and its subdirectories to "img/png"
+                    // rasterize all SVG files in "img/svg" and its subdirectories to "img/svg/fallback"
                     {
-                        src: ['img/**/*.svg'],
+                        cwd: 'img/svg/',
+                        src: ['**/*.svg'],
                         dest: 'img/svg/fallback/'
                     }
                 ]
