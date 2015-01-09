@@ -98,11 +98,10 @@ module.exports = function(grunt) {
         // SVG2PNG
         svg2png: {
             all: {
-                // specify files in array format with multiple src-dest mapping
                 files: [
-                    // rasterize all SVG files in "img" and its subdirectories to "img/png"
                     {
-                        src: ['img/**/*.svg'],
+                        cwd: 'img/svg/',
+                        src: ['**/*.svg'],
                         dest: 'img/svg/fallback/'
                     }
                 ]
