@@ -1,0 +1,44 @@
+%status-block {
+  @extend .block--panel
+}
+.block {
+  display: block;
+  &--panel,
+  &--bg,
+  &--indented {
+    padding: $rh-med;
+    @include breakpoint(map-get($breakpoints, lrg)){
+      padding: $rh-lrg;
+    };
+  }
+  &--bg {
+    // color: $white;
+    // a {
+    //   color: inherit;
+    // }
+  }
+  &--panel {
+    background: $gray-0;
+    border: 1px solid $gray-25;
+  }
+  &--indented {
+    padding: 0;
+    @include breakpoint(map-get($breakpoints, med)){
+      padding: $rh-med;
+    };
+  }
+
+  // Status messages
+  &--success {
+    @extend %status-block;
+    background-color: lighten(map-get($notice-colors, 'success'), 52%);
+    border-color: map-get($notice-colors, 'success');
+    color: lighten(map-get($notice-colors, 'success'), 25%);
+  }
+  &--error {
+    @extend %status-block;
+    background-color: lighten(map-get($notice-colors, 'danger'), 52%);
+    border-color: map-get($notice-colors, 'danger');
+    color: lighten(map-get($notice-colors, 'danger'), 25%);
+  }
+}
