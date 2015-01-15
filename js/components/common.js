@@ -1,7 +1,5 @@
 window.app = window.app || {};
 
-window.ParsleyValidator.setLocale('nl');
-
 app.common = (function($, undefined) {
   var $document = $(document),
       $window = $(window),

@@ -10,6 +10,7 @@ window.ParsleyConfig = {
     return ParsleyField.$element.closest('.form__item').children('.parsley-errors-container');
   }
 };
+window.ParsleyValidator.setLocale('nl');
 
 app.form = (function($, undefined) {
   var $forms = $('form');
