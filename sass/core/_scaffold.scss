@@ -89,8 +89,10 @@ a {
   &:visited {
     color: $color-link-visited;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     color: $color-link-hover;
+    text-decoration: none;
   }
 }
 

@@ -14,12 +14,18 @@
 // Base class definition
 .#{$fonts-icon-class} {
   display: inline-block;
+  border: none;
   font-weight: $font-weight-regular;
   font-family: $font-family-icons;
   font-style: normal;
   font-size: inherit;
   line-height: inherit;
+  text-indent: 0;
   vertical-align: baseline;
+  &:before,
+  &:after {
+    text-transform: none;
+  }
 }
 
 // Spinning icons
