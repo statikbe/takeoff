@@ -98,11 +98,10 @@ module.exports = function(grunt) {
         // SVG2PNG
         svg2png: {
             all: {
-                // specify files in array format with multiple src-dest mapping
                 files: [
-                    // rasterize all SVG files in "img" and its subdirectories to "img/png"
                     {
-                        src: ['img/**/*.svg'],
+                        cwd: 'img/svg/',
+                        src: ['**/*.svg'],
                         dest: 'img/svg/fallback/'
                     }
                 ]
@@ -250,7 +249,7 @@ module.exports = function(grunt) {
     // Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
-    grunt.registerTask('img', ['clean:img', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
+    grunt.registerTask('img', ['clean:img', 'svg2png', 'imagemin','svgmin', 'copy:images', 'copy:svgs']);
     grunt.registerTask('fonts', ['copy:fonts']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
     grunt.registerTask('build', ['css', 'js', 'img', 'fonts']);
