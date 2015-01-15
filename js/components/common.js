@@ -1,7 +1,6 @@
 window.app = window.app || {};
 
 app.common = (function($, undefined) {
-
   var $document = $(document),
       $window = $(window),
       $html = $('html'),
