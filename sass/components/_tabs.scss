@@ -48,7 +48,8 @@
     padding: $rh-xsm $rh-sml;
     background: $gray-0;
     color: $gray-50;
-    &:hover {
+    &:hover,
+    &:focus {
       color: $color-brand-primary;
     }
   }

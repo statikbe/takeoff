@@ -1,12 +1,12 @@
 %list {
   @include listreset();
-  margin: 0 0 $line-height-paragraph;
+  margin: 0 0 $line-height-base;
   li {
     @extend %list-li;
     + li,
     > ul,
     > ol {
-      margin-top: round($line-height-paragraph / 2);
+      margin-top: round($line-height-base / 2);
     }
   }
   ul, ol {
@@ -22,7 +22,7 @@
     top: 0;
     left: 0;
     display: block;
-    color: $blue-75;
+    // color: $blue-75;
   }
 }
 
@@ -75,27 +75,27 @@
     @extend .list--reset;
     li {
       + li {
-        margin-top: round($line-height-paragraph / 2);
+        margin-top: round($line-height-base / 2);
       }
     }
   }
   &--hz {
     @include cf;
     @include listreset;
-    margin-top: -(round($rh-t / 2) * 2);
-    margin-bottom: $line-height-paragraph;
+    margin-top: -(round($rh-xxs / 2) * 2);
+    margin-bottom: $line-height-base;
     li {
       float: left;
-      margin: round($rh-t / 2);
+      margin: round($rh-xxs / 2);
     }
   }
   &--border {
     @include listreset;
     li {
       + li {
-        margin-top: $rh-s;
-        padding-top: $rh-s;
-        border-top: 1px solid $gray-10;
+        margin-top: $rh-sml;
+        padding-top: $rh-sml;
+        border-top: 1px solid $gray-25;
       }
     }
   }

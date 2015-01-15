@@ -1,7 +1,7 @@
-.gallery{
+.gallery {
   @include cf;
   clear: both;
-  margin-bottom: 20px;
+  margin-bottom: $rh-med;
   img {
     width: 100%;
     height: auto;

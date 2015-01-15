@@ -6,13 +6,14 @@
   li {
     display: inline-block;
     & + li {
-      margin-left: 5px;
+      margin-left: $rh-xxs;
     }
     &.here {
       a {
         background: $black;
         color: $white;
-        &:hover {
+        &:hover,
+        &:focus {
 
         }
       }

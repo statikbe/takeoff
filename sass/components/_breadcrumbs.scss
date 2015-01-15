@@ -1,16 +1,23 @@
 .breadcrumb {
   clear: both;
-  margin: 20px 0;
+  margin: 0 0 $rh-med;
   color: $color-text;
-  font-size: fs(12px);
-  font-weight: bold;
+  @include fsRem(13px);
+  text-decoration: none;
   a {
-    text-decoration: none;
-    &:hover {
+    &.active {
+      color: $color-text;
+    }
+    &:hover,
+    &:focus {
       text-decoration: underline;
     }
   }
-  .active {
-
-  }
+  // &__divider {
+  //   vertical-align: bottom;
+  //   display: inline-block;
+  //   color: $gray-75;
+  //   @include fsRem(16px);
+  //   font-family: $font-family-icons;
+  // }
 }

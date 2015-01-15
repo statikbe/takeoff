@@ -253,10 +253,10 @@ p.form__label {
   @extend .btn;
   min-width: 140px;
   .is-submitted & {
-    background: rgba($purple-75, .5);
     overflow: hidden;
     cursor: not-allowed;
-    box-shadow: 2px 2px 0 rgba($purple-100, .5);
+    // background: rgba($purple-75, .5);
+    // box-shadow: 2px 2px 0 rgba($purple-100, .5);
     &:before {
       content: '';
       display: block;
@@ -267,10 +267,10 @@ p.form__label {
       z-index: 10;
       height: 3px;
       width: 100%;
-      background: $purple-100;
+      // background: $purple-100;
     }
   }
-
+}
 .form__description,
 .form__help {
   clear: both;
