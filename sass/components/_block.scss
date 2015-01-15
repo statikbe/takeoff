@@ -1,0 +1,9 @@
+.block {
+  display: block;
+  @include breakpoint(map-get($breakpoints, sml), max-width) {
+    padding: 0 $r-sml;
+  }
+  &--panel {
+    padding: $r-lrg;
+  }
+}
