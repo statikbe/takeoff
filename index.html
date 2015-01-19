@@ -122,19 +122,6 @@
     app.variables = {
       assetsPath: "/",
     };
-
-    // Parsley config
-    window.ParsleyConfig = window.ParsleyConfig || {};
-    window.ParsleyConfig = {
-      // trigger: 'change, focusout',
-      excluded: 'input:not(:visible)',
-      classHandler: function (ParsleyField) {
-        return ParsleyField.$element.closest('.form__item');
-      },
-      errorsContainer: function (ParsleyField) {
-        return ParsleyField.$element.closest('.form__item');
-      }
-    };
   </script>
   <script type="text/javascript" src="public/js/main.min.js"></script>
 </body>

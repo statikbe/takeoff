@@ -39,3 +39,21 @@
   font-size: $font-size;
   font-size: fs($font-size);
 }
+
+@mixin link-variant($link: $color-link, $hover: null, $visited: null) {
+  @if $visited == null {
+    $visited: $link;
+  }
+  @if $hover == null {
+    $hover: $link;
+  }
+
+  color: $link;
+  &:visited {
+    color: $visited;
+  }
+  &:hover,
+  &:focus {
+    color: $hover;
+  }
+}

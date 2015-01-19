@@ -39,14 +39,14 @@
   &:before {
     content: '';
     position: absolute;
-    top: -($vr-m + 1);
+    top: -($rh-sml + 1);
     right: ($grid-gutter-width / 2);
     left: ($grid-gutter-width / 2);
     display: block;
     border-top: none;
   }
   &:nth-child(n+#{($colspan+1)}) {
-    margin-top: $vr-l;
+    margin-top: $rh-med;
     &:before {
       border-top: 1px solid $gray-25;
       .section--bg & {

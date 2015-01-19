@@ -51,7 +51,8 @@
     color: $color-text;
     text-decoration: none;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
-    &:hover {
+    &:hover,
+    &:focus {
       background: darken($gray-0, 5%);
       color: $gray-100;
     }

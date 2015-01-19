@@ -3,7 +3,7 @@
   font-size: 0;
   position: relative;
   overflow: hidden;
-  margin-bottom: $vr-s;
+  margin-bottom: $rh-xsm;
   &:after {
     content: '';
     display: block;
@@ -45,10 +45,11 @@
   a {
     display: block;
     text-decoration: none;
-    padding: $vr-s $vr-m;
+    padding: $rh-xsm $rh-sml;
     background: $gray-0;
     color: $gray-50;
-    &:hover {
+    &:hover,
+    &:focus {
       color: $color-brand-primary;
     }
   }

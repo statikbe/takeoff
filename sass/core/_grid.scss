@@ -16,10 +16,10 @@
 .grid {
   @include make-row;
   &--vr-m {
-    margin-bottom: $vr-m;
+    margin-bottom: $rh-sml;
   }
   &--vr-l {
-    margin-bottom: $vr-l;
+    margin-bottom: $rh-med;
   }
   &.grid--border {
     > .grid__item {
@@ -36,7 +36,7 @@
   @include make-column($grid-columns, $grid-columns);
   margin-top: 0;
   &:nth-child(n+2) {
-    margin-top: $vr-m;
+    margin-top: $rh-sml;
   }
 }
 
@@ -53,7 +53,7 @@
   .grid__#{$column} {
     @include make-column($column);
     @if ($column == $grid-columns) {
-      margin-top: $vr-m;
+      margin-top: $rh-sml;
       &:first-child {
         margin-top: 0;
       }
@@ -71,7 +71,7 @@
           margin-top: 0;
           @include make-column($column);
           + [class*="#{$bp}__#{$grid-columns}"] {
-            margin-top: $vr-m;
+            margin-top: $rh-sml;
           }
         }
       }
@@ -102,7 +102,7 @@
         > .grid__item {
           @include make-column($grid-columns / $column);
           &:nth-child(n+#{($column+1)}) {
-            margin-top: $vr-m;
+            margin-top: $rh-sml;
           }
           &:nth-child(-n+#{($column)}) {
             margin-top: 0;
@@ -134,7 +134,7 @@
               margin-top: 0;
             }
             &:nth-child(n+#{($column+1)}) {
-              margin-top: $vr-m;
+              margin-top: $rh-sml;
             }
             &:nth-child(n+1) {
               clear: none;
@@ -174,7 +174,12 @@
     flex-wrap: wrap;
     &:before,
     &:after {
-      display: block;
+      .flexbox & {
+        display: none;
+      }
+      .no-flexbox & {
+        display: table;
+      }
     }
   }
   .eqh {
@@ -197,16 +202,12 @@
     display: flex;
     flex-direction: column;
     align-content: stretch;
-    &__child {
-      flex-grow: 1;
+    &:before,
+    &:after {
+      display: none;
     }
   }
-}
-&--end {
-  display: flex;
-  align-items: flex-end;
-}
-&--center {
-  display: flex;
-  align-items: center;
+  &__panel {
+    flex: 1 1 auto;
+  }
 }

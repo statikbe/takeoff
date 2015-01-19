@@ -38,6 +38,7 @@
       background: gray;
       padding: 8px 10px;
       &:hover,
+      &:focus,
       &.active {
         color: cyan;
       }
@@ -59,6 +60,7 @@
       display: block;
       padding: 10px;
       &:hover,
+      &:focus,
       &.active {
         color: pink;
       }

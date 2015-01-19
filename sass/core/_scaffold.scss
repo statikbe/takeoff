@@ -78,6 +78,9 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
+textarea {
+  resize: vertical;
+}
 
 // Links
 a {
@@ -86,8 +89,10 @@ a {
   &:visited {
     color: $color-link-visited;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     color: $color-link-hover;
+    text-decoration: none;
   }
 }
 
@@ -105,7 +110,7 @@ hr {
 
 // SVG
 svg {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 /*! == Helper classes == */

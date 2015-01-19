@@ -1,0 +1,146 @@
+%list {
+  @include listreset();
+  margin: 0 0 $line-height-base;
+  li {
+    @extend %list-li;
+    + li,
+    > ul,
+    > ol {
+      margin-top: round($line-height-base / 2);
+    }
+  }
+  ul, ol {
+    @include listreset();
+    margin-bottom: 0;
+  }
+}
+
+%list-li {
+  position: relative;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    // color: $blue-75;
+  }
+}
+
+%ul-li {
+  padding-left: 16px;
+  &:before {
+    content: "\203a";
+    top: -0.25em;
+    font-size: 130%;
+  }
+}
+
+%ul {
+  @extend %list;
+  li {
+    @extend %ul-li;
+  }
+}
+%ol {
+  @extend %list;
+  counter-reset: numbering;
+  li {
+    padding-left: 32px;
+    &:before {
+      content: counter(numbering) ".";
+      counter-increment: numbering;
+      position: absolute;
+      width: 28px;
+    }
+    ol {
+      counter-reset: numbering;
+    }
+  }
+}
+
+.wysiwyg ul,
+.list--unordered {
+  @extend %ul;
+}
+.wysiwyg ol,
+.list--ordered {
+  @extend %ol;
+}
+
+.list {
+  &--reset {
+    @include listreset;
+  }
+  &--unstyled {
+    @extend .list--reset;
+    li {
+      + li {
+        margin-top: round($line-height-base / 2);
+      }
+    }
+  }
+  &--inline {
+    @include listreset;
+    font-size: 0;
+    margin-right: -10px;
+    margin-left: -10px;
+    li {
+      display: inline-block;
+      font-size: fs($font-size-base);
+      padding: 0 10px;
+    }
+  }
+  &--border {
+    @include listreset;
+    li {
+      + li {
+        margin-top: $rh-sml;
+        padding-top: $rh-sml;
+        border-top: 1px solid $gray-25;
+      }
+    }
+  }
+  // &--icon {
+  //   @include listreset;
+  //   li {
+  //     position: relative;
+  //     padding-left: 15px;
+  //     &:before {
+  //       content: '›';
+  //       position: absolute;
+  //       left: 0;
+  //       top: 0;
+  //     }
+  //   }
+  // }
+}
+
+// dl {
+//   dt {
+//     font-weight: $font-weight-bold;
+//   }
+//   dd {
+//     margin-left: 0;
+//     & + dt {
+//       margin-top: 5px;
+//     }
+//   }
+// }
+
+// @include breakpoint(map-get($breakpoints, med)) {
+//   .dl--horizontal {
+//     dt {
+//       float: left;
+//       width: 160px;
+//       overflow: hidden;
+//       clear: left;
+//       text-align: right;
+//       text-overflow: ellipsis;
+//       white-space: nowrap;
+//       margin-top: 0;
+//     }
+//     dd {
+//       margin-left: 180px;
+//     }
+//   }
+// }

@@ -1,0 +1,96 @@
+.excerpt {
+  @include cf;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  &__header {
+    overflow: hidden;
+    margin-bottom: $rh-med;
+    h1, h2, h3, h4 {
+      margin-bottom: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__footer {
+    margin-top: $rh-med;
+  }
+  &__img {
+    overflow: hidden;
+    background: $gray-0;
+    text-align: center;
+    img {
+      @include transitions(transform);
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+  &__link {
+    @include transitions(color);
+    display: inline-block;
+    color: $color-link;
+    text-decoration: underline;
+  }
+}
+
+.excerpt__aside {
+  .excerpt__img {
+    text-align: center;
+    img {
+      width: auto;
+    }
+  }
+  @include breakpoint(map-get($breakpoints, sml)){
+    float: left;
+    width: 140px;
+    margin-right: 20px;
+  };
+  @include breakpoint(map-get($breakpoints, sml), 'max-width'){
+    margin-bottom: $rh-med;
+  };
+  @include breakpoint(map-get($breakpoints, lrg)){
+    ~ .excerpt__main {
+      margin-left: 160px;
+    }
+  };
+  .excerpt--hz-large & {
+    @include breakpoint(map-get($breakpoints, sml)){
+      width: 140px;
+      margin-right: 20px;
+    };
+    @include breakpoint(map-get($breakpoints, sml)){
+      width: 210px;
+    };
+    @include breakpoint(map-get($breakpoints, lrg)){
+      width: 280px;
+      ~ .excerpt__main {
+        margin-left: 300px;
+      }
+    };
+  }
+}
+
+a.excerpt {
+  &:visited {
+    color: inherit;
+  }
+  &:hover,
+  &:focus {
+    color: inherit;
+    h1, h2, h3, h4 {
+      // color: tomato;
+      text-decoration: none;
+    }
+    .excerpt__img {
+      img {
+        transform: scale(1.1);
+      }
+    }
+    .excerpt__link {
+      color: $color-link;
+    }
+  }
+}

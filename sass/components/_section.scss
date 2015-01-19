@@ -1,5 +1,5 @@
 .section {
-  padding: 30px 0;
+  padding: $rh-med 0;
   &--border {
     border-bottom: 1px solid $gray-25;
     &:last-child {
@@ -17,15 +17,15 @@
   }
 }
 
-.section__title {
-  @extend .heading--2;
-  margin-bottom: 20px;
-  display: inline-block;
-  &--no-margin {
-    margin-bottom: 5px;
-  }
-}
+// .section__title {
+//   @extend .heading--2;
+//   margin-bottom: 20px;
+//   display: inline-block;
+//   &--no-margin {
+//     margin-bottom: 5px;
+//   }
+// }
 
-.section__link {
-  float: right;
-}
+// .section__link {
+//   float: right;
+// }

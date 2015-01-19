@@ -2,7 +2,7 @@
   @include clearfix();
   background: $gray-100;
   color: $white;
-  margin-bottom: $vr-m;
+  margin-bottom: $rh-sml;
 }
 
 
@@ -13,7 +13,7 @@
   font-weight: $font-weight-bold;
   text-decoration: none;
   float: left;
-  padding: $vr-s;
+  padding: $rh-xsm;
   text-transform: uppercase;
   // @include fsRem($font-size-large);
   &:hover,
@@ -31,7 +31,7 @@
     > a {
       font-weight: $font-weight-bold;
       display: inline-block;
-      padding: $vr-s;
+      padding: $rh-xsm;
       color: $gray-0;
       text-decoration: none;
       &:hover {
@@ -50,7 +50,7 @@
 
 .navbar__form {
   margin-top: 4px;
-  padding: 0 $vr-s;
+  padding: 0 $rh-xsm;
   color: $color-text;
 }
 
