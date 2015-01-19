@@ -68,7 +68,7 @@ $fonts-icon-class: icon;
 //** By default, this inherits from the `<body>`.
 $headings-font-family: inherit !default;
 $headings-font-weight: $font-weight-light !default;
-$headings-line-height: ceil($line-height-base / 2.2);
+$headings-line-height: 1.1 !default;
 $headings-color: inherit !default;
 $headings-color-alt: $color-brand-primary !default;
 
@@ -104,11 +104,11 @@ $grid-container-width: 1200px !default;
 
 
 // Rhythm
-$rh-xxs: 5px;
-$rh-xsm: 10px;
-$rh-sml: 20px;
-$rh-med: 30px;
-$rh-lrg: 50px;
+$rh-xxs: $line-height-base * 0,25; // 20px * 0,25 = 5px
+$rh-xsm: $line-height-base * 0,5; // 20px * 0,5 = 10px
+$rh-sml: $line-height-base;
+$rh-med: $line-height-base * 1,5;  // 20px * 1,5 = 30px
+$rh-lrg: $line-height-base + 2;  // 20px * 2 = 40px
 
 // Transitions
 // -----------
