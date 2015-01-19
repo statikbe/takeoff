@@ -5,6 +5,7 @@
   @include fsRem(13px);
   text-decoration: none;
   a {
+    display: inline-block;
     &.active {
       color: $color-text;
     }
