@@ -147,8 +147,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'build/css/main.css': 'sass/main.scss',
-                    'build/css/wysiwyg.css': 'sass/wysiwyg.scss'
+                    'build/css/main.css': 'sass/main.scss'
                 }
             }
         },
