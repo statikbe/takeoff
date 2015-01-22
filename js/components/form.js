@@ -13,7 +13,11 @@ window.ParsleyConfig = {
 window.ParsleyValidator.setLocale('nl');
 
 app.form = (function($, undefined) {
-  var $forms = $('form');
+  var $document = $(document),
+      $window = $(window),
+      $html = $('html'),
+      $body = $('body'),
+      $forms = $('form');
 
   var _initialize = function() {
     $forms.on('click', 'button[type=submit]', this.submit);
@@ -29,6 +33,40 @@ app.form = (function($, undefined) {
         .addClass('is-submitted');
     }
   };
+
+  // var _filter = function() {
+  //   var formSelector = '.form--filter',
+  //       resultsSelector = '#main',
+  //       action = $(formSelector).attr('action');
+
+  //   $document.on('change', '.form--filter input', function() {
+  //     var $form = $(this.form),
+  //         url = action + '?' + $form.serialize();
+
+  //     if(Modernizr.history) {
+  //       _loadResults(url, resultsSelector);
+  //     }
+  //   });
+
+  //   var _loadResults = function(url, locationSelector) {
+  //     var $location = $(locationSelector);
+  //     $location.addClass('is-loading');
+
+  //     $location.load( url + ' ' + locationSelector, function(data) {
+  //       history.pushState('', 'New URL: ' + url, url);
+  //       $location.removeClass('is-loading');
+  //     });
+  //   };
+
+  //   if(Modernizr.history) {
+  //     window.onpopstate = function(event) {
+  //       var $location = $(resultsSelector);
+  //       $location.addClass('is-loading');
+  //       _loadResults(window.location.pathname + window.location.search, resultsSelector);
+  //     };
+  //   }
+  // };
+
 
   // Expressionengine validation
   // var _validate= function() {
