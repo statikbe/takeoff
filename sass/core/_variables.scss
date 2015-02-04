@@ -104,11 +104,11 @@ $grid-container-width: 1200px !default;
 
 
 // Rhythm
-$rh-xxs: $line-height-base * 0,25; // 20px * 0,25 = 5px
-$rh-xsm: $line-height-base * 0,5; // 20px * 0,5 = 10px
+$rh-xxs: $line-height-base * .25;
+$rh-xsm: $line-height-base * .5;
 $rh-sml: $line-height-base;
-$rh-med: $line-height-base * 1,5;  // 20px * 1,5 = 30px
-$rh-lrg: $line-height-base + 2;  // 20px * 2 = 40px
+$rh-med: $line-height-base * 1.5;
+$rh-lrg: $line-height-base + 2;
 
 // Transitions
 // -----------
