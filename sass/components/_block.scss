@@ -42,3 +42,7 @@
     color: lighten(map-get($notice-colors, 'danger'), 25%);
   }
 }
+
+.block + .block {
+  margin-top: $rh-sml;
+}

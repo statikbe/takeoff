@@ -7,6 +7,10 @@
 //
 *, *:before, *:after { box-sizing: border-box; }
 
+:last-child {
+  margin-bottom: 0;
+}
+
 // Page loading style
 //
 html {
