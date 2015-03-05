@@ -162,6 +162,9 @@ module.exports = function(grunt) {
         // LEGACCSY
         legacssy: {
             dist: {
+                options: {
+                    legacyWidth: 1200
+                },
                 files: {
                     'build/css/main-legacy.css': 'build/css/main.css'
                 },
