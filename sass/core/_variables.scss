@@ -108,7 +108,7 @@ $rh-xxs: $line-height-base * .25;
 $rh-xsm: $line-height-base * .5;
 $rh-sml: $line-height-base;
 $rh-med: $line-height-base * 1.5;
-$rh-lrg: $line-height-base + 2;
+$rh-lrg: $line-height-base * 2;
 
 // Transitions
 // -----------

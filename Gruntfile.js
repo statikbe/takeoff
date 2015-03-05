@@ -256,7 +256,7 @@ module.exports = function(grunt) {
                 files: ['*.html']
             },
             fonts: {
-                files: ['icons/**'],
+                files: ['fonts/**'],
                 tasks: ['fonts']
             }
         }
@@ -271,8 +271,8 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'svg2png', 'imagemin','svgmin', 'copy:images', 'copy:svgs']);
-    // grunt.registerTask('fonts', ['copy:fonts']);
+    grunt.registerTask('fonts', ['copy:fonts']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
-    grunt.registerTask('fonts', ['webfont', 'copy:fonts']);
+    // grunt.registerTask('fonts', ['webfont', 'copy:fonts']);
     grunt.registerTask('build', ['fonts', 'css', 'js', 'img']);
 };
