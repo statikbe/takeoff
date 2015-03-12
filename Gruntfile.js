@@ -182,6 +182,28 @@ module.exports = function(grunt) {
             }
         },
 
+        // WEBFONT
+        webfont: {
+            icons: {
+                src: 'icons/*.svg',
+                dest: 'fonts',
+                destCss: 'sass/core',
+                options: {
+                    types: 'eot,woff2,woff,ttf',
+                    order: 'eot,woff2,woff,ttf',
+                    stylesheet: 'scss',
+                    relativeFontPath: '../fonts',
+                    template: 'templates/icons.css',
+                    templateOptions: {
+                        baseClass: 'icon',
+                        classPrefix: 'icon--',
+                        mixinPrefix: 'icon--'
+                    },
+                    htmlDemo: false
+                }
+            }
+        },
+
         // NOTIFY
         notify: {
             css: {
@@ -254,5 +276,6 @@ module.exports = function(grunt) {
     grunt.registerTask('img', ['clean:img', 'svg2png', 'imagemin','svgmin', 'copy:images', 'copy:svgs']);
     grunt.registerTask('fonts', ['copy:fonts']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
-    grunt.registerTask('build', ['css', 'js', 'img', 'fonts']);
+    // grunt.registerTask('fonts', ['webfont', 'copy:fonts']);
+    grunt.registerTask('build', ['fonts', 'css', 'js', 'img']);
 };

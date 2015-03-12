@@ -1,31 +1,51 @@
 .section {
-  padding: $rh-med 0;
+  padding: 0 0 $rh-sml;
+  &:first-child {
+    padding-top: $rh-sml;
+  }
   &--border {
     border-bottom: 1px solid $gray-25;
-    &:last-child {
-      border-bottom: 0;
+    // &:last-child {
+    //   border-bottom: 0;
+    // }
+    &-thick {
+      border-bottom: 3px solid $gray-25;
     }
   }
+  &.no-container {
+    overflow: hidden;
+  }
   &--small {
-    padding: 15px 0;
+    padding: 0 0 $rh-xxs;
   }
   &--background {
-    background-color: $gray-0;
+    background: $white url(../img/bg-pattern.png);
   }
   &--no-padding {
-    padding: 0;
+    padding: 0 !important;
   }
 }
 
-// .section__title {
-//   @extend .heading--2;
-//   margin-bottom: 20px;
-//   display: inline-block;
-//   &--no-margin {
-//     margin-bottom: 5px;
-//   }
-// }
+.section + .section--background,
+.section--border-bottom + .section ,
+.section--background + .section,
+.section--no-padding + .section {
+  padding-top: $rh-sml;
+}
+.section--background + .section--background {
+  padding-top: 0;
+}
+.section--actions + .section--background,
+.section--background + .section--actions {
+  padding-top: $rh-sml;
+}
 
-// .section__link {
-//   float: right;
-// }
+.section--no-padding {
+  padding: 0;
+  &:first-child {
+    padding-top: 0;
+  }
+  .section--no-padding + & {
+    padding-top: 0;
+  }
+}
