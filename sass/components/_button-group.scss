@@ -19,6 +19,7 @@
     &:first-of-type {
       border-top-left-radius: $border-radius-base;
       border-bottom-left-radius: $border-radius-base;
+      border-right-width: 1px;
     }
     &:last-of-type {
       border-top-right-radius: $border-radius-base;
@@ -26,8 +27,11 @@
     }
   }
 
-  .btn + .btn {
-    margin-left: -1px;
+  .btn {
+    // margin-left: -1px;
+    &:first-child {
+      margin-left: 0;
+    }
   }
 
 }
