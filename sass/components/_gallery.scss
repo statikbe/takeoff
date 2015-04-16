@@ -1,7 +1,7 @@
 .gallery {
   @include cf;
   clear: both;
-  margin-bottom: $rh-med;
+  margin-bottom: 20px;
   img {
     width: 100%;
     height: auto;
@@ -59,12 +59,15 @@
 }
 #colorbox, #cboxContent, #cboxLoadedContent {
   box-sizing: content-box;
+  &:focus {
+    outline: 0;
+  }
 }
 
 /** Colorbox user added styles **/
 #cboxOverlay {
   background: darken($white, 10%);
-  background: rgba(darken($white, 10%), .9);
+  background: darken($white, 10%);
 }
 #cboxContent {
   position: relative;
@@ -86,7 +89,7 @@
   font-size: fs(28px);
   line-height: 1.6;
   text-align: center;
-  background: $black;
+  background: $color-brand-primary;
   &:hover {
 
   }
@@ -120,4 +123,21 @@
   right: 10px;
   width: 1.6em;
   margin: 0;
+}
+
+#cboxTitle {
+  color: $white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $rh-sml $rh-med;
+  background: $black;
+  background: rgba($black, .7);
+  &:empty {
+    display: none !important;
+  }
+}
+#cboxCurrent {
+  display: none !important;
 }

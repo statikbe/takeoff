@@ -13,6 +13,7 @@ app.common = (function($, undefined) {
 
     this.svgFallback();
 
+    // _gallery();
     _flyoutNavigation();
   };
 
@@ -28,6 +29,27 @@ app.common = (function($, undefined) {
       back: function() {
         return '<span class="icon -previous"></span> Terug';
       }
+    });
+  };
+
+  var _gallery = function() {
+    $('.colorbox').colorbox({
+      close: '&times;',
+      next: '&rsaquo;',
+      previous: '&lsaquo;',
+      maxWidth: '90%',
+      maxHeight: '90%'
+    });
+
+    $('.colorbox--video').colorbox({
+      close: '&times;',
+      next: '&rsaquo;',
+      previous: '&lsaquo;',
+      maxWidth: '90%',
+      maxHeight: '90%',
+      iframe: true,
+      innerWidth: 640,
+      innerHeight: 480
     });
   };
 
