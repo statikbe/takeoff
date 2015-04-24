@@ -61,6 +61,26 @@ module.exports = function(grunt) {
             target: ['js/main.js', 'js/components/*.js']
         },
 
+        responsive_images: {
+            dev: {
+                options: {
+                    sizes: [{
+                        width: 420,
+                        name: 'sml'
+                    }, {
+                        width: 820,
+                        name: 'lrg'
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'img/responsive',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'build/img/responsive'
+                }]
+            }
+        },
+
         // IMAGEMIN
         imagemin: {
             dynamic: {
@@ -128,7 +148,7 @@ module.exports = function(grunt) {
                 filter: 'isFile'
             },
             fonts: {
-                src: 'fonts/*',
+                src: 'fonts/**/*',
                 dest: target + '/'
             },
             svgs: {
@@ -147,7 +167,8 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'build/css/main.css': 'sass/main.scss'
+                    'build/css/main.css': 'sass/main.scss',
+                    'build/css/wysiwyg.css': 'sass/wysiwyg.scss'
                 }
             }
         },
@@ -179,28 +200,6 @@ module.exports = function(grunt) {
                 src: ['*.css', '!*.min.css'],
                 dest: target + '/css/',
                 ext: '.min.css'
-            }
-        },
-
-        // WEBFONT
-        webfont: {
-            icons: {
-                src: 'icons/*.svg',
-                dest: 'fonts',
-                destCss: 'sass/core',
-                options: {
-                    types: 'eot,woff2,woff,ttf',
-                    order: 'eot,woff2,woff,ttf',
-                    stylesheet: 'scss',
-                    relativeFontPath: '../fonts',
-                    template: 'templates/icons.css',
-                    templateOptions: {
-                        baseClass: 'icon',
-                        classPrefix: 'icon--',
-                        mixinPrefix: 'icon--'
-                    },
-                    htmlDemo: false
-                }
             }
         },
 
@@ -253,7 +252,7 @@ module.exports = function(grunt) {
             },
             svgs: {
                 files: ['img/**/*.svg'],
-                tasks: ['svg', 'notify:svg']
+                tasks: ['img', 'notify:svg']
             },
             html: {
                 files: ['*.html']
@@ -273,9 +272,8 @@ module.exports = function(grunt) {
     // Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
-    grunt.registerTask('img', ['clean:img', 'svg2png', 'imagemin','svgmin', 'copy:images', 'copy:svgs']);
+    grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
     grunt.registerTask('fonts', ['copy:fonts']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
-    // grunt.registerTask('fonts', ['webfont', 'copy:fonts']);
-    grunt.registerTask('build', ['fonts', 'css', 'js', 'img']);
+    grunt.registerTask('build', ['css', 'js', 'img', 'fonts']);
 };
