@@ -16,7 +16,7 @@
 }
 
 .tabs__tab {
-  @include fsRem($font-size-small);
+  @include fsRem($font-size-sml);
   position: relative;
   z-index: $zindex-layer-1;
   display: inline-block;

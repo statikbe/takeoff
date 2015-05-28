@@ -17,13 +17,13 @@
       outline: 0;
     }
     &:first-of-type {
-      border-top-left-radius: $border-radius-base;
-      border-bottom-left-radius: $border-radius-base;
+      border-top-left-radius: $border-radius-med;
+      border-bottom-left-radius: $border-radius-med;
       border-right-width: 1px;
     }
     &:last-of-type {
-      border-top-right-radius: $border-radius-base;
-      border-bottom-right-radius: $border-radius-base;
+      border-top-right-radius: $border-radius-med;
+      border-bottom-right-radius: $border-radius-med;
     }
   }
 

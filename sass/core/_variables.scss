@@ -38,15 +38,20 @@ $font-family-icons: 'FontAwesome' !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base: $font-family-sans !default;
 
-$font-size-base: 16px !default;
 $font-size-root: 16px !default;
-$font-size-large: 20px !default;
-$font-size-small: 14px !default;
+$font-size-xxl: 36px !default;
+$font-size-xlr: 28px !default;
+$font-size-lrg: 22px !default;
+$font-size-med: 16px !default;
+$font-size-sml: 14px !default;
+$font-size-xsm: 12px !default;
 
-$font-size-h1: 32px !default;
-$font-size-h2: 22px !default;
+$font-size-base: $font-size-med !default;
+
+$font-size-h1: 40px !default;
+$font-size-h2: 28px !default;
 $font-size-h3: 18px !default;
-$font-size-h4: $font-size-base !default;
+$font-size-h4: $font-size-med !default;
 $font-size-h5: 14px !default;
 
 $font-weight-thin: 100 !default;
@@ -57,7 +62,9 @@ $font-weight-bold: 700 !default;
 $font-weight-extra-bold: 800 !default;
 $font-weight-base: $font-weight-regular !default;
 
-$line-height-base: 20px !default; // 20/14
+$line-height-base: 24px !default;
+
+$line-height-sml: 1.2 !default;
 
 // Fonts
 //
@@ -85,10 +92,11 @@ $zindex-layer-5: 2050;
 // -----------
 $breakpoints: (
   xxs: 320px,
-  xsm: 420px,
+  xsm: 440px,
   sml: 660px,
   med: 820px,
-  lrg: 1200px
+  lrg: 940px,
+  xlr: 1200px
 );
 
 // Grid
@@ -108,16 +116,26 @@ $rh-xsm: $line-height-base * .5;
 $rh-sml: $line-height-base;
 $rh-med: $line-height-base * 1.5;
 $rh-lrg: $line-height-base * 2;
+$rh-xlr: $line-height-base * 2.5;
+
+$rhythm: (
+  xxs: $rh-xxs,
+  xsm: $rh-xsm,
+  sml: $rh-sml,
+  med: $rh-med,
+  lrg: $rh-lrg,
+  xlr: $rh-xlr
+);
 
 // Transitions
 // -----------
 //
-$transition-duration-base: 200ms;
+$transition-duration-base: 150ms;
 $transition-easing-base: ease-in-out;
 
 // Border radius
 // -------------
 //
-$border-radius-base: 3px;
-$border-radius-small: 2px;
-$border-radius-large: 5px;
+$border-radius-sml: 2px;
+$border-radius-med: 3px;
+$border-radius-lrg: 5px;

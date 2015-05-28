@@ -102,6 +102,7 @@ module.exports = function(grunt) {
             options: {
                 plugins: [
                   { removeViewBox: false },
+                  { cleanupIDs: false },
                   { removeUselessStrokeAndFill: false }
                 ]
             },

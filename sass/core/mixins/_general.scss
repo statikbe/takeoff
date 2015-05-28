@@ -1,0 +1,5 @@
+@mixin grayscale() {
+  webkit-filter: grayscale(100%);
+  filter: gray; filter: grayscale(100%);
+  filter: url(../img/svg/grayscale.svg#grayscale);
+}
