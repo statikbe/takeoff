@@ -95,6 +95,23 @@ h1, h2, h3, h4, h5 {
   white-space: nowrap;
 }
 
+// .text--bp-med--left
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, 'min-width') {
+    .text--bp-#{$bp}--left {
+      text-align: left;
+    }
+  }
+}
+// .text--bp-med--right
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, 'min-width') {
+    .text--bp-#{$bp}--right {
+      text-align: right;
+    }
+  }
+}
+
 // Transformation
 .text--lowercase {
   text-transform: lowercase;

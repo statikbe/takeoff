@@ -1,0 +1,28 @@
+.inline {
+  margin-left: -$rh-xsm;
+  margin-right: -$rh-xsm;
+  // margin-bottom: $line-height-base;
+  &__item {
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: $rh-xsm;
+    margin-right: $rh-xsm;
+  }
+  &--spaced {
+    margin-top: -$rh-sml;
+    .inline__item {
+      margin-top: $rh-sml;
+    }
+  }
+  &--narrow {
+    margin-left: -$rh-xxs;
+    margin-right: -$rh-xxs;
+    .inline__item {
+      margin-left: $rh-xxs;
+      margin-right: $rh-xxs;
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
