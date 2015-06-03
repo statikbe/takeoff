@@ -1,0 +1,14 @@
+.spacer {
+  & + & {
+    margin-top: $rh-sml;
+  }
+
+  // $rhythm
+  @each $rh, $px in $rhythm {
+    &--#{$rh} {
+      & + & {
+        margin-top: $px;
+      }
+    }
+  }
+}
