@@ -99,6 +99,8 @@ $breakpoints: (
   xlr: 1200px
 );
 
+$breakpoints-flyout: map-get($breakpoints, med);
+
 // Grid
 // ----
 //

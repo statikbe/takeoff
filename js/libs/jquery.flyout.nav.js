@@ -25,7 +25,7 @@
             // Add back links to the items
             $flyout.find('a + ul').each(function() {
                 var $submneu = $(this),
-                    $backItem = $('<li><a href="#" class="flyout-back">' + settings.back(this) + '</a></li>');
+                    $backItem = $('<li><a href="#" class="flyout__back">' + settings.back(this) + '</a></li>');
                 $submneu.prepend($backItem);
             });
 
@@ -34,7 +34,7 @@
                 $body.toggleClass(settings.activeBodyClass);
             });
 
-            $flyout.find('a.flyout-back').on('click', function() {
+            $flyout.find('a.flyout__back').on('click', function() {
                 $(this).closest('ul').parent().removeClass('active');
             });
 
@@ -44,7 +44,7 @@
             });
 
             // Close the nav
-            $flyout.find('.flyout-close').on('click', function(e) {
+            $(document).on('click', '.flyout__close, .flyout__overlay', function(e) {
                 e.preventDefault();
                 $body.removeClass(settings.activeBodyClass);
             });

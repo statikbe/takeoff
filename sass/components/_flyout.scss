@@ -1,0 +1,150 @@
+.flyout {
+  @include transitions((transform));
+  width: 240px;
+  transform: translateX(240px);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  background: $white;
+  display: none;
+  z-index: $zindex-layer-2;
+  .region {
+    position: relative;
+  }
+  .flyout-enabled & {
+    display: block;
+  }
+  .flyout-active & {
+    transform: translateX(0);
+  }
+
+  ul {
+    @include transitions((transform));
+    @include listreset;
+    width: 100%;
+    background: $white;
+    ul {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      transform: translateX(240px);
+    }
+  }
+  a {
+    display: block;
+    padding: $rh-xxs $rh-xsm;
+    @include link-variant($color-text);
+    @include fsRem($font-size-xlr);
+    font-family: $font-family-serif;
+    font-style: italic;
+    text-transform: lowercase;
+    text-decoration: none;
+    &:not(:only-child) {
+      &:after {
+        content: "\f105";
+        float: right;
+        font-family: $font-family-icons;
+      }
+    }
+    &:hover,
+    &.active {
+      color: $gray-50;
+      background-position: 0 0;
+    }
+    &.nav__link--novecento3 {
+      &:hover,
+      &.active {
+        color: $blue-50;
+      }
+    }
+    &.nav__link--transit3 {
+      &:hover,
+      &.active {
+        color: $yellow-50;
+      }
+    }
+  }
+  .nav + .nav {
+    margin-top: $rh-sml;
+    a {
+      @include fsRem($font-size-lrg);
+    }
+  }
+  .active {
+    > ul {
+      transform: translateX(0);
+    }
+  }
+
+  .flyout__back,
+  .flyout__close {
+    font-family: $font-family-sans;
+    @include fsRem($font-size-med);
+    font-style: normal;
+    text-transform: uppercase;
+    border-bottom: 1px solid $gray-0;
+    .icon {
+      margin-right: $rh-xxs;
+    }
+    &:after {
+      display: none;
+    }
+  }
+
+  .flyout-close {
+    display: block;
+    text-align: right;
+    padding: 5px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 1001;
+  }
+  @include breakpoint($breakpoints-flyout) {
+    display: none;
+  }
+}
+
+.flyout__overlay {
+  @include absolute-fill;
+  z-index: $zindex-layer-1;
+  background: $gray-0;
+  background: rgba($black, .5);
+  display: none;
+  opacity: 0;
+  @include transitions(opacity);
+  .flyout-active & {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.flyout__link {
+  @include link-variant($color-text);
+  position: relative;
+  float: right;
+  clear: right;
+  display: block;
+  margin-top: $rh-xsm;
+  padding: $rh-xxs $rh-xsm $rh-xxs $rh-med;
+  @include background-sliding($white, transparent, up);
+  @include fsRem($font-size-xlr);
+  font-family: $font-family-serif;
+  font-style: italic;
+  text-transform: lowercase;
+  text-decoration: none;
+  &:before {
+    content: "";
+    position: absolute;
+    left: $rh-xsm;
+    top: 24px;
+    width: 13px;
+    height: 2px;
+    background: #000;
+    box-shadow:
+      0 8px 0 0 #000,
+      0 4px 0 0 #000;
+  }
+}
