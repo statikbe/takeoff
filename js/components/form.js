@@ -56,7 +56,7 @@ app.form = (function($, undefined) {
   //       var $location = $(locationSelector);
   //       $location.addClass('is-loading');
 
-  //       $location.load(url + ' ' + locationSelector, function(data) {
+  //       $location.load(url + ' ' + locationSelector + ' > div', function(data) {
   //         history.pushState('', 'New URL: ' + url, url);
   //         $location.removeClass('is-loading');
   //       });
