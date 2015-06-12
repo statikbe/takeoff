@@ -30,3 +30,13 @@
   bottom: 0;
   left: 0;
 }
+
+// Add percentage of white to a color
+@function tint($color, $percent: 10%) {
+  @return mix(white, $color, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent: 10%) {
+  @return mix(black, $color, $percent);
+}
