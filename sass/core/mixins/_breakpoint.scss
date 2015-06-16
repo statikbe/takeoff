@@ -1,13 +1,18 @@
 // RWD Breakpoints
 @mixin breakpoint($point, $query: min-width) {
-  @if $query == max-width {
-    @media ($query: $point - 1)  {
+  @if $breakpoints-legacy {
+    @if $breakpoints-legacy >= $point {
       @content;
     }
-  }
-  @else  {
-    @media ($query: $point)  {
-      @content;
+  } @else {
+    @if $query == max-width {
+      @media ($query: $point - 1)  {
+        @content;
+      }
+    } @else  {
+      @media ($query: $point)  {
+        @content;
+      }
     }
   }
 }

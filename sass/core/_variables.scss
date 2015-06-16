@@ -95,11 +95,14 @@ $breakpoints: (
   xsm: 440px,
   sml: 660px,
   med: 820px,
-  lrg: 940px,
+  lrg: 980px,
   xlr: 1200px
 );
 
 $breakpoints-flyout: map-get($breakpoints, med);
+
+$breakpoints-legacy: false !default;
+
 
 // Grid
 // ----

@@ -1,26 +1,25 @@
 .pagination {
   @include listreset;
   // clear: both;
-  // margin: $rh-sml 0;
+  margin: $rh-sml 0 0;
   text-align: center;
   li {
     display: inline-block;
-    & + li {
-      margin-left: $rh-xxs;
-    }
-    &.here {
-      a {
-        background: $black;
-        color: $white;
-        &:hover,
-        &:focus {
-
-        }
-      }
-    }
+    margin-right: $rh-xxs;
   }
   a {
     display: inline-block;
     text-decoration: none;
   }
+  &__btn {
+    display: inline-block;
+    background: $gray-25;
+    padding: 0 $rh-xxs;
+    &.active,
+    &:hover {
+      background: $gray-50;
+      color: $white;
+    }
+  }
 }
+

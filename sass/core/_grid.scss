@@ -1,6 +1,10 @@
 .container {
   @include container-fluid;
-  max-width: $grid-container-width;
+  @if $breakpoints-legacy {
+    width: $breakpoints-legacy;
+  } @else {
+    max-width: $grid-container-width;
+  }
   &--relative {
     position: relative;
   }

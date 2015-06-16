@@ -175,30 +175,3 @@ blockquote {
   margin: $line-height-base 0;
   padding-left: $rh-xsm;
 }
-
-
-.link {
-  &--arrow {
-    position: relative;
-    display: inline-block;
-    padding-right: 12px;
-    &:after {
-      content: '\f105';
-      position: absolute;
-      top: 0;
-      right: 0;
-      font-family: $font-family-icons;
-    }
-  }
-  &--grayscale {
-    img {
-      @include grayscale;
-      @include transitions((filter));
-    }
-    &:hover {
-      img {
-        filter: none;
-      }
-    }
-  }
-}

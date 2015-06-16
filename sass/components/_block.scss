@@ -3,9 +3,9 @@
 }
 .block {
   display: block;
-  // & + & {
-  //   margin-top: $rh-sml;
-  // }
+  & + & {
+    margin-top: $rh-sml;
+  }
 
   &--panel,
   &--indented {
