@@ -1,0 +1,26 @@
+.inline {
+  @include cf;
+  margin-right: -$rh-xsm;
+  margin-left: -$rh-xsm;
+  margin-top: -$rh-xsm;
+  &__item {
+    float: left;
+    vertical-align: baseline;
+    margin-top: $rh-xsm;
+    margin-right: $rh-xsm;
+    margin-left: $rh-xsm;
+  }
+  &--narrow {
+    margin-top: -$rh-xxs;
+    margin-left: -$rh-xxs;
+    margin-right: -$rh-xxs;
+    .inline__item {
+      margin-top: $rh-xxs;
+      margin-right: $rh-xxs;
+      margin-left: $rh-xxs;
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

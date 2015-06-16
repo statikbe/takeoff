@@ -1,6 +1,6 @@
 .page-header {
   @include cf;
-  padding: $rh-med 0;
+  // padding: $rh-med 0;
   &__logo {
     display: block;
     // width: 120px;
@@ -16,33 +16,5 @@
       float: left;
       // width: 150px;
     };
-  }
-}
-
-a.show-mobile-nav {
-  float: left;
-  display: block;
-  margin-right: 20px;
-  padding: 0 0 0 15px;
-  text-decoration: none;
-  position: relative;
-  &:hover,
-  &:focus {
-
-  }
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 6px;
-    width: 13px;
-    height: 2px;
-    background: #000;
-    box-shadow:
-      0 8px 0 0 #000,
-      0 4px 0 0 #000;
-  }
-  @include breakpoint(map-get($breakpoints, sml)) {
-    display: none;
   }
 }

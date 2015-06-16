@@ -102,6 +102,7 @@ module.exports = function(grunt) {
             options: {
                 plugins: [
                   { removeViewBox: false },
+                  { cleanupIDs: false },
                   { removeUselessStrokeAndFill: false }
                 ]
             },
@@ -168,7 +169,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'build/css/main.css': 'sass/main.scss',
-                    'build/css/wysiwyg.css': 'sass/wysiwyg.scss'
+                    'build/css/main-legacy.css': 'sass/main-legacy.scss'
                 }
             }
         },
@@ -181,16 +182,16 @@ module.exports = function(grunt) {
         },
 
         // LEGACCSY
-        legacssy: {
-            dist: {
-                options: {
-                    legacyWidth: 1200
-                },
-                files: {
-                    'build/css/main-legacy.css': 'build/css/main.css'
-                },
-            }
-        },
+        // legacssy: {
+        //     dist: {
+        //         options: {
+        //             legacyWidth: 1200
+        //         },
+        //         files: {
+        //             'build/css/main-legacy.css': 'build/css/main.css'
+        //         },
+        //     }
+        // },
 
         // CSSMIN
         cssmin: {
@@ -262,7 +263,6 @@ module.exports = function(grunt) {
                 tasks: ['fonts']
             }
         }
-
     });
 
     // Where we tell Grunt we plan to use this plug-in.
@@ -274,6 +274,7 @@ module.exports = function(grunt) {
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
     grunt.registerTask('fonts', ['copy:fonts']);
-    grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
+    // grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
     grunt.registerTask('build', ['css', 'js', 'img', 'fonts']);
 };

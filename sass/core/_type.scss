@@ -75,7 +75,7 @@ h1, h2, h3, h4, h5 {
 
 // Stand out text
 .text--lead {
-  font-size: fs($font-size-large);
+  font-size: fs($font-size-lrg);
 }
 
 // Alignment
@@ -93,6 +93,23 @@ h1, h2, h3, h4, h5 {
 }
 .text--nowrap {
   white-space: nowrap;
+}
+
+// .text--bp-med--left
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, 'min-width') {
+    .text--bp-#{$bp}--left {
+      text-align: left;
+    }
+  }
+}
+// .text--bp-med--right
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, 'min-width') {
+    .text--bp-#{$bp}--right {
+      text-align: right;
+    }
+  }
 }
 
 // Transformation
@@ -133,7 +150,7 @@ u {
 // Small
 small,
 .small {
-  font-size: fs($font-size-small);
+  font-size: fs($font-size-sml);
 }
 
 // Strong

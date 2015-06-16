@@ -1,6 +1,3 @@
-//! ==  Setupfiles ==
-// @import 'compass/css3', 'compass/utilities';
-
 // Core variables and mixins
 @import "core/normalize";
 
@@ -23,17 +20,20 @@
 @import 'components/main';
 @import 'components/section';
 @import 'components/block';
+@import 'components/spacer';
 @import 'components/excerpt';
 @import 'components/header';
 @import 'components/meta';
+@import 'components/inline';
 @import 'components/breadcrumbs';
 @import 'components/notice';
 @import 'components/pagination';
 @import 'components/footer';
 
-@import "components/dropdown";
 @import 'components/nav';
+// @import 'components/flyout';
 // @import 'components/gallery';
+// @import "components/dropdown";
 // @import 'components/carousel';
 // @import 'components/tabs';
 // @import 'components/button-group';

@@ -3,29 +3,30 @@
 }
 .block {
   display: block;
+  & + & {
+    margin-top: $rh-sml;
+  }
+
   &--panel,
-  &--bg,
   &--indented {
-    padding: $rh-med;
+    padding: $rh-sml;
     @include breakpoint(map-get($breakpoints, lrg)){
-      padding: $rh-lrg;
+      padding: $rh-med;
     };
   }
-  &--bg {
-    // color: $white;
-    // a {
-    //   color: inherit;
-    // }
-  }
   &--panel {
-    background: $gray-0;
-    border: 1px solid $gray-25;
+    background: $white;
   }
   &--indented {
     padding: 0;
     @include breakpoint(map-get($breakpoints, med)){
       padding: $rh-med;
     };
+  }
+
+  &--bg {
+    padding: $rh-sml;
+    background: $gray-0;
   }
 
   // Status messages
@@ -41,8 +42,4 @@
     border-color: map-get($notice-colors, 'danger');
     color: lighten(map-get($notice-colors, 'danger'), 25%);
   }
-}
-
-.block + .block {
-  margin-top: $rh-sml;
 }

@@ -1,12 +1,75 @@
 .gallery {
   @include cf;
   clear: both;
-  margin-bottom: $rh-med;
+  margin-bottom: 20px;
   img {
     width: 100%;
     height: auto;
   }
 }
+
+.colorbox,
+.colorbox--video {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  &:before {
+    content: '+';
+    @include fsRem(30px);
+    line-height: lh(44px, 30px);
+    color: $color-brand-primary;
+    background: $white;
+    text-align: center;
+    display: block;
+    margin-left: -23px;
+    margin-top: -23px;
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+    opacity: 0;
+    @include transitions(opacity, 400ms);
+    transition-delay: 100ms;
+  }
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $color-brand-primary;
+    background-color: rgba($color-brand-primary , .6);
+    opacity: 0;
+    @include transitions(opacity, 400ms);
+  }
+  img {
+    @include transitions(transform, 400ms);
+  }
+  &:hover {
+    &:after , &:before {
+      opacity: 1;
+    }
+    img {
+      transform: scale(1.1);
+    }
+  }
+}
+.colorbox--video {
+  &:before {
+    opacity: 1;
+    content: '\f04b';
+    font-family: $font-family-icons;
+    @include fsRem(22px);
+    line-height: lh(48px, 22px);
+    text-indent: 5px;
+  }
+}
+
 
 /* COLORBOX */
 /** ColorBox core style: The following CSS is consistent between example themes and should not be altered. **/
@@ -59,12 +122,15 @@
 }
 #colorbox, #cboxContent, #cboxLoadedContent {
   box-sizing: content-box;
+  &:focus {
+    outline: 0;
+  }
 }
 
 /** Colorbox user added styles **/
 #cboxOverlay {
   background: darken($white, 10%);
-  background: rgba(darken($white, 10%), .9);
+  background: darken($white, 10%);
 }
 #cboxContent {
   position: relative;
@@ -86,7 +152,7 @@
   font-size: fs(28px);
   line-height: 1.6;
   text-align: center;
-  background: $black;
+  background: $color-brand-primary;
   &:hover {
 
   }
@@ -120,4 +186,21 @@
   right: 10px;
   width: 1.6em;
   margin: 0;
+}
+
+#cboxTitle {
+  color: $white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $rh-sml $rh-med;
+  background: $black;
+  background: rgba($black, .7);
+  &:empty {
+    display: none !important;
+  }
+}
+#cboxCurrent {
+  display: none !important;
 }
