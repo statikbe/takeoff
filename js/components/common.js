@@ -13,6 +13,7 @@ app.common = (function($, undefined) {
 
     this.svgFallback();
 
+    // this.googleMaps.init();
     // _gallery();
     _flyoutNavigation();
   };
@@ -89,6 +90,52 @@ app.common = (function($, undefined) {
     });
   };
 
+  // var _googleMaps = {
+  //   $map: $('#map-canvas'),
+  //   init: function() {
+  //     if(this.$map.length) {
+  //       if(typeof google !== 'undefined') {
+  //         app.common.googleMaps.loadMap();
+  //       } else {
+  //         app.common.googleMaps.loadScript();
+  //       }
+  //     }
+  //   },
+  //   loadScript: function() {
+  //     var script = document.createElement('script');
+  //     script.type = 'text/javascript';
+  //     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
+  //         '&key=AIzaSyA90nWScunrXckdU368WTPvJ6bZWJLT81c&callback=app.common.googleMaps.loadMap';
+  //     document.body.appendChild(script);
+  //   },
+  //   loadMap: function() {
+  //     var latlng = this.$map.data('latlng');
+  //     if(latlng) {
+  //       var myLatLng = new google.maps.LatLng(latlng.split(',')[0], latlng.split(',')[1]),
+  //         mapOptions = {
+  //           zoom: 16,
+  //           scrollwheel: false,
+  //           draggable: false,
+  //           center: myLatLng
+  //         };
+
+  //       var map = new google.maps.Map(this.$map[0], mapOptions);
+
+  //       // var image = '/img/marker.png';
+  //       var beachMarker = new google.maps.Marker({
+  //           position: myLatLng,
+  //           map: map
+  //           // ,
+  //           // icon: image
+  //       });
+
+  //       google.maps.event.addDomListener(window, 'resize', function() {
+  //         map.setCenter(myLatlng);
+  //       });
+  //     }
+  //   }
+  // };
+
   var _finalize = function() {
     var doneClass = 'js-done';
 
@@ -108,6 +155,7 @@ app.common = (function($, undefined) {
     windowResize: _windowResize,
     toggleSubmenu: _toggleSubmenu,
     svgFallback: _svgFallback,
+    // googleMaps: _googleMaps,
     finalize: _finalize
   };
 

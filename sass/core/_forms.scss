@@ -31,13 +31,20 @@
   margin-bottom: $rh-sml;
   // Modifiers
 
-  // &--inline {
-  //   @include cf;
-  //   .form__item {
-  //     float: left;
-  //     margin-bottom: 0;
-  //   }
-  // }
+  &--inline {
+    display: flex;
+    flex-wrap: wrap;
+    .form__item {
+      flex: 1 1 150px;
+      margin-bottom: 0;
+    }
+    .form__actions {
+      margin-top: auto;
+    }
+    .btn {
+      margin-left: $rh-xxs;
+    }
+  }
 
   // &--hz {
   //   margin: 0;
