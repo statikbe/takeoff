@@ -130,7 +130,7 @@ app.common = (function($, undefined) {
   //       });
 
   //       google.maps.event.addDomListener(window, 'resize', function() {
-  //         map.setCenter(myLatlng);
+  //         map.setCenter(myLatLng);
   //       });
   //     }
   //   }
