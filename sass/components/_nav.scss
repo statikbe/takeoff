@@ -27,7 +27,7 @@
 
   &--main {
     @extend %ext-default-nav;
-    @include fsRem(16px);
+    @include fsRem($font-size-lrg);
     font-weight: $font-weight-bold;
     a {
       display: block;
