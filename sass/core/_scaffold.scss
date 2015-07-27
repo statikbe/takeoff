@@ -93,15 +93,7 @@ textarea {
 // Links
 a {
   @include transitions((color, background, border));
-  color: $color-link;
-  &:visited {
-    color: $color-link-visited;
-  }
-  &:hover,
-  &:focus {
-    color: $color-link-hover;
-    text-decoration: none;
-  }
+  @include link-variant($color-link, $color-link-hover, $color-link-visited);
 }
 
 // Paragraphs

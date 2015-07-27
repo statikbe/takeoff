@@ -66,6 +66,13 @@ $line-height-base: 24px !default;
 
 $line-height-sml: 1.2 !default;
 
+$letter-spacing-base: .15em;
+
+$letter-spacing-xms: .05em;
+$letter-spacing-sml: .1em;
+$letter-spacing-med: $letter-spacing-base;
+$letter-spacing-lrg: .25em;
+
 // Fonts
 //
 $fonts-path: '../fonts' !default;
