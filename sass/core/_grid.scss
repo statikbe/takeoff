@@ -1,65 +1,53 @@
 .container {
   @include container-fluid;
-  @if $breakpoints-legacy {
-    width: $breakpoints-legacy;
-  } @else {
-    max-width: $grid-container-width;
-  }
+  max-width: $grid-container-width;
   &--relative {
     position: relative;
   }
-}
-.container--fluid {
-  @include container-fluid;
-}
-.container--fixed {
-  @include container-fluid;
-  width: $grid-container-width;
+  &--fluid {
+    @include container-fluid;
+  }
+  &--fixed {
+    @include container-fluid;
+    width: $grid-container-width;
+  }
 }
 
 .grid {
   @include make-row;
-  &--vr-m {
-    margin-bottom: $rh-sml;
-  }
-  &--vr-l {
-    margin-bottom: $rh-med;
-  }
-  &.grid--border {
-    > .grid__item {
-      @include grid__item--border(1);
-    }
-  }
-  &--inv {
-    > [class*=grid__] {
-      float: right;
-    }
-  }
-}
-.grid__item {
-  @include make-column($grid-columns, $grid-columns);
-  margin-top: 0;
-  &:nth-child(n+2) {
-    margin-top: $rh-sml;
-  }
+  display: flex;
+  flex-wrap: wrap;
 }
 
-[class*=grid__] {
+[class^="grid__item"] {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
   min-height: 1px;
+  width: 100%;
+  margin-top: $rh-sml;
+  padding-left: ($grid-gutter-width / 2);
+  padding-right: ($grid-gutter-width / 2);
 }
 
-// Creates all the standalone grid child classes
-// Examples: .grid__3, .grid__6
 .grid__0 {
   display: none;
 }
-@for $column from 1 through $grid-columns {
-  .grid__#{$column} {
-    @include make-column($column);
-    @if ($column == $grid-columns) {
-      margin-top: $rh-sml;
-      &:first-child {
-        margin-top: 0;
+.grid__12 {
+  display: block;
+}
+
+// Creates all the breakpoint grid classes
+// Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, 'min-width'){
+    .grid--bp-#{$bp} {
+      @each $column in $grids {
+        &-#{$column}-col {
+          > .grid__item {
+            @include make-column($grid-column-count / $column);
+          }
+        }
       }
     }
   }
@@ -69,14 +57,10 @@
 // Example: .grid--bp-med__8
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width') {
-    .grid--bp-#{$bp} {
-      @for $column from 1 through $grid-columns {
-        &__#{$column} {
-          margin-top: 0;
-          @include make-column($column);
-          + [class*="#{$bp}__#{$grid-columns}"] {
-            margin-top: $rh-sml;
-          }
+    .grid__item--#{$bp} {
+      @each $column in $grid-columns {
+        &-#{$column} {
+          @include make-column($grid-column-count / (12 / $column));
         }
       }
     }
@@ -84,11 +68,11 @@
 }
 
 // Creates all the offset class
-// Example: .grid--bp-med__offset-8
+// Example: .grid__item--med-offset-8
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width') {
-    .grid--bp-#{$bp}__offset {
-      @for $column from 1 through $grid-columns {
+    .grid__item--#{$bp}offset {
+      @each $column in $grid-columns-push {
         &-#{$column} {
           @include make-column-push($column);
         }
@@ -97,121 +81,24 @@
   }
 }
 
-// Creates the default grid classes
-// Example: .grid--2-col
-@each $px in $breakpoints {
-  .grid {
-    @for $column from 2 through $grid-columns {
-      &--#{$column}-col {
-        > .grid__item {
-          @include make-column($grid-columns / $column);
-          &:nth-child(n+#{($column+1)}) {
-            margin-top: $rh-sml;
-          }
-          &:nth-child(-n+#{($column)}) {
-            margin-top: 0;
-          }
-          &:nth-child(#{$column}n+#{($column+1)}) {
-            clear: left;
-          }
-        }
-        &.grid--border {
-          > .grid__item {
-            @include grid__item--border($column);
-          }
-        }
-      }
-    }
-  }
-}
-
-// Creates all the breakpoint grid classes
-// Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
-@each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width'){
-    .grid--bp-#{$bp} {
-      @for $column from 1 through $grid-columns {
-        &-#{$column}-col {
-          > .grid__item {
-            @include make-column($grid-columns / $column);
-            &:nth-child(-n+#{($column)}) {
-              margin-top: 0;
-            }
-            &:nth-child(n+#{($column+1)}) {
-              margin-top: $rh-sml;
-            }
-            &:nth-child(n+1) {
-              clear: none;
-            }
-            &:nth-child(#{$column}n+#{($column+1)}) {
-              clear: left;
-            }
-            @if $column != 1 {
-              &:nth-child(-n+#{($column)}) {
-                margin-top: 0;
-              }
-            }
-          }
-          &.grid--border {
-            > .grid__item {
-              @include grid__item--border($column);
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// TODO: Write functions to add a vertical divider
-
-// .grid--border.grid--2-col.grid--divider {
-//   background: linear-gradient(to right, transparent, $gray-10, transparent);
-//   background-position: 50%;
-//   background-repeat: repeat-y;
-//   background-size: 1px auto;
+// Creates all the standalone grid child classes
+// Examples: .grid__3, .grid__6
+// @for $column from 2 through $grid-columns {
+//   .grid__#{$column} {
+//     @include make-column($column);
+//   }
 // }
 
-.grid {
-  &--eqh {
-    display: flex;
-    flex-wrap: wrap;
-    &:before,
-    &:after {
-      .flexbox & {
-        display: none;
-      }
-      .no-flexbox & {
-        display: table;
-      }
-    }
-  }
-  .eqh {
-    &__item {
-      display: flex;
-      flex-direction: column;
-      align-content: stretch;
-      &:before,
-      &:after {
-        display: none;
-      }
-    }
-    &__panel {
-      flex: 1;
-    }
-  }
-}
-.eqh {
-  &__item {
-    display: flex;
-    flex-direction: column;
-    align-content: stretch;
-    &:before,
-    &:after {
-      display: none;
-    }
-  }
-  &__panel {
-    flex: 1 1 auto;
-  }
-}
+// Creates the default grid classes
+// Example: .grid--2-col
+// .grid--2-col {
+//   > .grid__item {
+//     @include make-column(2);
+//   }
+// }
+
+// .eqh {
+//   &__panel {
+//     flex: 1 1 auto;
+//   }
+// }

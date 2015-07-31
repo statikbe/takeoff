@@ -50,7 +50,7 @@ $font-size-base: $font-size-med !default;
 
 $font-size-h1: 40px !default;
 $font-size-h2: 28px !default;
-$font-size-h3: 18px !default;
+$font-size-h3: 20px !default;
 $font-size-h4: $font-size-med !default;
 $font-size-h5: 14px !default;
 
@@ -63,11 +63,9 @@ $font-weight-extra-bold: 800 !default;
 $font-weight-base: $font-weight-regular !default;
 
 $line-height-base: 24px !default;
-
 $line-height-sml: 1.2 !default;
 
 $letter-spacing-base: .15em;
-
 $letter-spacing-xms: .05em;
 $letter-spacing-sml: .1em;
 $letter-spacing-med: $letter-spacing-base;
@@ -79,11 +77,14 @@ $fonts-path: '../fonts' !default;
 $fonts-icon-class: icon;
 
 //** By default, this inherits from the `<body>`.
+$headings: h1, h2, h3, h4, h5, h6;
 $headings-font-family: inherit !default;
 $headings-font-weight: $font-weight-regular !default;
 $headings-line-height: 1.1 !default;
 $headings-color: inherit !default;
-$headings-color-alt: $color-brand-primary !default;
+
+// Optional
+$headings-color-alt: null !default;
 
 // Layers
 // ------
@@ -107,19 +108,7 @@ $breakpoints: (
 );
 
 $breakpoints-flyout: map-get($breakpoints, med);
-
 $breakpoints-legacy: false !default;
-
-
-// Grid
-// ----
-//
-// columns          - The total amount of columns
-// gutter           - The amount of space between two columns
-// container-*      - The total width of the container for large / medium / small
-$grid-gutter-width: 20px !default;
-$grid-columns: 12 !default;
-$grid-container-width: 1200px !default;
 
 
 // Rhythm
@@ -138,6 +127,21 @@ $rhythm: (
   lrg: $rh-lrg,
   xlr: $rh-xlr
 );
+
+// Grid
+// ----
+//
+// columns          - The total amount of columns
+// gutter           - The amount of space between two columns
+// container-*      - The total width of the container for large / medium / small
+$grid-gutter-width: 20px !default;
+$grid-column-count: 12 !default;
+$grid-container-width: 1200px !default;
+
+$grids: (2, 3, 4) !default;
+$grid-columns: (3, 4, 6, 8) !default;
+$grid-columns-push: () !default;
+$grid-rhythm: $rh-sml !default;
 
 // Transitions
 // -----------

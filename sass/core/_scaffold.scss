@@ -1,7 +1,7 @@
 // Selection style
 //
-::-moz-selection { background: rgba($color-link,0.8); color: #fff; text-shadow: none; }
-::selection { background: rgba($color-link,0.8); color: #fff; text-shadow: none; }
+::-moz-selection { background: rgba($color-link,0.8); color: $white; text-shadow: none; }
+::selection { background: rgba($color-link,0.8); color: $white; text-shadow: none; }
 
 // Reset box-sizing
 //
@@ -45,6 +45,7 @@ html {
 }
 
 body {
+  background: red;
   .js & {
     visibility: hidden !important;
   }
@@ -75,7 +76,6 @@ body {
     min-width: 300px;
   }
 }
-
 
 // Reset fonts for relevant elements
 input,
@@ -152,13 +152,12 @@ svg {
 .invisible {
   visibility: hidden;
 }
-.clearfix {
-  @include cf;
-}
+
 .print-only,
 .print-only-inline {
     display: none;
 }
+
 .pull--left {
   float: left;
 }
