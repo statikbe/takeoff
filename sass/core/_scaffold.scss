@@ -114,18 +114,6 @@ svg {
 }
 
 /*! == Helper classes == */
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  *text-indent: -9999px;
-  &:before {
-    content: '';
-    display: block;
-    width: 0;
-    height: 100%;
-  }
-}
 .superhidden {
   display: none !important;
   visibility: hidden;
@@ -148,19 +136,4 @@ svg {
     overflow: visible;
     position: static;
   }
-}
-.invisible {
-  visibility: hidden;
-}
-
-.print-only,
-.print-only-inline {
-    display: none;
-}
-
-.pull--left {
-  float: left;
-}
-.pull--right {
-  float: right;
 }

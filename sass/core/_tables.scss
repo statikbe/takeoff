@@ -1,7 +1,10 @@
 // Tables
 //
 table {
-
+  margin-bottom: $line-height-base;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 th {
   text-align: left;
@@ -22,7 +25,7 @@ table {
         padding: 8px 5px;
         line-height: $line-height-base;
         vertical-align: top;
-        border-top: 1px solid lighten($gray-25, 15%);
+        border-top: 1px solid $gray-0;
       }
     }
   }

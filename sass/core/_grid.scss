@@ -7,10 +7,6 @@
   &--fluid {
     @include container-fluid;
   }
-  &--fixed {
-    @include container-fluid;
-    width: $grid-container-width;
-  }
 }
 
 .grid {

@@ -2,7 +2,6 @@
 %ext-heading {
   margin-top: ceil($line-height-base * 1.5);
   margin-bottom: floor($line-height-base * .75);
-
   color: $headings-color;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
@@ -28,7 +27,6 @@
     } @else {
       @include fsRem($font-size-h1 * .65);
     }
-
     @include breakpoint(map-get($breakpoints, xsm)){
       @include fsRem($font-size-h1 * .75);
     };
@@ -46,7 +44,6 @@
     } @else {
       @include fsRem($font-size-h2 * .85);
     }
-
     @include breakpoint(map-get($breakpoints, sml)){
       @include fsRem($font-size-h2);
     };

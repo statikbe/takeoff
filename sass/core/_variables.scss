@@ -79,7 +79,7 @@ $fonts-icon-class: icon;
 //** By default, this inherits from the `<body>`.
 $headings: h1, h2, h3, h4, h5, h6;
 $headings-font-family: inherit !default;
-$headings-font-weight: $font-weight-regular !default;
+$headings-font-weight: $font-weight-bold !default;
 $headings-line-height: 1.1 !default;
 $headings-color: inherit !default;
 
