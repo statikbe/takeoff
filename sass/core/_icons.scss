@@ -1,12 +1,12 @@
 // Include fonts
 //
 @font-face {
-  font-family: 'FontAwesome';
-  src: url('#{$fonts-path}/fontawesome-webfont.eot');
-  src: url('#{$fonts-path}/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-    url('#{$fonts-path}/fontawesome-webfont.woff') format('woff'),
-    url('#{$fonts-path}/fontawesome-webfont.ttf') format('truetype'),
-    url('#{$fonts-path}/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+  font-family: $font-family-icons;
+  src: url('#{$fonts-path}/#{$fonts-icon-name}.eot');
+  src: url('#{$fonts-path}/#{$fonts-icon-name}.eot?#iefix') format('embedded-opentype'),
+    url('#{$fonts-path}/#{$fonts-icon-name}.woff') format('woff'),
+    url('#{$fonts-path}/#{$fonts-icon-name}.ttf') format('truetype'),
+    url('#{$fonts-path}/#{$fonts-icon-name}.svg#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,23 +15,34 @@
 .#{$fonts-icon-class} {
   display: inline-block;
   border: none;
-  font-weight: $font-weight-regular;
   font-family: $font-family-icons;
+  font-weight: $font-weight-regular;
   font-style: normal;
   font-size: inherit;
   line-height: inherit;
   text-indent: 0;
   vertical-align: baseline;
+  text-rendering: auto;
   &:before,
   &:after {
     text-transform: none;
   }
+  &--before {
+    &:before {
+      margin-right: $rh-xxs;
+    }
+  }
+  &--after {
+    &:after {
+      margin-left: $rh-xxs;
+    }
+  }
 }
 
 // Spinning icons
-.#{$fonts-icon-class}--spin {
-  animation: spin 2s infinite linear;
-}
+// .#{$fonts-icon-class}--spin {
+//   animation: spin 2s infinite linear;
+// }
 
 // Icons
 // .#{$fonts-icon-class}--glass:before {

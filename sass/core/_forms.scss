@@ -9,7 +9,7 @@
   &:focus {
     outline: none;
     border-color: $gray-75;
-    background: mix($gray-0, $white);
+    background: tint($gray-0, 75%);
     &::-webkit-input-placeholder {
       color: transparent;
     }
@@ -29,91 +29,6 @@
 
 .form {
   margin-bottom: $rh-sml;
-  // Modifiers
-
-  &--inline {
-    display: flex;
-    flex-wrap: wrap;
-    .form__item {
-      flex: 1 1 150px;
-      margin-bottom: 0;
-    }
-    .form__actions {
-      margin-top: auto;
-    }
-    .btn {
-      margin-left: $rh-xxs;
-    }
-  }
-
-  // &--hz {
-  //   margin: 0;
-  //   @include breakpoint(map-get($breakpoints, xsm)){
-  //     position: relative;
-  //     .form__fields {
-  //       padding-right: 180px;
-  //     }
-  //     .form__actions {
-  //       position: absolute;
-  //       right: 0;
-  //       bottom: 0;
-  //       width: 160px;
-  //       margin: 0;
-  //     }
-  //     .form__btn {
-  //       display: block;
-  //       width: 100%;
-  //       min-width: initial;
-  //     }
-  //   };
-  // }
-
-  // Search form
-  // &--search {
-  //   @include column(4);
-  //   float: right;
-  //   clear: right;
-  //   padding-right: 75px;
-  //   position: relative;
-  //   margin-bottom: 20px;
-  //   .form__item {
-  //     width: 100%;
-  //   }
-  //   .form__text {
-  //     background: $white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAQAAACRZI9xAAAArUlEQVQoz33QYRWFIAyG4VWgghWoQAUqUIEKVrCCFd4KVrCCFb77Q5DhOd6zPzAexphhGEZm50IcrISWMwyTGUZgRy4u8pt0cABXW0dPSruZuCtuCHF6ctdI7n18HZm1Jl2DZISogwjBRNKbHIhr+mhFiDLIihDbA2L7VRhkaSnIJGrb7fNc8jS4HsUTI3K6wz7K6snNKpVCoI9TbDOZ40HfZKD0TTqK/4ixsMh+cvo988EeoqwAAAAASUVORK5CIIA=) no-repeat 10px center;
-  //     padding-left: 35px;
-  //   }
-  //   .btn {
-  //     width: 75px;
-  //     padding: 0;
-  //     position: absolute;
-  //     top: 0;
-  //     right: 0;
-  //   }
-  // }
-
-  // Newsletter form
-  // &--newsletter {
-  //   padding-right: 35px;
-  //   position: relative;
-  //   .form__label {
-  //     @extend .visuallyhidden;
-  //   }
-  //   .form__text {
-  //     background-color: $white;
-  //   }
-  //   .form__item {
-  //     width: 100%;
-  //   }
-  //   .btn {
-  //     @include fsRem(25px);
-  //     width: 35px;
-  //     padding: 0;
-  //     position: absolute;
-  //     top: 0;
-  //     right: 0;
-  //   }
-  // }
   &.is-submitted {
     position: relative;
     opacity: .5;
@@ -132,81 +47,29 @@
   }
 }
 
-.form__group {
-  margin-bottom: $rh-sml;
-  h1,
-  h2,
-  h3,
-  h4 {
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-}
-.form__item {
-  margin-bottom: $rh-sml;
-  &--radios,
-  &--checkboxes {}
-}
-.form__input-item,
-.form__select-item {
-  position: relative;
-  label {
-    position: absolute;
-    top: 9px;
-    left: 10px;
-    z-index: 1;
-    width: 15px;
-    color: $gray-25;
-    text-align: center;
-  }
-}
-.form__input-item {
-  .form__text {
-    text-indent: 15px;
-  }
-}
-.form__select-item {
-  overflow-x: hidden;
-  label {
-    right: 10px;
-    left: auto;
-  }
-  .form__select {
-    width: calc(100% + 15px);
-    position: relative;
-    z-index: $zindex-layer-1;
-  }
-}
-
 .form__label {
-  font-weight: $font-weight-bold;
   display: inline-block;
   margin-bottom: 5px;
-  &--radio,
-  &--checkbox {
-    font-weight: $font-weight-regular;
-    padding-bottom: 0;
-    position: relative;
-    padding-left: 20px;
-    input {
-      position: absolute;
-      left: 0;
-      top: 4px;
-    }
-  }
+  font-weight: $font-weight-bold;
+  // &--radio,
+  // &--checkbox {
+  //   font-weight: $font-weight-regular;
+  //   padding-bottom: 0;
+  //   position: relative;
+  //   padding-left: 20px;
+  //   input {
+  //     position: absolute;
+  //     left: 0;
+  //     top: 4px;
+  //   }
+  // }
   &[for] {
     cursor: pointer;
   }
-  small {
-    color: $gray-25;
-  }
-  & + & {
-    margin-left: 10px;
-  }
 }
-p.form__label {
-  font-weight: $font-weight-regular;
+
+.form__item {
+  margin-bottom: $rh-sml;
 }
 
 .form__text {
@@ -215,26 +78,6 @@ p.form__label {
 .form__textarea {
   @extend %ext-input-style;
   min-height: 100px;
-}
-.form__select-item {
-  @extend %ext-input-style;
-  .form__select {
-    -webkit-appearance: textfield;
-    // -moz-appearance: textfield;
-    // hide mozilla's dirty arrow with -moz-appearance: window
-    -moz-appearance: window;
-    appearance: textfield;
-    border: none;
-    border-radius: 0;
-    &:focus {
-      outline: none;
-    }
-  }
-}
-.form__select {
-  background: none;
-  display: block;
-  cursor: pointer;
 }
 
 .form__radio,
@@ -245,6 +88,29 @@ p.form__label {
     margin-left: 5px;
   }
 }
+
+// .form__select-item {
+//   @extend %ext-input-style;
+//   .form__select {
+//     -webkit-appearance: textfield;
+//     // -moz-appearance: textfield;
+//     // hide mozilla's dirty arrow with -moz-appearance: window
+//     -moz-appearance: window;
+//     appearance: textfield;
+//     border: none;
+//     border-radius: 0;
+//     &:focus {
+//       outline: none;
+//     }
+//   }
+// }
+// .form__select {
+//   background: none;
+//   display: block;
+//   cursor: pointer;
+// }
+
+
 
 .form__file {
   display: block;
@@ -287,6 +153,67 @@ p.form__label {
   @include fsRem(13px);
   // font-style: italic;
 }
+
+// .form__input-item,
+// .form__select-item {
+//   position: relative;
+//   label {
+//     position: absolute;
+//     top: 9px;
+//     left: 10px;
+//     z-index: 1;
+//     width: 15px;
+//     color: $gray-25;
+//     text-align: center;
+//   }
+// }
+// .form__input-item {
+//   .form__text {
+//     text-indent: 15px;
+//   }
+// }
+// .form__select-item {
+//   overflow-x: hidden;
+//   label {
+//     right: 10px;
+//     left: auto;
+//   }
+//   .form__select {
+//     width: calc(100% + 15px);
+//     position: relative;
+//     z-index: $zindex-layer-1;
+//   }
+// }
+
+// .form__label {
+//   font-weight: $font-weight-bold;
+//   display: inline-block;
+//   margin-bottom: 5px;
+//   &--radio,
+//   &--checkbox {
+//     font-weight: $font-weight-regular;
+//     padding-bottom: 0;
+//     position: relative;
+//     padding-left: 20px;
+//     input {
+//       position: absolute;
+//       left: 0;
+//       top: 4px;
+//     }
+//   }
+//   &[for] {
+//     cursor: pointer;
+//   }
+//   small {
+//     color: $gray-25;
+//   }
+//   & + & {
+//     margin-left: 10px;
+//   }
+// }
+// p.form__label {
+//   font-weight: $font-weight-regular;
+// }
 
 // Error handeling
 .parsley-errors-container {

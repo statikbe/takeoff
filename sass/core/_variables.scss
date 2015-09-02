@@ -71,9 +71,8 @@ $letter-spacing-sml: .1em;
 $letter-spacing-med: $letter-spacing-base;
 $letter-spacing-lrg: .25em;
 
-// Fonts
-//
 $fonts-path: '../fonts' !default;
+$fonts-icon-name: 'fontawesome-webfont';
 $fonts-icon-class: icon;
 
 //** By default, this inherits from the `<body>`.
@@ -110,8 +109,8 @@ $breakpoints: (
 $breakpoints-flyout: map-get($breakpoints, med);
 $breakpoints-legacy: false !default;
 
-
 // Rhythm
+// -----------
 $rh-xxs: $line-height-base * .25;
 $rh-xsm: $line-height-base * .5;
 $rh-sml: $line-height-base;

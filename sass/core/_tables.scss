@@ -1,11 +1,5 @@
 // Tables
 //
-table {
-  margin-bottom: $line-height-base;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
 th {
   text-align: left;
 }
@@ -51,8 +45,12 @@ table {
   }
 
   // Nesting
-  .table {
+  table {
     background-color: $color-background;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 

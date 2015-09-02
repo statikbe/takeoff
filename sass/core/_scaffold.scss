@@ -94,6 +94,10 @@ textarea {
 a {
   @include transitions((color, background, border));
   @include link-variant($color-link, $color-link-hover, $color-link-visited);
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
 
 // Paragraphs
