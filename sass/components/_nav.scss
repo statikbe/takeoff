@@ -1,5 +1,4 @@
 %ext-default-nav {
-  line-height: 1;
   ul {
     @include listreset;
     @include cf;
@@ -28,19 +27,15 @@
 
   &--main {
     @extend %ext-default-nav;
-    @include fsRem(16px);
+    @include fsRem($font-size-lrg);
     font-weight: $font-weight-bold;
-    clear: right;
-    float: right;
     a {
       display: block;
-      color: black;
-      background: gray;
       padding: 8px 10px;
       &:hover,
       &:focus,
       &.active {
-        color: cyan;
+
       }
     }
   } // end .-main
@@ -66,6 +61,18 @@
       }
     }
   } // end .-language
+
+  &--inline {
+    @extend %ext-default-nav;
+    // ul {
+    //   @extend %ext-listreset;
+    // }
+    li + li {
+      border-left: 1px solid $gray-25;
+      margin-left: $rh-xsm;
+      padding-left: $rh-xsm;
+    }
+  }
 
   &--list {
     line-height: lh($line-height-base);

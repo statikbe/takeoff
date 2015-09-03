@@ -12,6 +12,7 @@
 
 // The dropdown menu (ul)
 .dropdown__menu {
+  @include listreset;
   position: absolute;
   top: 100%;
   left: 0;
@@ -21,8 +22,7 @@
   min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0; // override default ul
-  list-style: none;
-  font-size: $font-size-base;
+  font-size: $font-size-med;
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   background-color: $white;
   border: 1px solid $gray-0; // IE8 fallback
@@ -35,6 +35,11 @@
   &--right {
     right: 0;
     left: auto;
+  }
+
+  // Display the dropdown over the dropdown link
+  &--over {
+    top: 0;
   }
 
   .open > & {

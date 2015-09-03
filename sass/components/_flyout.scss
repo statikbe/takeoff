@@ -53,18 +53,6 @@
       color: $gray-50;
       background-position: 0 0;
     }
-    &.nav__link--novecento3 {
-      &:hover,
-      &.active {
-        color: $blue-50;
-      }
-    }
-    &.nav__link--transit3 {
-      &:hover,
-      &.active {
-        color: $yellow-50;
-      }
-    }
   }
   .nav + .nav {
     margin-top: $rh-sml;

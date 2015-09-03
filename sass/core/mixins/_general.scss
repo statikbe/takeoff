@@ -13,12 +13,15 @@
   @if $position == up {
     background-position: 0 -100%;
   }
+  @if $color-alt == transparent {
+    $color-alt: $white;
+  }
   @include transitions((background, color));
   &:hover,
   &:focus,
   &:active {
     background-position: 0 0;
-    color: invert($color);
+    color: $color-alt;
     border-color: $color;
   }
 }

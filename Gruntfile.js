@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
     // Grunt options
-    var target = grunt.option('target') || '../public';
+    var target = grunt.option('target') || '../application/public';
 
     var uglifyTargets = {
         main: {},
