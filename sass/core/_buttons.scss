@@ -12,6 +12,7 @@ $btn-line-height: 18px !default;
   border-radius: $border-radius-med;
   font-weight: $font-weight-bold;
   line-height: lh($btn-line-height);
+  text-decoration: none;
 
   &--ghost {
     @include button-variant(($ghost-btn-color, $white), (transparent, $ghost-btn-color), $ghost-btn-color);
@@ -19,7 +20,8 @@ $btn-line-height: 18px !default;
   }
   &--ext {
     &:after {
-      content: '\00A0 \203A';
+      content: '\203A';
+      margin-left: 3px;
     }
   }
 
@@ -103,8 +105,4 @@ $btn-line-height: 18px !default;
     border-color: $white;
     background: $white;
   }
-}
-
-a.btn {
-  text-decoration: none;
 }
