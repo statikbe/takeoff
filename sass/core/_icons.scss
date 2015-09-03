@@ -1,3 +1,18 @@
+%ext-icon-style {
+  display: inline-block;
+  border: none;
+  font-family: $font-family-icons;
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  font-size: inherit;
+  line-height: inherit;
+  text-indent: 0;
+  text-transform: none;
+  vertical-align: bottom;
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+}
+
 // Include fonts
 //
 @font-face {
@@ -13,29 +28,27 @@
 
 // Base class definition
 .#{$fonts-icon-class} {
-  display: inline-block;
-  border: none;
-  font-family: $font-family-icons;
-  font-weight: $font-weight-regular;
-  font-style: normal;
-  font-size: inherit;
-  line-height: inherit;
-  text-indent: 0;
-  vertical-align: baseline;
-  text-rendering: auto;
-  &:before,
-  &:after {
-    text-transform: none;
-  }
   &--before {
     &:before {
+      @extend %ext-icon-style;
       margin-right: $rh-xxs;
     }
   }
   &--after {
     &:after {
+      @extend %ext-icon-style;
       margin-left: $rh-xxs;
     }
+  }
+  &--replace {
+    &:before,
+    &:after {
+      @extend %ext-icon-style;
+    }
+  }
+  &--social {
+    @include fsRem(28px);
+    line-height: 1;
   }
 }
 
