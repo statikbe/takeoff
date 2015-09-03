@@ -1,0 +1,16 @@
+{
+  "font-awesome": [
+    "fax",
+    "cutlery",
+    "lastfm",
+    "music",
+    "mobile"
+  ],
+  "material-design": [
+    "album",
+    "do_not_disturb",
+    "healing",
+    "search",
+    "sync"
+  ]
+}

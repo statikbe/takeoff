@@ -129,6 +129,13 @@ module.exports = function(grunt) {
             }
         },
 
+        webfont: {
+            icons: {
+                src: require('./icons')(),
+                dest: 'build/fonts'
+            }
+        },
+
         // CLEAN
         clean: {
             img: {
@@ -261,6 +268,10 @@ module.exports = function(grunt) {
             fonts: {
                 files: ['fonts/**'],
                 tasks: ['fonts']
+            },
+            icons: {
+                files: ['icons/selection.json'],
+                tasks: ['webfont']
             }
         }
     });
@@ -273,7 +284,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
-    grunt.registerTask('fonts', ['copy:fonts']);
+    grunt.registerTask('fonts', ['webfont', 'copy:fonts']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
     // grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
     grunt.registerTask('build', ['css', 'js', 'img', 'fonts']);
