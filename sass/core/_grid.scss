@@ -33,6 +33,14 @@
   display: block;
 }
 
+// Creates all the grid item classes
+// Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
+@each $column in $grid-columns {
+  .grid__item--#{$column} {
+    @include make-column($grid-column-count / (12 / $column));
+  }
+}
+
 // Creates all the breakpoint grid classes
 // Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
 @each $bp, $px in $breakpoints {
