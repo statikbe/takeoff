@@ -3,34 +3,24 @@
   display: block;
   color: inherit;
   text-decoration: none;
-  &__header {
-    overflow: hidden;
-    margin-bottom: $rh-xsm;
-    h1, h2, h3, h4 {
-      margin-bottom: 0;
+  &__section {
+    & + & {
+      margin-top: $rh-sml;
     }
-    &:last-child {
-      margin-bottom: 0;
+    &--header {
+      #{$headings} {
+        margin-bottom: 0;
+      }
     }
-  }
-  &__footer {
-    margin-top: $rh-med;
   }
   &__img {
     overflow: hidden;
-    background: $gray-0;
     text-align: center;
     img {
-      @include transitions(transform);
       display: block;
-      width: 100%;
+      max-width: 100%;
       height: auto;
-      margin: 0 auto;
     }
-  }
-  &__date {
-    color: $gray-50;
-    @include fsRem($font-size-sml);
   }
   &__link {
     @include transitions(color);
@@ -41,53 +31,25 @@
 }
 
 .excerpt__aside {
-  .excerpt__img {
-    text-align: center;
-    img {
-      width: auto;
-    }
-  }
+  @include breakpoint(map-get($breakpoints, sml), 'max-width'){
+    margin-bottom: $rh-xsm;
+  };
   @include breakpoint(map-get($breakpoints, sml)){
     float: left;
-    width: 140px;
-    margin-right: 20px;
-  };
-  @include breakpoint(map-get($breakpoints, sml), 'max-width'){
-    margin-bottom: $rh-med;
-  };
-  @include breakpoint(map-get($breakpoints, lrg)){
+    width: 240px;
     ~ .excerpt__main {
-      margin-left: 160px;
+      margin-left: 260px;
     }
   };
-  .excerpt--hz-large & {
-    @include breakpoint(map-get($breakpoints, sml)){
-      width: 140px;
-      margin-right: 20px;
-    };
-    @include breakpoint(map-get($breakpoints, sml)){
-      width: 210px;
-    };
-    @include breakpoint(map-get($breakpoints, lrg)){
-      width: 280px;
-      ~ .excerpt__main {
-        margin-left: 300px;
-      }
-    };
-  }
 }
 
 a.excerpt,
 .excerpt--link {
-  &:visited {
-    color: inherit;
-  }
+  @include link-variant(inherit);
   &:hover,
   &:focus {
-    color: inherit;
-    h1, h2, h3, h4 {
-      // color: tomato;
-      text-decoration: none;
+    #{$headings} {
+      color: inherit;
     }
     .excerpt__img {
       img {

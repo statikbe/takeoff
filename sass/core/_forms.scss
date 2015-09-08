@@ -1,15 +1,21 @@
+$input-background-color: $white;
+$input-background-color-focus: tint($input-background-color, 75%);
+$input-border-color: $gray-25;
+$input-border-color-focus: $gray-75;
+$input-text-color: $color-text;
+
 %ext-input-style {
   @include transitions((color, background, border));
   width: 100%;
   padding: 14px 15px;
-  border: 1px solid $gray-25;
-  background-color: $white;
-  color: $color-text;
+  border: 1px solid $input-border-color;
+  background-color: $input-background-color;
+  color: $input-text-color;
   line-height: normal;
   &:focus {
     outline: none;
-    border-color: $gray-75;
-    background: tint($gray-0, 75%);
+    border-color: $input-border-color-focus;
+    background: $input-background-color-focus;
     &::-webkit-input-placeholder {
       color: transparent;
     }
@@ -51,18 +57,25 @@
   display: inline-block;
   margin-bottom: 5px;
   font-weight: $font-weight-bold;
-  // &--radio,
-  // &--checkbox {
-  //   font-weight: $font-weight-regular;
-  //   padding-bottom: 0;
-  //   position: relative;
-  //   padding-left: 20px;
-  //   input {
-  //     position: absolute;
-  //     left: 0;
-  //     top: 4px;
-  //   }
-  // }
+  &--radio,
+  &--checkbox {
+    cursor: pointer;
+    position: relative;
+    font-weight: $font-weight-regular;
+    padding-left: 20px;
+    margin-bottom: 0;
+    input {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -8px;
+    }
+  }
+  &--radio {
+    input {
+      margin-top: -9px;
+    }
+  }
   &[for] {
     cursor: pointer;
   }
@@ -83,9 +96,20 @@
 .form__radio,
 .form__checkbox {
   vertical-align: 0;
-  label + & {
-    margin-right: 0;
-    margin-left: 5px;
+}
+
+.form__select {
+  @extend %ext-input-style;
+  background: none;
+  display: block;
+  cursor: pointer;
+  -webkit-appearance: textfield;
+  // hide mozilla's dirty arrow with -moz-appearance: window
+  -moz-appearance: window;
+  appearance: textfield;
+  border-radius: 0;
+  &:focus {
+    outline: none;
   }
 }
 
@@ -103,11 +127,6 @@
 //       outline: none;
 //     }
 //   }
-// }
-// .form__select {
-//   background: none;
-//   display: block;
-//   cursor: pointer;
 // }
 
 
