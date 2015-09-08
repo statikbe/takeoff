@@ -4,10 +4,20 @@ $input-border-color: $gray-25;
 $input-border-color-focus: $gray-75;
 $input-text-color: $color-text;
 
+$error-background: tint(map-get($notice-colors, 'danger'), 90%);
+$error-color: map-get($notice-colors, 'danger');
+
+$input-item-margin: $rh-sml;
+$input-horizontal-padding: 15px;
+$input-vertical-padding: 14px;
+$input-icon-padding: ($input-horizontal-padding * 2) + 4px;
+
 %ext-input-style {
   @include transitions((color, background, border));
+  position: relative;
+  z-index: 10;
   width: 100%;
-  padding: 14px 15px;
+  padding: $input-vertical-padding $input-horizontal-padding;
   border: 1px solid $input-border-color;
   background-color: $input-background-color;
   color: $input-text-color;
@@ -29,11 +39,12 @@ $input-text-color: $color-text;
     background: $gray-0;
   }
   .parsley-error & {
-    background-color: lighten(map-get($notice-colors, 'danger'), 52%);
+    background-color: $error-background;
+    border-color: $error-color;
   }
 }
 
-.form {
+form {
   margin-bottom: $rh-sml;
   &.is-submitted {
     position: relative;
@@ -53,36 +64,62 @@ $input-text-color: $color-text;
   }
 }
 
-.form__label {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-weight: $font-weight-bold;
-  &--radio,
-  &--checkbox {
-    cursor: pointer;
-    position: relative;
-    font-weight: $font-weight-regular;
-    padding-left: 20px;
-    margin-bottom: 0;
+//== Form items
+//-------------
+//
+.form__item {
+  position: relative;
+  margin-bottom: $input-item-margin;
+  &--radios,
+  &--checkboxes {
+    @include cf;
     input {
       position: absolute;
       left: 0;
       top: 50%;
+    }
+    label {
+      cursor: pointer;
+      position: relative;
+      float: left;
+      clear: both;
+      padding-left: 20px;
+      margin-bottom: 0;
+      font-weight: $font-weight-regular;
+    }
+  }
+  &--checkboxes {
+    input {
       margin-top: -8px;
     }
   }
-  &--radio {
+  &--radios {
     input {
       margin-top: -9px;
     }
   }
-  &[for] {
-    cursor: pointer;
+}
+
+.form__row {
+  margin-left: -10px;
+  margin-right: -10px;
+  .form__item {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 
-.form__item {
-  margin-bottom: $rh-sml;
+//== Form input types
+//-------------------
+//
+.form__label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: $font-weight-bold;
+  &[for] {
+    cursor: pointer;
+  }
 }
 
 .form__text {
@@ -113,138 +150,86 @@ $input-text-color: $color-text;
   }
 }
 
-// .form__select-item {
-//   @extend %ext-input-style;
-//   .form__select {
-//     -webkit-appearance: textfield;
-//     // -moz-appearance: textfield;
-//     // hide mozilla's dirty arrow with -moz-appearance: window
-//     -moz-appearance: window;
-//     appearance: textfield;
-//     border: none;
-//     border-radius: 0;
-//     &:focus {
-//       outline: none;
-//     }
-//   }
-// }
+.form__icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -.5em;
+  line-height: 1;
+  &--post {
+    right: 14px;
+    ~ [class^=form__] {
+      padding-right: $input-icon-padding;
+    }
+  }
 
-
+  &--select {
+    @extend .form__icon--post;
+    &:after {
+      content: '\203a';
+      // TODO: integrate correct icon
+      // font-family: $font-family-icons;
+    }
+  }
+}
 
 .form__file {
   display: block;
 }
 
+//== Form helpers
+//---------------
+//
+.form__description {
+  clear: both;
+  color: $gray-25;
+}
+.form__caption {
+  display: inline;
+  color: $gray-25;
+}
+
+//== Form actions
+//---------------
+//
 .form__actions {
   clear: both;
-  margin-top: $rh-xsm;
-  .btn + .btn {
-    margin-left: 5px;
+  margin-left: -10px;
+  margin-right: -10px;
+  a, button {
+    margin: 0 10px;
   }
 }
 
 .form__btn {
-  @extend .btn;
-  min-width: 140px;
+  min-width: 160px;
   .is-submitted & {
     overflow: hidden;
     cursor: not-allowed;
-    // background: rgba($purple-75, .5);
-    // box-shadow: 2px 2px 0 rgba($purple-100, .5);
+    position: relative;
     &:before {
       content: '';
       display: block;
-      animation: move .75s linear infinite;
+      animation: move 750ms linear infinite;
       position: absolute;
       top: 0;
       left: -100%;
       z-index: 10;
       height: 3px;
       width: 100%;
-      // background: $purple-100;
+      background: rgba($white, .25);
     }
   }
 }
-.form__description,
-.form__help {
-  clear: both;
-  color: $gray-50;
-  @include fsRem(13px);
-  // font-style: italic;
-}
 
-// .form__input-item,
-// .form__select-item {
-//   position: relative;
-//   label {
-//     position: absolute;
-//     top: 9px;
-//     left: 10px;
-//     z-index: 1;
-//     width: 15px;
-//     color: $gray-25;
-//     text-align: center;
-//   }
-// }
-// .form__input-item {
-//   .form__text {
-//     text-indent: 15px;
-//   }
-// }
-// .form__select-item {
-//   overflow-x: hidden;
-//   label {
-//     right: 10px;
-//     left: auto;
-//   }
-//   .form__select {
-//     width: calc(100% + 15px);
-//     position: relative;
-//     z-index: $zindex-layer-1;
-//   }
-// }
-
-// .form__label {
-//   font-weight: $font-weight-bold;
-//   display: inline-block;
-//   margin-bottom: 5px;
-//   &--radio,
-//   &--checkbox {
-//     font-weight: $font-weight-regular;
-//     padding-bottom: 0;
-//     position: relative;
-//     padding-left: 20px;
-//     input {
-//       position: absolute;
-//       left: 0;
-//       top: 4px;
-//     }
-//   }
-//   &[for] {
-//     cursor: pointer;
-//   }
-//   small {
-//     color: $gray-25;
-//   }
-//   & + & {
-//     margin-left: 10px;
-//   }
-// }
-// p.form__label {
-//   font-weight: $font-weight-regular;
-// }
-
-// Error handeling
-.parsley-errors-container {
-  clear: both;
-}
+//== Form errors
+//--------------
+//
 .parsley-errors-list {
   @include listreset;
-  @include fsRem(13px);
+  @include fsRem(14px);
   color: map-get($notice-colors, 'danger');
-  // margin: 5px 0;
   font-weight: $font-weight-bold;
   li {
-    margin-top: 5px;
+    margin-top: $rh-xxs;
   }
 }
