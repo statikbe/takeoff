@@ -155,7 +155,7 @@ form {
   top: 50%;
   margin-top: -.5em;
   line-height: 1;
-  &--post {
+  &--right {
     right: 14px;
     ~ [class^=form__] {
       padding-right: $input-icon-padding;
@@ -163,7 +163,7 @@ form {
   }
 
   &--select {
-    @extend .form__icon--post;
+    @extend .form__icon--right;
     &:after {
       content: '\203a';
       // TODO: integrate correct icon

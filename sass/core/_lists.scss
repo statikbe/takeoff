@@ -13,6 +13,9 @@
     @include listreset();
     margin-bottom: 0;
   }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 %list-li {
@@ -22,12 +25,12 @@
     top: 0;
     left: 0;
     display: block;
-    // color: $blue-75;
+    color: $color-brand-primary;
   }
 }
 
 %ul-li {
-  padding-left: 16px;
+  padding-left: 1em;
   &:before {
     content: "\203a";
     top: -0.25em;
@@ -45,12 +48,12 @@
   @extend %list;
   counter-reset: numbering;
   li {
-    padding-left: 32px;
+    padding-left: 1.6em;
     &:before {
       content: counter(numbering) ".";
       counter-increment: numbering;
       position: absolute;
-      width: 28px;
+      width: 1.4em;
     }
     ol {
       counter-reset: numbering;
@@ -58,48 +61,48 @@
   }
 }
 
-.wysiwyg ul,
 .list--unordered {
   @extend %ul;
 }
-.wysiwyg ol,
 .list--ordered {
   @extend %ol;
 }
 
 .list {
-  &--reset {
-    @include listreset;
-  }
-  &--unstyled {
-    @extend .list--reset;
-    li {
-      + li {
-        margin-top: round($line-height-base / 2);
-      }
-    }
-  }
-  &--inline {
-    @include listreset;
-    font-size: 0;
-    margin-right: -10px;
-    margin-left: -10px;
-    li {
-      display: inline-block;
-      font-size: fs($font-size-base);
-      padding: 0 10px;
-    }
-  }
-  &--border {
-    @include listreset;
-    li {
-      + li {
-        margin-top: $rh-sml;
-        padding-top: $rh-sml;
-        border-top: 1px solid $gray-25;
-      }
-    }
-  }
+  // &--reset {
+  //   @include listreset;
+  // }
+  // &--unstyled {
+  //   @extend .list--reset;
+  //   li {
+  //     + li {
+  //       margin-top: round($line-height-base / 2);
+  //     }
+  //   }
+  // }
+  // &--inline {
+  //   @include listreset;
+  //   font-size: 0;
+  //   margin-right: -10px;
+  //   margin-left: -10px;
+  //   li {
+  //     display: inline-block;
+  //     font-size: fs($font-size-base);
+  //     padding: 0 10px;
+  //   }
+  // }
+  // &--border {
+  //   @include listreset;
+  //   li {
+  //     + li {
+  //       margin-top: $rh-sml;
+  //       padding-top: $rh-sml;
+  //       border-top: 1px solid $gray-25;
+  //     }
+  //   }
+  // }
+
+
   // &--icon {
   //   @include listreset;
   //   li {
