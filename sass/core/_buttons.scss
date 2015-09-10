@@ -6,7 +6,7 @@ $btn-line-height: 18px !default;
   @include button-variant($white, $solid-btn-color, shade($solid-btn-color, 30%));
   @include transitions((background, border, color));
   display: inline-block;
-  padding: 14px 20px;
+  padding: 15px 20px;
   border-style: solid;
   border-width: 0 2px 2px 0;
   border-radius: $border-radius-med;
@@ -31,26 +31,13 @@ $btn-line-height: 18px !default;
   }
 
   // Disabled
-  // &--disabled,
-  // &[disabled] {
-  //   opacity: 0.65;
-  //   cursor: not-allowed;
-  // }
+  &--disabled,
+  &[disabled] {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
 
   // // Modifiers
-  // &--default {
-  //   @include button-variant($color-text, $white, $gray-25);
-  //   &:hover,
-  //   &:focus,
-  //   &:active,
-  //   &.active,
-  //   .open > &.dropdown-toggle {
-  //     background-color: $gray-0;
-  //   }
-  // }
-  // &--brand {
-  //   @include button-variant($white, $color-brand-primary, $color-brand-primary);
-  // }
   // @each $type, $color in $notice-colors {
   //   &--#{$type} {
   //     @include button-variant($white, hsl(hue($color), 50%, 60%), hsl(hue($color), 50%, 50%));
@@ -75,34 +62,33 @@ $btn-line-height: 18px !default;
     }
   }
 
-  &--large {
+  &--lrg {
     @include fsRem($font-size-lrg);
-    padding: 10px 15px;
+    padding: 16px 20px;
   }
-
-  &--small {
-    padding: 2px 10px;
+  &--sml {
+    padding: 12px 15px;
   }
-
-  &--xsmall {
+  &--xsm {
     @include fsRem($font-size-sml);
-    padding: 0px 10px;
+    padding: 8px 12px;
   }
 
   &--block {
     display: block;
     width: 100%;
   }
+
+  // &--close {
+  //   @include fsRem(18px);
+  //   padding: 5px;
+  //   background: $white;
+  //   border-color: $white;
+  //   &:hover,
+  //   &:focus {
+  //     border-color: $white;
+  //     background: $white;
+  //   }
+  // }
 }
 
-.btn--close {
-  @include fsRem(18px);
-  padding: 5px;
-  background: $white;
-  border-color: $white;
-  &:hover,
-  &:focus {
-    border-color: $white;
-    background: $white;
-  }
-}

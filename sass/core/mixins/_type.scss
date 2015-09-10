@@ -14,15 +14,14 @@
   @return round(($target/$context)*1000)/1000;
 }
 
-%ext-listreset {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 // Reset the list
-@mixin listreset {
-  @extend %ext-listreset;
+@mixin listreset($mode: null) {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  @if $mode != 'soft' {
+    margin-bottom: 0;
+  }
 }
 
 // Convert a px font size to rem

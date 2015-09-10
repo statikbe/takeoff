@@ -34,10 +34,10 @@
 }
 
 // Creates all the grid item classes
-// Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
-@each $column in $grids {
+// Examples: .grid--2-col
+@each $column in $grid-columns {
   .grid__item--#{$column} {
-    @include make-column($grid-column-count / $column);
+    @include make-column($column);
   }
 }
 
@@ -64,7 +64,7 @@
     .grid__item--#{$bp} {
       @each $column in $grid-columns {
         &-#{$column} {
-          @include make-column($grid-column-count / (12 / $column));
+          @include make-column($column);
         }
       }
     }
