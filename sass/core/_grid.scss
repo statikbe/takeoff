@@ -21,7 +21,7 @@
   align-content: stretch;
   min-height: 1px;
   width: 100%;
-  margin-top: $rh-sml;
+  margin-top: $grid-rhythm;
   padding-left: ($grid-gutter-width / 2);
   padding-right: ($grid-gutter-width / 2);
 }
@@ -35,9 +35,9 @@
 
 // Creates all the grid item classes
 // Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
-@each $column in $grid-columns {
+@each $column in $grids {
   .grid__item--#{$column} {
-    @include make-column($grid-column-count / (12 / $column));
+    @include make-column($grid-column-count / $column);
   }
 }
 
