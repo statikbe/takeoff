@@ -11,7 +11,7 @@ $black: #111 !default;
 $white: #fff !default;
 
 //** Brand colors
-$color-brand-primary: #3c76ab !default;
+$color-primary: #3c76ab !default;
 
 //** Status colors
 $notice-colors: (
@@ -26,7 +26,7 @@ $color-background: #fff !default;
 $color-text: $gray-75 !default;
 
 //** Link color
-$color-link: $color-brand-primary !default;
+$color-link: $color-primary !default;
 $color-link-hover: darken($color-link, 15%) !default;
 $color-link-visited: darken($color-link, 5%) !default;
 
