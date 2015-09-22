@@ -7,6 +7,14 @@
     a {
       @include link-variant($white, $gray-25);
     }
+    .list--unordered,
+    .list--ordered {
+      li {
+        &:before {
+          color: inherit;
+        }
+      }
+    }
   }
 }
 

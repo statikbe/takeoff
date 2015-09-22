@@ -1,3 +1,7 @@
+@mixin excerpt-rhythm() {
+  @include block-rhythm;
+}
+
 .excerpt {
   @include cf;
   display: block;
@@ -17,6 +21,7 @@
     overflow: hidden;
     text-align: center;
     img {
+      @include transitions(all);
       display: block;
       max-width: 100%;
       height: auto;
@@ -28,6 +33,7 @@
     color: $color-link;
     text-decoration: underline;
   }
+  @include excerpt-rhythm;
 }
 
 .excerpt__aside {
@@ -46,6 +52,7 @@
 a.excerpt,
 .excerpt--link {
   @include link-variant(inherit);
+  text-decoration: none;
   &:hover,
   &:focus {
     #{$headings} {
@@ -58,6 +65,7 @@ a.excerpt,
     }
     .excerpt__link {
       color: $color-link;
+      text-decoration: none;
     }
   }
 }
