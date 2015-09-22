@@ -28,7 +28,7 @@
     "time-grunt": "^1.0.0"
   },
   "scripts": {
-    "postinstall": "node icons"
+    "install": "(cd icons && npm install)"
   },
   "repository": {
     "type": "git",

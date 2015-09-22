@@ -14,5 +14,8 @@
     "material-design-icons": "^2.0.0",
     "rimraf": "^2.4.0",
     "svgo": "^0.5.3"
+  },
+  "scripts": {
+    "install": "node generate/awesome.js && node generate/material.js"
   }
 }
