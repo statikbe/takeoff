@@ -24,6 +24,10 @@
   margin-top: $grid-rhythm;
   padding-left: ($grid-gutter-width / 2);
   padding-right: ($grid-gutter-width / 2);
+  @if $breakpoints-legacy {
+    display: block;
+    float: left;
+  }
 }
 
 .grid__0 {
@@ -33,8 +37,25 @@
   display: block;
 }
 
-// Creates all the grid item classes
+// Creates all the breakpoint grid classes
 // Examples: .grid--2-col
+@each $bp, $px in $breakpoints {
+  .grid {
+    @each $column in $grids {
+      &--#{$column}-col {
+        > .grid__item {
+          @include make-column($grid-column-count / $column);
+          @if $breakpoints-legacy {
+            @include make-column-legacy($column);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Creates all the grid item classes
+// Examples: .grid__item--6
 @each $column in $grid-columns {
   .grid__item--#{$column} {
     @include make-column($column);
@@ -58,7 +79,7 @@
 }
 
 // Creates all the breakpoint grid ITEM classes
-// Example: .grid--bp-med__8
+// Example: .grid__item--med-8
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width') {
     .grid__item--#{$bp} {
@@ -72,37 +93,15 @@
 }
 
 // Creates all the offset class
-// Example: .grid__item--med-offset-8
-@each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
-    .grid__item--#{$bp}offset {
-      @each $column in $grid-columns-push {
-        &-#{$column} {
-          @include make-column-push($column);
-        }
-      }
-    }
-  }
-}
-
-// Creates all the standalone grid child classes
-// Examples: .grid__3, .grid__6
-// @for $column from 2 through $grid-columns {
-//   .grid__#{$column} {
-//     @include make-column($column);
-//   }
-// }
-
-// Creates the default grid classes
-// Example: .grid--2-col
-// .grid--2-col {
-//   > .grid__item {
-//     @include make-column(2);
-//   }
-// }
-
-// .eqh {
-//   &__panel {
-//     flex: 1 1 auto;
+// Example: .grid__item--med-offset-2
+// @each $bp, $px in $breakpoints {
+//   @include breakpoint($px, 'min-width') {
+//     .grid__item--#{$bp}-offset {
+//       @each $column in $grid-columns-push {
+//         &-#{$column} {
+//           @include make-column-push($column);
+//         }
+//       }
+//     }
 //   }
 // }
