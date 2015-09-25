@@ -6,7 +6,7 @@ $btn-line-height: 18px !default;
   @include button-variant($white, $solid-btn-color, shade($solid-btn-color, 30%));
   @include transitions((background, border, color));
   display: inline-block;
-  padding: 15px 20px;
+  padding: .7em 1.2em;
   border-style: solid;
   border-width: 0 2px 2px 0;
   border-radius: $border-radius-med;
@@ -64,14 +64,9 @@ $btn-line-height: 18px !default;
 
   &--lrg {
     @include fsRem($font-size-lrg);
-    padding: 16px 20px;
   }
   &--sml {
-    padding: 12px 15px;
-  }
-  &--xsm {
     @include fsRem($font-size-sml);
-    padding: 8px 12px;
   }
 
   &--block {

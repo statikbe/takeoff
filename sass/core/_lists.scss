@@ -36,6 +36,7 @@ $list-item-spacing: round($line-height-base / 4);
   &:before {
     content: "\203a";
     top: -0.25em;
+    font-family: $font-family-icons;
     font-size: 130%;
   }
 }
