@@ -1,8 +1,8 @@
 var fs = require('fs');
 
 module.exports = (function() {
-  var src = 'icons/node_modules/material-design-icons/';
-  var dest = 'icons/svg/material-design/';
+  var src = 'node_modules/material-design-icons/';
+  var dest = 'svg/material-design/';
   var excl = ['iconfont', 'sprites'];
   var oldFileName, newFileName;
 
@@ -18,7 +18,7 @@ module.exports = (function() {
           if(err) console.log(err);
           oldFileName = '';
           icons.forEach(function(icon, index) {
-            newFileName = icon.slice(3).replace(/_\d+px/, '');
+            newFileName = icon.slice(3).replace(/_\d+px/, '').split('_').join('-');
             if(index > 0 && newFileName !== oldFileName) 
               fs.createReadStream(src + file + '/svg/production/' + icons[index-1]).pipe(fs.createWriteStream(dest + oldFileName));
             oldFileName = newFileName;

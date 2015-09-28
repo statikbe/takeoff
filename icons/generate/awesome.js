@@ -10,11 +10,11 @@ var options = {
   png: false,
   svg: true,
   optipng: false,
-  dest: 'icons/svg/font-awesome/'
+  dest: 'svg/font-awesome/'
 };
 
 module.exports = extractSVG(options, function() {
-  var src = 'icons/svg/font-awesome/black/svg/';
+  var src = 'svg/font-awesome/black/svg/';
   var dest = options.dest;
 
   fs.mkdir(dest, function(err) {
@@ -23,8 +23,8 @@ module.exports = extractSVG(options, function() {
 
   fs.readdir(src, function(err, files) {
     for(var i = 0; i < files.length; i++)
-      fs.rename(src + files[i], 'icons/svg/font-awesome/' + files[i]);
-    rmdir('icons/svg/font-awesome/black', function(err) {
+      fs.rename(src + files[i], 'svg/font-awesome/' + files[i]);
+    rmdir('svg/font-awesome/black', function(err) {
       if(err) console.log(err);
     });
   });

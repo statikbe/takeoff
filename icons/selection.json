@@ -1,16 +1,16 @@
 {
   "font-awesome": [
-    "fax",
-    "cutlery",
-    "lastfm",
-    "music",
-    "mobile"
+    "facebook",
+    "twitter",
+    "linkedin",
+    "google-plus",
+    "envelope-o"
   ],
   "material-design": [
-    "album",
-    "do_not_disturb",
-    "healing",
-    "search",
-    "sync"
+    "location-on",
+    "keyboard-arrow-up",
+    "keyboard-arrow-right",
+    "keyboard-arrow-down",
+    "keyboard-arrow-left"
   ]
 }
