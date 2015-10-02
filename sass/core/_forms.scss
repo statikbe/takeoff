@@ -160,7 +160,6 @@ form {
 
 .form__select {
   @extend %ext-input-style;
-  background: none;
   display: block;
   cursor: pointer;
   -webkit-appearance: textfield;
@@ -174,8 +173,10 @@ form {
 }
 
 .form__icon {
+  pointer-events: none;
   position: absolute;
   top: 50%;
+  z-index: 20;
   margin-top: -.5em;
   line-height: 1;
   &--right {

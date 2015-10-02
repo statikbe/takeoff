@@ -1,83 +1,79 @@
 %ext-default-nav {
   ul {
     @include listreset;
-    @include cf;
-  }
-  li {
-    float: left;
   }
   a {
     text-decoration: none;
   }
 }
+%ext-horizontal-nav {
+  ul {
+    @include cf;
+  }
+  li {
+    float: left;
+  }
+}
+
 
 .nav {
   &--service {
     @extend %ext-default-nav;
+    @extend %ext-horizontal-nav;
+    @include fsRem(14px);
     float: right;
-    margin-bottom: 15px;
-    li + li {
-      &:before {
-        content: '\2022';
-        display: inline-block;
-        margin: 0 5px;
+    margin-top: $rh-xsm;
+    line-height: 1;
+    li {
+      padding: 0 $rh-xsm;
+      + li {
+        border-left: 1px solid;
       }
+    };
+    a {
+      @include link-variant($color-text, $color-primary);
     }
-  } // end .-service
+  } // end .--service
 
   &--main {
     @extend %ext-default-nav;
-    @include fsRem($font-size-lrg);
-    font-weight: $font-weight-bold;
+    @extend %ext-horizontal-nav;
+    li {
+      margin: 0 $rh-sml;
+    }
     a {
+      @include link-variant($color-text, $color-primary);
       display: block;
-      padding: 8px 10px;
+      padding: $rh-xxs 0;
+      background-image: linear-gradient(to right, $color-primary, $color-primary);
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: 0 2px;
       &:hover,
       &:focus,
       &.active {
-
+        background-size: 100% 2px;
       }
     }
-  } // end .-main
+  } // end .--main
 
   &--language {
+    @extend %ext-default-nav;
+    @extend %ext-horizontal-nav;
     float: right;
-    text-transform: uppercase;
     font-weight: $font-weight-bold;
-    margin-top: 20px;
-    li {
-      float: none;
-      margin-bottom: 5px;
-    }
+    line-height: 1;
+    text-transform: uppercase;
     a {
-      color: black;
-      background: gray;
+      @include link-variant($white);
       display: block;
-      padding: 10px;
+      padding: $rh-xsm;
+      background: $gray-100;
       &:hover,
       &:focus,
       &.active {
-        color: pink;
+        background: $color-primary;
       }
     }
-  } // end .-language
-
-  &--inline {
-    @extend %ext-default-nav;
-    // ul {
-    //   @extend %ext-listreset;
-    // }
-    li + li {
-      border-left: 1px solid $gray-25;
-      margin-left: $rh-xsm;
-      padding-left: $rh-xsm;
-    }
-  }
-
-  &--list {
-    line-height: lh($line-height-base);
-    li {
-      float: none;
-    }
-  } // end .-list
+  } // end .--language
 }

@@ -20,22 +20,20 @@
 @import 'components/main';
 @import 'components/section';
 @import 'components/spacer';
+@import 'components/inline';
+@import 'components/meta';
+@import 'components/breadcrumbs';
 
 @import 'components/block';
 @import 'components/excerpt';
 
 @import 'components/header';
-
-
-
-@import 'components/meta';
-@import 'components/inline';
-@import 'components/breadcrumbs';
-@import 'components/notice';
-@import 'components/pagination';
+@import 'components/navbar';
 @import 'components/footer';
-
 @import 'components/nav';
+
+@import 'components/pagination';
+
 // @import 'components/map';
 // @import 'components/download';
 // @import 'components/flyout';
@@ -45,7 +43,6 @@
 // @import 'components/carousel';
 // @import 'components/tabs';
 // @import 'components/button-group';
-// @import 'components/navbar';
 
 // Print
 @import "core/print";

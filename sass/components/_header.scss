@@ -14,6 +14,7 @@
     };
     @include breakpoint(map-get($breakpoints, sml)){
       float: left;
+      margin-right: $rh-sml;
     };
   }
 }

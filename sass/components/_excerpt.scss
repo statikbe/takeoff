@@ -33,21 +33,25 @@
     color: $color-link;
     text-decoration: underline;
   }
+  &__meta {
+    margin-top: $rh-xxs;
+  }
+
+  &__aside {
+    @include breakpoint(map-get($breakpoints, sml), 'max-width'){
+      margin-bottom: $rh-xsm;
+    };
+    @include breakpoint(map-get($breakpoints, sml)){
+      float: left;
+      width: 160px;
+      ~ .excerpt__main {
+        margin-left: 180px;
+      }
+    };
+  }
   @include excerpt-rhythm;
 }
 
-.excerpt__aside {
-  @include breakpoint(map-get($breakpoints, sml), 'max-width'){
-    margin-bottom: $rh-xsm;
-  };
-  @include breakpoint(map-get($breakpoints, sml)){
-    float: left;
-    width: 240px;
-    ~ .excerpt__main {
-      margin-left: 260px;
-    }
-  };
-}
 
 a.excerpt,
 .excerpt--link {
