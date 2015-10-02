@@ -8,8 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Takeoff</title>
     <script type="text/javascript" src="./js/modernizr.min.js"></script>
-    <!--[if gt IE 8]><!--><link rel="stylesheet" href="./css/main.min.css"><!--<![endif]-->
     <!--[if lt IE 9]>
+      <script type="text/javascript" src="./js/html5shiv.min.js"></script>
+    <![endif]-->
+    <!--[if gt IE 9]><!--><link rel="stylesheet" href="./css/main.min.css"><!--<![endif]-->
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="./js/selectivizr.min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
         <link rel="stylesheet" href="./css/main-legacy.min.css">
         <script type="text/javascript" src="./js/polyfill.min.js"></script>
     <![endif]-->
@@ -55,6 +61,11 @@
                 <li>Lorem ipsum dolor sit.</li>
                 <li>Lorem ipsum dolor sit.</li>
             </ul>
+            <div class="meta">
+                <div class="meta__item">29 Augustus 2015</div>
+                <div class="meta__item">Meta item</div>
+                <div class="meta__item">Meta item</div>
+            </div>
         </div>
     </div>
     <div class="section section--default">
@@ -114,7 +125,6 @@
             </div>
             <a href="#" class="btn btn--lrg">Large button</a>
             <a href="#" class="btn btn--sml">Small button</a>
-            <a href="#" class="btn btn--xsm">Small button</a>
         </div>
     </div>
     <div class="section section--default">
@@ -199,6 +209,48 @@
     </div>
     <div class="section section--light">
         <div class="container">
+            <h2>Non responsive repeating grid</h2>
+            <div class="grid grid--2-col">
+                <div class="grid__item">
+                    <div class="excerpt">
+                        <div class="excerpt__section">
+                            <div class="excerpt__img">
+                                <img src="http://lorempixel.com/580/300" />
+                            </div>
+                        </div>
+                        <div class="excerpt__section excerpt__section--header">
+                            <h2>Lorem ipsum dolor.</h2>
+                        </div>
+                        <div class="excerpt__section">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis sapiente doloremque laudantium cum voluptas cumque maxime, fuga ad reprehenderit deserunt est tempora, hic temporibus! Culpa, tenetur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__item">
+
+                </div>
+                <div class="grid__item">
+                    <div class="excerpt">
+                        <div class="excerpt__aside">
+                            <div class="excerpt__img">
+                                <img src="http://lorempixel.com/160/160" />
+                            </div>
+                        </div>
+                        <div class="excerpt__main">
+                            <div class="excerpt__section excerpt__section--header">
+                                <h2>Lorem ipsum dolor.</h2>
+                                <div class="meta excerpt__meta">
+                                    <div class="meta__item">21 Oktober 2015</div>
+                                </div>
+                            </div>
+                            <div class="excerpt__section">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum quo unde laborum fuga tempora, libero atque!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2>Responsive repeating grid</h2>
             <div class="grid grid--bp-sml-2-col grid--bp-lrg-3-col">
                 <div class="grid__item">
                     <div class="block">
@@ -221,6 +273,21 @@
                 </div>
                 <div class="grid__item">
                     sdiuvbdf
+                </div>
+            </div>
+            <h2>Custom grid</h2>
+            <div class="grid">
+                <div class="grid__item--12 grid__item--med-8">
+                    osdnv
+                </div>
+                <div class="grid__item--12 grid__item--med-4">
+                    osdnv
+                </div>
+            </div>
+            <h2>Grid offset</h2>
+            <div class="grid">
+                <div class="grid__item--12 grid__item--med-offset-2">
+                    osdnv
                 </div>
             </div>
         </div>
@@ -263,11 +330,48 @@
             </div>
         </div>
     </div>
+    <div class="section">
+        <div class="container">
+            <div class="breadcrumb">
+                <span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="breadcrumb__item">
+                    <a href="#" itemprop="url"><span itemprop="title">Home</span></a>
+                </span>
+                <span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="breadcrumb__item breadcrumb__item--active">
+                    <a href="#" itemprop="url"><span itemprop="title">Paginatitel</span></a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="page-navbar">
+        <div class="container">
+            <div class="nav nav--language">
+                <ul>
+                    <li><a href="#">Nl</a></li>
+                    <li><a href="#">Fr</a></li>
+                </ul>
+            </div>
+            <div class="nav nav--service">
+                <ul>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="page-header">
         <div class="container">
             <a href="/" class="page-header__logo">
                 <img src="http://www.statik.be/assets/img/svg/logo-text.svg" />
             </a>
+            <nav class="nav nav--main">
+                <ul>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 
