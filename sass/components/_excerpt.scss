@@ -1,7 +1,3 @@
-@mixin excerpt-rhythm() {
-  @include block-rhythm;
-}
-
 .excerpt {
   @include cf;
   display: block;
@@ -49,7 +45,6 @@
       }
     };
   }
-  @include excerpt-rhythm;
 }
 
 
