@@ -2,21 +2,18 @@
   @include fsRem(14px);
 
   &__item {
-    a {
-      @include link-variant($color-text, $color-link);
-    }
-    &:after {
-      content: '\f105';
-      margin: 0 2px;
-      font-family: $font-family-icons;
-    }
+    @include link-variant($color-text, $color-link);
     &--active {
-      a {
-        @include link-variant($color-primary);
-        text-decoration: none;
-      }
-      &:after {
-        display: none;
+      @include link-variant($color-primary);
+      text-decoration: none;
+    }
+  }
+  &__scope {
+    & + & {
+      &:before {
+        content: '\f105';
+        margin: 0 2px;
+        font-family: $font-family-icons;
       }
     }
   }
