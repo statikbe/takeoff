@@ -23,6 +23,12 @@
 @mixin make-column($index, $columns: $grid-column-count, $gutter: $grid-gutter-width) {
   width: round(percentage($index / $columns)*1000)/1000;
 }
+@mixin make-repeating-column($index, $columns: $grid-column-count) {
+  width: round(percentage(10 / $index)*1000)/10000;
+  > * {
+    flex: 1 0 auto;
+  }
+}
 
 @mixin make-column-legacy($columns) {
   &:nth-child(#{$columns}n+#{($columns+1)}) {

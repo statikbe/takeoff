@@ -16,6 +16,7 @@ $input-icon-padding: ($input-horizontal-padding * 2) + 4px;
   @include transitions((color, background, border));
   position: relative;
   z-index: 10;
+  display: block;
   width: 100%;
   padding: $input-vertical-padding $input-horizontal-padding;
   border: 1px solid $input-border-color;
@@ -90,6 +91,7 @@ form {
 //== Form items
 //-------------
 //
+//** Outer wrapper. Includes label, element and errors
 .form__item {
   position: relative;
   margin-bottom: $input-item-margin;
@@ -121,6 +123,10 @@ form {
       margin-top: -9px;
     }
   }
+}
+//** Inner wrapper. Includes one form element (input, select, ...) and an optional form icon
+.form__element {
+  position: relative;
 }
 
 .form__row {
@@ -180,9 +186,15 @@ form {
   margin-top: -.5em;
   line-height: 1;
   &--right {
-    right: 14px;
+    right: $input-vertical-padding;
     ~ [class^=form__] {
       padding-right: $input-icon-padding;
+    }
+  }
+  &--left {
+    left: $input-vertical-padding;
+    ~ [class^=form__] {
+      padding-left: $input-icon-padding;
     }
   }
 

@@ -146,7 +146,8 @@
                     <input type="text" id="disabled" name="disabled" class="form__text" disabled />
                 </div>
                 <div class="form__item">
-                    <textarea class="form__textarea"></textarea>
+                    <label for="textarea" class="form__label">Label</label>
+                    <textarea class="form__textarea" id="textarea"></textarea>
                     <div class="form__description">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos obcaecati dolorum deleniti!
                     </div>
@@ -178,14 +179,17 @@
                     </div>
                 </div>
                 <div class="form__item">
-                    <div class="form__icon form__icon--select" role="presentation"></div>
-                    <select class="form__select">
-                        <option value="Lorem">Lorem</option>
-                        <option value="Ipsum">Ipsum</option>
-                        <option value="Dolor">Dolor</option>
-                        <option value="Sit">Sit</option>
-                        <option value="Amet">Amet</option>
-                    </select>
+                    <label for="select" class="form__label">Label</label>
+                    <div class="form__element">
+                        <div class="form__icon form__icon--select" role="presentation"></div>
+                        <select class="form__select" id="select">
+                            <option value="Lorem">Lorem</option>
+                            <option value="Ipsum">Ipsum</option>
+                            <option value="Dolor">Dolor</option>
+                            <option value="Sit">Sit</option>
+                            <option value="Amet">Amet</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form__actions">
                     <button class="btn form__btn">Verzenden</button>

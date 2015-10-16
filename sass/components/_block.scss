@@ -6,7 +6,6 @@
 
 .block {
   display: block;
-  flex: 1 0 auto;
   &--panel {
     background: $gray-0;
     padding: $rh-sml;
@@ -19,5 +18,6 @@
       margin-top: $rh-sml;
     }
   }
+
   @include block-rhythm;
 }

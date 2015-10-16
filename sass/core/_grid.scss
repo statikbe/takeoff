@@ -15,6 +15,13 @@
   flex-wrap: wrap;
 }
 
+.grid__0 {
+  display: none;
+}
+.grid__12 {
+  display: block;
+}
+
 [class^="grid__item"] {
   display: flex;
   flex-direction: column;
@@ -30,13 +37,6 @@
   }
 }
 
-.grid__0 {
-  display: none;
-}
-.grid__12 {
-  display: block;
-}
-
 // Creates all the breakpoint grid classes
 // Examples: .grid--2-col
 @each $bp, $px in $breakpoints {
@@ -44,7 +44,7 @@
     @each $column in $grids {
       &--#{$column}-col {
         > .grid__item {
-          @include make-column($grid-column-count / $column);
+          @include make-repeating-column($column);
           @if $breakpoints-legacy {
             @include make-column-legacy($column);
           }
@@ -70,7 +70,7 @@
       @each $column in $grids {
         &-#{$column}-col {
           > .grid__item {
-            @include make-column($grid-column-count / $column);
+            @include make-repeating-column($column);
           }
         }
       }
