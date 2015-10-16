@@ -91,7 +91,7 @@ form {
 //== Form items
 //-------------
 //
-//** Outer wrapper. Includes label, element and errors
+// Outer wrapper. Includes label, element and errors
 .form__item {
   position: relative;
   margin-bottom: $input-item-margin;
@@ -124,7 +124,7 @@ form {
     }
   }
 }
-//** Inner wrapper. Includes one form element (input, select, ...) and an optional form icon
+// Inner wrapper. Includes one form element (input, select, ...) and an optional form icon
 .form__element {
   position: relative;
 }

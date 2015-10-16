@@ -10,10 +10,10 @@ $gray-0: #f5f5f5 !default;
 $black: #111 !default;
 $white: #fff !default;
 
-//** Brand colors
+// Brand colors
 $color-primary: #3c76ab !default;
 
-//** Status colors
+// Status colors
 $notice-colors: (
   success: #3c763d,
   info: #2e82ad,
@@ -21,11 +21,11 @@ $notice-colors: (
   danger: #bd292c
 );
 
-//** Base color definitions
+// Base color definitions
 $color-background: #fff !default;
 $color-text: $gray-75 !default;
 
-//** Link color
+// Link color
 $color-link: $color-primary !default;
 $color-link-hover: darken($color-link, 15%) !default;
 $color-link-visited: darken($color-link, 5%) !default;
@@ -33,7 +33,7 @@ $color-link-visited: darken($color-link, 5%) !default;
 //== Typography
 //-------------
 //
-//** Font, line-height, and color for body text, headings, and more.
+// Font, line-height, and color for body text, headings, and more.
 $font-family-sans: 'Roboto', sans-serif !default;
 $font-family-serif: Georgia, Times, serif !default;
 $font-family-icons: 'FontAwesome' !default;
@@ -77,7 +77,7 @@ $fonts-path: '../fonts' !default;
 $fonts-icon-name: 'fontawesome-webfont';
 $fonts-icon-class: icon;
 
-//** By default, this inherits from the `<body>`.
+// By default, this inherits from the `<body>`.
 $headings: h1, h2, h3, h4, h5, h6;
 $headings-font-family: inherit !default;
 $headings-font-weight: $font-weight-bold !default;

@@ -56,21 +56,13 @@
   }
 }
 
-// Creates all the grid item classes
-// Examples: .grid__6
-@each $column in $grid-columns {
-  .grid__#{$column} {
-    @include make-column($column);
-  }
-}
-
 // Creates all the breakpoint grid classes
-// Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
+// Examples: .grid--2-col-at-sml
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width'){
-    .grid--bp-#{$bp} {
-      @each $column in $grids {
-        &-#{$column}-col {
+    @each $column in $grids {
+      .grid--#{$column}-col {
+        &-at-#{$bp} {
           > .grid__item {
             @include make-repeating-column($column);
           }
@@ -81,12 +73,12 @@
 }
 
 // Creates all the breakpoint grid ITEM classes
-// Example: .grid--bp-med__8
+// Example: .grid__8-at-sml
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width') {
-    .grid--bp-#{$bp} {
-      @each $column in $grid-columns {
-        &__#{$column} {
+    @each $column in $grid-columns {
+      .grid__#{$column} {
+        &-at-#{$bp} {
           @include make-column($column);
         }
       }
