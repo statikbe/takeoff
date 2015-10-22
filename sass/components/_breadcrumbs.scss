@@ -1,24 +1,20 @@
 .breadcrumb {
-  clear: both;
-  margin: 0 0 $rh-med;
-  color: $color-text;
-  @include fsRem(13px);
-  text-decoration: none;
-  a {
-    display: inline-block;
-    &.active {
-      color: $color-text;
-    }
-    &:hover,
-    &:focus {
-      text-decoration: underline;
+  @include fsRem(14px);
+
+  &__item {
+    @include link-variant($color-text, $color-link);
+    &--active {
+      @include link-variant($color-primary);
+      text-decoration: none;
     }
   }
-  // &__divider {
-  //   vertical-align: bottom;
-  //   display: inline-block;
-  //   color: $gray-75;
-  //   @include fsRem(16px);
-  //   font-family: $font-family-icons;
-  // }
+  &__scope {
+    & + & {
+      &:before {
+        content: '\f105';
+        margin: 0 2px;
+        font-family: $font-family-icons;
+      }
+    }
+  }
 }

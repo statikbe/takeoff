@@ -1,4 +1,5 @@
-// Colors
+//== Colors
+//---------
 //
 $gray-100: #2e2e2e !default;
 $gray-75: #494949 !default;
@@ -10,8 +11,9 @@ $black: #111 !default;
 $white: #fff !default;
 
 // Brand colors
-$color-brand-primary: #3c76ab !default;
+$color-primary: #3c76ab !default;
 
+// Status colors
 $notice-colors: (
   success: #3c763d,
   info: #2e82ad,
@@ -19,19 +21,19 @@ $notice-colors: (
   danger: #bd292c
 );
 
-// Background color
+// Base color definitions
 $color-background: #fff !default;
-// Text color
 $color-text: $gray-75 !default;
 
 // Link color
-$color-link: $color-brand-primary !default;
+$color-link: $color-primary !default;
 $color-link-hover: darken($color-link, 15%) !default;
 $color-link-visited: darken($color-link, 5%) !default;
 
 //== Typography
+//-------------
 //
-//## Font, line-height, and color for body text, headings, and more.
+// Font, line-height, and color for body text, headings, and more.
 $font-family-sans: 'Roboto', sans-serif !default;
 $font-family-serif: Georgia, Times, serif !default;
 $font-family-icons: 'FontAwesome' !default;
@@ -50,7 +52,7 @@ $font-size-base: $font-size-med !default;
 
 $font-size-h1: 40px !default;
 $font-size-h2: 28px !default;
-$font-size-h3: 18px !default;
+$font-size-h3: 20px !default;
 $font-size-h4: $font-size-med !default;
 $font-size-h5: 14px !default;
 
@@ -63,27 +65,13 @@ $font-weight-extra-bold: 800 !default;
 $font-weight-base: $font-weight-regular !default;
 
 $line-height-base: 24px !default;
-
 $line-height-sml: 1.2 !default;
 
 $letter-spacing-base: .15em;
-
 $letter-spacing-xms: .05em;
 $letter-spacing-sml: .1em;
 $letter-spacing-med: $letter-spacing-base;
 $letter-spacing-lrg: .25em;
-
-// Fonts
-//
-$fonts-path: '../fonts' !default;
-$fonts-icon-class: icon;
-
-//** By default, this inherits from the `<body>`.
-$headings-font-family: inherit !default;
-$headings-font-weight: $font-weight-regular !default;
-$headings-line-height: 1.1 !default;
-$headings-color: inherit !default;
-$headings-color-alt: $color-brand-primary !default;
 
 // Layers
 // ------
@@ -97,6 +85,7 @@ $zindex-layer-5: 2050;
 
 // Breakpoints
 // -----------
+//
 $breakpoints: (
   xxs: 320px,
   xsm: 440px,
@@ -107,22 +96,11 @@ $breakpoints: (
 );
 
 $breakpoints-flyout: map-get($breakpoints, med);
-
 $breakpoints-legacy: false !default;
 
-
-// Grid
-// ----
-//
-// columns          - The total amount of columns
-// gutter           - The amount of space between two columns
-// container-*      - The total width of the container for large / medium / small
-$grid-gutter-width: 20px !default;
-$grid-columns: 12 !default;
-$grid-container-width: 1200px !default;
-
-
 // Rhythm
+// -----------
+//
 $rh-xxs: $line-height-base * .25;
 $rh-xsm: $line-height-base * .5;
 $rh-sml: $line-height-base;

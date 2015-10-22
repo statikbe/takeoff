@@ -1,3 +1,5 @@
+$list-item-spacing: round($line-height-base / 4);
+
 %list {
   @include listreset();
   margin: 0 0 $line-height-base;
@@ -6,11 +8,14 @@
     + li,
     > ul,
     > ol {
-      margin-top: round($line-height-base / 2);
+      margin-top: $list-item-spacing;
     }
   }
   ul, ol {
     @include listreset();
+    margin-bottom: 0;
+  }
+  &:last-child {
     margin-bottom: 0;
   }
 }
@@ -22,15 +27,16 @@
     top: 0;
     left: 0;
     display: block;
-    // color: $blue-75;
+    color: $color-primary;
   }
 }
 
 %ul-li {
-  padding-left: 16px;
+  padding-left: 1em;
   &:before {
     content: "\203a";
     top: -0.25em;
+    font-family: $font-family-icons;
     font-size: 130%;
   }
 }
@@ -45,12 +51,12 @@
   @extend %list;
   counter-reset: numbering;
   li {
-    padding-left: 32px;
+    padding-left: 1.6em;
     &:before {
       content: counter(numbering) ".";
       counter-increment: numbering;
       position: absolute;
-      width: 28px;
+      width: 1.4em;
     }
     ol {
       counter-reset: numbering;
@@ -58,11 +64,9 @@
   }
 }
 
-.wysiwyg ul,
 .list--unordered {
   @extend %ul;
 }
-.wysiwyg ol,
 .list--ordered {
   @extend %ol;
 }
@@ -72,75 +76,11 @@
     @include listreset;
   }
   &--unstyled {
-    @extend .list--reset;
+    @include listreset(soft);
     li {
       + li {
-        margin-top: round($line-height-base / 2);
+        margin-top: $list-item-spacing;
       }
     }
   }
-  &--inline {
-    @include listreset;
-    font-size: 0;
-    margin-right: -10px;
-    margin-left: -10px;
-    li {
-      display: inline-block;
-      font-size: fs($font-size-base);
-      padding: 0 10px;
-    }
-  }
-  &--border {
-    @include listreset;
-    li {
-      + li {
-        margin-top: $rh-sml;
-        padding-top: $rh-sml;
-        border-top: 1px solid $gray-25;
-      }
-    }
-  }
-  // &--icon {
-  //   @include listreset;
-  //   li {
-  //     position: relative;
-  //     padding-left: 15px;
-  //     &:before {
-  //       content: '›';
-  //       position: absolute;
-  //       left: 0;
-  //       top: 0;
-  //     }
-  //   }
-  // }
 }
-
-// dl {
-//   dt {
-//     font-weight: $font-weight-bold;
-//   }
-//   dd {
-//     margin-left: 0;
-//     & + dt {
-//       margin-top: 5px;
-//     }
-//   }
-// }
-
-// @include breakpoint(map-get($breakpoints, med)) {
-//   .dl--horizontal {
-//     dt {
-//       float: left;
-//       width: 160px;
-//       overflow: hidden;
-//       clear: left;
-//       text-align: right;
-//       text-overflow: ellipsis;
-//       white-space: nowrap;
-//       margin-top: 0;
-//     }
-//     dd {
-//       margin-left: 180px;
-//     }
-//   }
-// }

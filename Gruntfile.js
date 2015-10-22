@@ -165,6 +165,13 @@ module.exports = function(grunt) {
                 expand: true,
                 dest: target + '/img/svg',
                 filter: 'isFile'
+            },
+            html: {
+                cwd: 'html',
+                src: '**/*.*',
+                expand: true,
+                dest: target + '/static/',
+                filter: 'isFile'
             }
         },
 
@@ -172,7 +179,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    style: 'compressed'
+                    style: 'expanded'
                 },
                 files: {
                     'build/css/main.css': 'sass/main.scss',
@@ -263,7 +270,8 @@ module.exports = function(grunt) {
                 tasks: ['img', 'notify:svg']
             },
             html: {
-                files: ['*.html']
+                files: ['html/**/*.html'],
+                tasks: ['copy:html']
             },
             fonts: {
                 files: ['fonts/**'],
@@ -281,7 +289,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
 
     // Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['build', 'watch']);
+    grunt.registerTask('default', ['build', 'copy:html', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
     grunt.registerTask('fonts', ['webfont', 'copy:fonts']);

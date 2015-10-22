@@ -1,45 +1,23 @@
-%status-block {
-  @extend .block--panel
-}
-.block {
-  display: block;
+@mixin block-rhythm() {
   & + & {
     margin-top: $rh-sml;
   }
+}
 
-  &--panel,
-  &--indented {
+.block {
+  display: block;
+  &--panel {
+    background: $gray-0;
     padding: $rh-sml;
     @include breakpoint(map-get($breakpoints, lrg)){
       padding: $rh-med;
     };
   }
-  &--panel {
-    background: $white;
-  }
-  &--indented {
-    padding: 0;
-    @include breakpoint(map-get($breakpoints, med)){
-      padding: $rh-med;
-    };
+  &__section {
+    & + & {
+      margin-top: $rh-sml;
+    }
   }
 
-  &--bg {
-    padding: $rh-sml;
-    background: $gray-0;
-  }
-
-  // Status messages
-  &--success {
-    @extend %status-block;
-    background-color: lighten(map-get($notice-colors, 'success'), 52%);
-    border-color: map-get($notice-colors, 'success');
-    color: lighten(map-get($notice-colors, 'success'), 25%);
-  }
-  &--error {
-    @extend %status-block;
-    background-color: lighten(map-get($notice-colors, 'danger'), 52%);
-    border-color: map-get($notice-colors, 'danger');
-    color: lighten(map-get($notice-colors, 'danger'), 25%);
-  }
+  @include block-rhythm;
 }

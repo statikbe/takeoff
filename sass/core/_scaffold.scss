@@ -1,7 +1,8 @@
 // Selection style
-//
-::-moz-selection { background: rgba($color-link,0.8); color: #fff; text-shadow: none; }
-::selection { background: rgba($color-link,0.8); color: #fff; text-shadow: none; }
+$color-highlight: lighten($color-primary, 10%);
+
+::-moz-selection { background: rgba($color-highlight,0.8); color: $white; text-shadow: none; }
+::selection { background: rgba($color-highlight,0.8); color: $white; text-shadow: none; }
 
 // Reset box-sizing
 //
@@ -31,7 +32,7 @@ html {
       top: 0;
       left: -100%;
       z-index: 10;
-      background: $color-brand-primary;
+      background: $color-primary;
     }
   }
   &.wf-active,
@@ -76,7 +77,6 @@ body {
   }
 }
 
-
 // Reset fonts for relevant elements
 input,
 button,
@@ -94,6 +94,10 @@ textarea {
 a {
   @include transitions((color, background, border));
   @include link-variant($color-link, $color-link-hover, $color-link-visited);
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
 
 // Paragraphs
@@ -113,19 +117,59 @@ svg {
   fill: currentColor;
 }
 
-/*! == Helper classes == */
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  *text-indent: -9999px;
-  &:before {
-    content: '';
-    display: block;
-    width: 0;
-    height: 100%;
+// Print class
+//
+.print-only,
+.print-only-inline {
+  display: none;
+}
+.screen-only {
+  display: block;
+}
+.screen-only-inline {
+  display: inline;
+}
+
+.pull--left {
+  float: left;
+}
+// .pull--bp-med--left
+// @each $bp, $px in $breakpoints {
+//   @include breakpoint($px, min-width) {
+//     .pull--bp-#{$bp}--left {
+//       float: left;
+//     }
+//   }
+// }
+.pull--right {
+  float: right;
+}
+// @each $bp, $px in $breakpoints {
+//   @include breakpoint($px, min-width) {
+//     .pull--bp-#{$bp}--right {
+//       float: right;
+//     }
+//   }
+// }
+
+// .show--bp-med
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, max-width) {
+    .show--bp-#{$bp} {
+      display: none !important;
+    }
   }
 }
+// .hidden--bp-med
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, min-width) {
+    .hidden--bp-#{$bp} {
+      display: none !important;
+    }
+  }
+}
+
+/*! == Helper classes == */
 .superhidden {
   display: none !important;
   visibility: hidden;
@@ -148,20 +192,4 @@ svg {
     overflow: visible;
     position: static;
   }
-}
-.invisible {
-  visibility: hidden;
-}
-.clearfix {
-  @include cf;
-}
-.print-only,
-.print-only-inline {
-    display: none;
-}
-.pull--left {
-  float: left;
-}
-.pull--right {
-  float: right;
 }

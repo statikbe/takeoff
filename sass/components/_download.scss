@@ -23,13 +23,13 @@
   }
   &:hover,
   &:focus {
-    color: $color-brand-primary;
+    color: $color-primary;
     &:after {
       animation: bounce 2s infinite;
     }
   }
   &:visited {
-    color: $color-brand-primary;
+    color: $color-primary;
   }
 
   & + & {

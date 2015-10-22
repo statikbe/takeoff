@@ -1,15 +1,32 @@
+$input-background-color: $white;
+$input-background-color-focus: tint($input-background-color, 75%);
+$input-border-color: $gray-25;
+$input-border-color-focus: $gray-75;
+$input-text-color: $color-text;
+
+$error-background: tint(map-get($notice-colors, 'danger'), 90%);
+$error-color: map-get($notice-colors, 'danger');
+
+$input-item-margin: $rh-sml;
+$input-horizontal-padding: 15px;
+$input-vertical-padding: 14px;
+$input-icon-padding: ($input-horizontal-padding * 2) + 4px;
+
 %ext-input-style {
   @include transitions((color, background, border));
+  position: relative;
+  z-index: 10;
+  display: block;
   width: 100%;
-  padding: 14px 15px;
-  border: 1px solid $gray-25;
-  background-color: $white;
-  color: $color-text;
+  padding: $input-vertical-padding $input-horizontal-padding;
+  border: 1px solid $input-border-color;
+  background-color: $input-background-color;
+  color: $input-text-color;
   line-height: normal;
   &:focus {
     outline: none;
-    border-color: $gray-75;
-    background: mix($gray-0, $white);
+    border-color: $input-border-color-focus;
+    background: $input-background-color-focus;
     &::-webkit-input-placeholder {
       color: transparent;
     }
@@ -23,97 +40,13 @@
     background: $gray-0;
   }
   .parsley-error & {
-    background-color: lighten(map-get($notice-colors, 'danger'), 52%);
+    background-color: $error-background;
+    border-color: $error-color;
   }
 }
 
-.form {
+form {
   margin-bottom: $rh-sml;
-  // Modifiers
-
-  &--inline {
-    display: flex;
-    flex-wrap: wrap;
-    .form__item {
-      flex: 1 1 150px;
-      margin-bottom: 0;
-    }
-    .form__actions {
-      margin-top: auto;
-    }
-    .btn {
-      margin-left: $rh-xxs;
-    }
-  }
-
-  // &--hz {
-  //   margin: 0;
-  //   @include breakpoint(map-get($breakpoints, xsm)){
-  //     position: relative;
-  //     .form__fields {
-  //       padding-right: 180px;
-  //     }
-  //     .form__actions {
-  //       position: absolute;
-  //       right: 0;
-  //       bottom: 0;
-  //       width: 160px;
-  //       margin: 0;
-  //     }
-  //     .form__btn {
-  //       display: block;
-  //       width: 100%;
-  //       min-width: initial;
-  //     }
-  //   };
-  // }
-
-  // Search form
-  // &--search {
-  //   @include column(4);
-  //   float: right;
-  //   clear: right;
-  //   padding-right: 75px;
-  //   position: relative;
-  //   margin-bottom: 20px;
-  //   .form__item {
-  //     width: 100%;
-  //   }
-  //   .form__text {
-  //     background: $white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAQAAACRZI9xAAAArUlEQVQoz33QYRWFIAyG4VWgghWoQAUqUIEKVrCCFd4KVrCCFb77Q5DhOd6zPzAexphhGEZm50IcrISWMwyTGUZgRy4u8pt0cABXW0dPSruZuCtuCHF6ctdI7n18HZm1Jl2DZISogwjBRNKbHIhr+mhFiDLIihDbA2L7VRhkaSnIJGrb7fNc8jS4HsUTI3K6wz7K6snNKpVCoI9TbDOZ40HfZKD0TTqK/4ixsMh+cvo988EeoqwAAAAASUVORK5CIIA=) no-repeat 10px center;
-  //     padding-left: 35px;
-  //   }
-  //   .btn {
-  //     width: 75px;
-  //     padding: 0;
-  //     position: absolute;
-  //     top: 0;
-  //     right: 0;
-  //   }
-  // }
-
-  // Newsletter form
-  // &--newsletter {
-  //   padding-right: 35px;
-  //   position: relative;
-  //   .form__label {
-  //     @extend .visuallyhidden;
-  //   }
-  //   .form__text {
-  //     background-color: $white;
-  //   }
-  //   .form__item {
-  //     width: 100%;
-  //   }
-  //   .btn {
-  //     @include fsRem(25px);
-  //     width: 35px;
-  //     padding: 0;
-  //     position: absolute;
-  //     top: 0;
-  //     right: 0;
-  //   }
-  // }
   &.is-submitted {
     position: relative;
     opacity: .5;
@@ -132,81 +65,95 @@
   }
 }
 
-.form__group {
-  margin-bottom: $rh-sml;
-  h1,
-  h2,
-  h3,
-  h4 {
-    &:first-child {
-      margin-top: 0;
+.form {
+  &--inline {
+    display: flex;
+    .form__label {
+      @extend .visuallyhidden;
     }
-  }
-}
-.form__item {
-  margin-bottom: $rh-sml;
-  &--radios,
-  &--checkboxes {}
-}
-.form__input-item,
-.form__select-item {
-  position: relative;
-  label {
-    position: absolute;
-    top: 9px;
-    left: 10px;
-    z-index: 1;
-    width: 15px;
-    color: $gray-25;
-    text-align: center;
-  }
-}
-.form__input-item {
-  .form__text {
-    text-indent: 15px;
-  }
-}
-.form__select-item {
-  overflow-x: hidden;
-  label {
-    right: 10px;
-    left: auto;
-  }
-  .form__select {
-    width: calc(100% + 15px);
-    position: relative;
-    z-index: $zindex-layer-1;
+    .form__item {
+      flex: 1 1 auto;
+      margin: 0;
+    }
+    .form__actions {
+      flex: 0 0 180px;
+    }
+    .form__btn {
+      position: relative;
+      left: -1px;
+      z-index: 10;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }
 
-.form__label {
-  font-weight: $font-weight-bold;
-  display: inline-block;
-  margin-bottom: 5px;
-  &--radio,
-  &--checkbox {
-    font-weight: $font-weight-regular;
-    padding-bottom: 0;
-    position: relative;
-    padding-left: 20px;
+//== Form items
+//-------------
+//
+// Outer wrapper. Includes label, element and errors
+.form__item {
+  position: relative;
+  margin-bottom: $input-item-margin;
+  &--radios,
+  &--checkboxes {
+    @include cf;
     input {
       position: absolute;
       left: 0;
-      top: 4px;
+      top: 50%;
+    }
+    label {
+      cursor: pointer;
+      position: relative;
+      float: left;
+      clear: both;
+      padding-left: 20px;
+      margin-bottom: 0;
+      font-weight: $font-weight-regular;
     }
   }
+  &--checkboxes {
+    input {
+      margin-top: -8px;
+    }
+  }
+  &--radios {
+    input {
+      margin-top: -9px;
+    }
+  }
+}
+// Inner wrapper. Includes one form element (input, select, ...) and an optional form icon
+.form__element {
+  position: relative;
+}
+
+.form__row {
+  display: flex;
+  margin-right: -10px;
+  margin-bottom: $input-item-margin;
+  margin-left: -10px;
+  .form__item {
+    flex: 1 1 40%;
+    margin: 0 10px;
+  }
+  .form__actions {
+    flex: 0 0 180px;
+    margin: auto 0 0;
+  }
+}
+
+//== Form input types
+//-------------------
+//
+.form__label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: $font-weight-bold;
   &[for] {
     cursor: pointer;
   }
-  small {
-    color: $gray-25;
-  }
-  & + & {
-    margin-left: 10px;
-  }
-}
-p.form__label {
-  font-weight: $font-weight-regular;
 }
 
 .form__text {
@@ -214,35 +161,58 @@ p.form__label {
 }
 .form__textarea {
   @extend %ext-input-style;
-  min-height: 100px;
-}
-.form__select-item {
-  @extend %ext-input-style;
-  .form__select {
-    -webkit-appearance: textfield;
-    // -moz-appearance: textfield;
-    // hide mozilla's dirty arrow with -moz-appearance: window
-    -moz-appearance: window;
-    appearance: textfield;
-    border: none;
-    border-radius: 0;
-    &:focus {
-      outline: none;
-    }
-  }
-}
-.form__select {
-  background: none;
-  display: block;
-  cursor: pointer;
+  min-height: 140px;
 }
 
 .form__radio,
 .form__checkbox {
   vertical-align: 0;
-  label + & {
-    margin-right: 0;
-    margin-left: 5px;
+}
+
+.form__select {
+  @extend %ext-input-style;
+  display: block;
+  cursor: pointer;
+  -webkit-appearance: none;
+  // hide mozilla's dirty arrow with -moz-appearance: window
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  &:focus {
+    outline: none;
+  }
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.form__icon {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  margin-top: -.5em;
+  line-height: 1;
+  &--right {
+    right: $input-vertical-padding;
+    ~ [class^=form__] {
+      padding-right: $input-icon-padding;
+    }
+  }
+  &--left {
+    left: $input-vertical-padding;
+    ~ [class^=form__] {
+      padding-left: $input-icon-padding;
+    }
+  }
+
+  &--select {
+    @extend .form__icon--right;
+    &:after {
+      content: '\203a';
+      // TODO: integrate correct icon
+      // font-family: $font-family-icons;
+    }
   }
 }
 
@@ -250,55 +220,62 @@ p.form__label {
   display: block;
 }
 
+//== Form helpers
+//---------------
+//
+.form__description {
+  clear: both;
+  color: $gray-25;
+}
+.form__caption {
+  display: inline;
+  color: $gray-25;
+}
+
+//== Form actions
+//---------------
+//
 .form__actions {
   clear: both;
-  margin-top: $rh-xsm;
-  .btn + .btn {
-    margin-left: 5px;
+  margin-left: -10px;
+  margin-right: -10px;
+  a, button {
+    margin: 0 10px;
   }
 }
 
 .form__btn {
-  @extend .btn;
-  min-width: 140px;
+  min-width: 160px;
+  padding-top: $input-vertical-padding;
+  padding-bottom: $input-vertical-padding;
   .is-submitted & {
     overflow: hidden;
     cursor: not-allowed;
-    // background: rgba($purple-75, .5);
-    // box-shadow: 2px 2px 0 rgba($purple-100, .5);
+    position: relative;
     &:before {
       content: '';
       display: block;
-      animation: move .75s linear infinite;
+      animation: move 750ms linear infinite;
       position: absolute;
       top: 0;
       left: -100%;
       z-index: 10;
       height: 3px;
       width: 100%;
-      // background: $purple-100;
+      background: rgba($white, .25);
     }
   }
 }
-.form__description,
-.form__help {
-  clear: both;
-  color: $gray-50;
-  @include fsRem(13px);
-  // font-style: italic;
-}
 
-// Error handeling
-.parsley-errors-container {
-  clear: both;
-}
+//== Form errors
+//--------------
+//
 .parsley-errors-list {
   @include listreset;
-  @include fsRem(13px);
+  @include fsRem(14px);
   color: map-get($notice-colors, 'danger');
-  // margin: 5px 0;
   font-weight: $font-weight-bold;
   li {
-    margin-top: 5px;
+    margin-top: $rh-xxs;
   }
 }
