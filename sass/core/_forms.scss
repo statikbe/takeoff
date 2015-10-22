@@ -172,7 +172,6 @@ form {
   // hide mozilla's dirty arrow with -moz-appearance: window
   -moz-appearance: window;
   appearance: textfield;
-  border-radius: 0;
   &:focus {
     outline: none;
   }
