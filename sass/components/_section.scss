@@ -1,137 +1,47 @@
+%ext-section-dark {
+  .section__content {
+    color: $white;
+    #{$headings} {
+      color: $white;
+    }
+    a {
+      @include link-variant($white, $gray-25);
+    }
+    .list--unordered,
+    .list--ordered {
+      li {
+        &:before {
+          color: inherit;
+        }
+      }
+    }
+  }
+}
+
 .section {
-  padding: 0 0 $rh-med;
-  &:first-child {
-    padding-top: $rh-med;
-    &.section--sml {
-      padding-top: $rh-sml;
-    }
-    &.section--lrg {
-      padding-top: $rh-lrg;
-    }
-    &.section--xlr {
-      padding-top: $rh-xlr;
-    }
+  padding: $rh-med 0;
+
+  &--bg {
+    @extend %ext-section-dark;
+    background: $color-primary;
   }
-  &--border {
-    border-bottom: 1px solid $gray-25;
-    &:last-child {
-      border-bottom: 0;
-    }
-    &-thick {
-      @extend .section--border;
-      border-bottom-width: 3px;
-    }
-  }
-  &--border-top {
-    position: relative;
-    padding-top: $rh-med;
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      display: block;
-      @include breakpoint(map-get($breakpoints, xlr)) {
-        $tmp: ($grid-container-width - $grid-gutter-width);
-        margin: 0 calc((100% - #{$tmp}) / 2);
-      }
-      border-top: 1px solid $gray-0;
-    }
-    &:first-child {
-      padding-top: 0;
-    }
-    &.section--sml {
-      padding-top: $rh-sml;
-    }
-    &.section--lrg {
-      padding-top: $rh-lrg;
-    }
-    &.section--xlr {
-      padding-top: $rh-xlr;
-    }
-    &-thick {
-      &:before {
-        border-top-width: 3px;
-      }
-    }
-  }
-  &.no-container {
-    overflow: hidden;
-  }
-  &--sml {
-    padding: 0 0 $rh-sml;
-  }
-  &--lrg {
-    padding: $rh-lrg 0;
-  }
-  &--xlr {
-    padding: $rh-xlr 0;
-  }
-  &--background {}
   &--light {
-    @extend .section--background !optional;
     background: $gray-0;
   }
   &--dark {
-    @extend .section--background !optional;
-    background: $gray-75;
-    color: $white;
-    a {
-      color: inherit;
+    @extend %ext-section-dark;
+    background: $gray-100;
+  }
+  &--border {
+    border-top: 1px solid $gray-25;
+  }
+
+  &--default {
+    & + & {
+      padding-top: 0;
     }
   }
   &--no-padding {
     padding: 0 !important;
   }
-
-  &--cta {
-    // @extend .section--lrg;
-    @extend .section--background !optional;
-    background: $color-brand-primary;
-    @include fsRem($font-size-xxl);
-    color: $white;
-    text-align: center;
-    .heading {
-      color: $white;
-    }
-    a:not(.btn) {
-      color: inherit;
-    }
-  }
-}
-
-.section--background + .section--background {
-  padding-top: 0;
-}
-.section + .section--background,
-.section--border + .section ,
-.section--background + .section,
-.section--no-padding + .section,
-.section--actions + .section--background,
-.section--background + .section--actions {
-  padding-top: $rh-med;
-  &.section--sml {
-    padding-top: $rh-sml;
-  }
-  &.section--lrg {
-    padding-top: $rh-lrg;
-  }
-  &.section--xlr {
-    padding-top: $rh-xlr;
-  }
-}
-
-.section--no-padding {
-  padding: 0;
-  &:first-child {
-    padding-top: 0;
-  }
-  .section--no-padding + & {
-    padding-top: 0;
-  }
-}
-
-.section__title {
-  @extend .heading--2;
 }

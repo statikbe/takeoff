@@ -1,26 +1,25 @@
 // Headings
-.heading {
+// By default, this inherits from the `<body>`.
+$headings: h1, h2, h3, h4, h5, h6;
+$headings-font-family: inherit !default;
+$headings-font-weight: $font-weight-bold !default;
+$headings-line-height: 1.1 !default;
+$headings-color: inherit !default;
+
+// Optional
+$headings-color-alt: null !default;
+
+%ext-heading {
+  margin-top: ceil($line-height-base * 1.5);
+  margin-bottom: floor($line-height-base * .75);
+  color: $headings-color;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: $headings-color;
   text-transform: none;
-
-  margin-top: ceil($line-height-base * 1.5);
-  margin-bottom: floor($line-height-base * .75);
   a {
     @include link-variant(inherit);
     text-decoration: none;
-  }
-  small,
-  .small {
-    font-size: 65%;
-    font-weight: normal;
-    line-height: 1;
-    color: $gray-50;
-  }
-  &--alt {
-    color: $headings-color-alt;
   }
   &:first-child {
     margin-top: 0;
@@ -29,25 +28,53 @@
     margin-bottom: 0;
   }
 }
-.heading--1 {
-  @extend .heading;
-  @include fsRem($font-size-h1);
-}
-.heading--2 {
-  @extend .heading;
-  @include fsRem($font-size-h2);
-}
-.heading--3 {
-  @extend .heading;
-  @include fsRem($font-size-h3);
-}
-.heading--4 {
-  @extend .heading;
-  @include fsRem($font-size-h4);
-}
-.heading--5 {
-  @extend .heading;
-  @include fsRem($font-size-h5);
+
+.heading {
+  &--1 {
+    @extend %ext-heading;
+    @if $breakpoints-legacy {
+      @include fsRem($font-size-h1);
+    } @else {
+      @include fsRem($font-size-h1 * .65);
+    }
+    @include breakpoint(map-get($breakpoints, xsm)){
+      @include fsRem($font-size-h1 * .75);
+    };
+    @include breakpoint(map-get($breakpoints, sml)){
+      @include fsRem($font-size-h1 * .9);
+    };
+    @include breakpoint(map-get($breakpoints, med)){
+      @include fsRem($font-size-h1);
+    };
+  }
+  &--2 {
+    @extend %ext-heading;
+    @if $breakpoints-legacy {
+      @include fsRem($font-size-h2);
+    } @else {
+      @include fsRem($font-size-h2 * .85);
+    }
+    @include breakpoint(map-get($breakpoints, sml)){
+      @include fsRem($font-size-h2);
+    };
+  }
+  &--3 {
+    @extend %ext-heading;
+    @include fsRem($font-size-h3);
+  }
+  &--4 {
+    @extend %ext-heading;
+    @include fsRem($font-size-h4);
+  }
+  &--5 {
+    @extend %ext-heading;
+    @include fsRem($font-size-h5);
+  }
+  @if global-variable-exists(headings-color-alt) {
+    &--alt {
+      color: $headings-color-alt;
+    }
+  }
 }
 
 h1 {
@@ -66,9 +93,8 @@ h5 {
   @extend .heading--5;
 }
 
-
-h1, h2, h3, h4, h5 {
-  + h1, + h2, + h3, + h4, + h5 {
+#{$headings} {
+  & + & {
     margin-top: 0;
   }
 }
@@ -76,6 +102,9 @@ h1, h2, h3, h4, h5 {
 // Stand out text
 .text--lead {
   font-size: fs($font-size-lrg);
+}
+.text--info {
+  color: $gray-50;
 }
 
 // Alignment
@@ -95,7 +124,7 @@ h1, h2, h3, h4, h5 {
   white-space: nowrap;
 }
 
-// .text--bp-med--left
+// E.g.: .text--bp-med--left
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width') {
     .text--bp-#{$bp}--left {
@@ -103,7 +132,7 @@ h1, h2, h3, h4, h5 {
     }
   }
 }
-// .text--bp-med--right
+// E.g.: .text--bp-med--right
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width') {
     .text--bp-#{$bp}--right {
@@ -128,29 +157,6 @@ h1, h2, h3, h4, h5 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-// Mark
-mark,
-.text--mark {
-
-}
-
-// Del, s
-del,
-s {
-  text-decoration: line-through;
-}
-
-// Underline
-u {
-  text-decoration: underline;
-}
-
-// Small
-small,
-.small {
-  font-size: fs($font-size-sml);
 }
 
 // Strong

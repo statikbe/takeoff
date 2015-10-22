@@ -17,7 +17,7 @@
     content: '+';
     @include fsRem(30px);
     line-height: lh(44px, 30px);
-    color: $color-brand-primary;
+    color: $color-primary;
     background: $white;
     text-align: center;
     display: block;
@@ -42,8 +42,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: $color-brand-primary;
-    background-color: rgba($color-brand-primary , .6);
+    background-color: $color-primary;
+    background-color: rgba($color-primary , .6);
     opacity: 0;
     @include transitions(opacity, 400ms);
   }
@@ -152,7 +152,7 @@
   font-size: fs(28px);
   line-height: 1.6;
   text-align: center;
-  background: $color-brand-primary;
+  background: $color-primary;
   &:hover {
 
   }

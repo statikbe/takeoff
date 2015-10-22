@@ -1,20 +1,21 @@
 .page-header {
   @include cf;
-  // padding: $rh-med 0;
+  padding: $rh-med 0;
   &__logo {
     display: block;
-    // width: 120px;
+    width: 240px;
     img {
+      display: block;
       width: 100%;
       height: auto;
     }
-    @include breakpoint(map-get($breakpoints, xsm), 'max-width'){
+    @include breakpoint(map-get($breakpoints, sml), 'max-width'){
       clear: both;
-      margin: $rh-med auto;
+      margin: 0 auto;
     };
-    @include breakpoint(map-get($breakpoints, xsm)){
+    @include breakpoint(map-get($breakpoints, sml)){
       float: left;
-      // width: 150px;
+      margin-right: $rh-sml;
     };
   }
 }

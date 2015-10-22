@@ -1,0 +1,16 @@
+{
+  "font-awesome": [
+    "facebook",
+    "twitter",
+    "linkedin",
+    "google-plus",
+    "envelope-o"
+  ],
+  "material-design": [
+    "location-on",
+    "keyboard-arrow-up",
+    "keyboard-arrow-right",
+    "keyboard-arrow-down",
+    "keyboard-arrow-left"
+  ]
+}

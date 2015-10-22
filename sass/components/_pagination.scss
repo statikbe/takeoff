@@ -1,25 +1,36 @@
 .pagination {
   @include listreset;
-  // clear: both;
-  margin: $rh-sml 0 0;
+  line-height: 1;
   text-align: center;
-  li {
-    display: inline-block;
-    margin-right: $rh-xxs;
-  }
   a {
     display: inline-block;
+    vertical-align: middle;
     text-decoration: none;
   }
-  &__btn {
+  &__item {
     display: inline-block;
-    background: $gray-25;
-    padding: 0 $rh-xxs;
-    &.active,
-    &:hover {
-      background: $gray-50;
-      color: $white;
+    vertical-align: middle;
+    margin: 0;
+  }
+  &__prev {
+    &:before {
+      content: '\2039';
+      margin-right: $rh-xxs;
     }
   }
+  &__next {
+    &:after {
+      content: '\203a';
+      margin-left: $rh-xxs;
+    }
+  }
+  &__link {
+    margin: 0 $rh-xxs;
+  }
+  &__btn {
+    @include button-variant($white, $color-primary);
+    box-sizing: content-box;
+    width: 1em;
+    padding: $rh-xsm;
+  }
 }
-

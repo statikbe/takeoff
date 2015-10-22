@@ -3,29 +3,24 @@
   display: block;
   color: inherit;
   text-decoration: none;
-  &__header {
-    overflow: hidden;
-    margin-bottom: $rh-med;
-    h1, h2, h3, h4 {
-      margin-bottom: 0;
+  &__section {
+    & + & {
+      margin-top: $rh-sml;
     }
-    &:last-child {
-      margin-bottom: 0;
+    &--header {
+      #{$headings} {
+        margin-bottom: 0;
+      }
     }
-  }
-  &__footer {
-    margin-top: $rh-med;
   }
   &__img {
     overflow: hidden;
-    background: $gray-0;
     text-align: center;
     img {
-      @include transitions(transform);
+      @include transitions(all);
       display: block;
-      width: 100%;
+      max-width: 100%;
       height: auto;
-      margin: 0 auto;
     }
   }
   &__link {
@@ -34,63 +29,42 @@
     color: $color-link;
     text-decoration: underline;
   }
-}
-
-.excerpt__aside {
-  .excerpt__img {
-    text-align: center;
-    img {
-      width: auto;
-    }
+  &__meta {
+    margin-top: $rh-xxs;
   }
-  @include breakpoint(map-get($breakpoints, sml)){
-    float: left;
-    width: 140px;
-    margin-right: 20px;
-  };
-  @include breakpoint(map-get($breakpoints, sml), 'max-width'){
-    margin-bottom: $rh-med;
-  };
-  @include breakpoint(map-get($breakpoints, lrg)){
-    ~ .excerpt__main {
-      margin-left: 160px;
-    }
-  };
-  .excerpt--hz-large & {
-    @include breakpoint(map-get($breakpoints, sml)){
-      width: 140px;
-      margin-right: 20px;
+
+  &__aside {
+    @include breakpoint(map-get($breakpoints, sml), 'max-width'){
+      margin-bottom: $rh-xsm;
     };
     @include breakpoint(map-get($breakpoints, sml)){
-      width: 210px;
-    };
-    @include breakpoint(map-get($breakpoints, lrg)){
-      width: 280px;
+      float: left;
+      width: 160px;
       ~ .excerpt__main {
-        margin-left: 300px;
+        margin-left: 180px;
       }
     };
   }
 }
 
+
+a.excerpt,
 .excerpt--link {
-  &:visited {
-    color: inherit;
-  }
+  @include link-variant(inherit);
+  text-decoration: none;
   &:hover,
   &:focus {
-    color: inherit;
-    h1, h2, h3, h4 {
-      // color: tomato;
-      text-decoration: none;
+    #{$headings} {
+      color: inherit;
     }
     .excerpt__img {
       img {
-        transform: scale(1.1);
+        transform: translateZ(0) scale(1.1);
       }
     }
     .excerpt__link {
       color: $color-link;
+      text-decoration: none;
     }
   }
 }

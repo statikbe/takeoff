@@ -2,3 +2,5 @@ build
 node_modules
 buckleup
 .sass-cache
+icons/svg/**/*
+public

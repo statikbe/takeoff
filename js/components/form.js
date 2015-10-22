@@ -10,7 +10,7 @@ window.ParsleyConfig = {
     return ParsleyField.$element.closest('.form__item').children('.parsley-errors-container');
   }
 };
-window.ParsleyValidator.setLocale('nl');
+window.ParsleyValidator.setLocale(document.documentElement.lang);
 
 app.form = (function($, undefined) {
   var $document = $(document),
@@ -36,142 +36,40 @@ app.form = (function($, undefined) {
 
   // var _filter = function() {
   //   var formSelector = '.form--filter',
-  //       action = $(formSelector).attr('action');
+  //       $form = $(formSelector),
+  //       resultsSelector = '#' + $form.closest('[id^=widget]').attr('id'),
+  //       action = $form.attr('action'),
+  //       filterTimout;
 
-  //   $(formSelector).each(function() {
-  //     var $form = $(this),
-  //         url = action + '?' + $form.serialize(),
-  //         resultsSelector = $form.data('id');
+  //   $document.on('change', '.form--filter input', function() {
+  //     var $form = $(this.form),
+  //         url = action + '?' + $form.serialize();
 
-  //     $document.on('change', '.form--filter input', function() {
-  //       var $form = $(this.form),
-  //           url = action + '?' + decodeURIComponent($form.serialize());
-
-  //       if(Modernizr.history) {
-  //         _loadResults(url, resultsSelector);
-  //       }
-  //     });
-
-  //     var _loadResults = function(url, locationSelector) {
-  //       var $location = $(locationSelector);
-  //       $location.addClass('is-loading');
-
-  //       $location.load(url + ' ' + locationSelector + ' > div', function(data) {
-  //         history.pushState('', 'New URL: ' + url, url);
-  //         $location.removeClass('is-loading');
-  //       });
-  //     };
-
+  //     clearTimeout(filterTimout);
   //     if(Modernizr.history) {
-  //       window.onpopstate = function(event) {
-  //         var $location = $(resultsSelector);
-  //         $location.addClass('is-loading');
-  //         _loadResults(window.location.pathname + window.location.search, resultsSelector);
-  //       };
+  //       filterTimout = setTimeout(function() {
+  //         _loadResults(url, resultsSelector);
+  //       }, 500);
   //     }
   //   });
-  // };
 
+  //   var _loadResults = function(url, locationSelector) {
+  //     var $location = $(locationSelector);
+  //     $location.addClass('is-loading');
 
-  // Expressionengine validation
-  // var _validate= function() {
-  //   $forms.each(function(k, v){
-  //     var $form = $(v),
-  //         $fields = $form.find('.form__text, .form__textarea'),
-  //         $statusSucces = $form.find('.block--success'),
-  //         $statusError = $form.find('.block--error'),
-  //         $button = $form.find('[type=submit]'),
-  //         action = $form.attr('action') ? updateQueryStringParameter($form.attr('action'), 'callback', '?') : '',
-  //         method = $form.attr('method'),
-  //         novalidate = $form.attr('novalidate'),
-  //         noJSON = $form.hasClass('nojson'),
-  //         $returnInput = $form.find('input[name="return_url"]'),
-  //         returnURL;
+  //     $location.load( url + ' ' + locationSelector + ' > *', function(data) {
+  //       history.pushState('', 'New URL: ' + url, url);
+  //       $location.removeClass('is-loading');
+  //     });
+  //   };
 
-  //     var onFormError = function() {
-  //           $statusSucces.hide();
-  //           $statusError.show(function() {
-  //             animatedScrollTo(
-  //               document.body,
-  //               $statusError.offset().top,
-  //               500
-  //             );
-  //           });
-  //           $button.prop('disabled', false);
-  //         },
-  //         onFormSucces = function() {
-  //           $form.hide();
-  //           $statusError.hide();
-  //           $statusSucces.show(function() {
-  //             animatedScrollTo(
-  //               document.body,
-  //               $statusSucces.offset().top,
-  //               500
-  //             );
-  //           });
-  //         };
-
-  //     if ($returnInput.length !== '0') {
-  //       returnURL = $returnInput.val();
-  //     }
-
-  //     if (novalidate === undefined) {
-  //       $form.parsley().subscribe('parsley:form:validate', function(formInstance) {
-  //         if (formInstance.isValid() === true) {
-  //           $form.addClass('is-submitted');
-  //           $button.prop('disabled', true);
-  //         }
-  //       });
-
-  //       if (!noJSON) {
-  //         $form.on('submit', function(e){
-  //           e.preventDefault();
-  //           /*
-  //             We assume all internal forms have the POST method
-  //             These forms send data in text format, so we need to convert that into a json object (done further below)
-  //           */
-  //           var ajaxSettings = {
-  //             type: method,
-  //             url: action,
-  //             data: $form.serialize()
-  //           };
-  //           if (method === 'POST') {
-  //             ajaxSettings.dataType = 'text';
-  //           } else {
-  //             ajaxSettings.dataType = 'json';
-  //           }
-
-  //           $.ajax(
-  //             ajaxSettings
-  //           )
-  //           .done(function(data) {
-  //             var isObj = $.isPlainObject(data);
-  //             if (!isObj) {
-  //               data = jQuery.parseJSON(data);
-  //             }
-
-  //             if (data.success && data.success === 1) {
-  //               // Internal forms
-  //               onFormSucces();
-  //             } else if (data.Status && data.Status === 200) {
-  //               onFormSucces();
-  //             } else {
-  //               onFormError();
-  //             }
-  //           })
-  //           .fail(function(jqXHR, textStatus) {
-  //             onFormError();
-  //           })
-  //           .always(function() {
-  //             $form.removeClass('is-submitted');
-  //           });
-  //           if (!returnURL || returnURL === '') {
-  //             return false;
-  //           }
-  //         });
-  //       }
-  //     }
-  //   });
+  //   if(Modernizr.history) {
+  //     window.onpopstate = function(event) {
+  //       var $location = $(resultsSelector);
+  //       $location.addClass('is-loading');
+  //       _loadResults(window.location.pathname + window.location.search, resultsSelector);
+  //     };
+  //   }
   // };
 
   return {
