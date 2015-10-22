@@ -7,17 +7,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Takeoff</title>
-    <script type="text/javascript" src="./js/modernizr.min.js"></script>
+    <script type="text/javascript" src="/js/modernizr.min.js"></script>
     <!--[if lt IE 9]>
-      <script type="text/javascript" src="./js/html5shiv.min.js"></script>
+      <script type="text/javascript" src="/js/html5shiv.min.js"></script>
     <![endif]-->
-    <!--[if gt IE 9]><!--><link rel="stylesheet" href="./css/main.min.css"><!--<![endif]-->
+    <!--[if gt IE 9]><!--><link rel="stylesheet" href="/css/main.min.css"><!--<![endif]-->
     <!--[if lt IE 9]>
-        <script type="text/javascript" src="./js/selectivizr.min.js"></script>
+        <script type="text/javascript" src="/js/selectivizr.min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
-        <link rel="stylesheet" href="./css/main-legacy.min.css">
-        <script type="text/javascript" src="./js/polyfill.min.js"></script>
+        <link rel="stylesheet" href="/css/main-legacy.min.css">
+        <script type="text/javascript" src="/js/polyfill.min.js"></script>
     <![endif]-->
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABGdBTUEAALGPC/xhBQAAAANQTFRFAj7/    yDkdRAAAAAxJREFUCNdjYBjcAAAAoAABYSV9RwAAAABJRU5ErkJggg==" />
     <script type="text/javascript">
@@ -124,6 +124,7 @@
                 </div>
             </div>
             <a href="#" class="btn btn--lrg">Large button</a>
+            <a href="#" class="btn">Regular button</a>
             <a href="#" class="btn btn--sml">Small button</a>
         </div>
     </div>
@@ -136,10 +137,10 @@
                 </div>
                 <div class="form__item parsley-error">
                     <label for="error" class="form__label">Label</label>
-                    <input type="mail" id="error" name="error" class="form__text" />
                     <ul class="parsley-errors-list filled">
                         <li class="parsley-required">Dit veld is verplicht</li>
                     </ul>
+                    <input type="mail" id="error" name="error" class="form__text" />
                 </div>
                 <div class="form__item">
                     <label for="disabled" class="form__label">Label</label>
@@ -176,6 +177,22 @@
                     <div class="form__item">
                         <label for="inline_2" class="form__label">Label</label>
                         <input type="text" id="inline_2" name="inline_2" class="form__text" />
+                    </div>
+                    <div class="form__actions">
+                        <button class="btn form__btn">Verzenden</button>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__item">
+                        <label for="inline_1" class="form__label">Label</label>
+                        <input type="text" id="inline_1" name="inline_1" class="form__text" />
+                    </div>
+                    <div class="form__item">
+                        <label for="inline_2" class="form__label">Label</label>
+                        <input type="text" id="inline_2" name="inline_2" class="form__text" />
+                        <ul class="parsley-errors-list filled">
+                            <li class="parsley-required">Dit veld is verplicht</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="form__item">
@@ -393,6 +410,6 @@
           assetsPath: "/",
         };
     </script>
-    <script type="text/javascript" src="./js/main.min.js"></script>
+    <script type="text/javascript" src="/js/main.min.js"></script>
 </body>
 </html>

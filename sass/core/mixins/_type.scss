@@ -8,7 +8,7 @@
   @return relative-size($target, $context, $unit);
 }
 @function fs( $target, $context: $font-size-root, $unit: rem ) {
-  @return #{round(($target/$context)*1000)/1000}$unit;
+  @return #{round(($target/$context)*1000)/1000}#{$unit};
 }
 @function lh( $target, $context: $font-size-base ) {
   @return round(($target/$context)*1000)/1000;

@@ -1,3 +1,18 @@
+// Grid
+// ----
+//
+// columns          - The total amount of columns
+// gutter           - The amount of space between two columns
+// container-*      - The total width of the container for large / medium / small
+$grid-gutter-width: 20px !default;
+$grid-column-count: 12 !default;
+$grid-container-width: 1200px !default;
+
+$grids: (2, 3, 4) !default;
+$grid-columns: (3, 4, 6, 8) !default;
+$grid-columns-push: () !default;
+$grid-rhythm: $rh-sml !default;
+
 .container {
   @include container-fluid;
   max-width: $grid-container-width;

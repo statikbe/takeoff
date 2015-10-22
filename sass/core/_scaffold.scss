@@ -1,7 +1,8 @@
 // Selection style
-//
-::-moz-selection { background: rgba($color-link,0.8); color: $white; text-shadow: none; }
-::selection { background: rgba($color-link,0.8); color: $white; text-shadow: none; }
+$color-highlight: lighten($color-primary, 10%);
+
+::-moz-selection { background: rgba($color-highlight,0.8); color: $white; text-shadow: none; }
+::selection { background: rgba($color-highlight,0.8); color: $white; text-shadow: none; }
 
 // Reset box-sizing
 //
@@ -45,7 +46,6 @@ html {
 }
 
 body {
-  background: red;
   .js & {
     visibility: hidden !important;
   }
@@ -115,6 +115,58 @@ hr {
 // SVG
 svg {
   fill: currentColor;
+}
+
+// Print class
+//
+.print-only,
+.print-only-inline {
+  display: none;
+}
+.screen-only {
+  display: block;
+}
+.screen-only-inline {
+  display: inline;
+}
+
+.pull--left {
+  float: left;
+}
+// .pull--bp-med--left
+// @each $bp, $px in $breakpoints {
+//   @include breakpoint($px, min-width) {
+//     .pull--bp-#{$bp}--left {
+//       float: left;
+//     }
+//   }
+// }
+.pull--right {
+  float: right;
+}
+// @each $bp, $px in $breakpoints {
+//   @include breakpoint($px, min-width) {
+//     .pull--bp-#{$bp}--right {
+//       float: right;
+//     }
+//   }
+// }
+
+// .show--bp-med
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, max-width) {
+    .show--bp-#{$bp} {
+      display: none !important;
+    }
+  }
+}
+// .hidden--bp-med
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, min-width) {
+    .hidden--bp-#{$bp} {
+      display: none !important;
+    }
+  }
 }
 
 /*! == Helper classes == */

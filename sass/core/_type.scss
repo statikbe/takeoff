@@ -1,4 +1,14 @@
 // Headings
+// By default, this inherits from the `<body>`.
+$headings: h1, h2, h3, h4, h5, h6;
+$headings-font-family: inherit !default;
+$headings-font-weight: $font-weight-bold !default;
+$headings-line-height: 1.1 !default;
+$headings-color: inherit !default;
+
+// Optional
+$headings-color-alt: null !default;
+
 %ext-heading {
   margin-top: ceil($line-height-base * 1.5);
   margin-bottom: floor($line-height-base * .75);
@@ -92,6 +102,9 @@ h5 {
 // Stand out text
 .text--lead {
   font-size: fs($font-size-lrg);
+}
+.text--info {
+  color: $gray-50;
 }
 
 // Alignment

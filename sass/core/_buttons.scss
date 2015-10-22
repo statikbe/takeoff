@@ -11,9 +11,9 @@ $btn-line-height: 18px !default;
   border-width: 0 2px 2px 0;
   border-radius: $border-radius-med;
   font-weight: $font-weight-bold;
-  line-height: lh($btn-line-height);
+  // line-height: lh($btn-line-height);
+  line-height: normal;
   text-decoration: none;
-
   &--ghost {
     @include button-variant(($ghost-btn-color, $white), (transparent, $ghost-btn-color), $ghost-btn-color);
     border-width: 1px;

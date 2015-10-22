@@ -73,20 +73,6 @@ $letter-spacing-sml: .1em;
 $letter-spacing-med: $letter-spacing-base;
 $letter-spacing-lrg: .25em;
 
-$fonts-path: '../fonts' !default;
-$fonts-icon-name: 'fontawesome-webfont';
-$fonts-icon-class: icon;
-
-// By default, this inherits from the `<body>`.
-$headings: h1, h2, h3, h4, h5, h6;
-$headings-font-family: inherit !default;
-$headings-font-weight: $font-weight-bold !default;
-$headings-line-height: 1.1 !default;
-$headings-color: inherit !default;
-
-// Optional
-$headings-color-alt: null !default;
-
 // Layers
 // ------
 //
@@ -130,21 +116,6 @@ $rhythm: (
   lrg: $rh-lrg,
   xlr: $rh-xlr
 );
-
-// Grid
-// ----
-//
-// columns          - The total amount of columns
-// gutter           - The amount of space between two columns
-// container-*      - The total width of the container for large / medium / small
-$grid-gutter-width: 20px !default;
-$grid-column-count: 12 !default;
-$grid-container-width: 1200px !default;
-
-$grids: (2, 3, 4) !default;
-$grid-columns: (3, 4, 6, 8) !default;
-$grid-columns-push: () !default;
-$grid-rhythm: $rh-sml !default;
 
 // Transitions
 // -----------

@@ -130,12 +130,17 @@ form {
 }
 
 .form__row {
-  margin-left: -10px;
+  display: flex;
   margin-right: -10px;
+  margin-bottom: $input-item-margin;
+  margin-left: -10px;
   .form__item {
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
+    flex: 1 1 40%;
+    margin: 0 10px;
+  }
+  .form__actions {
+    flex: 0 0 180px;
+    margin: auto 0 0;
   }
 }
 
@@ -168,12 +173,16 @@ form {
   @extend %ext-input-style;
   display: block;
   cursor: pointer;
-  -webkit-appearance: textfield;
+  -webkit-appearance: none;
   // hide mozilla's dirty arrow with -moz-appearance: window
-  -moz-appearance: window;
-  appearance: textfield;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
   &:focus {
     outline: none;
+  }
+  &::-ms-expand {
+    display: none;
   }
 }
 
@@ -237,6 +246,8 @@ form {
 
 .form__btn {
   min-width: 160px;
+  padding-top: $input-vertical-padding;
+  padding-bottom: $input-vertical-padding;
   .is-submitted & {
     overflow: hidden;
     cursor: not-allowed;
