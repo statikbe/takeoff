@@ -139,7 +139,7 @@ module.exports = function(grunt) {
                     htmlDemo: false,
                     relativeFontPath: '/fonts/',
                     stylesheet: 'scss',
-                    syntax: 'bootstrap'
+                    template: 'icons/_templates/custom.css'
                 }
             }
         },
