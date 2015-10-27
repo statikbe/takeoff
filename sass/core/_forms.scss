@@ -209,9 +209,8 @@ form {
   &--select {
     @extend .form__icon--right;
     &:after {
-      content: '\203a';
-      // TODO: integrate correct icon
-      // font-family: $font-family-icons;
+      content: '\f10f';
+      font-family: $font-family-icons;
     }
   }
 }
