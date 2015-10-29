@@ -30,6 +30,10 @@
   &:after {
     @extend %ext-icon-style;
   }
+  &--social {
+    @include fsRem(28px);
+    line-height: 1;
+  }
 }
 
 // Icons
