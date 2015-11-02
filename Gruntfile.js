@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-    // Grunt options
+
     var target = grunt.option('target') || '../application/public';
 
     var uglifyTargets = {
@@ -7,41 +7,40 @@ module.exports = function(grunt) {
         polyfill: {},
         modernizr: {}
     };
-    uglifyTargets['main'][target + '/js/main.min.js'] = ['build/js/main.js'];
-    uglifyTargets['polyfill'][target + '/js/polyfill.min.js'] = ['build/js/polyfill.js'];
 
+    uglifyTargets.main[target + '/js/main.min.js'] = ['build/js/main.js'];
+    uglifyTargets.polyfill[target + '/js/polyfill.min.js'] = ['build/js/polyfill.js'];
 
-    // All configuration goes here
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        // CONCAT FILES
+    //  JAVASCRIPT TASKS
+
         concat: {
             main: {
                 src: [
-                    'js/libs/*.js', // All JS in the libs folder
-                    'js/libs/bootstrap/*.js', // All JS in the bootstrap folder
-                    '!js/bootstrap/excludes/*', // Exclude some of the bootstrap files
-                    'js/components/*.js', // All JS in the components folder
-                    'js/main.js'  // The big main file!
+                    'js/libs/*.js',                 //  Libraries
+                    'js/libs/bootstrap/*.js',       //  Bootstrap plugins
+                    '!js/bootstrap/excludes/*',
+                    'js/components/*.js',           //  Takeoff components
+                    'js/main.js'                    //  Main javascript file
                 ],
                 dest: 'build/js/main.js'
             },
             polyfill: {
                 src: [
-                    'js/polyfill/*.js' // All JS in the polyfill folder
+                    'js/polyfill/*.js'              //  Polyfills
                 ],
                 dest: 'build/js/polyfill.js'
             }
         },
 
-        // UGLIFY FILES
         uglify: {
             main: {
-                files: uglifyTargets['main']
+                files: uglifyTargets.main
             },
             polyfill: {
-                files: uglifyTargets['polyfill']
+                files: uglifyTargets.polyfill
             },
             singles: {
                 files: [{
@@ -53,13 +52,46 @@ module.exports = function(grunt) {
             }
         },
 
-        // JSHINT
         jshint: {
             options: {
                 reporter: require('jshint-stylish')
             },
             target: ['js/main.js', 'js/components/*.js']
         },
+
+
+    //  CSS TASKS
+
+        sass: {
+            dist: {
+                options: {
+                    style: 'expanded'
+                },
+                files: {
+                    'build/css/main.css': 'sass/main.scss',
+                    'build/css/main-legacy.css': 'sass/main-legacy.scss'
+                }
+            }
+        },
+
+        autoprefixer: {
+            dist: {
+                src: 'build/css/*.css'
+            }
+        },
+
+        cssmin: {
+            minify: {
+                expand: true,
+                cwd: 'build/css/',
+                src: ['*.css', '!*.min.css'],
+                dest: target + '/css/',
+                ext: '.min.css'
+            }
+        },
+
+
+    //  IMAGE TASKS
 
         responsive_images: {
             dev: {
@@ -81,7 +113,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // IMAGEMIN
         imagemin: {
             dynamic: {
                 options: {
@@ -97,7 +128,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // SVGMIN
         svgmin: {
             options: {
                 plugins: [
@@ -116,7 +146,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // SVG2PNG
         svg2png: {
             all: {
                 files: [
@@ -129,7 +158,9 @@ module.exports = function(grunt) {
             }
         },
 
-        // Icons
+
+    //  ICON TASKS
+
         webfont: {
             icons: {
                 src: 'icons/*/*.svg',
@@ -144,7 +175,9 @@ module.exports = function(grunt) {
             }
         },
 
-        // CLEAN
+
+    //  GENERAL TASKS
+
         clean: {
             img: {
                 src: ['build/img', target + '/img']
@@ -157,7 +190,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // COPY
         copy: {
             images: {
                 cwd: 'build/img/',
@@ -189,74 +221,39 @@ module.exports = function(grunt) {
             }
         },
 
-        // SASS
-        sass: {
-            dist: {
-                options: {
-                    style: 'expanded'
-                },
-                files: {
-                    'build/css/main.css': 'sass/main.scss',
-                    'build/css/main-legacy.css': 'sass/main-legacy.scss'
-                }
-            }
-        },
-
-        // AUTOPREFIXT
-        autoprefixer: {
-            dist: {
-                src: 'build/css/*.css'
-            }
-        },
-
-        // LEGACCSY
-        // legacssy: {
-        //     dist: {
-        //         options: {
-        //             legacyWidth: 1200
-        //         },
-        //         files: {
-        //             'build/css/main-legacy.css': 'build/css/main.css'
-        //         },
-        //     }
-        // },
-
-        // CSSMIN
-        cssmin: {
-            minify: {
-                expand: true,
-                cwd: 'build/css/',
-                src: ['*.css', '!*.min.css'],
-                dest: target + '/css/',
-                ext: '.min.css'
-            }
-        },
-
-        // NOTIFY
         notify: {
             css: {
                 options: {
-                    message: 'CSS task complete'
+                    title: '✓ Task complete!',
+                    message: 'CSS'
                 }
             },
             js: {
                 options: {
-                    message: 'JS task complete'
+                    title: '✓ Task complete!',
+                    message: 'Javascript'
                 }
             },
             img: {
                 options: {
-                    message: 'IMG task complete'
+                    title: '✓ Task complete!',
+                    message: 'Images'
                 }
             },
-            svg: {
+            fonts: {
                 options: {
-                    message: 'SVG task complete'
+                    title: '✓ Task complete!',
+                    message: 'Fonts'
+                }
+            },
+            icons: {
+                options: {
+                    title: '✓ Task complete!',
+                    message: 'Icons'
                 }
             }
         },
 
-        // WATCH
         watch: {
             options: {
                 livereload: false
@@ -276,34 +273,30 @@ module.exports = function(grunt) {
                 }
             },
             images: {
-                files: ['img/**/*.{png,jpg,gif,ico}'],
+                files: ['img/**/*.{png,jpg,gif,ico,svg}'],
                 tasks: ['img', 'notify:img']
-            },
-            svgs: {
-                files: ['img/**/*.svg'],
-                tasks: ['img', 'notify:svg']
             },
             html: {
                 files: ['html/**/*.html'],
                 tasks: ['copy:html']
             },
             fonts: {
-                files: ['fonts/**'],
-                tasks: ['fonts']
+                files: ['fonts/**', 'icons/**'],
+                tasks: ['fonts', 'notify:fonts']
             }
         }
     });
 
-    // Where we tell Grunt we plan to use this plug-in.
+//  PLUGINS
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
 
-    // Where we tell Grunt what to do when we type "grunt" into the terminal.
+//  COMBINED TASKS
     grunt.registerTask('default', ['build', 'copy:html', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
-    grunt.registerTask('fonts', ['clean:fonts','webfont', 'copy:fonts']);
+    grunt.registerTask('fonts', ['clean:fonts', 'webfont', 'copy:fonts']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
-    // grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
     grunt.registerTask('build', ['fonts', 'css', 'js', 'img']);
+
 };
