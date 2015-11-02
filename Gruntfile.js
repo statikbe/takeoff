@@ -91,7 +91,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'img/',
-                    src: ['**/*.{png,jpg,gif}'],
+                    src: ['**/*.{png,jpg,gif,ico}'],
                     dest: 'build/img/'
                 }]
             }
@@ -129,10 +129,19 @@ module.exports = function(grunt) {
             }
         },
 
+        // Icons
         webfont: {
             icons: {
-                src: require('./icons')(),
-                dest: 'build/fonts'
+                src: 'icons/*/*.svg',
+                dest: 'build/fonts',
+                destCss: 'sass/core',
+                options: {
+                    htmlDemo: false,
+                    relativeFontPath: '/fonts/',
+                    stylesheet: 'scss',
+                    template: 'icons/_templates/custom.css',
+                    codepointsFile: 'icons/codepoints.json'
+                }
             }
         },
 
@@ -140,6 +149,9 @@ module.exports = function(grunt) {
         clean: {
             img: {
                 src: ['build/img', target + '/img']
+            },
+            fonts: {
+                src: ['build/fonts', target + '/fonts']
             },
             options: {
                 'force': true
@@ -156,8 +168,11 @@ module.exports = function(grunt) {
                 filter: 'isFile'
             },
             fonts: {
-                src: 'fonts/**/*',
-                dest: target + '/'
+                cwd: 'build/fonts/',
+                src: '**/*.*',
+                expand: true,
+                dest: target + '/fonts/',
+                filter: 'isFile'
             },
             svgs: {
                 cwd: 'build/img/svg',
@@ -276,10 +291,6 @@ module.exports = function(grunt) {
             fonts: {
                 files: ['fonts/**'],
                 tasks: ['fonts']
-            },
-            icons: {
-                files: ['icons/selection.json'],
-                tasks: ['webfont']
             }
         }
     });
@@ -292,8 +303,8 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['build', 'copy:html', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
-    grunt.registerTask('fonts', ['webfont', 'copy:fonts']);
+    grunt.registerTask('fonts', ['clean:fonts','webfont', 'copy:fonts']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
     // grunt.registerTask('css', ['sass', 'autoprefixer', 'legacssy', 'cssmin']);
-    grunt.registerTask('build', ['css', 'js', 'img', 'fonts']);
+    grunt.registerTask('build', ['fonts', 'css', 'js', 'img']);
 };

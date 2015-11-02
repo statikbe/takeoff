@@ -32,11 +32,7 @@ $headings-color-alt: null !default;
 .heading {
   &--1 {
     @extend %ext-heading;
-    @if $breakpoints-legacy {
-      @include fsRem($font-size-h1);
-    } @else {
-      @include fsRem($font-size-h1 * .65);
-    }
+    @include fsRem($font-size-h1 * .65);
     @include breakpoint(map-get($breakpoints, xsm)){
       @include fsRem($font-size-h1 * .75);
     };
@@ -49,11 +45,7 @@ $headings-color-alt: null !default;
   }
   &--2 {
     @extend %ext-heading;
-    @if $breakpoints-legacy {
-      @include fsRem($font-size-h2);
-    } @else {
-      @include fsRem($font-size-h2 * .85);
-    }
+    @include fsRem($font-size-h2 * .85);
     @include breakpoint(map-get($breakpoints, sml)){
       @include fsRem($font-size-h2);
     };

@@ -1,0 +1,40 @@
+<% if (baseStyles) { %>%ext-icon-style {
+  display: inline-block;
+  border: none;
+  font-family: "<%= fontBaseName %>";
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  font-size: inherit;
+  line-height: inherit;
+  text-indent: 0;
+  text-transform: none;
+  vertical-align: bottom;
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  transform: translate(0, 0); // ensures no half-pixel rendering in firefox
+}<% } %>
+
+// Include fonts
+//
+<% if (fontfaceStyles) { %>@font-face {
+  font-family: "<%= fontBaseName %>";<% if (fontSrc1) { %>
+  src: <%= fontSrc1 %>;<% }%>
+  src: <%= fontSrc2 %>;
+  font-weight: normal;
+  font-style: normal;
+}<% } %>
+
+.icon {
+  &:before,
+  &:after {
+    @extend %ext-icon-style;
+  }
+  &--social {
+    @include fsRem(28px);
+    line-height: 1;
+  }
+}
+
+<% if (iconsStyles) { %>/* Icons */<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+.icon--<%= glyphs[glyphIdx] %>:before {
+  content:"\<%= codepoints[glyphIdx] %>";
+}<% } %><% } %>
