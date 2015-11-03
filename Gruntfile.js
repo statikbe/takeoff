@@ -176,6 +176,33 @@ module.exports = function(grunt) {
             }
         },
 
+        svg_sprite: {
+            icons: {
+                src: 'icons/*/*.svg',
+                dest: 'build/icons',
+                options: {
+                    shape: {
+                        id: {
+                            generator: function(name) {
+                                return 'symbol--' + name.slice(name.lastIndexOf('/') + 1, -4);
+                            }
+                        }
+                    },
+                    mode: {
+                        symbol: {
+                            dest: '.',
+                            sprite: 'symbols.svg',
+                            render: {
+                                scss: {
+                                    dest: '_sprite.scss'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
 
     //  GENERAL TASKS
 
