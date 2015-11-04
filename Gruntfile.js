@@ -156,15 +156,15 @@ module.exports = function(grunt) {
 
         webfont: {
             icons: {
-                src: 'icons/**/*.svg',
+                src: 'icons/svg/**/*.svg',
                 dest: 'build/fonts',
                 destCss: 'sass/core',
                 options: {
                     htmlDemo: false,
                     relativeFontPath: '/fonts/',
                     stylesheet: 'scss',
-                    template: 'icons/_templates/custom.css',
-                    codepointsFile: 'icons/codepoints.json'
+                    template: 'icons/css/custom.css',
+                    codepointsFile: 'icons/css/codepoints.json'
                 }
             }
         },
