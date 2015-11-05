@@ -9,7 +9,7 @@
   &--panel {
     background: $gray-0;
     padding: $rh-sml;
-    @include breakpoint(map-get($breakpoints, lrg)){
+    @include breakpoint(map-get($breakpoints, lrg)) {
       padding: $rh-med;
     };
   }

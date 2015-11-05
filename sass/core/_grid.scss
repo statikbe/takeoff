@@ -82,7 +82,7 @@ $grid-rhythm: $rh-sml !default;
 // Creates all the breakpoint grid classes
 // Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
 @each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width'){
+  @include breakpoint($px, min-width) {
     .grid--bp-#{$bp} {
       @each $column in $grids {
         &-#{$column}-col {

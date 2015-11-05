@@ -109,30 +109,58 @@
   }
 }
 
+%ext-hamburger-line {
+  position: absolute;
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+  background: $white;
+  border-radius: 1px;
+  transition: all 200ms;
+}
+
 .flyout__link {
-  @include link-variant($color-text);
+  @include link-variant($white);
+  font-weight: $font-weight-bold;
   position: relative;
-  float: right;
-  clear: right;
-  display: block;
-  margin-top: $rh-xsm;
-  padding: $rh-xxs $rh-xsm $rh-xxs $rh-med;
-  @include background-sliding($white, transparent, up);
-  @include fsRem($font-size-xlr);
-  font-family: $font-family-serif;
-  font-style: italic;
-  text-transform: lowercase;
+  display: inline-block;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
   text-decoration: none;
-  &:before {
-    content: "";
-    position: absolute;
-    left: $rh-xsm;
-    top: 24px;
-    width: 13px;
-    height: 2px;
-    background: #000;
-    box-shadow:
-      0 8px 0 0 #000,
-      0 4px 0 0 #000;
+  letter-spacing: $letter-spacing-sml;
+  .lines {
+    @extend %ext-hamburger-line;
+    top: 1.2em;
+    right: 0;
+    &:before {
+      @extend %ext-hamburger-line;
+      content: '';
+      top: -4px;
+      transform-origin: 50% 50%;
+    }
+    &:after {
+      @extend %ext-hamburger-line;
+      content: '';
+      top: 4px;
+      transform-origin: 50% 50%;
+    }
+  }
+  &.is-open {
+    .lines {
+      background: transparent;
+      &:before {
+        top: 0px;
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+      &:after {
+        top: 0px;
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
+    }
+  }
+  @include breakpoint($breakpoints-flyout) {
+    display: none;
   }
 }
