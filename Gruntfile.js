@@ -1,18 +1,9 @@
 module.exports = function(grunt) {
 
-    var target = grunt.option('target') || '../application/public';
-
-    var uglifyTargets = {
-        main: {},
-        polyfill: {},
-        modernizr: {}
-    };
-
-    uglifyTargets.main[target + '/js/main.min.js'] = ['build/js/main.js'];
-    uglifyTargets.polyfill[target + '/js/polyfill.min.js'] = ['build/js/polyfill.js'];
-
     grunt.initConfig({
+
         pkg: grunt.file.readJSON('package.json'),
+        target: grunt.option('target') || '../application/public',
 
     //  JAVASCRIPT TASKS
 
@@ -37,17 +28,21 @@ module.exports = function(grunt) {
 
         uglify: {
             main: {
-                files: uglifyTargets.main
+                files: {
+                    '<%= target %>/js/main.min.js': 'build/js/main.js'
+                }
             },
             polyfill: {
-                files: uglifyTargets.polyfill
+                files: {
+                    '<%= target %>/js/polyfill.min.js': 'build/js/polyfill.js'
+                }
             },
             singles: {
                 files: [{
                   expand: true,
                   cwd: 'js/singles',
                   src: '**/*.js',
-                  dest: target + '/js'
+                  dest: '<%= target %>/js'
               }]
             }
         },
@@ -85,7 +80,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'build/css/',
                 src: ['*.css', '!*.min.css'],
-                dest: target + '/css/',
+                dest: '<%= target %>/css/',
                 ext: '.min.css'
             }
         },
@@ -148,13 +143,11 @@ module.exports = function(grunt) {
 
         svg2png: {
             all: {
-                files: [
-                    {
-                        cwd: 'img/svg/',
-                        src: ['**/*.svg', '!grayscale.svg'],
-                        dest: 'img/svg/fallback/'
-                    }
-                ]
+                files: [{
+                    cwd: 'img/svg/',
+                    src: ['**/*.svg', '!grayscale.svg'],
+                    dest: 'img/svg/fallback/'
+                }]
             }
         },
 
@@ -163,15 +156,26 @@ module.exports = function(grunt) {
 
         webfont: {
             icons: {
-                src: 'icons/*/*.svg',
+                src: 'icons/svg/**/*.svg',
                 dest: 'build/fonts',
                 destCss: 'sass/core',
                 options: {
                     htmlDemo: false,
                     relativeFontPath: '/fonts/',
                     stylesheet: 'scss',
-                    template: 'icons/_templates/custom.css',
-                    codepointsFile: 'icons/codepoints.json'
+                    template: 'icons/css/custom.css',
+                    codepointsFile: 'icons/css/codepoints.json'
+                }
+            }
+        },
+
+        svgstore: {
+            options: {
+                prefix: 'symbol-'
+            },
+            icons: {
+                files: {
+                    '<%= target %>/img/svg/svgstore.svg': 'img/svg/store/**/*.svg'
                 }
             }
         },
@@ -181,10 +185,10 @@ module.exports = function(grunt) {
 
         clean: {
             img: {
-                src: ['build/img', target + '/img']
+                src: ['build/img', '<%= target %>/img']
             },
             fonts: {
-                src: ['build/fonts', target + '/fonts']
+                src: ['build/fonts', '<%= target %>/fonts']
             },
             options: {
                 'force': true
@@ -196,28 +200,28 @@ module.exports = function(grunt) {
                 cwd: 'build/img/',
                 src: '**/*.*',
                 expand: true,
-                dest: target + '/img',
+                dest: '<%= target %>/img',
                 filter: 'isFile'
             },
             fonts: {
                 cwd: 'build/fonts/',
                 src: '**/*.*',
                 expand: true,
-                dest: target + '/fonts/',
+                dest: '<%= target %>/fonts/',
                 filter: 'isFile'
             },
             svgs: {
                 cwd: 'build/img/svg',
                 src: '**/*.*',
                 expand: true,
-                dest: target + '/img/svg',
+                dest: '<%= target %>/img/svg',
                 filter: 'isFile'
             },
             html: {
                 cwd: 'html',
                 src: '**/*.*',
                 expand: true,
-                dest: target + '/static/',
+                dest: '<%= target %>/static/',
                 filter: 'isFile'
             }
         },
