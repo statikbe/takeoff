@@ -8,4 +8,5 @@
   }
 
   transition: #{$transitions};
+  will-change: #{$list};
 }
