@@ -10,3 +10,11 @@ $ grunt
 ```
 
 Optionally you can specify a target with `--target=<target>`, the default target is **../application/public**. It will first build the whole project, en after that watch the takeoff folder for changes, and build when needed.
+
+Needed before you can use our takeoff
+```
+$ brew install ttfautohint fontforge --with-python
+$ brew install sassc
+$ brew install node
+$ sudo npm install -g grunt-cli
+```
