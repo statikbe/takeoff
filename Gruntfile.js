@@ -69,7 +69,14 @@ module.exports = function(grunt) {
             }
         },
 
-        autoprefixer: {
+        postcss: {
+            options: {
+                processors: [
+                    require('autoprefixer')({
+                        browsers: ['last 2 versions']
+                    })
+                ]
+            },
             dist: {
                 src: 'build/css/*.css'
             }
