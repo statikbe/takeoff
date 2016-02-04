@@ -190,11 +190,13 @@ module.exports = function(grunt) {
         // Browersync
 
         browserSync: {
-            files: ['sass/**/*.scss', 'js/**/*.js'],
             proxy: {
                 target: "http://*.*.statik.be",
                 ws: true,
                 port: 3001
+            },
+            options: {
+                watchTask: true
             }
         },
 
