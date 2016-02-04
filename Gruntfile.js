@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         target: grunt.option('target') || '../application/public',
 
-    //  JAVASCRIPT TASKS
+        //  JAVASCRIPT TASKS
 
         concat: {
             main: {
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
         },
 
 
-    //  CSS TASKS
+        //  CSS TASKS
 
         sass: {
             dist: {
@@ -93,7 +93,7 @@ module.exports = function(grunt) {
         },
 
 
-    //  IMAGE TASKS
+        //  IMAGE TASKS
 
         responsive_images: {
             dev: {
@@ -159,7 +159,7 @@ module.exports = function(grunt) {
         },
 
 
-    //  ICON TASKS
+        //  ICON TASKS
 
         webfont: {
             icons: {
@@ -187,8 +187,19 @@ module.exports = function(grunt) {
             }
         },
 
+        // Browersync
 
-    //  GENERAL TASKS
+        browserSync: {
+            files: ['sass/**/*.scss', 'js/**/*.js'],
+            proxy: {
+                target: "http://*.*.statik.be",
+                ws: true,
+                port: 3001
+            }
+        },
+
+
+        //  GENERAL TASKS
 
         clean: {
             img: {
@@ -299,12 +310,12 @@ module.exports = function(grunt) {
         }
     });
 
-//  PLUGINS
+    //  PLUGINS
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
 
-//  COMBINED TASKS
-    grunt.registerTask('default', ['build', 'copy:html', 'watch']);
+    //  COMBINED TASKS
+    grunt.registerTask('default', ['build', 'copy:html', 'browserSync', 'watch']);
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
     grunt.registerTask('fonts', ['clean:fonts', 'webfont', 'copy:fonts']);
