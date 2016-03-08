@@ -321,7 +321,7 @@ module.exports = function(grunt) {
     grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
     grunt.registerTask('fonts', ['clean:fonts', 'webfont', 'copy:fonts']);
-    grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'postcss', 'cssmin']);
     grunt.registerTask('build', ['fonts', 'css', 'js', 'img']);
 
 };
