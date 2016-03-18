@@ -30,6 +30,18 @@
   font-size: fs($font-size);
 }
 
+//  Includes typographic styles according to base line-height
+//  $font-size    px    Font size in pixels
+//  $margins      bool  (optional) set margins
+@mixin typography($font-size, $margins: false) {
+  $lh: (floor($font-size / ($line-height-base / 2)) + 1) * ($line-height-base / 2);
+  @include fsRem($font-size);
+  line-height: lh($lh, $font-size);
+  @if $margins {
+    margin: $lh 0 ($lh / 2);
+  }
+}
+
 @mixin link-variant($link: $color-link, $hover: null, $visited: null) {
   @if $visited == null {
     $visited: $link;
