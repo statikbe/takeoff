@@ -1,3 +1,13 @@
+##_scaffold.scss
+---
+
+* Added class .clearfix
+
+##_flyout.scss
+---
+
+* Full refactor new animations, new styling
+
 ##_grid.scss
 ---
 

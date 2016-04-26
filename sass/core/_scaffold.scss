@@ -1,6 +1,10 @@
 // Selection style
 $color-highlight: lighten($color-primary, 10%);
 
+// Breakpoints var
+$currentBreakpoints: ();
+$allBreakpoints: ();
+
 ::-moz-selection { background: rgba($color-highlight,0.8); color: $white; text-shadow: none; }
 ::selection { background: rgba($color-highlight,0.8); color: $white; text-shadow: none; }
 
@@ -12,7 +16,7 @@ $color-highlight: lighten($color-primary, 10%);
   margin-bottom: 0;
 }
 
-// Page loading style
+// Page loading style + breakpoints
 //
 html {
   &.js {
@@ -43,6 +47,32 @@ html {
       display: none;
     }
   }
+  &:before,
+  &:after {
+    content: '';
+  }
+  &:before {
+    @each $bp, $px in $breakpoints {
+      $allBreakpoints: append(
+        $allBreakpoints,
+        #{$bp}/#{$px},
+        space
+      ) !global;
+    }
+    content: "#{$allBreakpoints}";
+  }
+  &:after {
+    @each $bp, $px in $breakpoints {
+      @include breakpoint($px, 'min-width'){
+        $currentBreakpoints: append(
+          $currentBreakpoints,
+          #{$bp},
+          comma
+        ) !global;
+        content: '#{$currentBreakpoints}';
+      };
+    }
+  }
 }
 
 body {
@@ -59,7 +89,6 @@ body {
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // text-shadow: 1px 1px 1px rgba(0,0,0,.004); gives an issue/bug in IE
 }
 // Body
 //
@@ -170,6 +199,9 @@ svg {
 }
 
 /*! == Helper classes == */
+.clearfix {
+  @include clearfix;
+}
 .superhidden {
   display: none !important;
   visibility: hidden;
