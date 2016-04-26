@@ -1,5 +1,18 @@
 window.app = window.app || {};
 
+window.resUTILS = window.resUTILS || {};
+window.resUTILS.getResponsiveTag = function(el, pseudoElement) {
+  if (window.getComputedStyle) {
+    // Get responsive tag
+    if (!el) { el = document.body; }
+    var tag = window.getComputedStyle(el,':' + pseudoElement).getPropertyValue('content') || '';
+    tag = tag.replace( /'/g,'');
+    tag = tag.replace( /"/g,''); // Firefox bugfix
+    var tagPair = tag.split(' ');
+    return tagPair;
+  }
+};
+
 app.common = (function($, undefined) {
   var $document = $(document),
       $window = $(window),
@@ -21,16 +34,19 @@ app.common = (function($, undefined) {
   var _windowResize = function() {
     $.extend(app.variables, {
       windowWidth: $window.width(),
-      windowHeight: $window.height()
+      windowHeight: $window.height(),
+      isFlyoutActive: window.getComputedStyle(document.body, ':before').getPropertyValue('content').indexOf('flyout') > -1
     });
   };
 
   var _flyoutNavigation = function() {
-    $('#toggle-flyout-nav').flyoutNav({
-      back: function() {
-        return '<span class="icon -previous"></span> Terug';
+    $('.js-flyout-toggle').flyoutNav();
+    $window.on('resize', debounce(disableFlyout, 250, false));
+    function disableFlyout() {
+      if (!app.variables.isFlyoutActive) {
+        $body.removeClass('flyout-active');
       }
-    });
+    }
   };
 
   var _gallery = function() {
