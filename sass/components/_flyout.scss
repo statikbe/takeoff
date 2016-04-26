@@ -1,5 +1,7 @@
+$flyoutnavtiming: 200ms;
+
 .flyout {
-  @include transitions((transform));
+  @include transitions((transform), $flyoutnavtiming);
   width: 240px;
   transform: translateX(240px);
   position: fixed;
@@ -7,9 +9,20 @@
   bottom: 0;
   right: 0;
   overflow: hidden;
+  overflow-y: scroll;
   background: $white;
   display: none;
   z-index: $zindex-layer-2;
+  &:before {
+    @extend .visuallyhidden;
+    content: 'flyout';
+    @include breakpoint($breakpoints-flyout) {
+      content: '';
+    }
+  }
+  &--content {
+    margin-top: $rh-xxs;
+  }
   .region {
     position: relative;
   }
@@ -17,14 +30,24 @@
     display: block;
   }
   .flyout-active & {
-    transform: translateX(0);
+    transform: translateX(100px);
   }
-
   ul {
     @include transitions((transform));
     @include listreset;
     width: 100%;
-    background: $white;
+    li {
+      @include transitions((opacity, .4s));
+      transition-delay: ($flyoutnavtiming + 50);
+      opacity: 0;
+      .flyout-active & {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      + li {
+        border-top: 1px solid darken($gray-0, 4%);
+      }
+    }
     ul {
       position: absolute;
       top: 0;
@@ -34,23 +57,21 @@
   }
   a {
     display: block;
-    padding: $rh-xxs $rh-xsm;
+    padding: $rh-xsm;
     @include link-variant($color-text);
-    @include fsRem($font-size-xlr);
-    font-family: $font-family-serif;
-    font-style: italic;
-    text-transform: lowercase;
+    @include fsRem($font-size-med);
+    font-family: $font-family-sans;
     text-decoration: none;
     &:not(:only-child) {
       &:after {
-        content: "\f105";
+        content: "\f111";
         float: right;
         font-family: $font-family-icons;
       }
     }
     &:hover,
     &.active {
-      color: $gray-50;
+      color: $color-primary;
       background-position: 0 0;
     }
   }
@@ -65,30 +86,25 @@
       transform: translateX(0);
     }
   }
-
   .flyout__back,
   .flyout__close {
+    background: $white;
+    border: $white;
     font-family: $font-family-sans;
     @include fsRem($font-size-med);
+    color: $black;
     font-style: normal;
     text-transform: uppercase;
-    border-bottom: 1px solid $gray-0;
     .icon {
       margin-right: $rh-xxs;
+      color: $color-primary;
+      &:before {
+        vertical-align: baseline;
+      }
     }
     &:after {
       display: none;
     }
-  }
-
-  .flyout-close {
-    display: block;
-    text-align: right;
-    padding: 5px;
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    z-index: 1001;
   }
   @include breakpoint($breakpoints-flyout) {
     display: none;
@@ -102,6 +118,8 @@
   background: rgba($black, .5);
   display: none;
   opacity: 0;
+  height: 100vh;
+  cursor: pointer;
   @include transitions(opacity);
   .flyout-active & {
     display: block;
@@ -112,38 +130,39 @@
 %ext-hamburger-line {
   position: absolute;
   display: inline-block;
-  width: 14px;
+  width: 18px;
   height: 2px;
-  background: $white;
+  background: $black;
   border-radius: 1px;
   transition: all 200ms;
 }
 
 .flyout__link {
-  @include link-variant($white);
+  @include link-variant($black);
   font-weight: $font-weight-bold;
   position: relative;
   display: inline-block;
   padding-top: 10px;
-  padding-right: 20px;
+  padding-right: 24px;
   padding-bottom: 10px;
+  margin: 0 5px 0 5px;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: $letter-spacing-sml;
   .lines {
     @extend %ext-hamburger-line;
-    top: 1.2em;
+    top: 1.3em;
     right: 0;
     &:before {
       @extend %ext-hamburger-line;
       content: '';
-      top: -4px;
+      top: -5px;
       transform-origin: 50% 50%;
     }
     &:after {
       @extend %ext-hamburger-line;
       content: '';
-      top: 4px;
+      top: 5px;
       transform-origin: 50% 50%;
     }
   }
@@ -163,4 +182,19 @@
   @include breakpoint($breakpoints-flyout) {
     display: none;
   }
+}
+
+.flyout-enabled {
+  @include transitions(transform);
+  transform: translateX(0);
+}
+
+.flyout-active {
+  .page-wrap {
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  @include transitions((transform), 400ms);
+  transform: translateX(-100px);
 }
