@@ -6,13 +6,8 @@
 .tag {
   display: inline-block;
   vertical-align: baseline;
-  margin-left: $rh-xsm;
-  margin-right: $rh-xsm;
+  margin-left: $rh-xxs;
+  margin-right: $rh-xxs;
   color: $color-primary;
-  &:before {
-    content: "\f02b";
-    margin-right: $rh-xxs;
-    @include fsRem($font-size-xsm);
-    font-family: $font-family-icons;
-  }
+  font-style: italic;
 }
