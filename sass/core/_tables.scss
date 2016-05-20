@@ -9,6 +9,7 @@ table {
   width: 100%;
   max-width: 100%;
   margin-bottom: $line-height-base;
+  border-spacing: 0;
   // Cells
   > thead,
   > tbody,
@@ -61,5 +62,8 @@ table {
     > th {
       background-color: $gray-0;
     }
+  }
+  > tbody > tr > td {
+      border-top: 0;
   }
 }
