@@ -133,9 +133,10 @@ module.exports = function(grunt) {
         svgmin: {
             options: {
                 plugins: [
-                  { removeViewBox: false },
-                  { cleanupIDs: false },
-                  { removeUselessStrokeAndFill: false }
+                    { removeXMLProcInst: false },
+                    { removeViewBox: false },
+                    { cleanupIDs: false },
+                    { removeUselessStrokeAndFill: false }
                 ]
             },
             dist: {

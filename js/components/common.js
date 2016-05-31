@@ -35,7 +35,7 @@ app.common = (function($, undefined) {
     $.extend(app.variables, {
       windowWidth: $window.width(),
       windowHeight: $window.height(),
-      isFlyoutActive: window.getComputedStyle(document.body, ':before').getPropertyValue('content').indexOf('flyout') > -1
+      isFlyoutActive: window.getComputedStyle(document.body, ':after').getPropertyValue('content').indexOf('flyout') === -1
     });
   };
 
