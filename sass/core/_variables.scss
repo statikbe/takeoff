@@ -86,7 +86,7 @@ $zindex-layer-5: 2050;
 // Breakpoints
 // -----------
 //
-$breakpoints: (
+$breakpointsMap: (
   xxs: 320px,
   xsm: 440px,
   sml: 660px,
@@ -95,8 +95,13 @@ $breakpoints: (
   xlr: 1200px
 );
 
-$breakpoints-flyout: map-get($breakpoints, med);
+$breakpoint-flyout: map-get($breakpointsMap, med);
 $breakpoints-legacy: false !default;
+$breakpoints-flyout: (
+  flyout: $breakpoint-flyout
+);
+
+$breakpoints: map-merge($breakpointsMap, $breakpoints-flyout);
 
 // Rhythm
 // -----------

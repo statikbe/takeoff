@@ -16,7 +16,7 @@ $flyoutnavtiming: 200ms;
   &:before {
     @extend .visuallyhidden;
     content: 'flyout';
-    @include breakpoint($breakpoints-flyout) {
+    @include breakpoint($breakpoint-flyout) {
       content: '';
     }
   }
@@ -106,7 +106,7 @@ $flyoutnavtiming: 200ms;
       display: none;
     }
   }
-  @include breakpoint($breakpoints-flyout) {
+  @include breakpoint($breakpoint-flyout) {
     display: none;
   }
 }
@@ -179,7 +179,7 @@ $flyoutnavtiming: 200ms;
       }
     }
   }
-  @include breakpoint($breakpoints-flyout) {
+  @include breakpoint($breakpoint-flyout) {
     display: none;
   }
 }

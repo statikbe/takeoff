@@ -47,9 +47,21 @@ html {
       display: none;
     }
   }
+}
+
+body {
+  .js & {
+    visibility: hidden !important;
+  }
+  .js-done & {
+    visibility: visible !important;
+  }
   &:before,
   &:after {
     content: '';
+    display: none !important;
+    visibility: hidden !important;
+    speak: none;
   }
   &:before {
     @each $bp, $px in $breakpoints {
@@ -72,15 +84,6 @@ html {
         content: '#{$currentBreakpoints}';
       };
     }
-  }
-}
-
-body {
-  .js & {
-    visibility: hidden !important;
-  }
-  .js-done & {
-    visibility: visible !important;
   }
 }
 
