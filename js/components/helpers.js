@@ -1,19 +1,14 @@
 window.app = window.app || {};
 
 app.helpers = (function() {
-    var localStorageAvailable = function() {
-        var testKey = 'localstorageTest';
-        try {
-            localStorage.setItem(testKey, testKey);
-            localStorage.removeItem(testKey);
-            return true;
-        } catch (e) {
-            return false;
-        }
+    var loadScript = function(url) {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url;
+        document.body.appendChild(script);
     };
 
     return {
-        localStorageAvailable: localStorageAvailable
+        loadScript: loadScript
     };
-
 })();
