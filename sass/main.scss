@@ -29,6 +29,7 @@
 @import 'components/excerpt';
 @import 'components/pagination';
 @import 'components/label';
+@import 'components/flyout';
 
 // TODO
 @import 'components/header';
@@ -38,13 +39,15 @@
 // @import 'components/navbar';
 // @import 'components/map';
 // @import 'components/download';
-@import 'components/flyout';
 // @import 'components/gallery';
 // @import 'components/tags';
 // @import "components/dropdown";
 // @import 'components/carousel';
 // @import 'components/tabs';
 // @import 'components/button-group';
+
+// Helpers
+@import "core/helpers";
 
 // Print
 @import "core/print";
