@@ -1,5 +1,6 @@
 window.app = window.app || {};
 
+<<<<<<< HEAD
 app.helpers = (function () {
 
     var $body = $('body');
@@ -40,10 +41,17 @@ app.helpers = (function () {
         return this.getContentProperty($body[0], ':after').indexOf(breakpointKey) < 0;
     };
 
+    var _loadScript = function (url) {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url;
+        document.body.appendChild(script);
+    };
+
     return {
         debounce: _debounce,
         getContentProperty: _getContentProperty,
-        isBreakpointActive: _isBreakpointActive
+        isBreakpointActive: _isBreakpointActive,
+        loadScript: _loadScript
     };
-
 })();
