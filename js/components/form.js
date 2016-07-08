@@ -1,17 +1,5 @@
 window.app = window.app || {};
 
-window.ParsleyConfig = {
-    excluded: 'input:not(:visible), input.novalidate',
-    classHandler: function (ParsleyField) {
-        return ParsleyField.$element.closest('.form__item').append('<div class="parsley-errors-container"/>');
-    },
-    errorsContainer: function (ParsleyField) {
-        return ParsleyField.$element.closest('.form__item').children('.parsley-errors-container');
-    }
-};
-
-window.ParsleyValidator.setLocale(document.documentElement.lang);
-
 app.form = (function ($, undefined) {
 
     var $document = $(document);
@@ -21,6 +9,19 @@ app.form = (function ($, undefined) {
     var $forms = $('form');
 
     var _initialize = function () {
+
+        window.ParsleyConfig = {
+            excluded: 'input:not(:visible), input.novalidate',
+            classHandler: function (ParsleyField) {
+                return ParsleyField.$element.closest('.form__item').append('<div class="parsley-errors-container"/>');
+            },
+            errorsContainer: function (ParsleyField) {
+                return ParsleyField.$element.closest('.form__item').children('.parsley-errors-container');
+            }
+        };
+
+        window.Parsley.setLocale(document.documentElement.lang);
+
         $forms.on('click', 'button[type=submit]', this.submit);
     };
 

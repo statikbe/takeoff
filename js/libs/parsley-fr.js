@@ -33,6 +33,6 @@ window.ParsleyConfig.i18n.fr = jQuery.extend(window.ParsleyConfig.i18n.fr || {},
     equalto:            "Cette valeur devrait être identique."
 });
 
-if (typeof window.ParsleyValidator !== 'undefined') {
-    window.ParsleyValidator.addCatalog('fr', window.ParsleyConfig.i18n.fr, true);
+if (typeof window.Parsley !== 'undefined') {
+    window.Parsley.addCatalog('fr', window.ParsleyConfig.i18n.fr, true);
 }

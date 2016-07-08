@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     grunt.initConfig({
 
@@ -17,9 +17,9 @@ module.exports = function(grunt) {
                 ],
                 dest: 'build/js/main.js'
             },
-            polyfill: {
+            polyfill: {     //  Polyfills for < IE9
                 src: [
-                    'js/polyfill/*.js'              //  Polyfills
+                    'js/polyfill/*.js'
                 ],
                 dest: 'build/js/polyfill.js'
             }

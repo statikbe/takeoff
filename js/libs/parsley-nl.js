@@ -33,6 +33,6 @@ window.ParsleyConfig.i18n.nl = $.extend(window.ParsleyConfig.i18n.nl || {}, {
     equalto:            "Deze waardes moeten identiek zijn."
 });
 
-if (typeof window.ParsleyValidator !== 'undefined') {
-    window.ParsleyValidator.addCatalog('nl', window.ParsleyConfig.i18n.nl, true);
+if (typeof window.Parsley !== 'undefined') {
+    window.Parsley.addCatalog('nl', window.ParsleyConfig.i18n.nl, true);
 }
