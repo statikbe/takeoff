@@ -2,7 +2,7 @@ window.app = window.app || {};
 
 app.map = (function () {
 
-    var mapElement = document.getElementById('map-canvas');
+    var mapElement;
 
     var mapOptions = {
         zoom: 16,
@@ -12,12 +12,15 @@ app.map = (function () {
     };
 
     var _initialize = function () {
+
+        mapElement = document.getElementById('map-canvas');
+
         if (mapElement) {
             if (typeof google !== 'undefined') {
                 this.load();
             } else {
-                app.helpers.loadScript('https://maps.googleapis.com/maps/api/js?v=3.exp'
-                    + '&key=AIzaSyA90nWScunrXckdU368WTPvJ6bZWJLT81c&callback=app.map.load');
+                app.helpers.loadScript('https://maps.googleapis.com/maps/api/js?v=3.exp' +
+                    '&key=AIzaSyA90nWScunrXckdU368WTPvJ6bZWJLT81c&callback=app.map.load');
             }
         }
     };
@@ -39,7 +42,7 @@ app.map = (function () {
 
         var myLatLng = new google.maps.LatLng(lat, lng);
 
-        var map = new google.maps.Map(mapElement, app.helpers.extend(mapOptions, { center: myLatLng });
+        var map = new google.maps.Map(mapElement, app.helpers.extend(mapOptions, { center: myLatLng }));
 
         var marker = new google.maps.Marker({
             position: myLatLng,
@@ -67,6 +70,22 @@ app.map = (function () {
         var latLng;
         var marker;
 
+        function showInfoWindow() {
+            infoWindow.setContent([
+                '<div class="excerpt excerpt--infowindow">',
+                    '<button class="excerpt__close"></button>',
+                    '<div class="excerpt__header">',
+                        '<h3 class="excerpt__title">' + this.title + '</h3>',
+                    '</div>',
+                    '<div class="excerpt__main">',
+                        '<p>' + this.teaser + '</p>',
+                    '</div>',
+                '</div>'
+            ].join('\n'));
+
+            infoWindow.open(map, this);
+        }
+
         for (var i = 0; i < pointCount; i++) {
             point = points[i];
             latLng = new google.maps.LatLng(point.lat, point.lng);
@@ -82,23 +101,7 @@ app.map = (function () {
             markers.push(marker);
             bounds.extend(latLng);
 
-            google.maps.event.addListener(marker, 'click', function () {
-
-                infoWindow.setContent([
-                    '<div class="excerpt excerpt--infowindow">',
-                        '<button class="excerpt__close"></button>',
-                        '<div class="excerpt__header">',
-                            '<h3 class="excerpt__title">' + this.title + '</h3>',
-                        '</div>',
-                        '<div class="excerpt__main">',
-                            '<p>' + this.teaser + '</p>',
-                        '</div>',
-                    '</div>'
-                ].join('\n'));
-
-                infoWindow.open(map, this);
-
-            });
+            google.maps.event.addListener(marker, 'click', showInfoWindow);
 
         }
 
