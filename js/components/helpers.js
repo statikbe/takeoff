@@ -1,7 +1,6 @@
 window.app = window.app || {};
 
-<<<<<<< HEAD
-app.helpers = (function () {
+app.helpers = (function ($, undefined) {
 
     var $body = $('body');
     
@@ -27,9 +26,32 @@ app.helpers = (function () {
         };
     };
 
+    //  Loosely based on https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Polyfill
+    var _extend = function (target) {
+
+        target = Object(target);
+
+        var argLen = arguments.length;
+        var source, key;
+
+        for (var i = 1; i < argLen; i++) {
+            source = arguments[i];
+            if (source != null) {
+                for (key in source) {
+                    if (Object.prototype.hasOwnProperty.call(source, key)) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+        }
+
+        return target;
+        
+    };
+
     var _getContentProperty = function (element, pseudoElement) {
 
-        if (!!getComputedStyle) {
+        if (!window.hasOwnProperty('getComputedStyle')) {
             //  getComputedStyle is not supported
             return '';
         }
@@ -50,8 +72,10 @@ app.helpers = (function () {
 
     return {
         debounce: _debounce,
+        extend: _extend,
         getContentProperty: _getContentProperty,
         isBreakpointActive: _isBreakpointActive,
         loadScript: _loadScript
     };
-})();
+
+})(jQuery);
