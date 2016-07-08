@@ -1,33 +1,38 @@
-// ParsleyConfig definition if not already set
 window.ParsleyConfig = window.ParsleyConfig || {};
 window.ParsleyConfig.i18n = window.ParsleyConfig.i18n || {};
 
-// Define then the messages
 window.ParsleyConfig.i18n.fr = jQuery.extend(window.ParsleyConfig.i18n.fr || {}, {
-  defaultMessage: "Cette valeur semble non valide.",
-  type: {
-    email:        "Cette valeur n'est pas une adresse email valide.",
-    url:          "Cette valeur n'est pas une URL valide.",
-    number:       "Cette valeur doit Ãªtre un nombre.",
-    integer:      "Cette valeur doit Ãªtre un entier.",
-    digits:       "Cette valeur doit Ãªtre numÃ©rique.",
-    alphanum:     "Cette valeur doit Ãªtre alphanumÃ©rique."
-  },
-  notblank:       "Cette valeur ne peut pas Ãªtre vide.",
-  required:       "Ce champ est requis.",
-  pattern:        "Cette valeur semble non valide.",
-  min:            "Cette valeur ne doit pas Ãªtre infÃ©rieure Ã  %s.",
-  max:            "Cette valeur ne doit pas excÃ©der %s.",
-  range:          "Cette valeur doit Ãªtre comprise entre %s et %s.",
-  minlength:      "Cette chaÃ®ne est trop courte. Elle doit avoir au minimum %s caractÃ¨res.",
-  maxlength:      "Cette chaÃ®ne est trop longue. Elle doit avoir au maximum %s caractÃ¨res.",
-  length:         "Cette valeur doit contenir entre %s et %s caractÃ¨res.",
-  mincheck:       "Vous devez sÃ©lectionner au moins %s choix.",
-  maxcheck:       "Vous devez sÃ©lectionner %s choix maximum.",
-  check:          "Vous devez sÃ©lectionner entre %s et %s choix.",
-  equalto:        "Cette valeur devrait Ãªtre identique."
+    defaultMessage:     "Cette valeur semble non valide.",
+    type: {
+        email:          "Cette valeur n'est pas une adresse email valide.",
+        url:            "Cette valeur n'est pas une URL valide.",
+        urlstrict:      "Cette valeur n'est pas une URL valide.",
+        number:         "Cette valeur doit être un nombre.",
+        integer:        "Cette valeur doit être un entier.",
+        digits:         "Cette valeur doit être numérique.",
+        dateIso:        "Cette valeur doit être une date dans le format suivant: (AAAA-MM-JJ).",
+        alphanum:       "Cette valeur doit être alphanumÃ©rique.",
+        phone:          "Cette valeur n'est past un numéro de téléphone"
+    },
+    notnull:            "Cette valeur ne peut pas être vide.",
+    notblank:           "Cette valeur ne peut pas être vide.",
+    required:           "Ce champ est requis.",
+    regexp:             "Cette valeur semble non valide.",
+    pattern:            "Cette valeur semble non valide.",
+    min:                "Cette valeur ne doit pas être inférieure à %s.",
+    max:                "Cette valeur ne doit pas excéder %s.",
+    range:              "Cette valeur doit être comprise entre %s et %s.",
+    minlength:          "Cette chaÃ®ne est trop courte. Elle doit avoir au minimum %s caractères.",
+    maxlength:          "Cette chaÃ®ne est trop longue. Elle doit avoir au maximum %s caractères.",
+    length:             "Cette valeur doit contenir entre %s et %s caractères.",
+    mincheck:           "Vous devez sélectionner au moins %s choix.",
+    maxcheck:           "Vous devez sélectionner %s choix maximum.",
+    check:              "Vous devez sélectionner entre %s et %s choix.",
+    rangecheck:         "Vous devez sélectionner entre %s et %s choix.",
+    rangelength:        "Cette valeur doit contenir entre %s et %s caractères.",
+    equalto:            "Cette valeur devrait être identique."
 });
 
-// If file is loaded after Parsley main file, auto-load locale
-if ('undefined' !== typeof window.ParsleyValidator)
-  window.ParsleyValidator.addCatalog('fr', window.ParsleyConfig.i18n.fr, true);
+if (typeof window.ParsleyValidator !== 'undefined') {
+    window.ParsleyValidator.addCatalog('fr', window.ParsleyConfig.i18n.fr, true);
+}
