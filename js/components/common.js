@@ -9,15 +9,11 @@ app.common = (function ($, undefined) {
 
     var _initialize = function () {
 
+        //  Set initial variables
         this.windowResize();
 
-        $window.on('resize', app.helpers.debounce(app.common.windowResize, 250, false));
+        $window.on('resize', app.helpers.debounce(this.windowResize, 250, false));
 
-        if (!Modernizr.svg) {
-            _svgFallback();
-        }
-
-        // this.googleMaps.init();
         // _gallery();
         _flyoutNavigation();
     };
@@ -66,24 +62,6 @@ app.common = (function ($, undefined) {
         });
     };
 
-    var _svgFallback = function () {
-        var $html = $('html');
-        var $imgs = $('img[src$=".svg"]');
-
-        $imgs.each(function (k,v) {
-            var $img = $(v);
-
-            $img.attr('src', $img.attr('data-url'));
-
-            if ($html.hasClass('lt-ie9')) {     //  IE8 Fix
-                $img.parent('a').css({
-                    width: $img.attr('width'),
-                    height: $img.attr('height')
-                });
-            }
-        });
-    };
-
 
     var _finalize = function () {
 
@@ -100,7 +78,6 @@ app.common = (function ($, undefined) {
     return {
         init: _initialize,
         windowResize: _windowResize,
-        svgFallback: _svgFallback,
         finalize: _finalize
     };
 
