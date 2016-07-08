@@ -10,11 +10,10 @@ module.exports = function(grunt) {
         concat: {
             main: {
                 src: [
-                    'js/libs/*.js',                 //  Libraries
-                    'js/libs/bootstrap/*.js',       //  Bootstrap plugins
-                    '!js/bootstrap/excludes/*',
-                    'js/components/*.js',           //  Takeoff components
-                    'js/main.js'                    //  Main javascript file
+                    'js/libs/*.js',
+                    'js/components/*.js',
+                    'js/main.js',
+                    '!js/**/_*.js'  //  Exclude files that start with an underscore
                 ],
                 dest: 'build/js/main.js'
             },

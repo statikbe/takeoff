@@ -1,17 +1,19 @@
 .map {
   position: relative;
-  height: 250px;
-  @include breakpoint(map-get($breakpoints, sml)) {
-    height: auto;
-    &:before {
-      content: '';
-      display: block;
-      padding-top: 30%;
-    }
+  &:before {
+    content: '';
+    display: block;
+    padding-bottom: 75%;
+  }
+  &--square:before {
+    padding-bottom: 100%;
+  }
+  &--wide:before {
+    padding-bottom: 30%; 
   }
 }
 
-#map-canvas {
+.map__canvas {
   position: absolute;
   top: 0;
   right: 0;

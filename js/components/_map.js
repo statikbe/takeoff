@@ -27,13 +27,15 @@ app.map = (function () {
 
     var _load = function () {
 
-        var latlng = mapElement.getAttribute('data-latlng');
+        console.log('loading boys');
+
+        var latlng = mapElement.getAttribute('data-latlng').split(',');
         var points = mapElement.getAttribute('data-points-obj');
 
         if (latlng) {
-            this.showPoint(latlng);
+            this.renderPoint(latlng[0], latlng[1]);
         } else if (points) {
-            this.showPoints(window[points]);
+            this.renderPoints(window[points]);
         }
 
     };
@@ -122,8 +124,8 @@ app.map = (function () {
     return {
         init: _initialize,
         load: _load,
-        showPoint: _showPoint,
-        showPoints: _showPoints
+        renderPoint: _renderPoint,
+        renderPoints: _renderPoints
     };
 
 
