@@ -5,7 +5,8 @@ app.variables = app.variables || {};
 
 app.main = (function () {
 
-    var _fire = function (component, funcName, args) {
+    function fire(component, funcName, args) {
+        funcName = (typeof funcName === 'undefined') ? 'init' : funcName;
 
         if (typeof funcName === 'undefined') {
             funcName = 'init';
@@ -14,9 +15,9 @@ app.main = (function () {
         if (component !== '' && app[component] && typeof app[component][funcName] == 'function') {
             app[component][funcName](args);
         }
-    };
+    }
 
-    var _initialize = function () {
+    function initialize() {
 
         var dataComponents = document.body.getAttribute('data-components');
 
@@ -30,11 +31,11 @@ app.main = (function () {
         }
 
         this.fire('common', 'finalize');
-    };
+    }
 
     return {
-        init: _initialize,
-        fire: _fire
+        init: initialize,
+        fire: fire
     };
 
 })();

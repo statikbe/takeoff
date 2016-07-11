@@ -1,24 +1,24 @@
 window.app = window.app || {};
 
-app.common = (function ($, undefined) {
+app.common = (function commonComponent($, undefined) {
 
     var $document = $(document);
     var $window = $(window);
     var $html = $('html');
     var $body = $('body');
 
-    var _initialize = function () {
+    function initialize() {
 
         //  Set initial variables
         this.windowResize();
 
         $window.on('resize', app.helpers.debounce(this.windowResize, 250, false));
 
-        // _gallery();
-        _flyoutNavigation();
-    };
+        flyoutNavigation();
 
-    var _windowResize = function () {
+    }
+
+    function windowResize() {
 
         var isFlyoutActive = app.helpers.isBreakpointActive('flyout');
 
@@ -32,38 +32,13 @@ app.common = (function ($, undefined) {
             isFlyoutActive: isFlyoutActive
         });
 
-    };
+    }
 
-    var _flyoutNavigation = function () {
+    function flyoutNavigation() {
         $('.js-flyout-toggle').flyoutNav();
-    };
+    }
 
-    var _gallery = function () {
-
-        //  Let's change the className to 'js-gallery' or something in templates
-
-        $('.colorbox').colorbox({
-            close: '&times;',
-            next: '&rsaquo;',
-            previous: '&lsaquo;',
-            maxWidth: '90%',
-            maxHeight: '90%'
-        });
-
-        $('.colorbox--video').colorbox({
-            close: '&times;',
-            next: '&rsaquo;',
-            previous: '&lsaquo;',
-            maxWidth: '90%',
-            maxHeight: '90%',
-            iframe: true,
-            innerWidth: 640,
-            innerHeight: 480
-        });
-    };
-
-
-    var _finalize = function () {
+    function finalize() {
 
         function jsDone() {
             $html.addClass('js-done');
@@ -73,12 +48,12 @@ app.common = (function ($, undefined) {
         
         setTimeout(jsDone, 4000);
 
-    };
+    }
 
     return {
-        init: _initialize,
-        windowResize: _windowResize,
-        finalize: _finalize
+        init: initialize,
+        windowResize: windowResize,
+        finalize: finalize
     };
 
 })(jQuery);

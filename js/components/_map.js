@@ -1,6 +1,6 @@
 window.app = window.app || {};
 
-app.map = (function () {
+app.map = (function mapComponent() {
 
     var mapElement;
 
@@ -11,7 +11,7 @@ app.map = (function () {
         styles: []
     };
 
-    var _initialize = function () {
+    function initialize() {
 
         mapElement = document.getElementById('map-canvas');
 
@@ -23,11 +23,9 @@ app.map = (function () {
                     '&key=AIzaSyA90nWScunrXckdU368WTPvJ6bZWJLT81c&callback=app.map.load');
             }
         }
-    };
+    }
 
-    var _load = function () {
-
-        console.log('loading boys');
+    function load() {
 
         var latlng = mapElement.getAttribute('data-latlng').split(',');
         var points = mapElement.getAttribute('data-points-obj');
@@ -38,9 +36,9 @@ app.map = (function () {
             this.renderPoints(window[points]);
         }
 
-    };
+    }
 
-    var _renderPoint = function (lat, lng) {
+    function renderPoint(lat, lng) {
 
         var myLatLng = new google.maps.LatLng(lat, lng);
 
@@ -55,9 +53,9 @@ app.map = (function () {
             map.setCenter(myLatLng);
         }));
 
-    };
+    }
 
-    var _renderPoints = function (points) {
+    function renderPoints(points) {
 
         var markers = [];
         var map = new google.maps.Map(mapElement, mapOptions);
@@ -119,13 +117,13 @@ app.map = (function () {
             map.fitBounds(bounds);
         }));
 
-    };
+    }
 
     return {
-        init: _initialize,
-        load: _load,
-        renderPoint: _renderPoint,
-        renderPoints: _renderPoints
+        init: initialize,
+        load: load,
+        renderPoint: renderPoint,
+        renderPoints: renderPoints
     };
 
 

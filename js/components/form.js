@@ -1,6 +1,6 @@
 window.app = window.app || {};
 
-app.form = (function ($, undefined) {
+app.form = (function formComponent($, undefined) {
 
     var $document = $(document);
     var $window = $(window);
@@ -8,7 +8,7 @@ app.form = (function ($, undefined) {
     var $body = $('body');
     var $forms = $('form');
 
-    var _initialize = function () {
+    function initialize() {
 
         window.ParsleyConfig = {
             excluded: 'input:not(:visible), input.novalidate',
@@ -23,9 +23,10 @@ app.form = (function ($, undefined) {
         window.Parsley.setLocale(document.documentElement.lang);
 
         $forms.on('click', 'button[type=submit]', this.submit);
-    };
 
-    var _submit = function () {
+    }
+
+    function submit() {
 
         var $form = $(this.form);
 
@@ -37,11 +38,11 @@ app.form = (function ($, undefined) {
             $form.data('is-submitted', true).addClass('is-submitted');
         }
 
-    };
+    }
 
     return {
-        init: _initialize,
-        submit: _submit
+        init: initialize,
+        submit: submit
     };
 
 })(jQuery);
