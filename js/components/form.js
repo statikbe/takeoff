@@ -10,17 +10,33 @@ app.form = (function formComponent($, undefined) {
 
     function initialize() {
 
-        window.ParsleyConfig = {
-            excluded: 'input:not(:visible), input.novalidate',
-            classHandler: function (ParsleyField) {
-                return ParsleyField.$element.closest('.form__item').append('<div class="parsley-errors-container"/>');
+        app.helpers.extend(window.Parsley.options, {
+            classHandler: function(ParsleyField) {
+                return ParsleyField.$element.closest('.form__item');
             },
-            errorsContainer: function (ParsleyField) {
-                return ParsleyField.$element.closest('.form__item').children('.parsley-errors-container');
-            }
-        };
+            errorClass: 'has-error',
+            errorsContainer: function(ParsleyField) {
+                var itemClass = '.form__item';
+                var $formItem = ParsleyField.$element.closest(itemClass);
+                var $formItemLast = $formItem.siblings(itemClass).andSelf().last();
+                var $formGroup = $formItem.find('.form__group');
+
+                if ($formGroup.length) {
+                    return $formGroup;
+                } else {
+                    return $formItemLast;
+                }
+            },
+            errorsWrapper: '<ul class="form__errors-list form__errors-client"></ul>',
+            excluded: 'input:not(:visible), input.novalidate',
+        });
 
         window.Parsley.setLocale(document.documentElement.lang);
+
+        window.Parsley.on('field:error', function() {
+            var $errorElement = window.Parsley.options.classHandler(this);
+            $errorElement.find('.form__errors-server').remove();
+        });
 
         $forms.on('click', 'button[type=submit]', this.submit);
 
