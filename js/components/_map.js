@@ -1,6 +1,6 @@
 window.app = window.app || {};
 
-app.map = (function mapComponent() {
+app.map = (function mapComponent($, undefined) {
 
     var mapElement;
 
@@ -16,7 +16,7 @@ app.map = (function mapComponent() {
         mapElement = document.getElementById('map-canvas');
 
         if (mapElement) {
-            if (typeof google !== 'undefined') {
+            if (google !== undefined) {
                 this.load();
             } else {
                 app.helpers.loadScript('https://maps.googleapis.com/maps/api/js?v=3.exp' +
@@ -127,4 +127,4 @@ app.map = (function mapComponent() {
     };
 
 
-})();
+})(jQuery);

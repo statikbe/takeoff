@@ -3,23 +3,24 @@
 window.app = window.app || {};
 app.variables = app.variables || {};
 
-app.main = (function () {
+app.main = (function ($, undefined) {
+
+    var $body = $('body');
 
     function fire(component, funcName, args) {
-        funcName = (typeof funcName === 'undefined') ? 'init' : funcName;
 
-        if (typeof funcName === 'undefined') {
+        if (funcName === undefined) {
             funcName = 'init';
         }
 
-        if (component !== '' && app[component] && typeof app[component][funcName] == 'function') {
+        if (component !== '' && app[component] && typeof app[component][funcName] === 'function') {
             app[component][funcName](args);
         }
     }
 
     function initialize() {
 
-        var dataComponents = document.body.getAttribute('data-components');
+        var dataComponents = $body.data('components');
 
         this.fire('common');
 
@@ -31,6 +32,7 @@ app.main = (function () {
         }
 
         this.fire('common', 'finalize');
+
     }
 
     return {
@@ -38,8 +40,7 @@ app.main = (function () {
         fire: fire
     };
 
-})();
-
+})(jQuery);
 
 $(document).ready(function () {
     app.main.init();

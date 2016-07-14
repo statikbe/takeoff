@@ -14,8 +14,6 @@ app.common = (function commonComponent($, undefined) {
 
         $window.on('resize', app.helpers.debounce(this.windowResize, 250, false));
 
-        flyoutNavigation();
-
     }
 
     function windowResize() {
@@ -32,10 +30,6 @@ app.common = (function commonComponent($, undefined) {
             isFlyoutActive: isFlyoutActive
         });
 
-    }
-
-    function flyoutNavigation() {
-        $('.js-flyout-toggle').flyoutNav();
     }
 
     function finalize() {

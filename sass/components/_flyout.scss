@@ -1,7 +1,7 @@
 $flyoutnavtiming: 200ms;
 
 .flyout {
-  @include transitions((transform), $flyoutnavtiming);
+  @include transitions(transform, $flyoutnavtiming);
   width: 240px;
   transform: translateX(240px);
   position: fixed;
@@ -33,11 +33,11 @@ $flyoutnavtiming: 200ms;
     transform: translateX(100px);
   }
   ul {
-    @include transitions((transform));
+    @include transitions(transform);
     @include listreset;
     width: 100%;
     li {
-      @include transitions((opacity, .4s));
+      @include transitions(opacity, .4s);
       transition-delay: ($flyoutnavtiming + 50);
       opacity: 0;
       .flyout-active & {
@@ -64,7 +64,7 @@ $flyoutnavtiming: 200ms;
     text-decoration: none;
     &:not(:only-child) {
       &:after {
-        content: "\f111";
+        content: '\f111';
         float: right;
         font-family: $font-family-icons;
       }
@@ -190,11 +190,11 @@ $flyoutnavtiming: 200ms;
 }
 
 .flyout-active {
+  @include transitions(transform, 400ms);
+  transform: translateX(-100px);
   .page-wrap {
     height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
   }
-  @include transitions((transform), 400ms);
-  transform: translateX(-100px);
 }
