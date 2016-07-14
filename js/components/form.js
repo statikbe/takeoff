@@ -1,80 +1,64 @@
 window.app = window.app || {};
 
-window.ParsleyConfig = window.ParsleyConfig || {};
-window.ParsleyConfig = {
-  excluded: 'input:not(:visible), input.novalidate',
-  classHandler: function (ParsleyField) {
-    return ParsleyField.$element.closest('.form__item').append('<div class="parsley-errors-container" />');
-  },
-  errorsContainer: function (ParsleyField) {
-    return ParsleyField.$element.closest('.form__item').children('.parsley-errors-container');
-  }
-};
-window.ParsleyValidator.setLocale(document.documentElement.lang);
+app.form = (function formComponent($, undefined) {
 
-app.form = (function($, undefined) {
-  var $document = $(document),
-      $window = $(window),
-      $html = $('html'),
-      $body = $('body'),
-      $forms = $('form');
+    var $document = $(document);
+    var $window = $(window);
+    var $html = $('html');
+    var $body = $('body');
+    var $forms = $('form');
 
-  var _initialize = function() {
-    $forms.on('click', 'button[type=submit]', this.submit);
-  };
+    function initialize() {
 
-  var _submit = function() {
-    var $form = $(this.form);
+        app.helpers.extend(window.Parsley.options, {
+            classHandler: function(ParsleyField) {
+                return ParsleyField.$element.closest('.form__item');
+            },
+            errorClass: 'has-error',
+            errorsContainer: function(ParsleyField) {
+                var itemClass = '.form__item';
+                var $formItem = ParsleyField.$element.closest(itemClass);
+                var $formItemLast = $formItem.siblings(itemClass).andSelf().last();
+                var $formGroup = $formItem.find('.form__group');
 
-    if($form.data('is-submitted')) return false;
-    if($form.parsley().isValid()) {
-      $form
-        .data('is-submitted', true)
-        .addClass('is-submitted');
+                if ($formGroup.length) {
+                    return $formGroup;
+                } else {
+                    return $formItemLast;
+                }
+            },
+            errorsWrapper: '<ul class="form__errors-list form__errors-client"></ul>',
+            excluded: 'input:not(:visible), input.novalidate',
+        });
+
+        window.Parsley.setLocale(document.documentElement.lang);
+
+        window.Parsley.on('field:error', function() {
+            var $errorElement = window.Parsley.options.classHandler(this);
+            $errorElement.find('.form__errors-server').remove();
+        });
+
+        $forms.on('click', 'button[type=submit]', this.submit);
+
     }
-  };
 
-  // var _filter = function() {
-  //   var formSelector = '.form--filter',
-  //       $form = $(formSelector),
-  //       resultsSelector = '#' + $form.closest('[id^=widget]').attr('id'),
-  //       action = $form.attr('action'),
-  //       filterTimout;
+    function submit() {
 
-  //   $document.on('change', '.form--filter input', function() {
-  //     var $form = $(this.form),
-  //         url = action + '?' + $form.serialize();
+        var $form = $(this.form);
 
-  //     clearTimeout(filterTimout);
-  //     if(Modernizr.history) {
-  //       filterTimout = setTimeout(function() {
-  //         _loadResults(url, resultsSelector);
-  //       }, 500);
-  //     }
-  //   });
+        if ($form.data('is-submitted')) {
+            return false;
+        }
 
-  //   var _loadResults = function(url, locationSelector) {
-  //     var $location = $(locationSelector);
-  //     $location.addClass('is-loading');
+        if ($form.parsley().isValid()) {
+            $form.data('is-submitted', true).addClass('is-submitted');
+        }
 
-  //     $location.load( url + ' ' + locationSelector + ' > *', function(data) {
-  //       history.pushState('', 'New URL: ' + url, url);
-  //       $location.removeClass('is-loading');
-  //     });
-  //   };
+    }
 
-  //   if(Modernizr.history) {
-  //     window.onpopstate = function(event) {
-  //       var $location = $(resultsSelector);
-  //       $location.addClass('is-loading');
-  //       _loadResults(window.location.pathname + window.location.search, resultsSelector);
-  //     };
-  //   }
-  // };
-
-  return {
-    init: _initialize,
-    submit: _submit
-  };
+    return {
+        init: initialize,
+        submit: submit
+    };
 
 })(jQuery);

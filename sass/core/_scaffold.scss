@@ -75,14 +75,14 @@ body {
   }
   &:after {
     @each $bp, $px in $breakpoints {
-      @include breakpoint($px, 'min-width'){
+      @include breakpoint($px, 'min-width') {
         $currentBreakpoints: append(
           $currentBreakpoints,
           #{$bp},
           comma
         ) !global;
         content: '#{$currentBreakpoints}';
-      };
+      }
     }
   }
 }

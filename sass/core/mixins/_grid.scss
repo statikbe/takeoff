@@ -39,3 +39,14 @@
 @mixin make-column-push($index, $columns: $grid-column-count) {
   margin-left: round(percentage($index / $columns)*1000)/1000;
 }
+
+// Get column with in px
+@function get-column-outer-width($index) {
+  $divider: $grid-column-count / $index;
+  @return (($grid-container-width / $divider));
+}
+
+@function get-column-inner-width($index) {
+  $divider: $grid-column-count / $index;
+  @return (($grid-container-width / $divider) - $grid-gutter-width);
+}

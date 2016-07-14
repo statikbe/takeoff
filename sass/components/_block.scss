@@ -11,7 +11,7 @@
     padding: $rh-sml;
     @include breakpoint(map-get($breakpoints, lrg)) {
       padding: $rh-med;
-    };
+    }
   }
   &__section {
     & + & {

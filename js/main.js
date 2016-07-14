@@ -1,44 +1,47 @@
+// DON'T ADD ANYTHING TO THIS FILE, USE COMMON.JS PLEASE
+
 window.app = window.app || {};
 app.variables = app.variables || {};
 
-app.main = (function($, undefined) {
+app.main = (function ($, undefined) {
 
-  var _fire = function(func, funcname, args){
-    funcname = (funcname === undefined) ? 'init' : funcname;
+    var $body = $('body');
 
+    function fire(component, funcName, args) {
 
-    if (func !== '' && app[func] && typeof app[func][funcname] == 'function') {
-      app[func][funcname](args);
-    }
-  };
+        if (funcName === undefined) {
+            funcName = 'init';
+        }
 
-  var _initialize = function() {
-    var dataComponents = $('body').data('components');
-
-    // hit up common first.
-    this.fire('common');
-
-    // Hit up the page component
-    if(dataComponents) {
-      var components = dataComponents.split(' ');
-      for(var comp in components) {
-        this.fire(components[comp]);
-      }
+        if (component !== '' && app[component] && typeof app[component][funcName] === 'function') {
+            app[component][funcName](args);
+        }
     }
 
-    // Fire the finalize function for common
-    this.fire('common','finalize');
-  };
+    function initialize() {
 
-  return {
-    init: _initialize,
-    fire : _fire
-  };
+        var dataComponents = $body.data('components');
+
+        this.fire('common');
+
+        if (dataComponents) {
+            dataComponents = dataComponents.split(' ');
+            for (var comp in dataComponents) {
+                this.fire(dataComponents[comp]);
+            }
+        }
+
+        this.fire('common', 'finalize');
+
+    }
+
+    return {
+        init: initialize,
+        fire: fire
+    };
+
 })(jQuery);
 
-
-$(document).ready(function() {
-  app.main.init();
+$(document).ready(function () {
+    app.main.init();
 });
-
-//! DONT ADD ANYTHING IN THIS FILE, USE COMMON.JS PLEASE.

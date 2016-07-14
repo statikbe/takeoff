@@ -29,7 +29,7 @@
       + li {
         border-left: 1px solid;
       }
-    };
+    }
     a {
       @include link-variant($color-text, $color-primary);
     }

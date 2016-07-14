@@ -36,14 +36,14 @@
   &__aside {
     @include breakpoint(map-get($breakpoints, sml), max-width) {
       margin-bottom: $rh-xsm;
-    };
+    }
     @include breakpoint(map-get($breakpoints, sml)) {
       float: left;
       width: 160px;
       ~ .excerpt__main {
         margin-left: 180px;
       }
-    };
+    }
   }
 }
 

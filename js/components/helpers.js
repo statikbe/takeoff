@@ -1,57 +1,81 @@
 window.app = window.app || {};
 
-<<<<<<< HEAD
-app.helpers = (function () {
+app.helpers = (function helpersComponent($, undefined) {
 
     var $body = $('body');
     
-    var _debounce = function (func, wait, immediate) {
+    function debounce(func, wait, immediate) {
 
         var timeout;
 
         return function () {
-
-            var context = this, args = arguments;
-            var later = function () {
+            var context = this;
+            var args = arguments;
+            var callNow = immediate && !timeout; 
+            function later() {
                 timeout = null;
                 if (!immediate) {
                     func.apply(context, args);
                 }
-            };
-            var callNow = immediate && !timeout;
+            }
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
             if (callNow) {
                 func.apply(context, args);
             }
         };
-    };
+    }
 
-    var _getContentProperty = function (element, pseudoElement) {
+    //  Loosely based on https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Polyfill
+    function extend(target) {
 
-        if (!!getComputedStyle) {
+        target = Object(target);
+
+        var argLen = arguments.length;
+        var source, key;
+
+        for (var i = 1; i < argLen; i++) {
+            source = arguments[i];
+            if (source !== null) {
+                for (key in source) {
+                    if (Object.prototype.hasOwnProperty.call(source, key)) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+        }
+
+        return target;
+        
+    }
+
+    function getContentProperty(element, pseudoElement) {
+
+        if (!window.hasOwnProperty('getComputedStyle')) {
             //  getComputedStyle is not supported
             return '';
         }
 
         return getComputedStyle(element, pseudoElement).getPropertyValue('content');
-    };
+    }
 
-    var _isBreakpointActive = function (breakpointKey) {
+    function isBreakpointActive(breakpointKey) {
         return this.getContentProperty($body[0], ':after').indexOf(breakpointKey) < 0;
-    };
+    }
 
-    var _loadScript = function (url) {
+    function loadScript(url) {
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.src = url;
         document.body.appendChild(script);
-    };
+    }
 
     return {
-        debounce: _debounce,
-        getContentProperty: _getContentProperty,
-        isBreakpointActive: _isBreakpointActive,
-        loadScript: _loadScript
+        debounce: debounce,
+        extend: extend,
+        getContentProperty: getContentProperty,
+        isBreakpointActive: isBreakpointActive,
+        loadScript: loadScript
     };
-})();
+
+})(jQuery);
