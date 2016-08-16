@@ -11,7 +11,7 @@ $flyoutnavtiming: 200ms;
   overflow: hidden;
   overflow-y: scroll;
   background: $white;
-  display: none;
+  display: block;
   z-index: $zindex-layer-2;
   &:before {
     @extend .visuallyhidden;
@@ -26,9 +26,9 @@ $flyoutnavtiming: 200ms;
   .region {
     position: relative;
   }
-  .flyout-enabled & {
-    display: block;
-  }
+  // .flyout-enabled & {
+  //   display: block;
+  // }
   .flyout-active & {
     transform: translateX(100px);
   }
