@@ -17,10 +17,10 @@
 //
 @font-face {
   font-family: "icons";
-  src: url("/fonts/icons.eot?b637c3e6b1a6b834ff7794f343575b22");
+  src: url("/fonts/icons.eot?7187a9fb3784ac2e67afd761aad3d987");
   src: url("/fonts/icons.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/icons.woff?b637c3e6b1a6b834ff7794f343575b22") format("woff"),
-		url("/fonts/icons.ttf?b637c3e6b1a6b834ff7794f343575b22") format("truetype");
+		url("/fonts/icons.woff?7187a9fb3784ac2e67afd761aad3d987") format("woff"),
+		url("/fonts/icons.ttf?7187a9fb3784ac2e67afd761aad3d987") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -52,8 +52,8 @@
 .icon--linkedin:before {
   content:"\f105";
 }
-.icon--pinterest-p:before {
-  content:"\f106";
+.icon--pinterest:before {
+  content:"\f118";
 }
 .icon--twitter:before {
   content:"\f107";
