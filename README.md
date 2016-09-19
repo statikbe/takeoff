@@ -12,9 +12,22 @@ $ grunt
 Optionally you can specify a target with `--target=<target>`, the default target is **../application/public**. It will first build the whole project, en after that watch the takeoff folder for changes, and build when needed.
 
 Needed before you can use our takeoff
+
+## Node.js and npm
+```
+https://docs.npmjs.com/getting-started/installing-node
+```
+
+## Xcode
+App Store
+
+## Grunt
+```
+http://gruntjs.com/installing-grunt
+```
+
+## Grunt packages dependencies
 ```
 $ brew install ttfautohint fontforge --with-python
 $ brew install sassc
-$ brew install node
-$ sudo npm install -g grunt-cli
 ```
