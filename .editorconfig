@@ -16,7 +16,7 @@ indent_size = 4
 
 # Tab indentation (no size specified)
 [*.js]
-indent_size = 2
+indent_size = 4
 
 # Indentation override for all JS under lib directory
 [*.scss]
