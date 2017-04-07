@@ -10,7 +10,7 @@
     }
   }
 
-  &__image {
+  &__img {
     overflow: hidden;
     img {
       @include transitions(all);
@@ -48,7 +48,7 @@ a.card,
     #{$headings} {
       color: inherit;
     }
-    .card__image {
+    .card__img {
       img {
         transform: translateZ(0) scale(1.05);
       }
