@@ -1,21 +1,17 @@
-.excerpt {
+.card {
   @include cf;
   display: block;
   color: inherit;
-  text-decoration: none;
-  &__section {
+
+  &__block {
+    padding: $rh-sml;
     & + & {
-      margin-top: $rh-sml;
-    }
-    &--header {
-      #{$headings} {
-        margin-bottom: 0;
-      }
+      padding-top: 0;
     }
   }
+
   &__img {
     overflow: hidden;
-    text-align: center;
     img {
       @include transitions(all);
       display: block;
@@ -23,33 +19,29 @@
       height: auto;
     }
   }
+
   &__link {
     @include transitions(color);
     display: inline-block;
     color: $color-link;
     text-decoration: underline;
   }
-  &__meta {
-    margin-top: $rh-xxs;
-  }
 
   &__aside {
-    @include breakpoint(map-get($breakpoints, sml), max-width) {
-      margin-bottom: $rh-xsm;
-    }
     @include breakpoint(map-get($breakpoints, sml)) {
       float: left;
-      width: 160px;
-      ~ .excerpt__main {
-        margin-left: 180px;
+      margin-right: $grid-gutter-width;
+      // max-width: 180px;
+      + .card__main {
+        overflow-x: hidden;
       }
     }
   }
 }
 
 
-a.excerpt,
-.excerpt--link {
+a.card,
+.card--link {
   @include link-variant(inherit);
   text-decoration: none;
   &:hover,
@@ -57,12 +49,12 @@ a.excerpt,
     #{$headings} {
       color: inherit;
     }
-    .excerpt__img {
+    .card__img {
       img {
-        transform: translateZ(0) scale(1.1);
+        transform: translateZ(0) scale(1.05);
       }
     }
-    .excerpt__link {
+    .card__link {
       color: $color-link;
       text-decoration: none;
     }
