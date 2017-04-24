@@ -11,5 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.3.0] - 2017-04-26
 ### Changed
 - Flyout.scss: Full refactor new animations, new styling
+### Added
 - Scaffold.scss: Added class .clearfix
+### Removed
 - mixins/_type.scss: Removed hide-text
