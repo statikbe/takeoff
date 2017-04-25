@@ -1,29 +1,23 @@
-##_scaffold.scss
----
+# Change Log
+All notable changes to this project will be documented in this file.
 
-* Added class .clearfix
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
 
-##_flyout.scss
----
+## [1.4.1] - 2017-04-25
+### Changed
+- package.json: updated the version to the one corresponding in the changelog file
+- package.json: removed grunt as a dependency (it already was a dev dependency, which was throwing warnings when running grunt)
+- package.json: added a script to package.json so we can use yarn/npm to run our build ('yarn run build').
 
-* Full refactor new animations, new styling
+## [1.4.0] - 2017-04-24
+### Changed
+- Added babel to the default buildtasks in order to be able to start to use ES6 functionality for new projects today
 
-##_grid.scss
----
-
-* Full refactor to default flexbox grid
-
-##_type.scss
----
-
-* Added `$headings` variable
-* Extended placeholder selector instead of real selector
-* Added default breakpoints to h1 and h2
-* Removed unused tags / styles 
-
-
-##mixins/_type.scss
----
-
-* fsRem function: added ceil to pixel fallback
-* Removed hide-text
+## [1.3.0] - 2017-04-26
+### Changed
+- Flyout.scss: Full refactor new animations, new styling
+### Added
+- Scaffold.scss: Added class .clearfix
+### Removed
+- mixins/_type.scss: Removed hide-text
