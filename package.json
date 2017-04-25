@@ -2,8 +2,6 @@
   "name": "Takeoff",
   "version": "1.4.1",
   "main": "Gruntfile.js",
-  "dependencies": {
-    "grunt": "~0.4.5"
   "scripts": {
    "build": "grunt"
   },
