@@ -1,9 +1,11 @@
 {
   "name": "Takeoff",
-  "version": "2.0.1",
+  "version": "1.4.1",
   "main": "Gruntfile.js",
   "dependencies": {
     "grunt": "~0.4.5"
+  "scripts": {
+   "build": "grunt"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.2",
