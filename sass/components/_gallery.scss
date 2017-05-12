@@ -1,112 +1,107 @@
 .gallery {
-  @include cf;
-  clear: both;
-  margin-bottom: 20px;
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
 
-.colorbox,
-.colorbox--video {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  &:before {
-    content: '+';
-    @include fsRem(30px);
-    line-height: lh(44px, 30px);
-    color: $color-primary;
-    background: $white;
-    text-align: center;
-    display: block;
-    margin-left: -23px;
-    margin-top: -23px;
-    position: absolute;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    z-index: 100;
-    opacity: 0;
-    @include transitions(opacity, 400ms);
-    transition-delay: 100ms;
-  }
-  &:after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: $color-primary;
-    background-color: rgba($color-primary , .6);
-    opacity: 0;
-    @include transitions(opacity, 400ms);
-  }
-  img {
-    @include transitions(transform, 400ms);
-  }
-  &:hover {
-    &:after , &:before {
-      opacity: 1;
+  &__image,
+  &__video {
+
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+      @extend %ext-icon-style;
+      @include transitions(opacity);
+      @include fsRem($font-size-lrg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: (-$rh-med / 2);
+      margin-left: (-$rh-med / 2);
+      line-height: lh($rh-med, $font-size-lrg);
+      width: $rh-med;
+      text-align: center;
+      color: $color-primary;
+      background: $white;
+      border-radius: 50%;
+      opacity: 0;
     }
+
     img {
-      transform: scale(1.1);
+      @include transitions(transform);
+      display: block;
+    }
+
+    &:hover,
+    &:focus {
+      img {
+        transform: translateZ(0), scale(1.05);
+      }
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+  &__image {
+    &:before {
+      content: '\f109';
+    }
+  }
+  &__video {
+    &:before {
+      content: '\f116';
     }
   }
 }
-.colorbox--video {
-  &:before {
-    opacity: 1;
-    content: '\f04b';
-    font-family: $font-family-icons;
-    @include fsRem(22px);
-    line-height: lh(48px, 22px);
-    text-indent: 5px;
-  }
-}
 
-
-/* COLORBOX */
-/** ColorBox core style: The following CSS is consistent between example themes and should not be altered. **/
-#colorbox, #cboxOverlay, #cboxWrapper {
+#colorbox,
+#cboxOverlay,
+#cboxWrapper {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 9999;
   overflow: hidden;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
 }
+
 #cboxOverlay {
   position: fixed;
   width: 100%;
-  height:100%;
+  height: 100%;
 }
-#cboxMiddleLeft, #cboxBottomLeft {
+
+#cboxMiddleLeft,
+#cboxBottomLeft {
   clear: left;
 }
+
 #cboxContent {
   position: relative;
 }
+
 #cboxLoadedContent {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-#cboxTitle { margin:0; }
-#cboxLoadingOverlay, #cboxLoadingGraphic {
+
+#cboxTitle {
+  margin: 0;
+}
+
+#cboxLoadingOverlay,
+#cboxLoadingGraphic {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+
+#cboxPrevious,
+#cboxNext,
+#cboxClose,
+#cboxSlideshow {
   cursor: pointer;
 }
+
 .cboxPhoto {
   float: left;
   display:block;
@@ -115,32 +110,37 @@
   max-width: none;
   -ms-interpolation-mode: bicubic;
 }
+
 .cboxIframe {
   display:block;
   width: 100%;
   height: 100%;
   border:0;
 }
-#colorbox, #cboxContent, #cboxLoadedContent {
+
+#colorbox,
+#cboxContent,
+#cboxLoadedContent {
   box-sizing: content-box;
   &:focus {
     outline: 0;
   }
 }
 
-/** Colorbox user added styles **/
 #cboxOverlay {
   background: darken($white, 10%);
   background: darken($white, 10%);
 }
+
 #cboxContent {
   position: relative;
   background: $white;
 }
+
 #cboxPrevious,
 #cboxNext,
 #cboxClose {
-  @include transitions((all));
+  @include transitions(all);
   cursor: pointer;
   position: absolute;
   z-index: 200;
@@ -158,10 +158,12 @@
 
   }
 }
+
 #cboxPrevious,
 #cboxNext {
   padding-bottom: 0.2em;
 }
+
 #cboxPrevious {
   left: -0.4em;
   text-indent: 0.4em;
@@ -172,6 +174,7 @@
     left: -4px;
   }
 }
+
 #cboxNext {
   right: -0.4em;
   text-indent: -0.4em;
@@ -182,6 +185,7 @@
     right: -4px;
   }
 }
+
 #cboxClose {
   top: 10px;
   right: 10px;
@@ -202,6 +206,7 @@
     display: none !important;
   }
 }
+
 #cboxCurrent {
   display: none !important;
 }
