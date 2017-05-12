@@ -1,6 +1,6 @@
 {
   "name": "Takeoff",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "main": "Gruntfile.js",
   "scripts": {
    "build": "grunt"
