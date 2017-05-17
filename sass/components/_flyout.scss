@@ -1,5 +1,15 @@
 $flyoutnavtiming: 200ms;
 
+%ext-hamburger-line {
+  position: absolute;
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: $black;
+  border-radius: 1px;
+  transition: all 200ms;
+}
+
 .flyout {
   @include transitions(transform, $flyoutnavtiming);
   width: 240px;
@@ -20,15 +30,77 @@ $flyoutnavtiming: 200ms;
       content: '';
     }
   }
+
+  &__link {
+    @include link-variant($black);
+    font-weight: $font-weight-bold;
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+    padding-right: 24px;
+    padding-bottom: 10px;
+    margin: 0 5px 0 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: $letter-spacing-sml;
+    .lines {
+      @extend %ext-hamburger-line;
+      top: 1.3em;
+      right: 0;
+      &:before {
+        @extend %ext-hamburger-line;
+        content: '';
+        top: -5px;
+        transform-origin: 50% 50%;
+      }
+      &:after {
+        @extend %ext-hamburger-line;
+        content: '';
+        top: 5px;
+        transform-origin: 50% 50%;
+      }
+    }
+    &.is-open {
+      .lines {
+        background: transparent;
+        &:before {
+          top: 0px;
+          transform: rotate3d(0, 0, 1, 45deg);
+        }
+        &:after {
+          top: 0px;
+          transform: rotate3d(0, 0, 1, -45deg);
+        }
+      }
+    }
+    @include breakpoint($breakpoint-flyout) {
+      display: none;
+    }
+  }
+
+  &__overlay {
+    @include absolute-fill;
+    z-index: $zindex-layer-1;
+    background: $gray-0;
+    background: rgba($black, .5);
+    display: none;
+    opacity: 0;
+    height: 100vh;
+    cursor: pointer;
+    @include transitions(opacity);
+    .flyout-active & {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+
   &--content {
     margin-top: $rh-xxs;
   }
   .region {
     position: relative;
   }
-  // .flyout-enabled & {
-  //   display: block;
-  // }
   .flyout-active & {
     transform: translateX(100px);
   }
@@ -86,6 +158,7 @@ $flyoutnavtiming: 200ms;
       transform: translateX(0);
     }
   }
+
   .flyout__back,
   .flyout__close {
     background: $white;
@@ -104,79 +177,6 @@ $flyoutnavtiming: 200ms;
     }
     &:after {
       display: none;
-    }
-  }
-  @include breakpoint($breakpoint-flyout) {
-    display: none;
-  }
-}
-
-.flyout__overlay {
-  @include absolute-fill;
-  z-index: $zindex-layer-1;
-  background: $gray-0;
-  background: rgba($black, .5);
-  display: none;
-  opacity: 0;
-  height: 100vh;
-  cursor: pointer;
-  @include transitions(opacity);
-  .flyout-active & {
-    display: block;
-    opacity: 1;
-  }
-}
-
-%ext-hamburger-line {
-  position: absolute;
-  display: inline-block;
-  width: 18px;
-  height: 2px;
-  background: $black;
-  border-radius: 1px;
-  transition: all 200ms;
-}
-
-.flyout__link {
-  @include link-variant($black);
-  font-weight: $font-weight-bold;
-  position: relative;
-  display: inline-block;
-  padding-top: 10px;
-  padding-right: 24px;
-  padding-bottom: 10px;
-  margin: 0 5px 0 5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: $letter-spacing-sml;
-  .lines {
-    @extend %ext-hamburger-line;
-    top: 1.3em;
-    right: 0;
-    &:before {
-      @extend %ext-hamburger-line;
-      content: '';
-      top: -5px;
-      transform-origin: 50% 50%;
-    }
-    &:after {
-      @extend %ext-hamburger-line;
-      content: '';
-      top: 5px;
-      transform-origin: 50% 50%;
-    }
-  }
-  &.is-open {
-    .lines {
-      background: transparent;
-      &:before {
-        top: 0px;
-        transform: rotate3d(0, 0, 1, 45deg);
-      }
-      &:after {
-        top: 0px;
-        transform: rotate3d(0, 0, 1, -45deg);
-      }
     }
   }
   @include breakpoint($breakpoint-flyout) {
