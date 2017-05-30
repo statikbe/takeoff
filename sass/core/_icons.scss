@@ -17,10 +17,10 @@
 //
 @font-face {
   font-family: "icons";
-  src: url("/fonts/icons.eot?39c68e80e2cd412899304bb09ac12b39");
+  src: url("/fonts/icons.eot?08ba38cddf646f92170b6f9b07a8cbd8");
   src: url("/fonts/icons.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/icons.woff?39c68e80e2cd412899304bb09ac12b39") format("woff"),
-		url("/fonts/icons.ttf?39c68e80e2cd412899304bb09ac12b39") format("truetype");
+		url("/fonts/icons.woff?08ba38cddf646f92170b6f9b07a8cbd8") format("woff"),
+		url("/fonts/icons.ttf?08ba38cddf646f92170b6f9b07a8cbd8") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -75,6 +75,9 @@
 }
 .icon--clear:before {
   content:"\f10d";
+}
+.icon--download:before {
+  content:"\f119";
 }
 .icon--home:before {
   content:"\f10e";
