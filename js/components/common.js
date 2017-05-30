@@ -2,10 +2,10 @@ window.app = window.app || {};
 
 app.common = (function commonComponent($, undefined) {
 
-    var $document = $(document);
-    var $window = $(window);
-    var $html = $('html');
-    var $body = $('body');
+    let $document = $(document);
+    let $window = $(window);
+    let $html = $('html');
+    let $body = $('body');
 
     function initialize() {
 
@@ -62,7 +62,7 @@ app.common = (function commonComponent($, undefined) {
         }
 
         $window.on('load', jsDone);
-        
+
         setTimeout(jsDone, 4000);
 
     }

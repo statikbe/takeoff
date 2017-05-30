@@ -7,11 +7,29 @@ module.exports = function (grunt) {
 
         //  JAVASCRIPT TASKS
 
+        babel: {
+            options: {
+              presets: ['es2015']
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    src: 'js/components/*.js',
+                    dest: 'build/js/components/',
+                    ext: '.js'
+                }]
+            }
+        },
+
+        eslint: {
+            target: ['js/main.js', 'js/components/*.js']
+        },
+
         concat: {
             main: {
                 src: [
                     'js/libs/*.js',
-                    'js/components/*.js',
+                    'build/js/components/*.js',
                     'js/main.js',
                     '!js/**/_*.js'  //  Exclude files that start with an underscore
                 ],
@@ -45,14 +63,6 @@ module.exports = function (grunt) {
               }]
             }
         },
-
-        jshint: {
-            options: {
-                reporter: require('jshint-stylish')
-            },
-            target: ['js/main.js', 'js/components/*.js']
-        },
-
 
         //  CSS TASKS
 
@@ -318,7 +328,7 @@ module.exports = function (grunt) {
 
     //  COMBINED TASKS
     grunt.registerTask('default', ['build', 'copy:html', 'browserSync', 'watch']);
-    grunt.registerTask('js', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('js', ['eslint', 'babel', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
     grunt.registerTask('fonts', ['clean:fonts', 'webfont', 'copy:fonts']);
     grunt.registerTask('css', ['sass', 'postcss', 'cssmin']);
