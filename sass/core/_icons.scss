@@ -1,28 +1,24 @@
-%ext-icon-style {
-  display: inline-block;
-  border: none;
-  font-family: "icons";
-  font-weight: $font-weight-regular;
-  font-style: normal;
-  font-size: inherit;
-  line-height: inherit;
-  text-indent: 0;
-  text-transform: none;
-  vertical-align: bottom;
-  text-rendering: auto; // optimizelegibility throws things off #1094
-  transform: translate(0, 0); // ensures no half-pixel rendering in firefox
-}
-
-// Include fonts
-//
 @font-face {
   font-family: "icons";
-  src: url("/fonts/icons.eot?08ba38cddf646f92170b6f9b07a8cbd8");
-  src: url("/fonts/icons.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/icons.woff?08ba38cddf646f92170b6f9b07a8cbd8") format("woff"),
-		url("/fonts/icons.ttf?08ba38cddf646f92170b6f9b07a8cbd8") format("truetype");
+  src: url('../fonts/icons.eot') format('eot');
+  src: url('../fonts/icons.eot?#iefix') format('eot'),
+    url('../fonts/icons.woff2') format('woff2'),
+    url('../fonts/icons.woff') format('woff'),
+    url('../fonts/icons.ttf') format('truetype'),
+    url('../fonts/icons.svg#icons') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+%ext-icon-style {
+  font-family: 'icons';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
 }
 
 .icon {
@@ -30,82 +26,100 @@
   &:after {
     @extend %ext-icon-style;
   }
-  &--social {
-    @include fsRem(28px);
-    line-height: 1;
-  }
 }
 
-// Icons
 .icon--envelope:before {
-  content:"\f101";
+  content: "\EA01";
 }
+
 .icon--facebook:before {
-  content:"\f102";
+  content: "\EA02";
 }
+
 .icon--google-plus:before {
-  content:"\f103";
+  content: "\EA03";
 }
+
 .icon--instagram:before {
-  content:"\f104";
+  content: "\EA04";
 }
+
 .icon--linkedin:before {
-  content:"\f105";
+  content: "\EA05";
 }
+
 .icon--pinterest:before {
-  content:"\f118";
+  content: "\EA06";
 }
+
 .icon--twitter:before {
-  content:"\f107";
+  content: "\EA07";
 }
+
 .icon--youtube:before {
-  content:"\f108";
+  content: "\EA08";
 }
+
 .icon--add:before {
-  content:"\f109";
+  content: "\EA09";
 }
+
 .icon--arrow-back:before {
-  content:"\f10a";
+  content: "\EA0A";
 }
+
 .icon--arrow-forward:before {
-  content:"\f10b";
+  content: "\EA0B";
 }
+
 .icon--check:before {
-  content:"\f10c";
+  content: "\EA0C";
 }
+
 .icon--clear:before {
-  content:"\f10d";
+  content: "\EA0D";
 }
+
 .icon--download:before {
-  content:"\f119";
+  content: "\EA0E";
 }
+
 .icon--home:before {
-  content:"\f10e";
+  content: "\EA0F";
 }
+
 .icon--keyboard-arrow-down:before {
-  content:"\f10f";
+  content: "\EA10";
 }
+
 .icon--keyboard-arrow-left:before {
-  content:"\f110";
+  content: "\EA11";
 }
+
 .icon--keyboard-arrow-right:before {
-  content:"\f111";
+  content: "\EA12";
 }
+
 .icon--keyboard-arrow-up:before {
-  content:"\f112";
+  content: "\EA13";
 }
+
 .icon--location-on:before {
-  content:"\f113";
+  content: "\EA14";
 }
+
 .icon--menu:before {
-  content:"\f114";
+  content: "\EA15";
 }
+
 .icon--phone:before {
-  content:"\f115";
+  content: "\EA16";
 }
+
 .icon--play-arrow:before {
-  content:"\f116";
+  content: "\EA17";
 }
+
 .icon--remove:before {
-  content:"\f117";
+  content: "\EA18";
 }
