@@ -86,6 +86,11 @@ gulp.task('iconfont', () =>
         .pipe(gulp.dest(targetDir('fonts')))
 );
 
+gulp.task('html', () => 
+    gulp.src('html/*.html')
+        .pipe(gulp.dest(targetDir('static')))
+);
+
 gulp.task('build', gulp.series('iconfont', gulp.parallel('css', 'js', 'img', 'fonts')));
 
 gulp.task('watch', () => {
