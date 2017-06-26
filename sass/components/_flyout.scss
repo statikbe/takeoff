@@ -1,17 +1,5 @@
-$flyoutnavtiming: 200ms;
-
-%ext-hamburger-line {
-  position: absolute;
-  display: inline-block;
-  width: 18px;
-  height: 2px;
-  background: $black;
-  border-radius: 1px;
-  transition: all 200ms;
-}
-
 .flyout {
-  @include transitions(transform, $flyoutnavtiming);
+  @include transitions(transform);
   width: 240px;
   transform: translateX(240px);
   position: fixed;
@@ -23,178 +11,73 @@ $flyoutnavtiming: 200ms;
   background: $white;
   display: block;
   z-index: $zindex-layer-2;
-  &:before {
-    @extend .visuallyhidden;
-    content: 'flyout';
-    @include breakpoint($breakpoint-flyout) {
-      content: '';
-    }
-  }
 
-  &__link {
-    @include link-variant($black);
-    font-weight: $font-weight-bold;
-    position: relative;
-    display: inline-block;
-    padding-top: 10px;
-    padding-right: 24px;
-    padding-bottom: 10px;
-    margin: 0 5px 0 5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: $letter-spacing-sml;
-    .lines {
-      @extend %ext-hamburger-line;
-      top: 1.3em;
-      right: 0;
-      &:before {
-        @extend %ext-hamburger-line;
-        content: '';
-        top: -5px;
-        transform-origin: 50% 50%;
-      }
-      &:after {
-        @extend %ext-hamburger-line;
-        content: '';
-        top: 5px;
-        transform-origin: 50% 50%;
-      }
-    }
-    &.is-open {
-      .lines {
-        background: transparent;
-        &:before {
-          top: 0px;
-          transform: rotate3d(0, 0, 1, 45deg);
-        }
-        &:after {
-          top: 0px;
-          transform: rotate3d(0, 0, 1, -45deg);
-        }
-      }
-    }
-    @include breakpoint($breakpoint-flyout) {
-      display: none;
-    }
-  }
-
-  &__overlay {
-    @include absolute-fill;
-    z-index: $zindex-layer-1;
-    background: $gray-0;
-    background: rgba($black, .5);
-    display: none;
-    opacity: 0;
-    height: 100vh;
-    cursor: pointer;
-    @include transitions(opacity);
-    .flyout-active & {
-      display: block;
-      opacity: 1;
-    }
-  }
-
-
-  &--content {
-    margin-top: $rh-xxs;
-  }
-  .region {
-    position: relative;
-  }
   .flyout-active & {
-    transform: translateX(100px);
-  }
-  ul {
-    @include transitions(transform);
-    @include listreset;
-    width: 100%;
-    li {
-      @include transitions(opacity, .4s);
-      transition-delay: ($flyoutnavtiming + 50);
-      opacity: 0;
-      .flyout-active & {
-        transform: translateX(0);
-        opacity: 1;
-      }
-      + li {
-        border-top: 1px solid darken($gray-0, 4%);
-      }
-    }
-    ul {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      transform: translateX(240px);
-    }
-  }
-  a {
-    display: block;
-    padding: $rh-xsm;
-    @include link-variant($color-text);
-    @include fsRem($font-size-med);
-    font-family: $font-family-sans;
-    text-decoration: none;
-    &:not(:only-child) {
-      &:after {
-        content: '\f111';
-        float: right;
-        font-family: $font-family-icons;
-      }
-    }
-    &:hover,
-    &.active {
-      color: $color-primary;
-      background-position: 0 0;
-    }
-  }
-  .nav + .nav {
-    margin-top: $rh-sml;
-    a {
-      @include fsRem($font-size-lrg);
-    }
-  }
-  .active {
-    > ul {
-      transform: translateX(0);
-    }
+    transform: translateX(0);
   }
 
-  .flyout__back,
-  .flyout__close {
-    background: $white;
-    border: $white;
-    font-family: $font-family-sans;
-    @include fsRem($font-size-med);
-    color: $black;
-    font-style: normal;
-    text-transform: uppercase;
-    .icon {
-      margin-right: $rh-xxs;
-      color: $color-primary;
-      &:before {
-        vertical-align: baseline;
-      }
-    }
-    &:after {
-      display: none;
-    }
+  @include breakpoint($breakpoint-flyout) {
+    display: none;
+  }
+
+  &__close,
+  &__back {
+    display: block;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+  }
+}
+
+.flyout__overlay {
+  @include transitions(opacity);
+  @include absolute-fill();
+  z-index: $zindex-layer-1;
+  background: $gray-0;
+  background: rgba($black, .5);
+  display: none;
+  opacity: 0;
+  height: 100vh;
+  cursor: pointer;
+  .flyout-active & {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.flyout__link {
+  @include link-variant($black);
+  text-decoration: none;
+  &:before {
+    @extend %ext-icon-style;
+    content: '\f114';
   }
   @include breakpoint($breakpoint-flyout) {
     display: none;
   }
 }
 
-.flyout-enabled {
-  @include transitions(transform);
-  transform: translateX(0);
-}
-
 .flyout-active {
-  @include transitions(transform, 400ms);
-  transform: translateX(-100px);
   .page-wrap {
     height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
+  }
+}
+
+.nav--flyout {
+  ul {
+    @include listreset;
+    width: 100%;
+    .nav__item + .nav__item {
+      border-top: 1px solid $gray-0;
+    }
+  }
+  a {
+    @include link-variant($color-text);
+    display: block;
+    padding: $rh-xsm;
+    text-decoration: none;
   }
 }
