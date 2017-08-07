@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.4.4] - 2017-08-07
+### Updated
+- components/map.scss - made map--wide responsive
+
+### Added
+- core/helpers.scss - responsive-embed, pointer
+- core/grid.scss - grid--reverse, grid--offset--bp-{breapoint}__offset-{#}
+- core/type.scss - text--white
+
+- components/nav.scss - nav--social, nav--social-share
+
+- icons/svg/material-icons - search.svg
+
+
 ## [1.4.3] - 2017-05-30
 ### Fixed
 - Components where no longer concatenated and uglified to main.min.js

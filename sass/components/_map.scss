@@ -9,7 +9,10 @@
     padding-bottom: 100%;
   }
   &--wide:before {
-    padding-bottom: 30%; 
+    padding-bottom: 80%;
+    @include breakpoint(map-get($breakpoints, sml)) {
+      padding-bottom: 30%;
+    };
   }
 }
 
