@@ -76,4 +76,43 @@
       }
     }
   } // end .--language
+
+  &--social {
+    @extend %ext-default-nav;
+    @extend %ext-horizontal-nav;
+    @include cf;
+    margin-top: -4px;
+    display: inline-block;
+    &__title {
+      float: left;
+      padding: 7px 0;
+      margin: 0 $rh-xsm 0 0;
+      font-size: 16px;
+      font-weight: $font-weight-light;
+      color: $gray-25;
+    }
+    ul {
+      float: left;
+    }
+    li {
+      padding: 0 $rh-xxs;
+      font-weight: $font-weight-semi-bold;
+    }
+    a {
+      @include fsRem(22px);
+      @include link-variant($color-primary, darken($color-primary, 10%));
+    }
+    &-share {
+      @include cf;
+      h2 {
+        float: left;
+        @include fsRem(30px);
+        padding: 2px 0;
+        margin-right: $rh-xsm;
+      }
+      a {
+        @include link-variant($color-primary, darken($color-primary, 10%));
+      }
+    }
+  } // end .--social
 }
