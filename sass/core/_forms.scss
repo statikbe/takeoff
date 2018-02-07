@@ -134,9 +134,15 @@ form {
   margin-right: -10px;
   margin-bottom: $input-item-margin;
   margin-left: -10px;
+  @include breakpoint(map-get($breakpoints, sml), max-width) {
+    flex-direction: column
+  };
   .form__item {
-    flex: 1 1 40%;
+    flex: 1 1 100%;
     margin: 0 10px;
+    @include breakpoint(map-get($breakpoints, sml), max-width) {
+      margin-bottom: $input-item-margin;
+    };
   }
   .form__actions {
     flex: 0 0 180px;
@@ -266,10 +272,17 @@ form {
   }
 }
 
+.form__btn-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+
 //== Form errors
 //--------------
 //
-.parsley-errors-list {
+.parsley-errors-list,
+.form__errors-list {
   @include listreset;
   @include fsRem(14px);
   color: map-get($notice-colors, 'danger');
