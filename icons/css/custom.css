@@ -32,6 +32,11 @@
     @include fsRem(28px);
     line-height: 1;
   }
+  @each $rh, $px in $rhythm {
+    &--#{$rh} {
+      @include fsRem($px);
+    }
+  }
 }
 
 <% if (iconsStyles) { %>/* Icons */<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
