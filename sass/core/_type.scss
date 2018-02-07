@@ -6,6 +6,8 @@ $headings-font-weight: $font-weight-bold !default;
 $headings-line-height: 1.1 !default;
 $headings-color: inherit !default;
 
+$font-size-lead: $font-size-lrg;
+
 // Optional
 $headings-color-alt: null !default;
 
@@ -93,7 +95,13 @@ h5 {
 
 // Stand out text
 .text--lead {
-  font-size: fs($font-size-lrg);
+  @include fsRem($font-size-lrg * .75);
+  @include breakpoint(map-get($breakpoints, sml)) {
+    @include fsRem($font-size-lrg * .9);
+  }
+  @include breakpoint(map-get($breakpoints, med)) {
+    @include fsRem($font-size-lrg);
+  }
 }
 .text--info {
   color: $gray-50;

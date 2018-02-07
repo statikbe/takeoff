@@ -7,7 +7,6 @@
 .block {
   display: block;
   &--panel {
-    background: $gray-0;
     padding: $rh-sml;
     @include breakpoint(map-get($breakpoints, lrg)) {
       padding: $rh-med;
@@ -17,6 +16,14 @@
     & + & {
       margin-top: $rh-sml;
     }
+  }
+
+  &--light {
+    background: $gray-0;
+  }
+
+  &--primary {
+    background: $color-primary;
   }
 
   @include block-rhythm;
