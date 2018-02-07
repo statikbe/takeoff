@@ -15,6 +15,11 @@
   }
 }
 
+.tabbable {
+  padding-left: 0;
+  border-bottom: 1px solid $gray-25;
+}
+
 .tabs__tab {
   @include fsRem($font-size-sml);
   position: relative;
@@ -23,8 +28,10 @@
   margin: 0;
   text-align: center;
   border: 1px solid $gray-25;
+  border-bottom: 0;
   & + .tabs__tab {
     border-left: 0;
+    margin-left: -4px;
   }
   &.active {
     border-top-color: $color-primary;
