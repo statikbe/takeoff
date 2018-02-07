@@ -287,6 +287,7 @@ form {
   @include fsRem(14px);
   color: map-get($notice-colors, 'danger');
   font-weight: $font-weight-bold;
+  clear: both;
   li {
     margin-top: $rh-xxs;
   }
