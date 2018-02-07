@@ -116,6 +116,63 @@
     }
   } // end .--social
 
+  &--doormat {
+    @extend %ext-default-nav;
+    float: left;
+    a {
+      position: relative;
+      @include link-variant($white);
+      @include fsRem(20px);
+      display: block;
+      font-weight: $font-weight-semi-bold;
+      padding: $rh-xxs;
+      text-decoration: none;
+      &:focus,
+      &.active {
+        color: $white !important;
+      }
+      &:hover {
+        color: $white !important;
+        text-decoration: underline;
+      }
+    }
+    &-variant {
+      a {
+        @include fsRem(16px);
+        font-weight: 500;
+      }
+    }
+  } // end .--doormat
+
+  &--footer {
+    @include fsRem(16px);
+    @extend %ext-default-nav;
+    @extend %ext-horizontal-nav;
+    line-height: 1;
+    display: inline-block;
+    li {
+      padding: $rh-xsm;
+      @include breakpoint(map-get($breakpoints, xsm), max-width) {
+        padding-top: 0;
+      };
+      &:first-of-type {
+        padding-left: 0;
+      }
+      &:last-of-type {
+        padding-right: 0;
+      }
+    }
+    a {
+      @include link-variant($color-primary);
+      display: block;
+      &:hover,
+      &:focus,
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  } // end .--footer
+
   &--tabs {
     margin-bottom: $rh-sml;
   }
