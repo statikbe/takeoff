@@ -95,15 +95,17 @@ form {
 .form__item {
   position: relative;
   margin-bottom: $input-item-margin;
-  &--radios,
-  &--checkboxes {
+  // Styling for single checkbox
+&--checkbox {
     @include cf;
     input {
       position: absolute;
       left: 0;
-      top: 50%;
+      top: 0;
+      margin-top: 5px;
     }
     label {
+      display: block;
       cursor: pointer;
       position: relative;
       float: left;
@@ -113,14 +115,37 @@ form {
       font-weight: $font-weight-regular;
     }
   }
+  &--radios,
+  &--checkboxes {
+    // Styling for the labels inside a group
+    .checkbox-group,
+    .radio-group {
+      @include cf;
+      input {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      label {
+        display: block;
+        cursor: pointer;
+        position: relative;
+        float: left;
+        clear: both;
+        padding-left: 20px;
+        margin-bottom: 0;
+        font-weight: $font-weight-regular;
+      }
+    }
+  }
   &--checkboxes {
     input {
-      margin-top: -8px;
+      margin-top: 5px;
     }
   }
   &--radios {
     input {
-      margin-top: -9px;
+      margin-top: 4px;
     }
   }
 }
@@ -134,9 +159,15 @@ form {
   margin-right: -10px;
   margin-bottom: $input-item-margin;
   margin-left: -10px;
+  @include breakpoint(map-get($breakpoints, sml), max-width) {
+    flex-direction: column
+  };
   .form__item {
-    flex: 1 1 40%;
+    flex: 1 1 100%;
     margin: 0 10px;
+    @include breakpoint(map-get($breakpoints, sml), max-width) {
+      margin-bottom: $input-item-margin;
+    };
   }
   .form__actions {
     flex: 0 0 180px;
@@ -266,14 +297,22 @@ form {
   }
 }
 
+.form__btn-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+
 //== Form errors
 //--------------
 //
-.parsley-errors-list {
+.parsley-errors-list,
+.form__errors-list {
   @include listreset;
   @include fsRem(14px);
   color: map-get($notice-colors, 'danger');
   font-weight: $font-weight-bold;
+  clear: both;
   li {
     margin-top: $rh-xxs;
   }

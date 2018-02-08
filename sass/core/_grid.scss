@@ -67,6 +67,7 @@ $grid-rhythm: $rh-sml !default;
       &--#{$column}-col {
         > .grid__item {
           @include make-repeating-column($column);
+          min-height: 1px;
           @if $breakpoints-legacy {
             @include make-column-legacy($column);
           }

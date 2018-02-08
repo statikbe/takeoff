@@ -63,10 +63,19 @@ app.helpers = (function helpersComponent($, undefined) {
         return this.getContentProperty($body[0], ':after').indexOf(breakpointKey) < 0;
     }
 
-    function loadScript(url) {
+    function loadScript(url, cb) {
+
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.src = url;
+
+        if (typeof cb !== 'undefined') {
+
+            $(script).on('load', function () {
+                cb();
+            });
+        }
+
         document.body.appendChild(script);
     }
 

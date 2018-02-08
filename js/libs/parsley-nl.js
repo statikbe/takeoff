@@ -2,7 +2,7 @@ window.ParsleyConfig = window.ParsleyConfig || {};
 window.ParsleyConfig.i18n = window.ParsleyConfig.i18n || {};
 
 window.ParsleyConfig.i18n.nl = $.extend(window.ParsleyConfig.i18n.nl || {}, {
-    defaultMessage:     "Deze waarde lijkt onjuist.", 
+    defaultMessage:     "Deze waarde lijkt onjuist.",
     type: {
         email:          "Dit lijkt geen geldig e-mail adres te zijn.",
         url:            "Dit lijkt geen geldige URL te zijn.",
@@ -24,7 +24,7 @@ window.ParsleyConfig.i18n.nl = $.extend(window.ParsleyConfig.i18n.nl || {}, {
     range:              "Deze waarde moet tussen %s en %s liggen.",
     minlength:          "Deze tekst is te kort. Deze moet uit minimaal %s karakters bestaan.",
     maxlength:          "Deze waarde is te lang. Deze mag maximaal %s karakters lang zijn.",
-    length:             "Deze waarde moet tussen %s et %s karakters lang zijn.",
+    length:             "Deze waarde moet tussen %s en %s karakters lang zijn.",
     mincheck:           "Je moet minstens %s opties selecteren.",
     maxcheck:           "Je moet %s of minder opties selecteren.",
     check:              "Je moet tussen %s en %s opties selecteren",

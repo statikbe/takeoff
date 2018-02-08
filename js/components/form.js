@@ -24,7 +24,7 @@ app.form = (function formComponent($, undefined) {
                 if ($formGroup.length) {
                     return $formGroup;
                 } else {
-                    return $formItemLast;
+                    return $formItem;
                 }
             },
             errorsWrapper: '<ul class="form__errors-list form__errors-client"></ul>',
