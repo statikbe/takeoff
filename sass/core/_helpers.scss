@@ -68,10 +68,10 @@
   }
 }
 
-// .hidden--bp-med
+// .hide--bp-med
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, min-width) {
-    .hidden--bp-#{$bp} {
+    .hide--bp-#{$bp} {
       display: none !important;
     }
   }
