@@ -1,76 +1,108 @@
-window.app = window.app || {};
+import $ from 'jquery';
+import debounce from 'lodash/debounce';
+// import modaal from 'modaal';
 
-app.common = (function commonComponent($, undefined) {
+import { isBreakpointActive } from './helpers';
 
-    let $document = $(document);
-    let $window = $(window);
-    let $html = $('html');
-    let $body = $('body');
+export default function () {
 
-    function initialize() {
+    // Set initial variables
+    windowResize();
 
-        //  Set initial variables
-        this.windowResize();
+    $(window).on('resize', debounce(windowResize, 250));
 
-        $window.on('resize', app.helpers.debounce(this.windowResize, 250, false));
+    // gallery();
+}
 
-        colorbox();
+function windowResize() {
 
+    const $body = $('body');
+    const $window = $(window);
+
+    const isFlyoutActive = isBreakpointActive('flyout');
+
+    if (!isFlyoutActive) {
+        $body.removeClass('flyout-active');
     }
 
-    function windowResize() {
+    $.assign(app.variables, {
+        isFlyoutActive,
+        windowWidth: $window.width(),
+        windowHeight: $window.height()
+    });
+}
 
-        var isFlyoutActive = app.helpers.isBreakpointActive('flyout');
+// function gallery() {
 
-        if (!isFlyoutActive) {
-            $body.removeClass('flyout-active');
-        }
+// }
 
-        $.extend(app.variables, {
-            windowWidth: $window.width(),
-            windowHeight: $window.height(),
-            isFlyoutActive: isFlyoutActive
-        });
+// window.app = window.app || {};
 
-    }
+// app.common = (function commonComponent($, undefined) {
 
-    function colorbox() {
+//     let $document = $(document);
+//     let $window = $(window);
+//     let $html = $('html');
+//     let $body = $('body');
 
-        if (typeof $.colorbox == 'undefined') return;
+//     function initialize() {
 
-        var defaultOptions = {
-            close: '&times;',
-            next: '&rsaquo;',
-            previous: '&lsaquo;',
-            maxWidth: '90%',
-            maxHeight: '90%'
-        };
+//         //  Set initial variables
+//         this.windowResize();
 
-        $('.js-gallery-image').colorbox(defaultOptions);
+//         $window.on('resize', app.helpers.debounce(this.windowResize, 250, false));
 
-        $('.js-gallery-video').colorbox($.extend({}, defaultOptions, {
-            iframe: true,
-            innerWidth: 640,
-            innerHeight: 480
-        }));
-    }
+//         colorbox();
 
-    function finalize() {
+//     }
 
-        function jsDone() {
-            $html.addClass('js-done');
-        }
+//     function windowResize() {
 
-        $window.on('load', jsDone);
+//         var isFlyoutActive = app.helpers.isBreakpointActive('flyout');
 
-        setTimeout(jsDone, 4000);
+//         if (!isFlyoutActive) {
+//             $body.removeClass('flyout-active');
+//         }
 
-    }
+//         $.extend(app.variables, {
+//             windowWidth: $window.width(),
+//             windowHeight: $window.height(),
+//             isFlyoutActive: isFlyoutActive
+//         });
 
-    return {
-        init: initialize,
-        windowResize: windowResize,
-        finalize: finalize
-    };
+//     }
 
-})(jQuery);
+//     function colorbox() {
+
+//         if (typeof $.colorbox == 'undefined') return;
+
+//         var defaultOptions = {
+//             close: '&times;',
+//             next: '&rsaquo;',
+//             previous: '&lsaquo;',
+//             maxWidth: '90%',
+//             maxHeight: '90%'
+//         };
+
+//         $('.js-gallery-image').colorbox(defaultOptions);
+
+//         $('.js-gallery-video').colorbox($.extend({}, defaultOptions, {
+//             iframe: true,
+//             innerWidth: 640,
+//             innerHeight: 480
+//         }));
+//     }
+
+//     function finalize() {
+
+
+
+//     }
+
+//     return {
+//         init: initialize,
+//         windowResize: windowResize,
+//         finalize: finalize
+//     };
+
+// })(jQuery);

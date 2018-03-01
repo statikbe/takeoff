@@ -1,47 +1,22 @@
-// DON'T ADD ANYTHING TO THIS FILE, USE COMMON.JS PLEASE
+import $ from 'jquery';
 
-window.app = window.app || {};
-app.variables = app.variables || {};
+import common from './components/common';
+// import formComponent from './components/form';
 
-app.main = (function ($, undefined) {
+window.$ = window.jQuery = $;
 
-    var $body = $('body');
+$(() => {
 
-    function fire(component, funcName, args) {
+    window.app = window.app || {};
+    window.app.variables = window.app.variables || {};
 
-        if (funcName === undefined) {
-            funcName = 'init';
-        }
+    common();
 
-        if (component !== '' && app[component] && typeof app[component][funcName] === 'function') {
-            app[component][funcName](args);
-        }
+    function jsDone() {
+        $('html').addClass('js-done');
     }
 
-    function initialize() {
+    $(window).on('load', jsDone);
 
-        var dataComponents = $body.data('components');
-
-        this.fire('common');
-
-        if (dataComponents) {
-            dataComponents = dataComponents.split(' ');
-            for (var comp in dataComponents) {
-                this.fire(dataComponents[comp]);
-            }
-        }
-
-        this.fire('common', 'finalize');
-
-    }
-
-    return {
-        init: initialize,
-        fire: fire
-    };
-
-})(jQuery);
-
-$(document).ready(function () {
-    app.main.init();
+    setTimeout(jsDone, 4000);
 });

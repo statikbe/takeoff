@@ -79,17 +79,17 @@ $grid-rhythm: $rh-sml !default;
 
 // changes flexbox item order
 // Example: .grid--bp-med-order__2
-@each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
-    .grid--bp-#{$bp}-order {
-      @each $order in $grid-order {
-        &__#{$order} {
-          @include change-order($order);
-        }
-      }
-    }
-  }
-}
+// @each $bp, $px in $breakpoints {
+//   @include breakpoint($px, 'min-width') {
+//     .grid--bp-#{$bp}-order {
+//       @each $order in $grid-order {
+//         &__#{$order} {
+//           @include change-order($order);
+//         }
+//       }
+//     }
+//   }
+// }
 
 // Creates all the grid item classes
 // Examples: .grid__6

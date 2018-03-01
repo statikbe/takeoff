@@ -1,7 +1,11 @@
+import $ from 'jquery';
+import Parsley from 'parsleyjs';
+
+window.Parsley = window.Parsley || Parsley;
 window.ParsleyConfig = window.ParsleyConfig || {};
 window.ParsleyConfig.i18n = window.ParsleyConfig.i18n || {};
 
-window.ParsleyConfig.i18n.fr = jQuery.extend(window.ParsleyConfig.i18n.fr || {}, {
+window.ParsleyConfig.i18n.fr = $.extend(window.ParsleyConfig.i18n.fr || {}, {
     defaultMessage:     "Cette valeur semble non valide.",
     type: {
         email:          "Cette valeur n'est pas une adresse email valide.",
@@ -22,8 +26,8 @@ window.ParsleyConfig.i18n.fr = jQuery.extend(window.ParsleyConfig.i18n.fr || {},
     min:                "Cette valeur ne doit pas être inférieure à %s.",
     max:                "Cette valeur ne doit pas excéder %s.",
     range:              "Cette valeur doit être comprise entre %s et %s.",
-    minlength:          "Cette chaÃ®ne est trop courte. Elle doit avoir au minimum %s caractères.",
-    maxlength:          "Cette chaÃ®ne est trop longue. Elle doit avoir au maximum %s caractères.",
+    minlength:          "Cette chaîne est trop courte. Elle doit avoir au minimum %s caractères.",
+    maxlength:          "Cette chaîne est trop longue. Elle doit avoir au maximum %s caractères.",
     length:             "Cette valeur doit contenir entre %s et %s caractères.",
     mincheck:           "Vous devez sélectionner au moins %s choix.",
     maxcheck:           "Vous devez sélectionner %s choix maximum.",
@@ -33,6 +37,4 @@ window.ParsleyConfig.i18n.fr = jQuery.extend(window.ParsleyConfig.i18n.fr || {},
     equalto:            "Cette valeur devrait être identique."
 });
 
-if (typeof window.Parsley !== 'undefined') {
-    window.Parsley.addCatalog('fr', window.ParsleyConfig.i18n.fr, true);
-}
+window.Parsley.addCatalog('fr', window.ParsleyConfig.i18n.fr, true);

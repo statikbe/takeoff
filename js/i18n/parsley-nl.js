@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import Parsley from 'parsleyjs';
+
+window.Parsley = window.Parsley || Parsley;
 window.ParsleyConfig = window.ParsleyConfig || {};
 window.ParsleyConfig.i18n = window.ParsleyConfig.i18n || {};
 
@@ -33,6 +37,5 @@ window.ParsleyConfig.i18n.nl = $.extend(window.ParsleyConfig.i18n.nl || {}, {
     equalto:            "Deze waardes moeten identiek zijn."
 });
 
-if (typeof window.Parsley !== 'undefined') {
-    window.Parsley.addCatalog('nl', window.ParsleyConfig.i18n.nl, true);
-}
+window.Parsley.addCatalog('nl', window.ParsleyConfig.i18n.nl, true);
+

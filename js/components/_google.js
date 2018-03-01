@@ -1,95 +1,85 @@
-window.app = window.app || {};
+import $ from 'jquery';
+import GoogleMapsLoader from 'google-maps';
 
-app.google = (function googleComponent($, undefined) {
+export default function () {
 
-    //  Change this for your current project
-    const GOOGLE_API_KEY = 'AIzaSyCFIKnBciGvF_gpPaJFquYCklX2sszvkic';
+    GoogleMapsLoader.KEY = '';
+    GoogleMapsLoader.LIBRARIES = [];
+    GoogleMapsLoader.LANGUAGE = $('html').attr('lang') || 'en';
 
-    function initialize() {
+    GoogleMapsLoader.load(initializeGoogleMaps);
 
-        if (typeof google === 'undefined') {
-            return app.helpers.loadScript('https://maps.googleapis.com/maps/api/js?v=3.exp&key=' + GOOGLE_API_KEY, app.google.init);
-        }
+}
 
-        initGoogleMaps();
-    }
+function initializeGoogleMaps(google) {
 
-    function initGoogleMaps() {
-
-        //  Options for all map instances
-        var defaultOptions = {
-            zoom: 9,
-            scrollwheel: false
-        };
-
-        var mapData = [];
-
-        //  <div class="js-google-map" data-locations="[]" data-options="{}"></div>
-        $('.js-google-map').each(function () {
-
-            var $mapEl = $(this);
-            var locations = [];
-            var customOptions = {};
-
-            try {
-                locations = JSON.parse($mapEl.attr('data-locations'));
-                customOptions = JSON.parse($mapEl.attr('data-options'));
-            } catch (e) {}
-
-            var map = new google.maps.Map(this, $.extend({}, defaultOptions, customOptions));
-
-            var infowindow = new google.maps.InfoWindow();
-
-            var bounds = new google.maps.LatLngBounds();
-
-            var markers = [];
-
-            $.each(locations, function () {
-
-                var marker = new google.maps.Marker({
-                    map,
-                    position: {
-                        lat: parseFloat(this.lat),
-                        lng: parseFloat(this.lng)
-                    }
-                });
-
-                google.maps.event.addListener(marker, 'click', function () {
-
-                    infowindow.setContent([
-                        '<div>',
-                            'Infowindow',
-                        '</div>'
-                    ].join('\n'));
-
-                    infowindow.open(map, marker);
-                });
-
-                bounds.extend(marker.getPosition());
-                    
-                markers.push(marker);
-            });
-
-            mapData.push({
-                instance: map,
-                bounds: bounds
-            });
-
-            map.fitBounds(bounds);
-            map.setCenter(bounds.getCenter());
-        });
-
-        // Refocus map on screen resize
-        $(window).on('resize', app.helpers.debounce(function () {
-            $.each(mapData, function () {
-                this.instance.fitBounds(this.bounds);
-                this.instance.setCenter(this.bounds.getCenter());
-            });
-        }, 250, false));
-    }
-
-    return {
-        init: initialize
+    const defaultOptions = {
+        zoom: 9,
+        scrollwheel: false
     };
 
-})(jQuery);
+    let mapData = [];
+
+    //  <div class="js-google-map" data-locations="[]" data-options="{}"></div>
+    $('.js-google-map').each((i, mapEl) => {
+
+        const $mapEl = $(mapEl);
+        let locations = [];
+        let customOptions = {};
+
+        try {
+            locations = JSON.parse($mapEl.attr('data-locations'));
+            customOptions = JSON.parse($mapEl.attr('data-options'));
+        } catch (e) {}
+
+        var map = new google.maps.Map(mapEl, $.extend({}, defaultOptions, customOptions));
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var bounds = new google.maps.LatLngBounds();
+
+        var markers = [];
+
+        $.each(locations, (i, location) {
+
+            var marker = new google.maps.Marker({
+                map,
+                position: {
+                    lat: parseFloat(location.lat),
+                    lng: parseFloat(location.lng)
+                }
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+
+                infowindow.setContent([
+                    '<div>',
+                        'Infowindow',
+                    '</div>'
+                ].join('\n'));
+
+                infowindow.open(map, marker);
+            });
+
+            bounds.extend(marker.getPosition());
+                
+            markers.push(marker);
+        });
+
+        mapData.push({
+            instance: map,
+            bounds: bounds
+        });
+
+        map.fitBounds(bounds);
+        map.setCenter(bounds.getCenter());
+    });
+
+    // Refocus map on screen resize
+    $(window).on('resize', app.helpers.debounce(function () {
+        $.each(mapData, function () {
+            this.instance.fitBounds(this.bounds);
+            this.instance.setCenter(this.bounds.getCenter());
+        });
+    }, 250, false));
+}
