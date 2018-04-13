@@ -1,13 +1,13 @@
 %ext-default-nav {
-  ul {
+  .nav__menu {
     @include listreset;
   }
-  a {
+  .nav__link {
     text-decoration: none;
   }
 }
 %ext-horizontal-nav {
-  ul {
+  .nav__menu {
     display: flex;
   }
 }
@@ -21,13 +21,13 @@
     float: right;
     margin-top: $rh-xsm;
     line-height: 1;
-    li {
+    .nav__item {
       padding: 0 $rh-xsm;
-      + li {
+      + .nav__item {
         border-left: 1px solid;
       }
     }
-    a {
+    .nav__link {
       @include link-variant($color-text, $color-primary);
     }
   } // end .--service
@@ -35,10 +35,10 @@
   &--main {
     @extend %ext-default-nav;
     @extend %ext-horizontal-nav;
-    li {
+    .nav__item {
       margin: 0 $rh-sml;
     }
-    a {
+    .nav__link {
       @include link-variant($color-text, $color-primary);
       display: block;
       padding: $rh-xxs 0;
@@ -61,7 +61,7 @@
     font-weight: $font-weight-bold;
     line-height: 1;
     text-transform: uppercase;
-    a {
+    .nav__link {
       @include link-variant($white);
       display: block;
       padding: $rh-xsm;
@@ -88,14 +88,14 @@
       font-weight: $font-weight-light;
       color: $gray-25;
     }
-    ul {
+    .nav__menu {
       float: left;
     }
-    li {
+    .nav__item {
       padding: 0 $rh-xxs;
       font-weight: $font-weight-semi-bold;
     }
-    a {
+    .nav__link {
       @include fsRem(22px);
       @include link-variant($color-primary, darken($color-primary, 10%));
     }
@@ -107,7 +107,7 @@
         padding: 2px 0;
         margin-right: $rh-xsm;
       }
-      a {
+      .nav__link {
         @include link-variant($color-primary, darken($color-primary, 10%));
       }
     }
@@ -116,7 +116,7 @@
   &--doormat {
     @extend %ext-default-nav;
     float: left;
-    a {
+    .nav__link {
       position: relative;
       @include link-variant($white);
       @include fsRem(20px);
@@ -134,7 +134,7 @@
       }
     }
     &-variant {
-      a {
+      .nav__link {
         @include fsRem(16px);
         font-weight: 500;
       }
@@ -147,7 +147,7 @@
     @extend %ext-horizontal-nav;
     line-height: 1;
     display: inline-block;
-    li {
+    .nav__item {
       padding: $rh-xsm;
       @include breakpoint(map-get($breakpoints, xsm), max-width) {
         padding-top: 0;
@@ -159,7 +159,7 @@
         padding-right: 0;
       }
     }
-    a {
+    .nav__link {
       @include link-variant($color-primary);
       display: block;
       &:hover,
