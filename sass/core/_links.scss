@@ -1,14 +1,9 @@
 .link {
   &--ext {
-    position: relative;
     display: inline-block;
-    padding-right: 12px;
     &:after {
+      @extend %ext-icon-style;
       content: '\f111';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      font-family: $font-family-icons;
     }
   }
   &--grayscale {
