@@ -115,29 +115,10 @@
 
   &--doormat {
     @extend %ext-default-nav;
-    float: left;
     .nav__link {
-      position: relative;
-      @include link-variant($white);
-      @include fsRem(20px);
+      @include link-variant($color-text);
       display: block;
-      font-weight: $font-weight-semi-bold;
-      padding: $rh-xxs;
       text-decoration: none;
-      &:focus,
-      &.active {
-        color: $white !important;
-      }
-      &:hover {
-        color: $white !important;
-        text-decoration: underline;
-      }
-    }
-    &-variant {
-      .nav__link {
-        @include fsRem(16px);
-        font-weight: 500;
-      }
     }
   } // end .--doormat
 
