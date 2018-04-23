@@ -5,6 +5,9 @@
 @import 'core/animations';
 @import 'core/mixins';
 
+@import 'utility/flexbox';
+@import 'utility/spacing';
+
 @import 'core/scaffold';
 @import 'core/grid';
 @import 'core/type';
@@ -15,7 +18,6 @@
 @import 'core/fonts';
 @import 'core/forms';
 @import 'core/images';
-@import 'core/flex';
 
 // Components
 @import 'components/main';
