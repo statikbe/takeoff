@@ -178,7 +178,7 @@ module.exports = function (grunt) {
                 destCss: 'sass/core',
                 options: {
                     htmlDemo: false,
-                    relativeFontPath: '/fonts/',
+                    relativeFontPath: '../fonts/',
                     stylesheet: 'scss',
                     template: 'icons/css/custom.css',
                     codepointsFile: 'icons/css/codepoints.json'
@@ -247,11 +247,11 @@ module.exports = function (grunt) {
                 dest: '<%= target %>/img/svg',
                 filter: 'isFile'
             },
-            html: {
-                cwd: 'html',
+            docs: {
+                cwd: 'docs',
                 src: '**/*.*',
                 expand: true,
-                dest: '<%= target %>/static/',
+                dest: '<%= target %>/docs/',
                 filter: 'isFile'
             }
         },
@@ -311,9 +311,9 @@ module.exports = function (grunt) {
                 files: ['img/**/*.{png,jpg,gif,ico,svg}'],
                 tasks: ['img', 'notify:img']
             },
-            html: {
-                files: ['html/**/*.html'],
-                tasks: ['copy:html']
+            docs: {
+                files: ['docs/**/*.html'],
+                tasks: ['copy:docs']
             },
             fonts: {
                 files: ['fonts/**', 'icons/**'],
@@ -327,7 +327,7 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     //  COMBINED TASKS
-    grunt.registerTask('default', ['build', 'copy:html', 'browserSync', 'watch']);
+    grunt.registerTask('default', ['build', 'copy:docs', 'browserSync', 'watch']);
     grunt.registerTask('js', ['eslint', 'babel', 'concat', 'uglify']);
     grunt.registerTask('img', ['clean:img', 'responsive_images', 'imagemin', 'svg2png', 'svgmin', 'copy:images', 'copy:svgs']);
     grunt.registerTask('fonts', ['clean:fonts', 'webfont', 'copy:fonts']);

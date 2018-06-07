@@ -17,10 +17,10 @@
 //
 @font-face {
   font-family: "icons";
-  src: url("/fonts/icons.eot?08ba38cddf646f92170b6f9b07a8cbd8");
-  src: url("/fonts/icons.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/icons.woff?08ba38cddf646f92170b6f9b07a8cbd8") format("woff"),
-		url("/fonts/icons.ttf?08ba38cddf646f92170b6f9b07a8cbd8") format("truetype");
+  src: url("../fonts/icons.eot?495298e62c599669e6ac7aa9a2812cfd");
+  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"),
+		url("../fonts/icons.woff?495298e62c599669e6ac7aa9a2812cfd") format("woff"),
+		url("../fonts/icons.ttf?495298e62c599669e6ac7aa9a2812cfd") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -33,6 +33,11 @@
   &--social {
     @include fsRem(28px);
     line-height: 1;
+  }
+  @each $rh, $px in $rhythm {
+    &--#{$rh} {
+      @include fsRem($px);
+    }
   }
 }
 
@@ -61,20 +66,26 @@
 .icon--youtube:before {
   content:"\f108";
 }
-.icon--add:before {
-  content:"\f109";
-}
 .icon--arrow-back:before {
   content:"\f10a";
 }
 .icon--arrow-forward:before {
   content:"\f10b";
 }
+.icon--calendar:before {
+  content:"\f11a";
+}
 .icon--check:before {
   content:"\f10c";
 }
 .icon--clear:before {
   content:"\f10d";
+}
+.icon--delete:before {
+  content:"\f11b";
+}
+.icon--directions:before {
+  content:"\f11c";
 }
 .icon--download:before {
   content:"\f119";
@@ -94,18 +105,24 @@
 .icon--keyboard-arrow-up:before {
   content:"\f112";
 }
-.icon--location-on:before {
-  content:"\f113";
+.icon--location:before {
+  content:"\f11d";
 }
 .icon--menu:before {
   content:"\f114";
 }
+.icon--minus:before {
+  content:"\f11e";
+}
 .icon--phone:before {
   content:"\f115";
 }
-.icon--play-arrow:before {
-  content:"\f116";
+.icon--play:before {
+  content:"\f11f";
 }
-.icon--remove:before {
-  content:"\f117";
+.icon--plus:before {
+  content:"\f120";
+}
+.icon--search:before {
+  content:"\f121";
 }
