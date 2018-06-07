@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../public/css/main.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <style>
+        .grid--flush {
+            margin: 0;
+        }
+        .grid--flush > .grid__12 {
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 25%;
+            overflow: auto;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        pre {
+            display: block;
+            margin: 0;
+            white-space: pre-wrap;
+        }
+        .hljs {
+            padding: 24px;
+            border: 1px solid #E5E5E5;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    <div class="section section--no-padding section--dark">
+        <div class="section__content">
+            <div class="block block--panel block--primary">
+                <div class="text--right">
+                    Based on <a href="https://github.com/statikbe/takeoff" target="_blank" rel="noopener noreferrer">Takeoff</a>, a frontend framework by <a href="https://www.statik.be/" target="_blank" rel="noopener noreferrer">Statik</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section--no-padding section--overflow">
+        <div class="grid grid--flush">
+            <div class="grid__12 grid--bp-med__3">
+                <div class="block block--panel block--light sidebar">
+                    <h3>
+                        <a href="#section-core">Concepts</a>
+                    </h3>
+                    <ul class="list list--unstyled">
+                        <li>
+                            <a href="#section-bem">BEM</a>
+                        </li>
+                        <li>
+                            <a href="#section-rhythm">Rhythm</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#section-breakpoints">Breakpoints</a>
+                        </li> -->
+                    </ul>
+                    <h3>
+                        <a href="#section-core">Core</a>
+                    </h3>
+                    <ul class="list list--unstyled">
+<!--                         <li>
+                            <a href="#section-animations">Animations</a>
+                        </li> -->
+                        <li>
+                            <a href="#section-buttons">Buttons</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#section-fonts">Fonts</a>
+                        </li> -->
+                        <li>
+                            <a href="#section-forms">Forms</a>
+                        </li>
+                        <li>
+                            <a href="#section-grid">Grid</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#section-helpers">Helpers</a>
+                        </li> -->
+                        <li>
+                            <a href="#section-icons">Icons</a>
+                        </li>
+                        <li>
+                            <a href="#section-images">Images</a>
+                        </li>
+                        <li>
+                            <a href="#section-links">Links</a>
+                        </li>
+                        <li>
+                            <a href="#section-lists">Lists</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#section-mixins">Mixins</a>
+                        </li> -->
+                        <!-- <li>
+                            <a href="#section-normalize">Normalize</a>
+                        </li> -->
+                        <!-- <li>
+                            <a href="#section-print">Print</a>
+                        </li> -->
+                        <!-- <li>
+                            <a href="#section-scaffold">Scaffold</a>
+                        </li> -->
+                        <li>
+                            <a href="#section-tables">Tables</a>
+                        </li>
+                        <li>
+                            <a href="#section-type">Type</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#section-variables">Variables</a>
+                        </li> -->
+                    </ul>
+                    <h3>
+                        <a href="#section-components">Components</a>
+                    </h3>
+                    <ul class="list list--unstyled">
+                        <li>
+                            <a href="#section-block">Block</a>
+                        </li>
+                        <li>
+                            <a href="#section-breadcrumbs">Breadcrumbs</a>
+                        </li>
+                        <li>
+                            <a href="#section-card">Card</a>
+                        </li>
+                        <li>
+                            <a href="#section-hero">Hero</a>
+                        </li>
+                        <li>
+                            <a href="#section-inline">Inline</a>
+                        </li>
+                        <li>
+                            <a href="#section-label">Label</a>
+                        </li>
+                        <li>
+                            <a href="#section-map">Map</a>
+                        </li>
+                        <li>
+                            <a href="#section-meta">Meta</a>
+                        </li>
+                        <li>
+                            <a href="#section-nav">Nav</a>
+                        </li>
+                        <li>
+                            <a href="#section-pagination">Pagination</a>
+                        </li>
+                        <li>
+                            <a href="#section-section">Section</a>
+                        </li>
+                        <li>
+                            <a href="#section-spacer">Spacer</a>
+                        </li>
+                        <li>
+                            <a href="#section-tabs">Tabs</a>
+                        </li>
+                    </ul>
+<!--                     <h3>
+                        <a href="#section-utility">Utility</a>
+                    </h3>
+                    <ul class="list list--unstyled">
+                        <li>
+                            <a href="#section-flexbox">Flexbox</a>
+                        </li>
+                        <li>
+                            <a href="#section-spacing">Spacing</a>
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
+            <div class="grid__12 grid--bp-med__9">
+                <div class="section section--dark">
+                    <div class="container">
+                        <div class="section__content text--center">
+                            <h2>Concepts</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-bem">
+                    <div class="container">
+                        <h2>BEM</h2>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <p>Takeoff uses a component-based CSS class system called BEM (Block, Element, Modifier).</p>
+                            <p>As an example, let's take a look at this commonly used <a href="#section-card">card</a> component:</p>
+                            <div id="code-bem-1" style="display: none;">
+                                <a href="" class="card card--link">
+                                    <h3 class="card__title">Card title</h3>
+                                    <p class="card__text">Lorem ipsum dolor sit amet, consectetur.</p>
+                                </a>
+                            </div>
+                            <pre><code class="js-code-block" data-source="#code-bem-1"></code></pre>
+                            <h3>Block</h3>
+                            <p>A block is a standalone entity that is meaningful on its own.</p>
+                            <p>In the card example, <code>card</code> is a block class.</p>
+                            <h3>Element</h3>
+                            <p>An element is a part of a block, that has no meaning outside of the block context.</p>
+                            <p>In the card example, <code>card__title</code> and <code>card__text</code> are element classes.</p>
+                            <h3>Modifier</h3>
+                            <p>A modifier class changes the appearance of the default block.</p>
+                            <p>In the card example, <code>card--link</code> is a modifier class.</p>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>More information and examples</h3>
+                            <ul class="list list--unordered">
+                                <li>
+                                    <a href="http://getbem.com/naming/">http://getbem.com/naming/</a>
+                                </li>
+                                <li>
+                                    <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax//</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-rhythm">
+                    <div class="container">
+                        <h2>Rhythm</h2>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <p>To give the web application a clean and uniform look, we use predefined rhythm variables. They are based off the line-height of the body text (which is usually 24px). Throughout our components, these variables are commonly used for setting margins and padding. There are a total of 6 rhythm variables:</p>
+                            <div class="flex flex-justify-between">
+                                <div><strong>xxs</strong> (6px)</div>
+                                <div><strong>xsm</strong> (12px)</div>
+                                <div><strong>sml</strong> (24px)</div>
+                                <div><strong>med</strong> (36px)</div>
+                                <div><strong>lrg</strong> (48px)</div>
+                                <div><strong>xlr</strong> (60px)</div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <p>See also: <a href="#section-spacing">Spacing</a></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="section section--light text--center" id="section-breakpoints">
+                    <div class="container">
+                        <h2>Breakpoints</h2>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <p></p>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="section section--dark">
+                    <div class="container">
+                        <div class="section__content text--center">
+                            <h2>Core</h2>
+                            <code>takeoff/sass/core/_*.scss</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-buttons">
+                    <div class="container">
+                        <h2>Buttons</h2>
+                        <code>takeoff/sass/core/_buttons.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__4">
+                                    <div id="code-buttons-1">
+                                        <a href="" class="btn">Default button</a>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-buttons-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer spacer--xlr">
+                            <div class="grid">
+                                <div class="grid__4">
+                                    <div id="code-buttons-2">
+                                        <button class="btn btn--ghost">Ghost button</button>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-buttons-2"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer spacer--xlr">
+                            <div class="grid">
+                                <div class="grid__4">
+                                    <div id="code-buttons-3">
+                                        <a href="" class="btn btn--ext">Extended button</a>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-buttons-3"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-forms">
+                    <div class="container">
+                        <h2>Forms</h2>
+                        <code>takeoff/sass/core/_forms.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <h3>Basic form</h3>
+                            <div class="grid">
+                                <div class="grid__4" id="code-forms-1">
+                                    <form action="" class="form">
+                                        <div class="form__item">
+                                            <label for="" class="form__label">Text input</label>
+                                            <input type="text" class="form__text">
+                                            <div class="form__errors-list">This field is required</div>
+                                        </div>
+                                        <div class="form__item">
+                                            <label class="form__label">Select</label>
+                                            <select class="form__select">
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                            <div class="form__help">Select an item from the list</div>
+                                        </div>
+                                        <div class="form__item form__item--checkboxes">
+                                            <div class="form__item form__item--checkbox">
+                                                <input type="checkbox" class="form__checkbox">
+                                                <label for="" class="form__label">Checkbox 1</label>
+                                            </div>
+                                            <div class="form__item form__item--checkbox">
+                                                <input type="checkbox" class="form__checkbox">
+                                                <label for="" class="form__label">Checkbox 2</label>
+                                            </div>
+                                        </div>
+                                        <div class="form__item form__item--radios">
+                                            <div class="form__item form__item--radio">
+                                                <input type="radio" class="form__radio">
+                                                <label for="" class="form__label">Radio 1</label>
+                                            </div>
+                                            <div class="form__item form__item--radio">
+                                                <input type="radio" class="form__radio">
+                                                <label for="" class="form__label">Radio 2</label>
+                                            </div>
+                                        </div>
+                                        <div class="form__item">
+                                            <label for="" class="form__label">Textarea</label>
+                                            <textarea class="form__textarea"></textarea>
+                                        </div>
+                                        <div class="form__actions">
+                                            <button type="submit" class="btn form__btn">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-forms-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Inline form</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-forms-2"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-forms-2">
+                                <form action="" class="form form--inline">
+                                    <div class="form__item">
+                                        <label for="" class="form__label">Input</label>
+                                        <input type="text" class="form__text" placeholder="Search">
+                                    </div>
+                                    <div class="form__actions">
+                                        <button class="btn form__btn">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-grid">
+                    <div class="container">
+                        <h2>Grid</h2>
+                        <code>takeoff/sass/core/_grid.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <h3>Repeating grid</h3>
+                            <p>In a repeating grid, every grid item has the same width. The <strong>parent element class</strong> decides the layout:</p>
+                            <p>
+                                <code>grid--[bp-&lt;breakpoint&gt;-]&lt;n&gt;-col</code>
+                            </p>
+                            <p>
+                                <code>&lt;breakpoint&gt;</code> refers to the minimum viewport width for this class to apply. See <a href="#section-breakpoints">breakpoints</a>.<br>
+                                <code>&lt;n&gt;</code> refers to the number of colums.
+                            </p>
+                            <p>Child elements <strong>must always</strong> have the <code>grid__item</code> class, and preferably no other classes.</p>
+                            <p>Let's create a repeating grid that starts out as a single column, and scales up to 3 columns on larger screens. Try resizing your screen to see the result!</p>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-grid-1"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-grid-1">
+                                <div class="grid grid--bp-med-2-col grid--bp-lrg-3-col">
+                                    <div class="grid__item">One</div>
+                                    <div class="grid__item">Two</div>
+                                    <div class="grid__item">Three</div>
+                                    <div class="grid__item">Four</div>
+                                    <div class="grid__item">Five</div>
+                                    <div class="grid__item">Six</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Custom grid</h3>
+                            <p>In a custom grid, grid items can have different widths. This is mostly used for creating layouts. The <strong>child element class</strong> decides the layout:</p>
+                            <p>
+                                <code>grid[--bp-&lt;breakpoint&gt;]__&lt;n&gt;</code>
+                            </p>
+                            <p>
+                                <code>&lt;breakpoint&gt;</code> refers to the minimum viewport width for this class to apply. See <a href="#section-breakpoints">breakpoints</a>.<br>
+                                <code>&lt;n&gt;</code> refers to the number of colums this child spans. We use a 12 column grid system.
+                            </p>
+                            <p>Parent elements <strong>must always</strong> have the <code>grid</code> class, and preferably no other classes.</p>
+                            <p>Let's create a basic responsive layout that starts out with full width children and scales up to a 25% / 75% layout on larger screens.</p>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-grid-2"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-grid-2">
+                                <div class="grid">
+                                    <div class="grid__12 grid--bp-med__3">One</div>
+                                    <div class="grid__12 grid--bp-med__9">Two</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-icons">
+                    <div class="container">
+                        <h2>Icons</h2>
+                        <code>takeoff/sass/core/_icons.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <p>By default, these icons are available:</p>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-icons-1">
+                                    <span class="icon icon--envelope"></span>
+                                    <span class="icon icon--facebook"></span>
+                                    <span class="icon icon--google-plus"></span>
+                                    <span class="icon icon--instagram"></span>
+                                    <span class="icon icon--linkedin"></span>
+                                    <span class="icon icon--pinterest"></span>
+                                    <span class="icon icon--twitter"></span>
+                                    <span class="icon icon--youtube"></span>
+                                    <span class="icon icon--arrow-back"></span>
+                                    <span class="icon icon--arrow-forward"></span>
+                                    <span class="icon icon--calendar"></span>
+                                    <span class="icon icon--check"></span>
+                                    <span class="icon icon--clear"></span>
+                                    <span class="icon icon--delete"></span>
+                                    <span class="icon icon--directions"></span>
+                                    <span class="icon icon--download"></span>
+                                    <span class="icon icon--home"></span>
+                                    <span class="icon icon--keyboard-arrow-down"></span>
+                                    <span class="icon icon--keyboard-arrow-left"></span>
+                                    <span class="icon icon--keyboard-arrow-right"></span>
+                                    <span class="icon icon--keyboard-arrow-up"></span>
+                                    <span class="icon icon--location"></span>
+                                    <span class="icon icon--menu"></span>
+                                    <span class="icon icon--minus"></span>
+                                    <span class="icon icon--phone"></span>
+                                    <span class="icon icon--play"></span>
+                                    <span class="icon icon--plus"></span>
+                                    <span class="icon icon--search"></span>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-icons-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-images">
+                    <div class="container">
+                        <h2>Images</h2>
+                        <code>takeoff/sass/core/_images.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <p>By default, every image will be responsive (never exceeding parent width).</p>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Responsive image</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-images-1"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-images-1">
+                                <img src="http://via.placeholder.com/800x300?text=image--responsive" alt="" class="image image--responsive">
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Full width image</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-images-2"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-images-2">
+                                <img src="http://via.placeholder.com/800x300?text=image--full-width" alt="" class="image image--full-width">
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Left floated image</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-images-3"></code></pre>
+                            </div>
+                            <div class="spacer--sml">
+                                <div id="code-images-3">
+                                    <img src="http://via.placeholder.com/200x200?text=image--left" alt="" class="image image--left">
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio cumque aliquam explicabo corrupti beatae labore sed, adipisci dolor ducimus exercitationem harum saepe, alias, temporibus ea nam dolorem reprehenderit recusandae at facilis. Perferendis dolores libero sit earum architecto dicta, sint rem, eius id enim nobis eligendi ex quibusdam voluptas consequatur sunt.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur sit enim, dicta odit itaque officiis a dolores consequuntur, molestiae inventore asperiores quidem nemo voluptatum aperiam ipsam eaque! Dolore aspernatur quaerat, alias excepturi odio quibusdam perspiciatis, in voluptas sequi. Voluptate animi recusandae eos. Itaque, ex, aliquam.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quasi, vel incidunt enim, eligendi repudiandae cumque repellat aut architecto aspernatur, dolorem inventore eveniet laudantium quidem, itaque possimus! Adipisci necessitatibus eveniet inventore sed ratione sint, nulla accusantium deserunt! Adipisci, quis! Ipsum dolorum fugit commodi iste beatae, atque. Eius cupiditate totam quisquam amet. Id vero, quibusdam, inventore ratione sint culpa nostrum nulla.</p>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Right floated image</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-images-4"></code></pre>
+                            </div>
+                            <div class="spacer--sml">
+                                <div id="code-images-4">
+                                    <img src="http://via.placeholder.com/200x200?text=image--right" alt="" class="image image--right">
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio cumque aliquam explicabo corrupti beatae labore sed, adipisci dolor ducimus exercitationem harum saepe, alias, temporibus ea nam dolorem reprehenderit recusandae at facilis. Perferendis dolores libero sit earum architecto dicta, sint rem, eius id enim nobis eligendi ex quibusdam voluptas consequatur sunt.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur sit enim, dicta odit itaque officiis a dolores consequuntur, molestiae inventore asperiores quidem nemo voluptatum aperiam ipsam eaque! Dolore aspernatur quaerat, alias excepturi odio quibusdam perspiciatis, in voluptas sequi. Voluptate animi recusandae eos. Itaque, ex, aliquam.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum quasi, vel incidunt enim, eligendi repudiandae cumque repellat aut architecto aspernatur, dolorem inventore eveniet laudantium quidem, itaque possimus! Adipisci necessitatibus eveniet inventore sed ratione sint, nulla accusantium deserunt! Adipisci, quis! Ipsum dolorum fugit commodi iste beatae, atque. Eius cupiditate totam quisquam amet. Id vero, quibusdam, inventore ratione sint culpa nostrum nulla.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-links">
+                    <div class="container">
+                        <h2>Links</h2>
+                        <code>takeoff/sass/core/_links.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__4" id="code-links-1">
+                                    <a href="" class="link link--ext">Extended link</a>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-links-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-lists">
+                    <div class="container">
+                        <h2>Lists</h2>
+                        <code>takeoff/sass/core/_lists.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__4" id="code-lists-1">
+                                    <ul class="list list--reset">
+                                        <li>One</li>
+                                        <li>Two</li>
+                                        <li>Three</li>
+                                    </ul>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-lists-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--med">
+                            <div class="grid">
+                                <div class="grid__4" id="code-lists-2">
+                                    <ul class="list list--unstyled">
+                                        <li>One</li>
+                                        <li>Two</li>
+                                        <li>Three</li>
+                                    </ul>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-lists-2"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__4" id="code-lists-3">
+                                    <ul class="list list--unordered">
+                                        <li>One</li>
+                                        <li>Two</li>
+                                        <li>Three</li>
+                                    </ul>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-lists-3"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__4" id="code-lists-4">
+                                    <ol class="list list--ordered">
+                                        <li>One</li>
+                                        <li>Two</li>
+                                        <li>Three</li>
+                                    </ol>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-lists-4"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-tables">
+                    <div class="container">
+                        <h2>Tables</h2>
+                        <code>takeoff/sass/core/_tables.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-tables-1">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>One</th>
+                                                <th>Two</th>
+                                                <th>Three</th>
+                                                <th>Four</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-tables-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-tables-2">
+                                    <table class="table table--striped">
+                                        <tbody>
+                                            <tr>
+                                                <th>One</th>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Two</th>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Three</th>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Four</th>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Five</th>
+                                                <td>.</td>
+                                                <td>.</td>
+                                                <td>.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-tables-2"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-type">
+                    <div class="container">
+                        <h2>Type</h2>
+                        <code>takeoff/sass/core/_type.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <h3>Heading styles</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-type-1"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-type-1">
+                                <h1>Heading 1</h1>
+                                <h2>Heading 2</h2>
+                                <h2 class="heading--alt">Heading 2 - alt</h2>
+                                <h3>Heading 3</h3>
+                                <h4>Heading 4</h4>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Text styles</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-type-2"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-type-2">
+                                <p class="text text--lead">Lead text - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, laborum!</p>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-type-3"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-type-3">
+                                <p class="text text--info">Info text - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis.</p>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-type-4"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-type-4">
+                                <p class="text text--left">Left aligned text</p>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-type-5"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-type-5">
+                                <p class="text text--right">Right aligned text</p>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-type-6"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-type-6">
+                                <p class="text text--center">Centered text</p>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-type-7"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-type-7">
+                                <p class="text text--lowercase">Lowercase text</p>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-type-8"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-type-8">
+                                <p class="text text--uppercase">Uppercase text</p>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-type-9"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-type-9">
+                                <p class="text text--capitalize">Capitalized text</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--dark">
+                    <div class="container">
+                        <div class="section__content text--center">
+                            <h2>Components</h2>
+                            <code>takeoff/sass/components/_*.scss</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-block">
+                    <div class="container">
+                        <h2>Block</h2>
+                        <code>takeoff/sass/components/_block.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <p>Consecutive elements with the <code>block</code> class automatically get some margin in between.</p>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-block-1">
+                                    <div class="block">Block 1</div>
+                                    <div class="block">Block 2</div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-block-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-block-2">
+                                    <div class="block block--panel">
+                                        Block panel (adds padding)
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-block-2"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-block-3">
+                                    <div class="block block--panel block--light">
+                                        Block light
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-block-3"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-block-4">
+                                    <div class="block block--panel block--primary">
+                                        Block primary
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-block-4"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-breadcrumbs">
+                    <div class="container">
+                        <h2>Breadcrumbs</h2>
+                        <code>takeoff/sass/components/_breadcrumbs.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-breadcrumbs-1"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-breadcrumbs-1">
+                                <div class="breadcrumb">
+                                    <span class="breadcrumb__scope">
+                                        <a href="" class="breadcrumb__item">Home</a>
+                                    </span>
+                                    <span class="breadcrumb__scope">
+                                        <a href="" class="breadcrumb__item">Page</a>
+                                    </span>
+                                    <span class="breadcrumb__scope">
+                                        <a href="" class="breadcrumb__item breadcrumb__item--active">Page</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-card">
+                    <div class="container">
+                        <h2>Card</h2>
+                        <code>takeoff/sass/components/_card.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--med">
+                            <div class="grid">
+                                <div class="grid__4" id="code-card-1">
+                                    <div class="card">
+                                        <div class="card__img">
+                                            <img src="http://via.placeholder.com/800x600?text=image" alt="">
+                                        </div>
+                                        <div class="card__main">
+                                            <h3 class="card__title">Card title</h3>
+                                            <p class="card__text">Card text - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-card-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__4" id="code-card-2">
+                                    <div class="card">
+                                        <div class="card__aside">
+                                            <div class="card__img">
+                                                <img src="http://via.placeholder.com/180x180?text=image" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="card__main">
+                                            <h3 class="card__title">Card title</h3>
+                                            <p class="card__text">Card text - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-card-2"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-hero">
+                    <div class="container">
+                        <h2>Hero</h2>
+                        <code>takeoff/sass/components/_hero.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <h3>Default hero</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-hero-1"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-hero-1">
+                                <div class="hero" style="background-image: url('https://picsum.photos/1200/400/?random');">
+                                    <div class="container">
+                                        <h1 class="hero__title">Hero title</h1>
+                                        <p class="hero__body">Hero text - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        <div class="hero__cta">
+                                            <a href="" class="btn btn--ext">Call to action</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Light hero</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-hero-2"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-hero-2">
+                                <div class="hero hero--light" style="background-image: url('https://picsum.photos/1200/400/?random');">
+                                    <div class="container">
+                                        <h1 class="hero__title">Hero title</h1>
+                                        <p class="hero__body">Hero text - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        <div class="hero__cta">
+                                            <a href="" class="btn btn--ext">Call to action</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-inline">
+                    <div class="container">
+                        <h2>Inline</h2>
+                        <code>takeoff/sass/components/_inline.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-inline-1">
+                                    <div class="inline">
+                                        <div class="inline__item">Uno</div>
+                                        <div class="inline__item">Dos</div>
+                                        <div class="inline__item">Tres</div>
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-inline-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-inline-2">
+                                    <div class="inline inline--spaced">
+                                        <div class="inline__item">Uno</div>
+                                        <div class="inline__item">Dos</div>
+                                        <div class="inline__item">Tres</div>
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-inline-2"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-label">
+                    <div class="container">
+                        <h2>Label</h2>
+                        <code>takeoff/sass/components/_label.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6">
+                                    <div id="code-label-1">
+                                        <span class="label">Label</span>
+                                        <span class="label label--grayed-out">Label</span>
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-label-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Notice labels</h3>
+                            <div class="grid">
+                                <div class="grid__6">
+                                    <div id="code-label-2">
+                                        <span class="label label--success">Success label</span>
+                                        <span class="label label--info">Info label</span>
+                                        <span class="label label--warning">Warning label</span>
+                                        <span class="label label--danger">Danger label</span>
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-label-2"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-map">
+                    <div class="container">
+                        <h2>Map</h2>
+                        <code>takeoff/sass/components/_map.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <h3>Default map (16/9 ratio)</h3>
+                            <div class="grid">
+                                <div class="grid__4" id="code-map-1">
+                                    <div class="map">
+                                        <iframe class="map__canvas" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD4iE2xVSpkLLOXoyqT-RuPwURN3ddScAI&q=Space+Needle,Seattle+WA" frameborder="0"></iframe>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-map-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Wide map (10/3 ratio)</h3>
+                            <div class="grid">
+                                <div class="grid__4" id="code-map-2">
+                                    <div class="map map--wide">
+                                        <iframe class="map__canvas" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD4iE2xVSpkLLOXoyqT-RuPwURN3ddScAI&q=Space+Needle,Seattle+WA" frameborder="0"></iframe>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-map-2"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Square map (1/1 ratio)</h3>
+                            <div class="grid">
+                                <div class="grid__4" id="code-map-3">
+                                    <div class="map map--square">
+                                        <iframe class="map__canvas" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD4iE2xVSpkLLOXoyqT-RuPwURN3ddScAI&q=Space+Needle,Seattle+WA" frameborder="0"></iframe>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="js-code-block" data-source="#code-map-3"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-meta">
+                    <div class="container">
+                        <h2>Meta</h2>
+                        <code>takeoff/sass/components/_meta.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-meta-1">
+                                    <div class="meta">
+                                        <span class="meta__item">1:00 PM</span>
+                                        <span class="meta__item">6th June</span>
+                                        <span class="meta__item">Leuven</span>
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-meta-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-nav">
+                    <div class="container">
+                        <h2>Nav</h2>
+                        <code>takeoff/sass/components/_nav.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <h3>Main navigation</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-nav-1"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-nav-1">
+                                <nav class="nav nav--main">
+                                    <ul class="nav__menu">
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">Home</a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">About</a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Service navigation</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-nav-2"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-nav-2">
+                                <div class="nav nav--service">
+                                    <ul class="nav__menu">
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">Home</a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">About</a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Language navigation</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-nav-3"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-nav-3">
+                                <div class="nav nav--language">
+                                    <ul class="nav__menu">
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">EN</a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">FR</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Doormat navigation</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-nav-4"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-nav-4">
+                                <div class="nav nav--doormat">
+                                    <ul class="nav__menu">
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">Home</a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">About</a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>Social navigation</h3>
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-nav-5"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-nav-5">
+                                <div class="nav nav--social">
+                                    <ul class="nav__menu">
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">
+                                                <span class="icon icon--facebook"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">
+                                                <span class="icon icon--twitter"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="" class="nav__link">
+                                                <span class="icon icon--linkedin"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-pagination">
+                    <div class="container">
+                        <h2>Pagination</h2>
+                        <code>takeoff/sass/components/_pagination.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="spacer--sml">
+                                <pre><code class="js-code-block" data-source="#code-pagination-1"></code></pre>
+                            </div>
+                            <div class="spacer--sml" id="code-pagination-1">
+                                <ul class="pagination">
+                                    <li class="pagination__item">
+                                        <a href="" class="pagination__link pagination__prev">Previous</a>
+                                    </li>
+                                    <li class="pagination__item">
+                                        <a href="" class="pagination__btn">1</a>
+                                    </li>
+                                    <li class="pagination__item">
+                                        <a href="" class="pagination__btn">2</a>
+                                    </li>
+                                    <li class="pagination__item">
+                                        <a href="" class="pagination__btn">3</a>
+                                    </li>
+                                    <li class="pagination__item">
+                                        <a href="" class="pagination__link pagination__next">Next</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-section">
+                    <div class="container">
+                        <h2>Section</h2>
+                        <code>takeoff/sass/components/_section.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <pre><code class="js-code-block" data-source="#code-section-1"></code></pre>
+                    </div>
+                </div>
+                <div id="code-section-1">
+                    <div class="section section--default">
+                        <div class="container">
+                            Default section
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--border">
+                    <div class="container">
+                        <pre><code class="js-code-block" data-source="#code-section-2"></code></pre>
+                    </div>
+                </div>
+                <div id="code-section-2">
+                    <div class="section section--border">
+                        <div class="container">
+                            Border section
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light">
+                    <div class="container">
+                        <pre><code class="js-code-block" data-source="#code-section-3"></code></pre>
+                    </div>
+                </div>
+                <div id="code-section-3">
+                    <div class="section section--light">
+                        <div class="container">
+                            Light section
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--dark">
+                    <div class="container">
+                        <pre><code class="js-code-block" data-source="#code-section-4"></code></pre>
+                    </div>
+                </div>
+                <div id="code-section-4">
+                    <div class="section section--dark">
+                        <div class="container">
+                            <div class="section__content">
+                                Dark section
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--bg">
+                    <div class="container">
+                        <pre><code class="js-code-block" data-source="#code-section-5"></code></pre>
+                    </div>
+                </div>
+                <div id="code-section-5">
+                    <div class="section section--bg">
+                        <div class="container">
+                            <div class="section__content">
+                                Background section
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <pre><code class="js-code-block" data-source="#code-section-6"></code></pre>
+                    </div>
+                </div>
+                <div id="code-section-6">
+                    <div class="section section--no-padding">
+                        <div class="container">
+                            Section without padding
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-spacer">
+                    <div class="container">
+                        <h2>Spacer</h2>
+                        <code>takeoff/sass/components/_spacer.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <p>Spacers are used to provide some vertical margin between consecutive elements.</p>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-spacer-1">
+                                    <div class="spacer spacer--xxs">Spacer xxs</div>
+                                    <div class="spacer spacer--xsm">Spacer xsm</div>
+                                    <div class="spacer spacer--sml">Spacer sml</div>
+                                    <div class="spacer spacer--med">Spacer med</div>
+                                    <div class="spacer spacer--lrg">Spacer lrg</div>
+                                    <div class="spacer spacer--xlr">Spacer xlr</div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-spacer-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="section section--dark">
+                    <div class="container">
+                        <div class="section__content text--center">
+                            <h2>Utility</h2>
+                            <code>takeoff/sass/utility/_*.scss</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-flexbox">
+                    <div class="container">
+                        <h2>Flexbox</h2>
+                        <code>takeoff/sass/utility/_flexbox.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-flexbox-1">
+                                    
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-flexbox-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-spacing">
+                    <div class="container">
+                        <h2>Spacing</h2>
+                        <code>takeoff/sass/utility/_spacing.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-spacing-1">
+                                    <div class="mt-xxs"></div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-spacing-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        $(function () {
+
+            $('.js-code-block').each(function () {
+
+                var $this = $(this);
+                var $source = $($(this).attr('data-source'));
+                var sourceCodeLines = $source.html().trim().split('\n');
+                var lastSourceCodeLine = sourceCodeLines[sourceCodeLines.length - 1];
+                var sourceCodeWhitespace = lastSourceCodeLine.slice(0, lastSourceCodeLine.search(/\S/));
+
+                $.each(sourceCodeLines, function (i, line) {
+                    sourceCodeLines[i] = line.replace(sourceCodeWhitespace, '');
+                });
+
+                $this.text(sourceCodeLines.join('\n'));
+            });
+
+            $('pre code').each(function (i, b) {
+                hljs.highlightBlock(b);
+            });
+        });
+    </script>
+</body>
+</html>

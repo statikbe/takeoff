@@ -96,7 +96,7 @@ form {
   position: relative;
   margin-bottom: $input-item-margin;
   // Styling for single checkbox
-&--checkbox {
+  &--checkbox {
     @include cf;
     input {
       position: absolute;
