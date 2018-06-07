@@ -12,7 +12,6 @@
             padding: 0;
             margin: 0;
         }
-
         .sidebar {
             position: fixed;
             top: 0;
@@ -48,6 +47,20 @@
         <div class="grid grid--flush">
             <div class="grid__12 grid--bp-med__3">
                 <div class="block block--panel block--light sidebar">
+                    <h3>
+                        <a href="#section-core">Concepts</a>
+                    </h3>
+                    <ul class="list list--unstyled">
+                        <li>
+                            <a href="#section-bem">BEM</a>
+                        </li>
+                        <li>
+                            <a href="#section-rhythm">Rhythm</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#section-breakpoints">Breakpoints</a>
+                        </li> -->
+                    </ul>
                     <h3>
                         <a href="#section-core">Core</a>
                     </h3>
@@ -114,29 +127,8 @@
                         <li>
                             <a href="#section-breadcrumbs">Breadcrumbs</a>
                         </li>
-                        <!-- <li>
-                            <a href="#section-button-group">Button group</a>
-                        </li> -->
                         <li>
-                            <a href="#section-carousel">Carousel</a>
-                        </li>
-                        <!-- <li>
-                            <a href="#section-download">Download</a>
-                        </li> -->
-                        <!-- <li>
-                            <a href="#section-dropdown">Dropdown</a>
-                        </li> -->
-                        <!-- <li>
-                            <a href="#section-flyout">Flyout</a>
-                        </li> -->
-                        <li>
-                            <a href="#section-footer">Footer</a>
-                        </li>
-                        <li>
-                            <a href="#section-gallery">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="#section-header">Header</a>
+                            <a href="#section-card">Card</a>
                         </li>
                         <li>
                             <a href="#section-hero">Hero</a>
@@ -148,9 +140,6 @@
                             <a href="#section-label">Label</a>
                         </li>
                         <li>
-                            <a href="#section-main">Main</a>
-                        </li>
-                        <li>
                             <a href="#section-map">Map</a>
                         </li>
                         <li>
@@ -158,9 +147,6 @@
                         </li>
                         <li>
                             <a href="#section-nav">Nav</a>
-                        </li>
-                        <li>
-                            <a href="#section-navbar">Navbar</a>
                         </li>
                         <li>
                             <a href="#section-pagination">Pagination</a>
@@ -175,7 +161,7 @@
                             <a href="#section-tabs">Tabs</a>
                         </li>
                     </ul>
-                    <h3>
+<!--                     <h3>
                         <a href="#section-utility">Utility</a>
                     </h3>
                     <ul class="list list--unstyled">
@@ -185,10 +171,92 @@
                         <li>
                             <a href="#section-spacing">Spacing</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
             <div class="grid__12 grid--bp-med__9">
+                <div class="section section--dark">
+                    <div class="container">
+                        <div class="section__content text--center">
+                            <h2>Concepts</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-bem">
+                    <div class="container">
+                        <h2>BEM</h2>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <p>Takeoff uses a component-based CSS class system called BEM (Block, Element, Modifier).</p>
+                            <p>As an example, let's take a look at this commonly used <a href="#section-card">card</a> component:</p>
+                            <div id="code-bem-1" style="display: none;">
+                                <a href="" class="card card--link">
+                                    <h3 class="card__title">Card title</h3>
+                                    <p class="card__text">Lorem ipsum dolor sit amet, consectetur.</p>
+                                </a>
+                            </div>
+                            <pre><code class="js-code-block" data-source="#code-bem-1"></code></pre>
+                            <h3>Block</h3>
+                            <p>A block is a standalone entity that is meaningful on its own.</p>
+                            <p>In the card example, <code>card</code> is a block class.</p>
+                            <h3>Element</h3>
+                            <p>An element is a part of a block, that has no meaning outside of the block context.</p>
+                            <p>In the card example, <code>card__title</code> and <code>card__text</code> are element classes.</p>
+                            <h3>Modifier</h3>
+                            <p>A modifier class changes the appearance of the default block.</p>
+                            <p>In the card example, <code>card--link</code> is a modifier class.</p>
+                        </div>
+                        <div class="spacer--lrg">
+                            <h3>More information and examples</h3>
+                            <ul class="list list--unordered">
+                                <li>
+                                    <a href="http://getbem.com/naming/">http://getbem.com/naming/</a>
+                                </li>
+                                <li>
+                                    <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax//</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-rhythm">
+                    <div class="container">
+                        <h2>Rhythm</h2>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <p>To give the web application a clean and uniform look, we use predefined rhythm variables. They are based off the line-height of the body text (which is usually 24px). Throughout our components, these variables are commonly used for setting margins and padding. There are a total of 6 rhythm variables:</p>
+                            <div class="flex flex-justify-between">
+                                <div><strong>xxs</strong> (6px)</div>
+                                <div><strong>xsm</strong> (12px)</div>
+                                <div><strong>sml</strong> (24px)</div>
+                                <div><strong>med</strong> (36px)</div>
+                                <div><strong>lrg</strong> (48px)</div>
+                                <div><strong>xlr</strong> (60px)</div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <p>See also: <a href="#section-spacing">Spacing</a></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="section section--light text--center" id="section-breakpoints">
+                    <div class="container">
+                        <h2>Breakpoints</h2>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <p></p>
+                        </div>
+                    </div>
+                </div> -->
                 <div class="section section--dark">
                     <div class="container">
                         <div class="section__content text--center">
@@ -785,7 +853,7 @@
                 <div class="section section--default">
                     <div class="container">
                         <div class="spacer--lrg">
-                            <p>Consecutive blocks automatically get some margin in between.</p>
+                            <p>Consecutive elements with the <code>block</code> class automatically get some margin in between.</p>
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
@@ -912,85 +980,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="section section--light text--center" id="section-download">
-                    <div class="container">
-                        <h2>Download</h2>
-                        <code>takeoff/sass/components/_download.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--med">
-                            <a href="" class="download">Download <span class="download__meta">(45kb)</span></a>
-                            <a href="" class="download">Download <span class="download__meta">(45kb)</span></a>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="section section--light text--center" id="section-dropdown">
-                    <div class="container">
-                        <h2>Dropdown</h2>
-                        <code>takeoff/sass/components/_dropdown.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--med">
-                            
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="section section--light text--center" id="section-flyout">
-                    <div class="container">
-                        <h2>Flyout</h2>
-                        <code>takeoff/sass/components/_flyout.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--med">
-                            
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="section section--light text--center" id="section-footer">
-                    <div class="container">
-                        <h2>Footer</h2>
-                        <code>takeoff/sass/components/_footer.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--med">
-                            
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="section section--light text--center" id="section-gallery">
-                    <div class="container">
-                        <h2>Gallery</h2>
-                        <code>takeoff/sass/components/_gallery.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--med">
-                            
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="section section--light text--center" id="section-header">
-                    <div class="container">
-                        <h2>Header</h2>
-                        <code>takeoff/sass/components/_header.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--med">
-                            
-                        </div>
-                    </div>
-                </div> -->
                 <div class="section section--light text--center" id="section-hero">
                     <div class="container">
                         <h2>Hero</h2>
@@ -1112,19 +1101,6 @@
                         </div>
                     </div>
                 </div>
-<!--                 <div class="section section--light text--center" id="section-main">
-                    <div class="container">
-                        <h2>Main</h2>
-                        <code>takeoff/sass/components/_main.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--lrg">
-                            
-                        </div>
-                    </div>
-                </div> -->
                 <div class="section section--light text--center" id="section-map">
                     <div class="container">
                         <h2>Map</h2>
@@ -1316,19 +1292,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="section section--light text--center" id="section-navbar">
-                    <div class="container">
-                        <h2>Navbar</h2>
-                        <code>takeoff/sass/components/_navbar.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--lrg">
-                            
-                        </div>
-                    </div>
-                </div>
                 <div class="section section--light text--center" id="section-pagination">
                     <div class="container">
                         <h2>Pagination</h2>
@@ -1471,19 +1434,54 @@
                         </div>
                     </div>
                 </div>
-                <div class="section section--light text--center" id="section-tabs">
+                <!-- <div class="section section--dark">
                     <div class="container">
-                        <h2>Tabs</h2>
-                        <code>takeoff/sass/components/_tabs.scss</code>
+                        <div class="section__content text--center">
+                            <h2>Utility</h2>
+                            <code>takeoff/sass/utility/_*.scss</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-flexbox">
+                    <div class="container">
+                        <h2>Flexbox</h2>
+                        <code>takeoff/sass/utility/_flexbox.scss</code>
                     </div>
                 </div>
                 <div class="section section--default">
                     <div class="container">
                         <div class="spacer--lrg">
-                            
+                            <div class="grid">
+                                <div class="grid__6" id="code-flexbox-1">
+                                    
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-flexbox-1"></code></pre>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="section section--light text--center" id="section-spacing">
+                    <div class="container">
+                        <h2>Spacing</h2>
+                        <code>takeoff/sass/utility/_spacing.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6" id="code-spacing-1">
+                                    <div class="mt-xxs"></div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="js-code-block" data-source="#code-spacing-1"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>
