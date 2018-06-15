@@ -1,35 +1,15 @@
-%ext-section-dark {
-  .section__content {
-    color: $white;
-    #{$headings} {
-      color: $white;
-    }
-    a {
-      @include link-variant($white, $gray-25);
-    }
-    .list--unordered,
-    .list--ordered {
-      li {
-        &:before {
-          color: inherit;
-        }
-      }
-    }
-  }
-}
-
 .section {
   padding: $rh-med 0;
 
   &--bg {
-    @extend %ext-section-dark;
+    @extend %ext-context-dark;
     background: $color-primary;
   }
   &--light {
     background: $gray-0;
   }
   &--dark {
-    @extend %ext-section-dark;
+    @extend %ext-context-dark;
     background: $gray-100;
   }
   &--border {
