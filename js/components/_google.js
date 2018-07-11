@@ -7,7 +7,7 @@ app.google = (function googleComponent($, undefined) {
 
     function initialize() {
 
-        if (typeof google === 'undefined') {
+        if (typeof google === 'undefined' || !google.hasOwnProperty('maps')) {
             return app.helpers.loadScript('https://maps.googleapis.com/maps/api/js?v=3.exp&key=' + GOOGLE_API_KEY, app.google.init);
         }
 
