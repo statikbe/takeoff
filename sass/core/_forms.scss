@@ -302,7 +302,6 @@ form {
   justify-content: space-between;
 }
 
-
 //== Form errors
 //--------------
 //
@@ -313,6 +312,9 @@ form {
   color: map-get($notice-colors, 'danger');
   font-weight: $font-weight-bold;
   clear: both;
+  ul {
+    @include listreset;
+  }
   li {
     margin-top: $rh-xxs;
   }
