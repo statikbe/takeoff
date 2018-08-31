@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Changed $grid-gutter-width to $rh-sml
 - Changed the padding of the container, made it larger
 - Changed (.form__item) margin-top when repeating inside a (.form__row)
+- Changed (.card) made the card fully clickable with (.card__title:before)
 
 ### Added
 - Added webfont.js (js/singles/webfont.js) with fallback for IE (promises bug)
