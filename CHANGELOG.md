@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Changed (.flyout__overlay) to (.overlay)
 - Changed $grid-gutter-width to $rh-sml
 - Changed the padding of the container, made it larger
+- Changed (.form__item) margin-top when repeating inside a (.form__row)
 
 ### Added
 - Added webfont.js (js/singles/webfont.js) with fallback for IE (promises bug)
