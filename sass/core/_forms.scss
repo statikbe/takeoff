@@ -166,7 +166,9 @@ form {
     flex: 1 1 100%;
     margin: 0 10px;
     @include breakpoint(map-get($breakpoints, sml), max-width) {
-      margin-bottom: $input-item-margin;
+      + .form__item {
+        margin-top: $input-item-margin;
+      }
     };
   }
   .form__actions {
