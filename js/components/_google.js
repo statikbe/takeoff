@@ -7,7 +7,7 @@ app.google = (function googleComponent($, undefined) {
 
     function initialize() {
 
-        if (typeof google === 'undefined') {
+        if (typeof google === 'undefined' || !google.hasOwnProperty('maps')) {
             return app.helpers.loadScript('https://maps.googleapis.com/maps/api/js?v=3.exp&key=' + GOOGLE_API_KEY, app.google.init);
         }
 
@@ -24,7 +24,7 @@ app.google = (function googleComponent($, undefined) {
 
         var mapData = [];
 
-        //  <div class="js-google-map" data-locations="[]" data-options="{}"></div>
+        //  <div class="js-google-map" data-locations='[{ "lat": 50.00, "lng": 4.00 }, { ... }]' data-options="{}"></div>
         $('.js-google-map').each(function () {
 
             var $mapEl = $(this);
@@ -72,17 +72,25 @@ app.google = (function googleComponent($, undefined) {
 
             mapData.push({
                 instance: map,
-                bounds: bounds
+                bounds,
+                markers
             });
 
-            map.fitBounds(bounds);
+            if (markers.length > 1) {
+                map.fitBounds(bounds);
+            }
+
             map.setCenter(bounds.getCenter());
         });
 
         // Refocus map on screen resize
         $(window).on('resize', app.helpers.debounce(function () {
             $.each(mapData, function () {
-                this.instance.fitBounds(this.bounds);
+
+                if (this.markers.length > 1) {
+                    this.instance.fitBounds(this.bounds);
+                }
+
                 this.instance.setCenter(this.bounds.getCenter());
             });
         }, 250, false));

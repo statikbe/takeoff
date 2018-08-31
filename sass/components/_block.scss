@@ -23,6 +23,7 @@
   }
 
   &--primary {
+    @extend %ext-context-dark;
     background: $color-primary;
   }
 
