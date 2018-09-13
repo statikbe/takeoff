@@ -187,6 +187,10 @@ form {
   &[for] {
     cursor: pointer;
   }
+  &--gdpr {
+    font-size: .9em;
+    font-weight: $font-weight-regular;
+  }
 }
 
 .form__text {
