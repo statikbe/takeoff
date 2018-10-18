@@ -1,5 +1,6 @@
 .card {
   @include cf;
+  position: relative;
   display: block;
   color: inherit;
 
@@ -17,6 +18,12 @@
       display: block;
       max-width: 100%;
       height: auto;
+    }
+  }
+
+  &__title {
+    &:before {
+      @include absolute-fill;
     }
   }
 
