@@ -32,5 +32,10 @@
     box-sizing: content-box;
     width: 1em;
     padding: $rh-xsm;
+
+    &.is-active,
+    &.active {
+      @include button-variant($color-primary, $white);
+    }
   }
 }
