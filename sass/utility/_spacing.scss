@@ -18,7 +18,7 @@ $spacing-rhythm: (sml med lrg);
     }
 
     @each $bp in $spacing-breakpoints {
-
+      
       @include breakpoint(map-get($breakpoints, $bp)) {
 
         &-bp-#{$bp}-#{$rh} {
@@ -54,7 +54,7 @@ $spacing-rhythm: (sml med lrg);
     }
 
     @each $bp in $spacing-breakpoints {
-
+      
       @include breakpoint(map-get($breakpoints, $bp)) {
 
         &-bp-#{$bp}-#{$rh} {
@@ -90,7 +90,7 @@ $spacing-rhythm: (sml med lrg);
     }
 
     @each $bp in $spacing-breakpoints {
-
+      
       @include breakpoint(map-get($breakpoints, $bp)) {
 
         &-bp-#{$bp}-#{$rh} {
@@ -126,7 +126,7 @@ $spacing-rhythm: (sml med lrg);
     }
 
     @each $bp in $spacing-breakpoints {
-
+      
       @include breakpoint(map-get($breakpoints, $bp)) {
 
         &-bp-#{$bp}-#{$rh} {
@@ -165,7 +165,7 @@ $spacing-rhythm: (sml med lrg);
     }
 
     @each $bp in $spacing-breakpoints {
-
+      
       @include breakpoint(map-get($breakpoints, $bp)) {
 
         &-bp-#{$bp}-#{$rh} {
@@ -207,7 +207,7 @@ $spacing-rhythm: (sml med lrg);
     }
 
     @each $bp in $spacing-breakpoints {
-
+      
       @include breakpoint(map-get($breakpoints, $bp)) {
 
         &-bp-#{$bp}-#{$rh} {

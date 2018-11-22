@@ -7,8 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.5.4] - 2018-11-22
 
 ### Fixed
-- map-get breakpoints error in _spacing.scss
-
+- Sass compilation error in _spacing.scss
 
 ## [1.5.3] - 2018-11-09
 
