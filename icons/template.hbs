@@ -1,0 +1,49 @@
+%ext-icon-style {
+  display: inline-block;
+  border: none;
+  font-family: '{{ fontName }}';
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  font-size: inherit;
+  line-height: inherit;
+  text-indent: 0;
+  text-transform: none;
+  vertical-align: bottom;
+  text-rendering: auto;
+  transform: translate(0, 0);
+}
+
+@font-face {
+  font-family: '{{ fontName }}';
+  src:  url("../fonts/icons.eot");
+  src:  url("../fonts/icons.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/icons.woff") format("woff"),
+        url("../fonts/icons.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  &:before,
+  &:after {
+    @extend %ext-icon-style;
+  }
+  &--social {
+    @include fsRem(28px);
+    line-height: 1;
+  }
+  &--rounded {
+    @include fsRem(28px);
+    display: inline-block;
+    width: 56px;
+    line-height: lh(56px, 28px);
+    border-radius: 50%;
+    background: $gray-0;
+  }
+}
+
+{{#each codepoints}}
+.icon--{{ @key }}:before {
+  content: '\\{{ this }}';
+}
+{{/each}}

@@ -1,76 +1,37 @@
-window.app = window.app || {};
+'use strict';
 
-app.common = (function commonComponent($, undefined) {
+import { debounce, isBreakpointActive } from './helpers';
 
-    let $document = $(document);
-    let $window = $(window);
-    let $html = $('html');
-    let $body = $('body');
+const $document = $(document);
+const $window = $(window);
+const $html = $('html');
+const $body = $('body');
 
-    function initialize() {
+windowResize();
 
-        //  Set initial variables
-        this.windowResize();
+$window.on('resize', debounce(windowResize, 250, false));
 
-        $window.on('resize', app.helpers.debounce(this.windowResize, 250, false));
+$window.on('load', jsDone);
 
-        colorbox();
+setTimeout(jsDone, 4000);
 
+function windowResize() {
+
+    const isFlyoutActive = isBreakpointActive('flyout');
+    const windowWidth = $window.width();
+    const windowHeight = $window.height();
+
+    if (!isFlyoutActive) {
+        $body.removeClass('flyout-active');
     }
 
-    function windowResize() {
+    $.extend(window.app.variables, {
+        isFlyoutActive,
+        windowWidth,
+        windowHeight
+    });
+}
 
-        var isFlyoutActive = app.helpers.isBreakpointActive('flyout');
-
-        if (!isFlyoutActive) {
-            $body.removeClass('flyout-active');
-        }
-
-        $.extend(app.variables, {
-            windowWidth: $window.width(),
-            windowHeight: $window.height(),
-            isFlyoutActive: isFlyoutActive
-        });
-
-    }
-
-    function colorbox() {
-
-        if (typeof $.colorbox == 'undefined') return;
-
-        var defaultOptions = {
-            close: '&times;',
-            next: '&rsaquo;',
-            previous: '&lsaquo;',
-            maxWidth: '90%',
-            maxHeight: '90%'
-        };
-
-        $('.js-gallery-image').colorbox(defaultOptions);
-
-        $('.js-gallery-video').colorbox($.extend({}, defaultOptions, {
-            iframe: true,
-            innerWidth: 640,
-            innerHeight: 480
-        }));
-    }
-
-    function finalize() {
-
-        function jsDone() {
-            $html.addClass('js-done');
-        }
-
-        $window.on('load', jsDone);
-
-        setTimeout(jsDone, 4000);
-
-    }
-
-    return {
-        init: initialize,
-        windowResize: windowResize,
-        finalize: finalize
-    };
-
-})(jQuery);
+function jsDone() {
+    $html.addClass('js-done');
+}
