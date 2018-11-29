@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - unreleased
+
+### Added
+- Added icons for checkboxes and radio buttons
+- Added %ext-icon-{icon_file_name} extends for icons (don't use stuff like `content: '\f111'` anymore) and applied where used
+- Added text modifiers for notice colors
+
+### Changed
+- Remove `keyboard-` prefix from arrow icon names
+- Update docs/index.html to improve code block functionality (no more messing around with IDs)
+- Simplify classes and completely rework _forms.scss
+- Clean up _pagination.scss and use svg icons instead of css entities
+- Use svg icons for `btn--ext`
+- Increase border width for buttons and form inputs
+- Make form input and button heights more coherent (with $btn-height and $input-height variables + quick maths for paddings)
+- Make inline forms easier out of the box, including responsive
+- Make list more coherent (there was a difference in padding between `<ol>` and `<ul>`)
+- Decrease transition timing to 100ms
+- Rework javascript files into ES6
+
+### Removed
+- Removed `btn--link` and `btn--close`
+
 ## [1.5.4] - 2018-11-22
 
 ### Fixed
