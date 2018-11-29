@@ -7,7 +7,7 @@
     overflow: hidden;
 
     &:before {
-      @extend %ext-icon-style;
+      @extend %ext-icon;
       @include transitions(opacity);
       @include fsRem($font-size-lrg);
       position: absolute;
@@ -41,12 +41,12 @@
   }
   &__image {
     &:before {
-      content: '\f109';
+      @extend %ext-icon-plus;
     }
   }
   &__video {
     &:before {
-      content: '\f116';
+      @extend %ext-icon-play;
     }
   }
 }

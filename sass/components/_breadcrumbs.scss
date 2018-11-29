@@ -11,9 +11,9 @@
   &__scope {
     & + & {
       &:before {
-        content: '\f111';
+        @extend %ext-icon;
+        @extend %ext-icon-arrow-right;
         margin: 0 2px;
-        font-family: $font-family-icons;
       }
     }
   }

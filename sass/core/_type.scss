@@ -165,6 +165,12 @@ h5 {
   white-space: nowrap;
 }
 
+@each $type, $color in $notice-colors {
+  .text--#{$type} {
+    color: $color;
+  }
+}
+
 // Strong
 strong {
   font-weight: $font-weight-bold;

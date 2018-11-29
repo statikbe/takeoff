@@ -1,14 +1,16 @@
-%ext-icon-style {
+//  Generated from icons/template.hbs
+
+%ext-icon {
   display: inline-block;
   border: none;
   font-family: '{{ fontName }}';
   font-weight: $font-weight-regular;
   font-style: normal;
   font-size: inherit;
-  line-height: inherit;
+  line-height: normal;
   text-indent: 0;
   text-transform: none;
-  vertical-align: bottom;
+  vertical-align: middle;
   text-rendering: auto;
   transform: translate(0, 0);
 }
@@ -24,26 +26,18 @@
 }
 
 .icon {
-  &:before,
-  &:after {
-    @extend %ext-icon-style;
-  }
-  &--social {
-    @include fsRem(28px);
-    line-height: 1;
-  }
-  &--rounded {
-    @include fsRem(28px);
-    display: inline-block;
-    width: 56px;
-    line-height: lh(56px, 28px);
-    border-radius: 50%;
-    background: $gray-0;
+  &:before {
+    @extend %ext-icon;
   }
 }
 
 {{#each codepoints}}
-.icon--{{ @key }}:before {
+
+%ext-icon-{{ @key }} {
   content: '\\{{ this }}';
+}
+
+.icon--{{ @key }}:before {
+  @extend %ext-icon-{{ @key }};
 }
 {{/each}}

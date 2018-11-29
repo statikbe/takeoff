@@ -13,6 +13,7 @@
 
   &__img {
     overflow: hidden;
+    margin-bottom: $rh-sml;
     img {
       @include transitions(all);
       display: block;
@@ -48,14 +49,10 @@
   &--clickable {
     .card__title {
       a {
-        &::before {
+        &:before {
+          @include absolute-fill;
           display: block;
           content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          right: 0;
-          bottom: 0;
           z-index: 10;
         }
       }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../public/css/main.min.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
     <style>
         .grid--flush {
@@ -195,13 +195,13 @@
                         <div class="spacer--lrg">
                             <p>Takeoff uses a component-based CSS class system called BEM (Block, Element, Modifier).</p>
                             <p>As an example, let's take a look at this commonly used <a href="#section-card">card</a> component:</p>
-                            <div id="code-bem-1" style="display: none;">
+                            <div class="js-code-block" style="display: none;">
                                 <a href="" class="card card--link">
                                     <h3 class="card__title">Card title</h3>
                                     <p class="card__text">Lorem ipsum dolor sit amet, consectetur.</p>
                                 </a>
                             </div>
-                            <pre><code class="js-code-block" data-source="#code-bem-1"></code></pre>
+                            <pre><code class="html"></code></pre>
                             <h3>Block</h3>
                             <p>A block is a standalone entity that is meaningful on its own.</p>
                             <p>In the card example, <code>card</code> is a block class.</p>
@@ -279,36 +279,36 @@
                         <div class="spacer spacer--lrg">
                             <div class="grid">
                                 <div class="grid__4">
-                                    <div id="code-buttons-1">
+                                    <div class="js-code-block">
                                         <a href="" class="btn">Default button</a>
                                     </div>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-buttons-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer spacer--xlr">
                             <div class="grid">
                                 <div class="grid__4">
-                                    <div id="code-buttons-2">
+                                    <div class="js-code-block">
                                         <button class="btn btn--ghost">Ghost button</button>
                                     </div>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-buttons-2"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer spacer--xlr">
                             <div class="grid">
                                 <div class="grid__4">
-                                    <div id="code-buttons-3">
+                                    <div class="js-code-block">
                                         <a href="" class="btn btn--ext">Extended button</a>
                                     </div>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-buttons-3"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -324,19 +324,20 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <h3>Basic form</h3>
+                            <p>Try submitting this form to see Parsley validation in action.</p>
                             <div class="grid">
-                                <div class="grid__4" id="code-forms-1">
+                                <div class="grid__4 js-code-block">
                                     <form action="" class="form">
                                         <div class="form__item">
                                             <label for="" class="form__label">Text input</label>
-                                            <input type="text" class="form__text">
-                                            <div class="form__errors-list">This field is required</div>
+                                            <input type="text" class="form__text" required>
                                         </div>
                                         <div class="form__item">
                                             <label class="form__label">Select</label>
                                             <div class="form__element">
                                                 <div class="form__icon form__icon--select" aria-hidden="true"></div>
-                                                <select class="form__select">
+                                                <select class="form__select" required>
+                                                    <option value=""></option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
                                                     <option value="3">Three</option>
@@ -344,29 +345,29 @@
                                             </div>
                                             <div class="form__help">Select an item from the list</div>
                                         </div>
-                                        <div class="form__item form__item--checkboxes">
-                                            <div class="form__item form__item--checkbox">
-                                                <input type="checkbox" class="form__checkbox">
-                                                <label for="" class="form__label">Checkbox 1</label>
+                                        <div class="form__group">
+                                            <div class="form__item">
+                                                <input type="checkbox" id="checkbox-1" name="check" class="form__checkbox" required>
+                                                <label for="checkbox-1" class="form__label">Checkbox 1</label>
                                             </div>
-                                            <div class="form__item form__item--checkbox">
-                                                <input type="checkbox" class="form__checkbox">
-                                                <label for="" class="form__label">Checkbox 2</label>
+                                            <div class="form__item">
+                                                <input type="checkbox" id="checkbox-2" name="check" class="form__checkbox" required>
+                                                <label for="checkbox-2" class="form__label">Checkbox 2</label>
                                             </div>
                                         </div>
-                                        <div class="form__item form__item--radios">
-                                            <div class="form__item form__item--radio">
-                                                <input type="radio" class="form__radio">
-                                                <label for="" class="form__label">Radio 1</label>
+                                        <div class="form__group">
+                                            <div class="form__item">
+                                                <input type="radio" id="radio-1" name="radio-group" class="form__radio" required>
+                                                <label for="radio-1" class="form__label">Radio 1</label>
                                             </div>
-                                            <div class="form__item form__item--radio">
-                                                <input type="radio" class="form__radio">
-                                                <label for="" class="form__label">Radio 2</label>
+                                            <div class="form__item">
+                                                <input type="radio" id="radio-2" name="radio-group" class="form__radio" required>
+                                                <label for="radio-2" class="form__label">Radio 2</label>
                                             </div>
                                         </div>
                                         <div class="form__item">
                                             <label for="" class="form__label">Textarea</label>
-                                            <textarea class="form__textarea"></textarea>
+                                            <textarea class="form__textarea" required></textarea>
                                         </div>
                                         <div class="form__actions">
                                             <button type="submit" class="btn form__btn">Submit</button>
@@ -374,25 +375,51 @@
                                     </form>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-forms-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <h3>Inline form</h3>
-                            <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-forms-2"></code></pre>
+                            <div class="spacer">
+                                <div class="spacer--sml">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                                <div class="spacer--sml js-code-block">
+                                    <form action="" class="form form--inline">
+                                        <div class="form__content">
+                                            <div class="form__item">
+                                                <label for="" class="form__label">Input</label>
+                                                <input type="text" class="form__text" placeholder="Search" required>
+                                            </div>
+                                            <div class="form__actions">
+                                                <button type="submit" class="btn form__btn">Search</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="spacer--sml" id="code-forms-2">
-                                <form action="" class="form form--inline">
-                                    <div class="form__item">
-                                        <label for="" class="form__label">Input</label>
-                                        <input type="text" class="form__text" placeholder="Search">
-                                    </div>
-                                    <div class="form__actions">
-                                        <button class="btn form__btn">Search</button>
-                                    </div>
-                                </form>
+                            <div class="spacer">
+                                <div class="spacer--sml">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                                <div class="spacer--sml js-code-block">
+                                    <form action="" class="form form--inline">
+                                        <div class="form__content">
+                                            <div class="form__item">
+                                                <label for="" class="form__label">Input</label>
+                                                <input type="text" class="form__text" placeholder="Search">
+                                            </div>
+                                            <div class="form__item">
+                                                <label for="" class="form__label">Input</label>
+                                                <input type="text" class="form__text" placeholder="Search" required>
+                                            </div>
+                                            <div class="form__actions">
+                                                <button type="submit" class="btn form__btn">Search</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -418,9 +445,9 @@
                             <p>Child elements <strong>must always</strong> have the <code>grid__item</code> class, and preferably no other classes.</p>
                             <p>Let's create a repeating grid that starts out as a single column, and scales up to 3 columns on larger screens. Try resizing your screen to see the result!</p>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-grid-1"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-grid-1">
+                            <div class="spacer--sml js-code-block">
                                 <div class="grid grid--bp-med-2-col grid--bp-lrg-3-col">
                                     <div class="grid__item">One</div>
                                     <div class="grid__item">Two</div>
@@ -444,9 +471,9 @@
                             <p>Parent elements <strong>must always</strong> have the <code>grid</code> class, and preferably no other classes.</p>
                             <p>Let's create a basic responsive layout that starts out with full width children and scales up to a 25% / 75% layout on larger screens.</p>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-grid-2"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-grid-2">
+                            <div class="spacer--sml js-code-block">
                                 <div class="grid">
                                     <div class="grid__12 grid--bp-med__3">One</div>
                                     <div class="grid__12 grid--bp-med__9">Two</div>
@@ -468,7 +495,7 @@
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-icons-1">
+                                <div class="grid__6 js-code-block">
                                     <span class="icon icon--envelope"></span>
                                     <span class="icon icon--facebook"></span>
                                     <span class="icon icon--google-plus"></span>
@@ -486,10 +513,10 @@
                                     <span class="icon icon--directions"></span>
                                     <span class="icon icon--download"></span>
                                     <span class="icon icon--home"></span>
-                                    <span class="icon icon--keyboard-arrow-down"></span>
-                                    <span class="icon icon--keyboard-arrow-left"></span>
-                                    <span class="icon icon--keyboard-arrow-right"></span>
-                                    <span class="icon icon--keyboard-arrow-up"></span>
+                                    <span class="icon icon--arrow-down"></span>
+                                    <span class="icon icon--arrow-left"></span>
+                                    <span class="icon icon--arrow-right"></span>
+                                    <span class="icon icon--arrow-up"></span>
                                     <span class="icon icon--location"></span>
                                     <span class="icon icon--menu"></span>
                                     <span class="icon icon--minus"></span>
@@ -499,7 +526,7 @@
                                     <span class="icon icon--search"></span>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-icons-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -519,28 +546,28 @@
                         <div class="spacer--lrg">
                             <h3>Responsive image</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-images-1"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-images-1">
+                            <div class="spacer--sml js-code-block">
                                 <img src="http://via.placeholder.com/800x300?text=image--responsive" alt="" class="image image--responsive">
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <h3>Full width image</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-images-2"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-images-2">
+                            <div class="spacer--sml js-code-block" id="code-images-2">
                                 <img src="http://via.placeholder.com/800x300?text=image--full-width" alt="" class="image image--full-width">
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <h3>Left floated image</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-images-3"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
                             <div class="spacer--sml">
-                                <div id="code-images-3">
+                                <div class="js-code-block" id="code-images-3">
                                     <img src="http://via.placeholder.com/200x200?text=image--left" alt="" class="image image--left">
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio cumque aliquam explicabo corrupti beatae labore sed, adipisci dolor ducimus exercitationem harum saepe, alias, temporibus ea nam dolorem reprehenderit recusandae at facilis. Perferendis dolores libero sit earum architecto dicta, sint rem, eius id enim nobis eligendi ex quibusdam voluptas consequatur sunt.</p>
@@ -551,10 +578,10 @@
                         <div class="spacer--lrg">
                             <h3>Right floated image</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-images-4"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
                             <div class="spacer--sml">
-                                <div id="code-images-4">
+                                <div class="js-code-block">
                                     <img src="http://via.placeholder.com/200x200?text=image--right" alt="" class="image image--right">
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio cumque aliquam explicabo corrupti beatae labore sed, adipisci dolor ducimus exercitationem harum saepe, alias, temporibus ea nam dolorem reprehenderit recusandae at facilis. Perferendis dolores libero sit earum architecto dicta, sint rem, eius id enim nobis eligendi ex quibusdam voluptas consequatur sunt.</p>
@@ -574,11 +601,11 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__4" id="code-links-1">
+                                <div class="grid__4 js-code-block">
                                     <a href="" class="link link--ext">Extended link</a>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-links-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -594,7 +621,7 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__4" id="code-lists-1">
+                                <div class="grid__4 js-code-block">
                                     <ul class="list list--reset">
                                         <li>One</li>
                                         <li>Two</li>
@@ -602,13 +629,13 @@
                                     </ul>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-lists-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--med">
                             <div class="grid">
-                                <div class="grid__4" id="code-lists-2">
+                                <div class="grid__4 js-code-block">
                                     <ul class="list list--unstyled">
                                         <li>One</li>
                                         <li>Two</li>
@@ -616,13 +643,13 @@
                                     </ul>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-lists-2"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__4" id="code-lists-3">
+                                <div class="grid__4 js-code-block">
                                     <ul class="list list--unordered">
                                         <li>One</li>
                                         <li>Two</li>
@@ -630,13 +657,13 @@
                                     </ul>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-lists-3"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__4" id="code-lists-4">
+                                <div class="grid__4 js-code-block">
                                     <ol class="list list--ordered">
                                         <li>One</li>
                                         <li>Two</li>
@@ -644,7 +671,7 @@
                                     </ol>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-lists-4"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -660,7 +687,7 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-tables-1">
+                                <div class="grid__6 js-code-block">
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -705,13 +732,13 @@
                                     </table>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-tables-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-tables-2">
+                                <div class="grid__6 js-code-block">
                                     <table class="table table--striped">
                                         <tbody>
                                             <tr>
@@ -748,7 +775,7 @@
                                     </table>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-tables-2"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -765,9 +792,9 @@
                         <div class="spacer--lrg">
                             <h3>Heading styles</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-type-1"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-type-1">
+                            <div class="spacer--sml js-code-block">
                                 <h1>Heading 1</h1>
                                 <h2>Heading 2</h2>
                                 <h2 class="heading--alt">Heading 2 - alt</h2>
@@ -778,65 +805,65 @@
                         <div class="spacer--lrg">
                             <h3>Text styles</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-type-2"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-type-2">
+                            <div class="spacer--sml js-code-block">
                                 <p class="text text--lead">Lead text - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, laborum!</p>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-type-3"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-type-3">
+                            <div class="spacer--sml js-code-block">
                                 <p class="text text--info">Info text - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis.</p>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-type-4"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-type-4">
+                            <div class="spacer--sml js-code-block">
                                 <p class="text text--left">Left aligned text</p>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-type-5"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-type-5">
+                            <div class="spacer--sml js-code-block">
                                 <p class="text text--right">Right aligned text</p>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-type-6"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-type-6">
+                            <div class="spacer--sml js-code-block">
                                 <p class="text text--center">Centered text</p>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-type-7"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-type-7">
+                            <div class="spacer--sml js-code-block">
                                 <p class="text text--lowercase">Lowercase text</p>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-type-8"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-type-8">
+                            <div class="spacer--sml js-code-block">
                                 <p class="text text--uppercase">Uppercase text</p>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-type-9"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-type-9">
+                            <div class="spacer--sml js-code-block">
                                 <p class="text text--capitalize">Capitalized text</p>
                             </div>
                         </div>
@@ -863,48 +890,48 @@
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-block-1">
+                                <div class="grid__6 js-code-block">
                                     <div class="block">Block 1</div>
                                     <div class="block">Block 2</div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-block-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-block-2">
+                                <div class="grid__6 js-code-block">
                                     <div class="block block--panel">
                                         Block panel (adds padding)
                                     </div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-block-2"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-block-3">
+                                <div class="grid__6 js-code-block">
                                     <div class="block block--panel block--light">
                                         Block light
                                     </div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-block-3"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-block-4">
+                                <div class="grid__6 js-code-block">
                                     <div class="block block--panel block--primary">
                                         Block primary
                                     </div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-block-4"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -920,9 +947,9 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-breadcrumbs-1"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-breadcrumbs-1">
+                            <div class="spacer--sml js-code-block">
                                 <div class="breadcrumb">
                                     <span class="breadcrumb__scope">
                                         <a href="" class="breadcrumb__item">Home</a>
@@ -948,7 +975,7 @@
                     <div class="container">
                         <div class="spacer--med">
                             <div class="grid">
-                                <div class="grid__4" id="code-card-1">
+                                <div class="grid__4 js-code-block">
                                     <div class="card">
                                         <div class="card__img">
                                             <img src="http://via.placeholder.com/800x600?text=image" alt="">
@@ -960,13 +987,13 @@
                                     </div>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-card-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__4" id="code-card-2">
+                                <div class="grid__4 js-code-block">
                                     <div class="card">
                                         <div class="card__aside">
                                             <div class="card__img">
@@ -980,7 +1007,7 @@
                                     </div>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-card-2"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -997,9 +1024,9 @@
                         <div class="spacer--lrg">
                             <h3>Default hero</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-hero-1"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-hero-1">
+                            <div class="spacer--sml js-code-block">
                                 <div class="hero" style="background-image: url('https://picsum.photos/1200/400/?random');">
                                     <div class="container">
                                         <h1 class="hero__title">Hero title</h1>
@@ -1014,9 +1041,9 @@
                         <div class="spacer--lrg">
                             <h3>Light hero</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-hero-2"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-hero-2">
+                            <div class="spacer--sml js-code-block">
                                 <div class="hero hero--light" style="background-image: url('https://picsum.photos/1200/400/?random');">
                                     <div class="container">
                                         <h1 class="hero__title">Hero title</h1>
@@ -1040,7 +1067,7 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-inline-1">
+                                <div class="grid__6 js-code-block">
                                     <div class="inline">
                                         <div class="inline__item">Uno</div>
                                         <div class="inline__item">Dos</div>
@@ -1048,13 +1075,13 @@
                                     </div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-inline-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-inline-2">
+                                <div class="grid__6 js-code-block">
                                     <div class="inline inline--spaced">
                                         <div class="inline__item">Uno</div>
                                         <div class="inline__item">Dos</div>
@@ -1062,7 +1089,7 @@
                                     </div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-inline-2"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1079,13 +1106,13 @@
                         <div class="spacer--lrg">
                             <div class="grid">
                                 <div class="grid__6">
-                                    <div id="code-label-1">
+                                    <div class="js-code-block">
                                         <span class="label">Label</span>
                                         <span class="label label--grayed-out">Label</span>
                                     </div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-label-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1093,7 +1120,7 @@
                             <h3>Notice labels</h3>
                             <div class="grid">
                                 <div class="grid__6">
-                                    <div id="code-label-2">
+                                    <div class="js-code-block">
                                         <span class="label label--success">Success label</span>
                                         <span class="label label--info">Info label</span>
                                         <span class="label label--warning">Warning label</span>
@@ -1101,7 +1128,7 @@
                                     </div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-label-2"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1118,39 +1145,39 @@
                         <div class="spacer--lrg">
                             <h3>Default map (16/9 ratio)</h3>
                             <div class="grid">
-                                <div class="grid__4" id="code-map-1">
+                                <div class="grid__4 js-code-block">
                                     <div class="map">
                                         <iframe class="map__canvas" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD4iE2xVSpkLLOXoyqT-RuPwURN3ddScAI&q=Space+Needle,Seattle+WA" frameborder="0"></iframe>
                                     </div>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-map-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <h3>Wide map (10/3 ratio)</h3>
                             <div class="grid">
-                                <div class="grid__4" id="code-map-2">
+                                <div class="grid__4 js-code-block">
                                     <div class="map map--wide">
                                         <iframe class="map__canvas" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD4iE2xVSpkLLOXoyqT-RuPwURN3ddScAI&q=Space+Needle,Seattle+WA" frameborder="0"></iframe>
                                     </div>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-map-2"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
                         <div class="spacer--lrg">
                             <h3>Square map (1/1 ratio)</h3>
                             <div class="grid">
-                                <div class="grid__4" id="code-map-3">
+                                <div class="grid__4 js-code-block">
                                     <div class="map map--square">
                                         <iframe class="map__canvas" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD4iE2xVSpkLLOXoyqT-RuPwURN3ddScAI&q=Space+Needle,Seattle+WA" frameborder="0"></iframe>
                                     </div>
                                 </div>
                                 <div class="grid__8">
-                                    <pre><code class="js-code-block" data-source="#code-map-3"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1166,7 +1193,7 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-meta-1">
+                                <div class="grid__6 js-code-block">
                                     <div class="meta">
                                         <span class="meta__item">1:00 PM</span>
                                         <span class="meta__item">6th June</span>
@@ -1174,7 +1201,7 @@
                                     </div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-meta-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1191,9 +1218,9 @@
                         <div class="spacer--lrg">
                             <h3>Main navigation</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-nav-1"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-nav-1">
+                            <div class="spacer--sml js-code-block">
                                 <nav class="nav nav--main">
                                     <ul class="nav__menu">
                                         <li class="nav__item">
@@ -1212,9 +1239,9 @@
                         <div class="spacer--lrg">
                             <h3>Service navigation</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-nav-2"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-nav-2">
+                            <div class="spacer--sml js-code-block">
                                 <div class="nav nav--service">
                                     <ul class="nav__menu">
                                         <li class="nav__item">
@@ -1233,9 +1260,9 @@
                         <div class="spacer--lrg">
                             <h3>Language navigation</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-nav-3"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-nav-3">
+                            <div class="spacer--sml js-code-block">
                                 <div class="nav nav--language">
                                     <ul class="nav__menu">
                                         <li class="nav__item">
@@ -1251,9 +1278,9 @@
                         <div class="spacer--lrg">
                             <h3>Doormat navigation</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-nav-4"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-nav-4">
+                            <div class="spacer--sml js-code-block">
                                 <div class="nav nav--doormat">
                                     <ul class="nav__menu">
                                         <li class="nav__item">
@@ -1272,9 +1299,9 @@
                         <div class="spacer--lrg">
                             <h3>Social navigation</h3>
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-nav-5"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-nav-5">
+                            <div class="spacer--sml js-code-block">
                                 <div class="nav nav--social">
                                     <ul class="nav__menu">
                                         <li class="nav__item">
@@ -1308,14 +1335,14 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-notice-1">
+                                <div class="grid__6 js-code-block">
                                     <div class="notice notice--success">Success notice</div>
                                     <div class="notice notice--info">Info notice</div>
                                     <div class="notice notice--warning">Warning notice</div>
                                     <div class="notice notice--danger">Danger notice</div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-notice-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1331,9 +1358,9 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="spacer--sml">
-                                <pre><code class="js-code-block" data-source="#code-pagination-1"></code></pre>
+                                <pre><code class="html"></code></pre>
                             </div>
-                            <div class="spacer--sml" id="code-pagination-1">
+                            <div class="spacer--sml js-code-block">
                                 <ul class="pagination">
                                     <li class="pagination__item">
                                         <a href="" class="pagination__link pagination__prev">Previous</a>
@@ -1361,79 +1388,91 @@
                         <code>takeoff/sass/components/_section.scss</code>
                     </div>
                 </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <pre><code class="js-code-block" data-source="#code-section-1"></code></pre>
-                    </div>
-                </div>
-                <div id="code-section-1">
+                <div>
                     <div class="section section--default">
                         <div class="container">
-                            Default section
+                            <pre><code class="html"></code></pre>
+                        </div>
+                    </div>
+                    <div class="js-code-block">
+                        <div class="section section--default">
+                            <div class="container">
+                                Default section
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="section section--border">
-                    <div class="container">
-                        <pre><code class="js-code-block" data-source="#code-section-2"></code></pre>
-                    </div>
-                </div>
-                <div id="code-section-2">
+                <div>
                     <div class="section section--border">
                         <div class="container">
-                            Border section
+                            <pre><code class="html"></code></pre>
+                        </div>
+                    </div>
+                    <div class="js-code-block">
+                        <div class="section section--border">
+                            <div class="container">
+                                Border section
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="section section--light">
-                    <div class="container">
-                        <pre><code class="js-code-block" data-source="#code-section-3"></code></pre>
-                    </div>
-                </div>
-                <div id="code-section-3">
+                <div>
                     <div class="section section--light">
                         <div class="container">
-                            Light section
+                            <pre><code class="html"></code></pre>
+                        </div>
+                    </div>
+                    <div class="js-code-block">
+                        <div class="section section--light">
+                            <div class="container">
+                                Light section
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="section section--dark">
-                    <div class="container">
-                        <pre><code class="js-code-block" data-source="#code-section-4"></code></pre>
-                    </div>
-                </div>
-                <div id="code-section-4">
+                <div>
                     <div class="section section--dark">
                         <div class="container">
-                            <div class="section__content">
-                                Dark section
+                            <pre><code class="html"></code></pre>
+                        </div>
+                    </div>
+                    <div class="js-code-block">
+                        <div class="section section--dark">
+                            <div class="container">
+                                <div class="section__content">
+                                    Dark section
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="section section--bg">
-                    <div class="container">
-                        <pre><code class="js-code-block" data-source="#code-section-5"></code></pre>
-                    </div>
-                </div>
-                <div id="code-section-5">
+                <div>
                     <div class="section section--bg">
                         <div class="container">
-                            <div class="section__content">
-                                Background section
+                            <pre><code class="html"></code></pre>
+                        </div>
+                    </div>
+                    <div class="js-code-block">
+                        <div class="section section--bg">
+                            <div class="container">
+                                <div class="section__content">
+                                    Background section
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <pre><code class="js-code-block" data-source="#code-section-6"></code></pre>
-                    </div>
-                </div>
-                <div id="code-section-6">
-                    <div class="section section--no-padding">
+                <div>
+                    <div class="section section--default">
                         <div class="container">
-                            Section without padding
+                            <pre><code class="html"></code></pre>
+                        </div>
+                    </div>
+                    <div class="js-code-block">
+                        <div class="section section--no-padding">
+                            <div class="container">
+                                Section without padding
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1448,7 +1487,7 @@
                         <p>Spacers are used to provide some vertical margin between consecutive elements.</p>
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-spacer-1">
+                                <div class="grid__6 js-code-block">
                                     <div class="spacer spacer--xxs">Spacer xxs</div>
                                     <div class="spacer spacer--xsm">Spacer xsm</div>
                                     <div class="spacer spacer--sml">Spacer sml</div>
@@ -1457,7 +1496,7 @@
                                     <div class="spacer spacer--xlr">Spacer xlr</div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-spacer-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1481,11 +1520,11 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-flexbox-1">
+                                <div class="grid__6 js-code-block">
                                     
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-flexbox-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1501,11 +1540,11 @@
                     <div class="container">
                         <div class="spacer--lrg">
                             <div class="grid">
-                                <div class="grid__6" id="code-spacing-1">
+                                <div class="grid__6 js-code-block">
                                     <div class="mt-xxs"></div>
                                 </div>
                                 <div class="grid__6">
-                                    <pre><code class="js-code-block" data-source="#code-spacing-1"></code></pre>
+                                    <pre><code class="html"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1515,6 +1554,7 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>
         $(function () {
@@ -1522,8 +1562,17 @@
             $('.js-code-block').each(function () {
 
                 var $this = $(this);
-                var $source = $($(this).attr('data-source'));
-                var sourceCodeLines = $source.html().trim().split('\n');
+                var $parent = $this.parent();
+                var $target = [];
+
+                while (!$target.length) {
+                    $target = $parent.find('pre code');
+                    $parent = $parent.parent();
+                }
+
+                if (!$target) return;
+
+                var sourceCodeLines = $this.html().trim().split('\n');
                 var lastSourceCodeLine = sourceCodeLines[sourceCodeLines.length - 1];
                 var sourceCodeWhitespace = lastSourceCodeLine.slice(0, lastSourceCodeLine.search(/\S/));
 
@@ -1531,7 +1580,7 @@
                     sourceCodeLines[i] = line.replace(sourceCodeWhitespace, '');
                 });
 
-                $this.text(sourceCodeLines.join('\n'));
+                $target.text(sourceCodeLines.join('\n'));
             });
 
             $('pre code').each(function (i, b) {

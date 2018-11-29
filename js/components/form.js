@@ -13,27 +13,27 @@ const $forms = $('form');
 
 window.Parsley = Parsley;
 
+function errorsContainer(ParsleyField) {
+
+    const $formItem = ParsleyField.$element.closest('.form__item');
+    var $formGroup = $formItem.closest('.form__group');
+
+    if ($formGroup.length) {
+        return $formGroup;
+    } else {
+        return $formItem;
+    }
+}
+
 extend(window.Parsley.options, {
 
-    classHandler: function(ParsleyField) {
-        return ParsleyField.$element.closest('.form__item');
-    },
+    classHandler: errorsContainer,
 
     errorClass: 'has-error',
 
-    errorsContainer: function(ParsleyField) {
-        var itemClass = '.form__item';
-        var $formItem = ParsleyField.$element.closest(itemClass);
-        var $formGroup = $formItem.find('.form__group');
+    errorsContainer: errorsContainer,
 
-        if ($formGroup.length) {
-            return $formGroup;
-        } else {
-            return $formItem;
-        }
-    },
-
-    errorsWrapper: '<ul class="form__errors-list form__errors-client"></ul>',
+    errorsWrapper: '<ul class="form__errors"></ul>',
 
     excluded: 'input:not(:visible), input.novalidate'
 });
@@ -41,7 +41,8 @@ extend(window.Parsley.options, {
 window.Parsley.setLocale(document.documentElement.lang);
 
 window.Parsley.on('field:error', function () {
-    var $errorElement = window.Parsley.options.classHandler(this);
+    const $errorElement = window.Parsley.options.classHandler(this);
+    $errorElement.closest('.form').addClass('has-errors');
     $errorElement.find('.form__errors-server').remove();
 });
 

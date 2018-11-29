@@ -2,14 +2,14 @@
   &--ext {
     display: inline-block;
     &:after {
-      @extend %ext-icon-style;
-      content: '\f111';
+      @extend %ext-icon;
+      @extend %ext-icon-arrow-right;
     }
   }
   &--grayscale {
     img {
       @include grayscale;
-      @include transitions((filter));
+      @include transitions(filter);
     }
     &:hover {
       img {

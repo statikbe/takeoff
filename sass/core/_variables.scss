@@ -34,10 +34,9 @@ $color-link-visited: darken($color-link, 5%) !default;
 //-------------
 //
 // Font, line-height, and color for body text, headings, and more.
-$font-family-sans: 'Roboto', sans-serif !default;
-$font-family-serif: Georgia, Times, serif !default;
-$font-family-icons: 'Icons' !default;
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-sans: 'Open Sans', sans-serif !default;
+$font-family-serif: serif !default;
+$font-family-monospace: monospace !default;
 $font-family-base: $font-family-sans !default;
 
 $font-size-root: 16px !default;
@@ -127,7 +126,7 @@ $rhythm: (
 // Transitions
 // -----------
 //
-$transition-duration-base: 150ms;
+$transition-duration-base: 100ms;
 $transition-easing-base: ease-in-out;
 
 // Border radius

@@ -13,7 +13,7 @@
   @if $position == up {
     background-position: 0 -100%;
   }
-  @include transitions((background, color));
+  @include transitions(background color);
   &:hover,
   &:focus,
   &:active {
