@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added icons for checkboxes and radio buttons
 - Added %ext-icon-{icon_file_name} extends for icons (don't use stuff like `content: '\f111'` anymore) and applied where used
 - Added text modifiers for notice colors
+- Added display classes in /utility/_helpers.scss `u-display-block` and `u-display-inline-block`
 
 ### Changed
 - Remove `keyboard-` prefix from arrow icon names
@@ -23,6 +24,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Make list more coherent (there was a difference in padding between `<ol>` and `<ul>`)
 - Decrease transition timing to 100ms
 - Rework javascript files into ES6
+- Moved /core/_helpers.scss to /utility/_helpers.scss
+- Prefixed some helpers classes in /utility/_helpers.scss with `u-`
+- Changed the class `pull--left` to `u-float-left` same for right
+- Changed the class `hide--bp-med` to `hidden@med` first try of new breakpoint syntax same for the `show` class
 
 ### Removed
 - Removed `btn--link` and `btn--close`
