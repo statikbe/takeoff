@@ -112,6 +112,13 @@ h5 {
   color: $color-primary;
 }
 
+// .text--success
+@each $type, $color in $notice-colors {
+  .text--#{$type} {
+    color: $color;
+  }
+}
+
 // Alignment
 .text--left {
   text-align: left;
@@ -163,12 +170,6 @@ h5 {
   max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-@each $type, $color in $notice-colors {
-  .text--#{$type} {
-    color: $color;
-  }
 }
 
 // Strong
