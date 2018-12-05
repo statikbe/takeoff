@@ -47,14 +47,12 @@
   }
 
   &--clickable {
-    .card__title {
-      a {
-        &:before {
-          @include absolute-fill;
-          display: block;
-          content: '';
-          z-index: 10;
-        }
+    .card__title a {
+      &:before {
+        @include absolute-fill;
+        display: block;
+        content: '';
+        z-index: 10;
       }
     }
   }
