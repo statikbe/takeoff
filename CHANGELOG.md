@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Changed the class `hide--bp-med` to `hidden@med` first try of new breakpoint syntax same for the `show` class
 
 ### Removed
-- Removed `btn--link` and `btn--close`
+- Removed `btn--close`
 
 ## [1.5.4] - 2018-11-22
 
