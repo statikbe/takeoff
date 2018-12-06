@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Moved /core/_helpers.scss to /utility/_helpers.scss
 - Prefixed some helpers classes in /utility/_helpers.scss with `u-`
 - Changed the class `pull--left` to `u-float-left` same for right
-- Changed the class `hide--bp-med` to `hidden@med` first try of new breakpoint syntax same for the `show` class
+- Changed the class `hide--bp-med` to `u-hide@med` first try of new breakpoint syntax same for the `show` class
 
 ### Removed
 - Removed `btn--close`

@@ -73,7 +73,7 @@
 // ----
 //
 
-// .show@med
+// .u-show@med
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, max-width) {
     .u-show@-#{$bp} {
@@ -82,10 +82,10 @@
   }
 }
 
-// .hidden@med
+// .u-hide@med
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, min-width) {
-    .u-hidden@#{$bp} {
+    .u-hide@#{$bp} {
       display: none !important;
     }
   }
