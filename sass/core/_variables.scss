@@ -97,7 +97,6 @@ $breakpointsMap: (
 );
 
 $breakpoint-flyout: map-get($breakpointsMap, med);
-$breakpoints-legacy: false !default;
 $breakpoints-flyout: (
   flyout: $breakpoint-flyout
 );

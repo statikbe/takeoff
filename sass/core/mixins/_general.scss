@@ -40,10 +40,3 @@
 @function shade($color, $percent: 10%) {
   @return mix(black, $color, $percent);
 }
-
-// Only use this content if we're dealing with old IE
-@mixin legacy {
-  @if $breakpoints-legacy {
-    @content;
-  }
-}

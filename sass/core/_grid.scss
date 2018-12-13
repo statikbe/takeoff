@@ -38,10 +38,6 @@ $grid-rhythm: $rh-sml !default;
     margin-top: $grid-rhythm;
     padding-left: ($grid-gutter-width / 2);
     padding-right: ($grid-gutter-width / 2);
-    @if $breakpoints-legacy {
-      display: block;
-      float: left;
-    }
   }
 }
 
@@ -69,9 +65,6 @@ $grid-rhythm: $rh-sml !default;
         > .grid__item {
           @include make-repeating-column($column);
           min-height: 1px;
-          @if $breakpoints-legacy {
-            @include make-column-legacy($column);
-          }
         }
       }
     }
