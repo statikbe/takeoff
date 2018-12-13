@@ -47,8 +47,11 @@
   }
 
   &--clickable {
+
     .card__title {
+
       a {
+
         &:before {
           @include absolute-fill;
           display: block;
@@ -67,14 +70,11 @@ a.card,
   text-decoration: none;
   &:hover,
   &:focus {
-    #{$headings} {
+    
+    .card__title {
       color: inherit;
     }
-    .card__img {
-      img {
-        transform: translateZ(0) scale(1.05);
-      }
-    }
+
     .card__link {
       color: $color-link;
       text-decoration: none;
