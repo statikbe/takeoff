@@ -1,15 +1,21 @@
 .breadcrumb {
+
   @include fsRem(14px);
 
   &__item {
+
     @include link-variant($color-text, $color-link);
-    &--active {
+
+    &.is-active {
       @include link-variant($color-primary);
       text-decoration: none;
     }
   }
+
   &__scope {
+
     & + & {
+
       &:before {
         @extend %ext-icon;
         @extend %ext-icon-arrow-right;
