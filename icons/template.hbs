@@ -7,12 +7,18 @@
   font-weight: $font-weight-regular;
   font-style: normal;
   font-size: inherit;
-  line-height: normal;
+  line-height: inherit;
   text-indent: 0;
   text-transform: none;
   vertical-align: middle;
   text-rendering: auto;
   transform: translate(0, 0);
+  text-decoration: underline; // IE fix
+}
+
+// IE fix
+%ext-icon {
+  text-decoration: none;
 }
 
 @font-face {
