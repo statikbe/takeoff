@@ -1,7 +1,7 @@
 // General helpers
 // ----
 //
-.clearfix {
+.u-clearfix {
   @include clearfix;
 }
 
@@ -25,31 +25,45 @@
   }
 }
 
-.pointer {
+.u-pointer {
   cursor: pointer;
+}
+
+// Display classes
+// ----
+//
+
+.u-display {
+  &-block {
+    display: block !important;
+  }
+  &-inline-block {
+    display: inline-block !important;
+  }
 }
 
 // Positioning helpers
 // ----
 //
-.pull--left {
-  float: left;
+.u-float-left {
+  float: left !important;
 }
-// .pull--bp-med--left
+// .u-float--bp-med--left
 // @each $bp, $px in $breakpoints {
 //   @include breakpoint($px, min-width) {
-//     .pull--bp-#{$bp}--left {
-//       float: left;
+//     .u-float--bp-#{$bp}-left {
+//       float: left !important;
 //     }
 //   }
 // }
 
-.pull--right {
-  float: right;
+.u-float-right {
+  float: right !important;
 }
+// .u-float--bp-med--right
 // @each $bp, $px in $breakpoints {
 //   @include breakpoint($px, min-width) {
-//     .pull--bp-#{$bp}--right {
+//     .u-float--bp-#{$bp}--right {
 //       float: right;
 //     }
 //   }
@@ -59,19 +73,19 @@
 // ----
 //
 
-// .show--bp-med
+// .u-show@med
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, max-width) {
-    .show--bp-#{$bp} {
+    .u-show@-#{$bp} {
       display: none !important;
     }
   }
 }
 
-// .hide--bp-med
+// .u-hide@med
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, min-width) {
-    .hide--bp-#{$bp} {
+    .u-hide@#{$bp} {
       display: none !important;
     }
   }

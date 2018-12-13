@@ -6,9 +6,6 @@
 @import 'core/mixins';
 @import 'core/extends';
 
-@import 'utility/flexbox';
-@import 'utility/spacing';
-
 @import 'core/scaffold';
 @import 'core/grid';
 @import 'core/type';
@@ -40,18 +37,20 @@
 @import 'components/footer';
 @import 'components/nav';
 
+@import 'components/map';
+@import 'components/tabs';
 // @import 'components/assets';
 // @import 'components/navbar';
-@import 'components/map';
 // @import 'components/download';
 // @import 'components/gallery';
 // @import 'components/carousel';
 // @import 'components/dropdown';
-@import 'components/tabs';
 // @import 'components/button-group';
 
-// Helpers
-@import 'core/helpers';
+// Utility's
+@import 'utility/flexbox';
+@import 'utility/spacing';
+@import 'utility/helpers';
 
 // Print
 @import 'core/print';
