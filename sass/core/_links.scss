@@ -1,20 +1,31 @@
 .link {
-  &--ext {
-    display: inline-block;
-    &:after {
-      @extend %ext-icon;
-      @extend %ext-icon-arrow-right;
-    }
+
+  &__icon {
+    margin-left: $rh-xxs;
   }
-  &--grayscale {
+}
+
+.link--ext {
+
+  display: inline-block;
+
+  &:after {
+    @extend %ext-icon;
+    @extend %ext-icon-arrow-right;
+  }
+}
+
+.link--grayscale {
+
+  img {
+    @include grayscale;
+    @include transitions(filter);
+  }
+
+  &:hover {
+
     img {
-      @include grayscale;
-      @include transitions(filter);
-    }
-    &:hover {
-      img {
-        filter: none;
-      }
+      filter: none;
     }
   }
 }
