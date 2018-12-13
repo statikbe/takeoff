@@ -11,4 +11,5 @@ require('./components/common');
 require('./components/form');
 require('./components/flyout');
 
+//  Icon font generation - do not remove
 require('../icons/iconfont.font');
