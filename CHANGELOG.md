@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Prefixed some helpers classes in /utility/_helpers.scss with `u-`
 - Changed the class `pull--left` to `u-float-left` same for right
 - Changed the class `hide--bp-med` to `u-hide@med` first try of new breakpoint syntax same for the `show` class
+- Update hero component made it more responsive
 
 ### Removed
 - Removed `btn--close`
