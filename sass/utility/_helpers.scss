@@ -76,7 +76,7 @@
 // .u-show@med
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, max-width) {
-    .u-show@-#{$bp} {
+    .u-show\@-#{$bp} {
       display: none !important;
     }
   }
@@ -85,7 +85,7 @@
 // .u-hide@med
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, min-width) {
-    .u-hide@#{$bp} {
+    .u-hide\@#{$bp} {
       display: none !important;
     }
   }
