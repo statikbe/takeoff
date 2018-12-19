@@ -36,7 +36,7 @@
 <body>
     <div class="section section--no-padding section--dark">
         <div class="section__content">
-            <div class="block block--panel block--primary">
+            <div class="panel panel--primary">
                 <div class="text--right">
                     Based on <a href="//github.com/statikbe/takeoff" target="_blank" rel="noopener noreferrer">Takeoff</a> 🚀 a frontend framework by <a href="//www.statik.be/" target="_blank" rel="noopener noreferrer">Statik</a>
                 </div>
@@ -46,7 +46,7 @@
     <div class="section section--no-padding section--overflow">
         <div class="grid grid--flush">
             <div class="grid__12 grid--bp-med__3">
-                <div class="block block--panel block--light sidebar">
+                <div class="panel panel--light sidebar">
                     <h3>
                         <a href="#section-core">Concepts</a>
                     </h3>
@@ -122,9 +122,6 @@
                     </h3>
                     <ul class="list list--unstyled">
                         <li>
-                            <a href="#section-block">Block</a>
-                        </li>
-                        <li>
                             <a href="#section-breadcrumbs">Breadcrumbs</a>
                         </li>
                         <li>
@@ -153,6 +150,9 @@
                         </li>
                         <li>
                             <a href="#section-pagination">Pagination</a>
+                        </li>
+                        <li>
+                            <a href="#section-panel">Panel</a>
                         </li>
                         <li>
                             <a href="#section-section">Section</a>
@@ -877,66 +877,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="section section--light text--center" id="section-block">
-                    <div class="container">
-                        <h2>Block</h2>
-                        <code>takeoff/sass/components/_block.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--lrg">
-                            <p>Consecutive elements with the <code>block</code> class automatically get some margin in between.</p>
-                        </div>
-                        <div class="spacer--lrg">
-                            <div class="grid">
-                                <div class="grid__6 js-code-block">
-                                    <div class="block">Block 1</div>
-                                    <div class="block">Block 2</div>
-                                </div>
-                                <div class="grid__6">
-                                    <pre><code class="html"></code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="spacer--lrg">
-                            <div class="grid">
-                                <div class="grid__6 js-code-block">
-                                    <div class="block block--panel">
-                                        Block panel (adds padding)
-                                    </div>
-                                </div>
-                                <div class="grid__6">
-                                    <pre><code class="html"></code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="spacer--lrg">
-                            <div class="grid">
-                                <div class="grid__6 js-code-block">
-                                    <div class="block block--panel block--light">
-                                        Block light
-                                    </div>
-                                </div>
-                                <div class="grid__6">
-                                    <pre><code class="html"></code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="spacer--lrg">
-                            <div class="grid">
-                                <div class="grid__6 js-code-block">
-                                    <div class="block block--panel block--primary">
-                                        Block primary
-                                    </div>
-                                </div>
-                                <div class="grid__6">
-                                    <pre><code class="html"></code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="section section--light text--center" id="section-breadcrumbs">
                     <div class="container">
                         <h2>Breadcrumbs</h2>
@@ -1378,6 +1318,67 @@
                                         <a href="" class="pagination__link pagination__next">Next</a>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-panel">
+                    <div class="container">
+                        <h2>Panel</h2>
+                        <code>takeoff/sass/components/_panel.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6 js-code-block">
+                                    <div class="panel">Panel</div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6 js-code-block">
+                                    <div class="panel panel--light">
+                                        Panel light
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6 js-code-block">
+                                    <div class="panel panel--primary">
+                                        Panel primary
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer--lrg">
+                            <div class="grid">
+                                <div class="grid__6 js-code-block">
+                                    <div class="panel panel--light">
+                                        <div class="panel__section">
+                                            Panel with sections
+                                        </div>
+                                        <div class="panel__section">
+                                            Another section
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid__6">
+                                    <pre><code class="html"></code></pre>
+                                </div>
                             </div>
                         </div>
                     </div>

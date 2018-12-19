@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added %ext-icon-{icon_file_name} extends for icons (don't use stuff like `content: '\f111'` anymore) and applied where used
 - Added text modifiers for notice colors
 - Added display classes in /utility/_helpers.scss `u-display-block` and `u-display-inline-block`
+- Added `_panel.scss`
 
 ### Changed
 - Remove `keyboard-` prefix from arrow icon names
@@ -32,6 +33,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 - Removed `btn--close`
+- Removed `_block.scss`
 
 ## [1.5.4] - 2018-11-22
 
