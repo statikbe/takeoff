@@ -19,6 +19,14 @@ $btn-padding-v: ($btn-height - ($btn-font-size * $btn-line-height) - (2 * $btn-b
   text-decoration: none;
   border-radius: 4px;
 
+  &__icon {
+    display: inline-block;
+    vertical-align: bottom;
+    &:before {
+      display: block;
+    }
+  }
+
   &--ghost {
     @include button-variant($color-primary $white, transparent $color-primary, $color-primary);
   }
@@ -28,6 +36,7 @@ $btn-padding-v: ($btn-height - ($btn-font-size * $btn-line-height) - (2 * $btn-b
       @extend %ext-icon;
       @extend %ext-icon-arrow-right;
       margin-left: $rh-xxs;
+      vertical-align: bottom;
     }
   }
 
