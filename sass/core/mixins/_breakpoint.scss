@@ -1,7 +1,7 @@
 // RWD Breakpoints
 @mixin breakpoint($point, $query: min-width, $orientation: false) {
 
-  @if type-of($point) == string && index($breakpoints, $point) != null {
+  @if map-get($breakpoints, $point) != null {
     $point: map-get($breakpoints, $point);
   }
 
