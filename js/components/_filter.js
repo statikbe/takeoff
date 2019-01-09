@@ -10,7 +10,7 @@ app.filter = (function filterComponent($, undefined) {
     var promise;
 
     function initialize() {
-        $inputFilter.on('change', function(e) {
+        $form.on('change','input', function(e) {
             $('.js-filter-loading').fadeIn();
             $result.hide();
             var url = $form.attr('action') + '?' + $form.serialize();
