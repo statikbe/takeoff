@@ -9,11 +9,11 @@
       width: 100%;
       height: auto;
     }
-    @include breakpoint(map-get($breakpoints, sml), max-width) {
+    @include breakpoint(sml, max-width) {
       clear: both;
       margin: 0 auto;
     }
-    @include breakpoint(map-get($breakpoints, sml)) {
+    @include breakpoint(sml) {
       float: left;
       margin-right: $rh-sml;
     }

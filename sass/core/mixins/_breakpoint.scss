@@ -1,13 +1,19 @@
 // RWD Breakpoints
-@mixin breakpoint($point, $query: min-width) {
+@mixin breakpoint($point, $query: min-width, $orientation: false) {
+
+  @if type-of($point) == string && index($breakpoints, $point) != null {
+    $point: map-get($breakpoints, $point);
+  }
 
   @if $query == max-width {
+    $point: $point - 1;
+  }
 
-    @media ($query: $point - 1)  {
+  @if $orientation {
+    @media ($query: $point) and (orientation: $orientation)  {
       @content;
     }
-  } @else  {
-
+  } @else {
     @media ($query: $point)  {
       @content;
     }

@@ -9,7 +9,7 @@
     }
   }
 
-  @include breakpoint(map-get($breakpoints, lrg)) {
+  @include breakpoint(lrg) {
     padding: $rh-med;
   }
 }

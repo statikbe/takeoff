@@ -36,7 +36,7 @@
   }
 
   &__aside {
-    @include breakpoint(map-get($breakpoints, sml)) {
+    @include breakpoint(sml) {
       float: left;
       margin-right: $grid-gutter-width;
       // max-width: 180px;

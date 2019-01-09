@@ -12,5 +12,6 @@
   &:after {
     @extend %ext-icon;
     @extend %ext-icon-arrow-right;
+    vertical-align: bottom;
   }
 }

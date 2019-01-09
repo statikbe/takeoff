@@ -15,7 +15,7 @@ $hero-text-width: 750px;
   padding: $rh-med 0;
   color: $hero-text-color;
   min-height: $hero-min-height;
-  @include breakpoint(map-get($breakpoints, sml)) {
+  @include breakpoint(sml) {
     padding: ($rh-xlr * 2) 0;
   };
 

@@ -119,7 +119,7 @@ $input-icon-padding: ($input-padding-h * 2);
       margin: auto 0 0;
     }
 
-    @include breakpoint(map-get($breakpoints, sml), max-width) {
+    @include breakpoint(sml, max-width) {
 
       flex-direction: column;
 
@@ -362,7 +362,7 @@ $input-icon-padding: ($input-padding-h * 2);
     margin: 0 $rh-xxs $rh-sml;
   }
 
-  @include breakpoint(map-get($breakpoints, sml)) {
+  @include breakpoint(sml) {
 
     .form__content {
       display: flex;
@@ -413,7 +413,7 @@ $input-icon-padding: ($input-padding-h * 2);
 
   //  Uncomment below to make button stick to first `form__item`
 
-  // @include breakpoint(map-get($breakpoints, sml)) {
+  // @include breakpoint(sml) {
 
   //   .form__item:first-child + .form__actions {
 
