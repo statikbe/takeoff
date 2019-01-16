@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
     <style>
         .grid--flush {
             margin: 0;
@@ -162,6 +161,9 @@
                         </li>
                         <li>
                             <a href="#section-tabs">Tabs</a>
+                        </li>
+                        <li>
+                            <a href="#section-filter">Filter</a>
                         </li>
                     </ul>
 <!--                     <h3>
@@ -1551,43 +1553,113 @@
                         </div>
                     </div>
                 </div> -->
+                <div class="section section--light text--center" id="section-filter">
+                    <div class="container">
+                        <h2>Filter</h2>
+                        <code>takeoff/js/components/filter.js</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg js-code-block">
+                            <div class="grid">
+                                <div class="grid__12 grid--bp-med__3">
+                                    <div class="panel panel--light">
+                                        <form action="" class="form js-filter-form">
+                                            <div class="form__item">
+                                                <label class="form__label">Select</label>
+                                                <div class="form__element">
+                                                    <div class="form__icon form__icon--select" aria-hidden="true"></div>
+                                                    <select class="form__select" required="" name="filter-example-select">
+                                                        <option value=""></option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form__help">Select an item from the list</div>
+                                            </div>
+                                            <div class="form__group">
+                                                <div class="form__item">
+                                                    <input type="checkbox" id="filter-example-check-1" name="filter-example-check[]" class="form__checkbox"
+                                                           required="">
+                                                    <label for="filter-example-check-1" class="form__label">Checkbox 1</label>
+                                                </div>
+                                                <div class="form__item">
+                                                    <input type="checkbox" id="filter-example-check-2" name="filter-example-check[]" class="form__checkbox"
+                                                           required="">
+                                                    <label for="filter-example-check-2" class="form__label">Checkbox 2</label>
+                                                </div>
+                                            </div>
+                                            <div class="form__group">
+                                                <div class="form__item">
+                                                    <input type="radio" id="filter-example-radio-1" name="filter-example-radio" class="form__radio" required="">
+                                                    <label for="filter-example-radio-1" class="form__label">Radio 1</label>
+                                                </div>
+                                                <div class="form__item">
+                                                    <input type="radio" id="filter-example-radio-2" name="filter-example-radio" class="form__radio" required="">
+                                                    <label for="filter-example-radio-2" class="form__label">Radio 2</label>
+                                                </div>
+                                            </div>
+                                            <div class="form__actions js-filter-submit">
+                                                <button type="submit" class="btn form__btn">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="grid__12 grid--bp-med__9">
+                                    <div class="js-filter-loading">
+                                        Loading...
+                                    </div>
+                                    <div class="js-filter-results">
+                                        <div class="spacer">
+                                            <div class="spacer panel panel--primary">
+                                                Item
+                                            </div>
+                                            <div class="spacer panel panel--primary">
+                                                Item
+                                            </div>
+                                            <div class="spacer panel panel--primary">
+                                                Item
+                                            </div>
+                                        </div>
+                                        <div class="spacer">
+                                            <div class="js-filter-pagination">
+                                                <ul class="pagination">
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__link pagination__prev">Previous</a>
+                                                    </li>
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__btn">1</a>
+                                                    </li>
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__btn">2</a>
+                                                    </li>
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__btn">3</a>
+                                                    </li>
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__link pagination__next">Next</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer spacer--med">
+                            <div class="grid">
+                                <div class="grid__12">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>
-        $(function () {
-
-            $('.js-code-block').each(function () {
-
-                var $this = $(this);
-                var $parent = $this.parent();
-                var $target = [];
-
-                while (!$target.length) {
-                    $target = $parent.find('pre code');
-                    $parent = $parent.parent();
-                }
-
-                if (!$target) return;
-
-                var sourceCodeLines = $this.html().trim().split('\n');
-                var lastSourceCodeLine = sourceCodeLines[sourceCodeLines.length - 1];
-                var sourceCodeWhitespace = lastSourceCodeLine.slice(0, lastSourceCodeLine.search(/\S/));
-
-                $.each(sourceCodeLines, function (i, line) {
-                    sourceCodeLines[i] = line.replace(sourceCodeWhitespace, '');
-                });
-
-                $target.text(sourceCodeLines.join('\n'));
-            });
-
-            $('pre code').each(function (i, b) {
-                hljs.highlightBlock(b);
-            });
-        });
-    </script>
+    <script src="../js/docs.js"></script>
 </body>
 </html>
