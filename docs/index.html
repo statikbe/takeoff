@@ -438,25 +438,37 @@
                             <h3>Repeating grid</h3>
                             <p>In a repeating grid, every grid item has the same width. The <strong>parent element class</strong> decides the layout:</p>
                             <p>
-                                <code>grid--[bp-&lt;breakpoint&gt;-]&lt;n&gt;-col</code>
+                                <strong><code>grid--&lt;n&gt;-col@&lt;breakpoint&gt;</code></strong>
                             </p>
                             <p>
                                 <code>&lt;breakpoint&gt;</code> refers to the minimum viewport width for this class to apply. See <a href="#section-breakpoints">breakpoints</a>.<br>
                                 <code>&lt;n&gt;</code> refers to the number of colums.
                             </p>
-                            <p>Child elements <strong>must always</strong> have the <code>grid__item</code> class, and preferably no other classes.</p>
+                            <p>Child elements <strong>must always</strong> have the <code>grid__item</code> class, and preferably <strong>no other classes</strong>.</p>
                             <p>Let's create a repeating grid that starts out as a single column, and scales up to 3 columns on larger screens. Try resizing your screen to see the result!</p>
                             <div class="spacer--sml">
                                 <pre><code class="html"></code></pre>
                             </div>
                             <div class="spacer--sml js-code-block">
-                                <div class="grid grid--bp-med-2-col grid--bp-lrg-3-col">
-                                    <div class="grid__item">One</div>
-                                    <div class="grid__item">Two</div>
-                                    <div class="grid__item">Three</div>
-                                    <div class="grid__item">Four</div>
-                                    <div class="grid__item">Five</div>
-                                    <div class="grid__item">Six</div>
+                                <div class="grid grid--2-col@med grid--3-col@lrg">
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">One</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Two</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Three</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Four</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Five</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Six</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -464,21 +476,26 @@
                             <h3>Custom grid</h3>
                             <p>In a custom grid, grid items can have different widths. This is mostly used for creating layouts. The <strong>child element class</strong> decides the layout:</p>
                             <p>
-                                <code>grid[--bp-&lt;breakpoint&gt;]__&lt;n&gt;</code>
+                                <strong><code>grid__&lt;n&gt;@&lt;breakpoint&gt;</code></strong>
                             </p>
                             <p>
                                 <code>&lt;breakpoint&gt;</code> refers to the minimum viewport width for this class to apply. See <a href="#section-breakpoints">breakpoints</a>.<br>
-                                <code>&lt;n&gt;</code> refers to the number of colums this child spans. We use a 12 column grid system.
+                                <code>&lt;n&gt;</code> refers to the number of colums this child spans. We use a 12 column grid system. <br>
+                                <strong>Note:</strong> do not forget the <code>grid__12</code> class.
                             </p>
-                            <p>Parent elements <strong>must always</strong> have the <code>grid</code> class, and preferably no other classes.</p>
+                            <p>Parent elements <strong>must always</strong> have the <code>grid</code> class, and preferably no other classes. (except for the spacer class)</p>
                             <p>Let's create a basic responsive layout that starts out with full width children and scales up to a 25% / 75% layout on larger screens.</p>
                             <div class="spacer--sml">
                                 <pre><code class="html"></code></pre>
                             </div>
                             <div class="spacer--sml js-code-block">
                                 <div class="grid">
-                                    <div class="grid__12 grid--bp-med__3">One</div>
-                                    <div class="grid__12 grid--bp-med__9">Two</div>
+                                    <div class="grid__12 grid__5@med">
+                                        <div class="panel panel--light">One</div>
+                                    </div>
+                                    <div class="grid__12 grid__7@med">
+                                        <div class="panel panel--light">Two</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
