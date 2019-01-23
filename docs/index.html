@@ -13,11 +13,12 @@
         }
         .sidebar {
             position: fixed;
+            display: none;
             top: 0;
             left: 0;
             bottom: 0;
-            width: 25%;
             overflow: auto;
+            width: 15%;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
         pre {
@@ -28,6 +29,21 @@
         .hljs {
             padding: 24px;
             border: 1px solid #E5E5E5;
+        }
+        .grid__4\@lrg {
+            display: none;
+        }
+        @media (min-width: 980px) {
+            .sidebar {
+                display: block;
+            }
+            .grid__4\@lrg {
+                display: block;
+                width: 15%;
+            }
+            .grid__8\@lrg {
+                width: 85%;
+            }
         }
     </style>
     <title>[PROJECT CODE] | Takeoff Docs</title>
@@ -44,7 +60,7 @@
     </div>
     <div class="section section--no-padding section--overflow">
         <div class="grid grid--flush">
-            <div class="grid__12 grid--bp-med__3">
+            <div class="grid__12 grid__4@lrg">
                 <div class="panel panel--light sidebar">
                     <h3>
                         <a href="#section-core">Concepts</a>
@@ -56,9 +72,9 @@
                         <li>
                             <a href="#section-rhythm">Rhythm</a>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a href="#section-breakpoints">Breakpoints</a>
-                        </li> -->
+                        </li>
                     </ul>
                     <h3>
                         <a href="#section-core">Core</a>
@@ -179,7 +195,7 @@
                     </ul> -->
                 </div>
             </div>
-            <div class="grid__12 grid--bp-med__9">
+            <div class="grid__12 grid__8@lrg">
                 <div class="section section--dark">
                     <div class="container">
                         <div class="section__content text--center">
@@ -250,7 +266,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="section section--light text--center" id="section-breakpoints">
+                <div class="section section--light text--center" id="section-breakpoints">
                     <div class="container">
                         <h2>Breakpoints</h2>
                     </div>
@@ -258,10 +274,17 @@
                 <div class="section section--default">
                     <div class="container">
                         <div class="spacer--lrg">
-                            <p></p>
+                            <div class="flex flex-justify-between">
+                                <div><strong>xxs</strong> (320px)</div>
+                                <div><strong>xsm</strong> (440px)</div>
+                                <div><strong>sml</strong> (660px)</div>
+                                <div><strong>med</strong> (820px)</div>
+                                <div><strong>lrg</strong> (980px)</div>
+                                <div><strong>xlr</strong> (1200px)</div>
+                            </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <div class="section section--dark">
                     <div class="container">
                         <div class="section__content text--center">
