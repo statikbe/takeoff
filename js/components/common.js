@@ -15,6 +15,17 @@ $window.on('load', jsDone);
 
 setTimeout(jsDone, 4000);
 
+$('.js-notice-close').on('click', function (e) {
+
+    e.preventDefault();
+
+    const $notice = $(this).closest('.notice');
+
+    $notice.slideToggle(250, () => {
+        $notice.remove();
+    });
+});
+
 function windowResize() {
 
     const isFlyoutActive = isBreakpointActive('flyout');
