@@ -1,325 +1,429 @@
 $input-background-color: $white;
 $input-background-color-focus: tint($input-background-color, 75%);
 $input-border-color: $gray-25;
-$input-border-color-focus: $gray-75;
+$input-border-color-focus: $color-primary;
 $input-text-color: $color-text;
 
-$error-background: tint(map-get($notice-colors, 'danger'), 90%);
+$error-background: tint(map-get($notice-colors, 'danger'), 95%);
 $error-color: map-get($notice-colors, 'danger');
 
 $input-item-margin: $rh-sml;
-$input-horizontal-padding: 15px;
-$input-vertical-padding: 14px;
-$input-icon-padding: ($input-horizontal-padding * 2) + 4px;
+
+$input-height: $btn-height;
+$input-font-size: 16px;
+$input-line-height: 1.5;
+$input-border-width: 2px;
+$input-padding-h: 1em;
+$input-padding-v: ($input-height - ($input-font-size * $input-line-height) - (2 * $input-border-width)) / $input-font-size * 0.5em;
+
+$input-icon-padding: ($input-padding-h * 2);
 
 %ext-input-style {
-  @include transitions((color, background, border));
+
+  @include transitions(color background border);
+  @include fsRem($input-font-size);
+
   position: relative;
   z-index: 10;
   display: block;
   width: 100%;
-  padding: $input-vertical-padding $input-horizontal-padding;
-  border: 1px solid $input-border-color;
+  padding: $input-padding-v $input-padding-h;
+  border: $input-border-width solid $input-border-color;
+  line-height: $input-line-height;
   background-color: $input-background-color;
   color: $input-text-color;
-  line-height: normal;
+  border-radius: 4px;
+  box-shadow: none;
+
   &:focus {
+
     outline: none;
     border-color: $input-border-color-focus;
     background: $input-background-color-focus;
+
     &::-webkit-input-placeholder {
       color: transparent;
     }
+
     &::-moz-placeholder {
       color: transparent;
     }
   }
+
   &[disabled],
   .form__disabled {
     cursor: not-allowed;
     background: $gray-0;
   }
-  .parsley-error & {
+  
+  .has-error & {
     background-color: $error-background;
     border-color: $error-color;
   }
 }
 
-form {
+.form {
+
   margin-bottom: $rh-sml;
+
   &.is-submitted {
+
     position: relative;
     opacity: .5;
+
     &:before {
-      content: '';
+      @include absolute-fill();
       display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 100;
+      content: '';
+      z-index: 11;
       cursor: wait;
-      cursor: progress;
     }
   }
-}
 
-.form {
-  &--inline {
-    display: flex;
-    .form__label {
-      @extend .visuallyhidden;
-    }
+  //  `form__group` is a wrapper for checkboxes and radio buttons
+  &__group {
+
+    margin-bottom: $rh-sml;
+
     .form__item {
-      flex: 1 1 auto;
-      margin: 0;
+      margin-bottom: $rh-xsm;
+    }
+  }
+
+  //  `form__item` is a wrapper containing a label, form widget and errors
+  &__item {
+    position: relative;
+    margin-bottom: $input-item-margin;
+  }
+
+  //  `form__element` is a wrapper containing a single form widget (for use with `form__icon`)
+  &__element {
+    position: relative;
+  }
+
+  //  `form__row` allows `form__item`s to be placed next to eachother
+  &__row {
+
+    display: flex;
+    margin-right: -$rh-xsm;
+    margin-bottom: $input-item-margin;
+    margin-left: -$rh-xsm;
+
+    .form__item {
+      flex: 1 1 100%;
+      margin: 0 $rh-xsm;
+      
     }
     .form__actions {
       flex: 0 0 180px;
+      margin: auto 0 0;
     }
-    .form__btn {
-      position: relative;
-      left: -1px;
-      z-index: 10;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+
+    @include breakpoint(sml, max-width) {
+
+      flex-direction: column;
+
+      .form__item + .form__item {
+        margin-top: $input-item-margin;
+      }
     }
   }
-}
 
-//== Form items
-//-------------
-//
-// Outer wrapper. Includes label, element and errors
-.form__item {
-  position: relative;
-  margin-bottom: $input-item-margin;
-  // Styling for single checkbox
-  &--checkbox {
-    @include cf;
-    input {
-      position: absolute;
-      left: 0;
-      top: 0;
-      margin-top: 5px;
-    }
-    label {
-      display: block;
+  &__label {
+
+    display: inline-block;
+    margin-bottom: $rh-xxs / 2;
+    font-weight: $font-weight-bold;
+
+    &[for] {
       cursor: pointer;
-      position: relative;
-      float: left;
-      clear: both;
-      padding-left: 20px;
-      margin-bottom: 0;
+    }
+
+    &--gdpr {
+      font-size: .9em;
       font-weight: $font-weight-regular;
     }
   }
-  &--radios,
-  &--checkboxes {
-    // Styling for the labels inside a group
-    .checkbox-group,
-    .radio-group {
-      @include cf;
-      input {
+
+  &__text {
+    @extend %ext-input-style;
+  }
+
+  &__textarea {
+    @extend %ext-input-style;
+    min-height: $input-font-size * $input-line-height * 3 + $input-border-width * 2 + $input-padding-v * 2 / 1em * $input-font-size; //  3 lines
+  }
+
+  &__checkbox,
+  &__radio {
+
+    @extend .visuallyhidden;
+
+    + .form__label {
+
+      display: block;
+      position: relative;
+      padding-left: $rh-sml;
+      margin-bottom: 0;
+      font-weight: $font-weight-regular;
+
+      &:before {
+        @extend %ext-icon;
+        @include transitions(color);
+        @include fsRem(18px);
         position: absolute;
         left: 0;
-        top: 0;
+        top: -1px;
       }
-      label {
+    }
+
+    &:checked + label:before {
+      color: $color-primary;
+    }
+
+    &:focus + label {
+      color: $color-primary;
+    }
+
+    .has-error & + label:before {
+      color: $error-color;
+    }
+  }
+
+  &__checkbox {
+
+    + .form__label:before {
+      @extend %ext-icon-checkbox-unchecked;
+    }
+
+    &:checked + .form__label:before {
+      @extend %ext-icon-checkbox-checked;
+    }
+  }
+
+  &__radio {
+
+    + .form__label:before {
+      @extend %ext-icon-radio-unchecked;
+    }
+
+    &:checked + .form__label:before {
+      @extend %ext-icon-radio-checked;
+    }
+  }
+
+  &__select {
+
+    @extend %ext-input-style;
+    display: block;
+    height: $input-height;
+    cursor: pointer;
+    appearance: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  &__icon {
+
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+    transform: translateY(-50%);
+    line-height: 1;
+    color: $input-border-color;
+
+    &--right {
+      right: $input-padding-v;
+      ~ [class^=form__] {
+        padding-right: $input-icon-padding;
+      }
+    }
+    &--left {
+      left: $input-padding-v;
+      ~ [class^=form__] {
+        padding-left: $input-icon-padding;
+      }
+    }
+
+    &--select {
+
+      @extend .form__icon--right;
+
+      &:after {
+        @extend %ext-icon;
+        @extend %ext-icon-arrow-down;
+      }
+
+      .has-error &:after {
+        color: $error-color;
+      }
+    }
+  }
+
+  &__file {
+    display: block;
+  }
+
+  //== Form helpers
+  //---------------
+  //
+  &__help {
+    @include fsRem(14px);
+    margin-top: 3px;
+    color: $gray-25;
+  }
+
+  &__caption {
+    display: inline;
+    color: $gray-25;
+  }
+
+  &__actions {
+
+    margin-left: -$rh-xsm;
+    margin-right: -$rh-xsm;
+
+    a, .btn, .form__btn {
+      margin: 0 $rh-xsm;
+    }
+  }
+
+  &__btn {
+
+    min-width: 160px;
+
+    .is-submitted & {
+
+      overflow: hidden;
+      cursor: not-allowed;
+      position: relative;
+
+      &:before {
+        content: '';
         display: block;
-        cursor: pointer;
-        position: relative;
-        float: left;
-        clear: both;
-        padding-left: 20px;
-        margin-bottom: 0;
-        font-weight: $font-weight-regular;
+        animation: move 750ms linear infinite;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: 10;
+        height: 3px;
+        width: 100%;
+        background: rgba($white, .25);
       }
     }
   }
-  &--checkboxes {
-    input {
-      margin-top: 5px;
+
+  &__errors {
+
+    @include listreset;
+    @include fsRem(14px);
+    color: map-get($notice-colors, 'danger');
+    font-weight: $font-weight-bold;
+    clear: both;
+    
+    li {
+      margin-top: $rh-xxs;
     }
   }
-  &--radios {
-    input {
-      margin-top: 4px;
-    }
-  }
-}
-// Inner wrapper. Includes one form element (input, select, ...) and an optional form icon
-.form__element {
-  position: relative;
 }
 
-.form__row {
-  display: flex;
-  margin-right: -10px;
-  margin-bottom: $input-item-margin;
-  margin-left: -10px;
-  @include breakpoint(map-get($breakpoints, sml), max-width) {
-    flex-direction: column
-  };
-  .form__item {
-    flex: 1 1 100%;
-    margin: 0 10px;
-    @include breakpoint(map-get($breakpoints, sml), max-width) {
-      + .form__item {
-        margin-top: $input-item-margin;
-      }
-    };
+//  Inline forms
+//  
+//    `form__items`s are horizontally aligned
+//
+//  Example HTML:
+//
+//  <form class="form form--inline">
+//    <div class="form__content">
+//      <div class="form__item">…</div>
+//      <div class="form__actions">
+//        <button type="submit" class="btn form__btn">…<button>
+//      </div>
+//    </div>
+//  </form>
+
+.form--inline {
+
+  margin-bottom: 0;
+
+  .form__content {
+    margin: 0 (-$rh-xxs) 0;
   }
+
+  .form__item,
+  .form__actions {
+    margin: 0 $rh-xxs $rh-sml;
+  }
+
+  @include breakpoint(sml) {
+
+    .form__content {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: flex-end;
+    }
+
+    .form__errors {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .form__item {
+
+    flex: 1 1 auto;
+
+    + .form__item {
+      margin-right: $rh-xxs;
+    }
+
+    %ext-input-style {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:not(:first-of-type) {
+
+      %ext-input-style {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
   .form__actions {
     flex: 0 0 180px;
-    margin: auto 0 0;
-  }
-}
-
-//== Form input types
-//-------------------
-//
-.form__label {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-weight: $font-weight-bold;
-  &[for] {
-    cursor: pointer;
-  }
-  &--gdpr {
-    font-size: .9em;
-    font-weight: $font-weight-regular;
-  }
-}
-
-.form__text {
-  @extend %ext-input-style;
-}
-.form__textarea {
-  @extend %ext-input-style;
-  min-height: 140px;
-}
-
-.form__radio,
-.form__checkbox {
-  vertical-align: 0;
-}
-
-.form__select {
-  @extend %ext-input-style;
-  display: block;
-  cursor: pointer;
-  -webkit-appearance: none;
-  // hide mozilla's dirty arrow with -moz-appearance: window
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  &:focus {
-    outline: none;
-  }
-  &::-ms-expand {
-    display: none;
-  }
-}
-
-.form__icon {
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  z-index: 20;
-  margin-top: -.5em;
-  line-height: 1;
-  &--right {
-    right: $input-vertical-padding;
-    ~ [class^=form__] {
-      padding-right: $input-icon-padding;
-    }
-  }
-  &--left {
-    left: $input-vertical-padding;
-    ~ [class^=form__] {
-      padding-left: $input-icon-padding;
-    }
   }
 
-  &--select {
-    @extend .form__icon--right;
-    &:after {
-      content: '\f10f';
-      font-family: $font-family-icons;
-    }
+  .form__btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 100%;
+    margin: 0;
   }
-}
 
-.form__file {
-  display: block;
-}
+  //  Uncomment below to make button stick to first `form__item`
 
-//== Form helpers
-//---------------
-//
-.form__description {
-  clear: both;
-  color: $gray-25;
-}
-.form__caption {
-  display: inline;
-  color: $gray-25;
-}
+  // @include breakpoint(sml) {
 
-//== Form actions
-//---------------
-//
-.form__actions {
-  clear: both;
-  margin-left: -10px;
-  margin-right: -10px;
-  a, button {
-    margin: 0 10px;
-  }
-}
+  //   .form__item:first-child + .form__actions {
 
-.form__btn {
-  min-width: 160px;
-  padding-top: $input-vertical-padding;
-  padding-bottom: $input-vertical-padding;
-  .is-submitted & {
-    overflow: hidden;
-    cursor: not-allowed;
-    position: relative;
-    &:before {
-      content: '';
-      display: block;
-      animation: move 750ms linear infinite;
-      position: absolute;
-      top: 0;
-      left: -100%;
-      z-index: 10;
-      height: 3px;
-      width: 100%;
-      background: rgba($white, .25);
-    }
-  }
-}
+  //     margin-left: -$rh-xxs;
 
-.form__btn-space-between {
-  display: flex;
-  justify-content: space-between;
-}
-
-
-//== Form errors
-//--------------
-//
-.parsley-errors-list,
-.form__errors-list {
-  @include listreset;
-  @include fsRem(14px);
-  color: map-get($notice-colors, 'danger');
-  font-weight: $font-weight-bold;
-  clear: both;
-  li {
-    margin-top: $rh-xxs;
-  }
+  //     .form__btn {
+  //       position: relative;
+  //       left: -$input-border-width;
+  //       z-index: 10;
+  //     }
+  //   }
+  // }
 }

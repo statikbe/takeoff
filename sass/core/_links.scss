@@ -1,20 +1,17 @@
 .link {
-  &--ext {
-    display: inline-block;
-    &:after {
-      @extend %ext-icon-style;
-      content: '\f111';
-    }
+
+  &__icon {
+    margin-left: $rh-xxs;
   }
-  &--grayscale {
-    img {
-      @include grayscale;
-      @include transitions((filter));
-    }
-    &:hover {
-      img {
-        filter: none;
-      }
-    }
+}
+
+.link--ext {
+
+  display: inline-block;
+
+  &:after {
+    @extend %ext-icon;
+    @extend %ext-icon-arrow-right;
+    vertical-align: bottom;
   }
 }

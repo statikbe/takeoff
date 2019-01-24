@@ -34,20 +34,20 @@ $headings-color-alt: null !default;
   &--1 {
     @extend %ext-heading;
     @include fsRem($font-size-h1 * .65);
-    @include breakpoint(map-get($breakpoints, xsm)) {
+    @include breakpoint(xsm) {
       @include fsRem($font-size-h1 * .75);
     }
-    @include breakpoint(map-get($breakpoints, sml)) {
+    @include breakpoint(sml) {
       @include fsRem($font-size-h1 * .9);
     }
-    @include breakpoint(map-get($breakpoints, med)) {
+    @include breakpoint(med) {
       @include fsRem($font-size-h1);
     }
   }
   &--2 {
     @extend %ext-heading;
-    @include fsRem($font-size-h2 * .85);
-    @include breakpoint(map-get($breakpoints, sml)) {
+    @include fsRem($font-size-h2 * .75);
+    @include breakpoint(sml) {
       @include fsRem($font-size-h2);
     }
   }
@@ -95,10 +95,10 @@ h5 {
 // Stand out text
 .text--lead {
   @include fsRem($font-size-lrg * .75);
-  @include breakpoint(map-get($breakpoints, sml)) {
+  @include breakpoint(sml) {
     @include fsRem($font-size-lrg * .9);
   }
-  @include breakpoint(map-get($breakpoints, med)) {
+  @include breakpoint(med) {
     @include fsRem($font-size-lrg);
   }
 }
@@ -110,6 +110,13 @@ h5 {
 }
 .text--primary {
   color: $color-primary;
+}
+
+// .text--success
+@each $type, $color in $notice-colors {
+  .text--#{$type} {
+    color: $color;
+  }
 }
 
 // Alignment
@@ -129,18 +136,18 @@ h5 {
   white-space: nowrap;
 }
 
-// E.g.: .text--bp-med--left
+// E.g.: .text--left@med
 @each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
-    .text--bp-#{$bp}--left {
+  @include breakpoint($bp) {
+    .text--left\@#{$bp} {
       text-align: left;
     }
   }
 }
-// E.g.: .text--bp-med--right
+// E.g.: .text--right@med
 @each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
-    .text--bp-#{$bp}--right {
+  @include breakpoint($bp) {
+    .text--right\@#{$bp} {
       text-align: right;
     }
   }

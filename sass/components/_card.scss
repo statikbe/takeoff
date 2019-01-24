@@ -13,6 +13,7 @@
 
   &__img {
     overflow: hidden;
+    margin-bottom: $rh-sml;
     img {
       @include transitions(all);
       display: block;
@@ -35,7 +36,7 @@
   }
 
   &__aside {
-    @include breakpoint(map-get($breakpoints, sml)) {
+    @include breakpoint(sml) {
       float: left;
       margin-right: $grid-gutter-width;
       // max-width: 180px;
@@ -46,16 +47,15 @@
   }
 
   &--clickable {
+
     .card__title {
+
       a {
-        &::before {
+
+        &:before {
+          @include absolute-fill;
           display: block;
           content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          right: 0;
-          bottom: 0;
           z-index: 10;
         }
       }
@@ -70,14 +70,11 @@ a.card,
   text-decoration: none;
   &:hover,
   &:focus {
-    #{$headings} {
+    
+    .card__title {
       color: inherit;
     }
-    .card__img {
-      img {
-        transform: translateZ(0) scale(1.05);
-      }
-    }
+
     .card__link {
       color: $color-link;
       text-decoration: none;

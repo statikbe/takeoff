@@ -1,19 +1,25 @@
 .breadcrumb {
+
   @include fsRem(14px);
 
   &__item {
+
     @include link-variant($color-text, $color-link);
-    &--active {
+
+    &.is-active {
       @include link-variant($color-primary);
       text-decoration: none;
     }
   }
+
   &__scope {
+
     & + & {
+
       &:before {
-        content: '\f111';
+        @extend %ext-icon;
+        @extend %ext-icon-arrow-right;
         margin: 0 2px;
-        font-family: $font-family-icons;
       }
     }
   }

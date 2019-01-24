@@ -14,13 +14,15 @@
   }
   &__prev {
     &:before {
-      content: '\2039';
+      @extend %ext-icon;
+      @extend %ext-icon-arrow-left;
       margin-right: $rh-xxs;
     }
   }
   &__next {
     &:after {
-      content: '\203a';
+      @extend %ext-icon;
+      @extend %ext-icon-arrow-right;
       margin-left: $rh-xxs;
     }
   }
@@ -29,9 +31,10 @@
   }
   &__btn {
     @include button-variant($white, $color-primary);
-    box-sizing: content-box;
-    width: 1em;
-    padding: $rh-xsm;
+    line-height: lh($rh-med);
+    width: $rh-med;
+    text-align: center;
+    font-weight: bold;
 
     &.is-active,
     &.active {

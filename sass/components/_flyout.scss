@@ -34,8 +34,8 @@
   @include link-variant($black);
   text-decoration: none;
   &:before {
-    @extend %ext-icon-style;
-    content: '\f114';
+    @extend %ext-icon;
+    @extend %ext-icon-menu;
   }
   @include breakpoint($breakpoint-flyout) {
     display: none;
