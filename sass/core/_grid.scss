@@ -9,7 +9,7 @@ $grid-column-count: 12 !default;
 $grid-container-width: 1200px !default;
 
 $grids: (2, 3, 4) !default;
-$grid-columns: (3, 4, 6, 8, 9) !default;
+$grid-columns: (4, 6, 8) !default;
 $grid-order: () !default;
 $grid-columns-push: () !default;
 $grid-rhythm: $rh-sml !default;
@@ -72,10 +72,10 @@ $grid-rhythm: $rh-sml !default;
 }
 
 // changes flexbox item order
-// Example: .grid--bp-med-order__2
+// Example: .grid@med-order__2
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width') {
-    .grid--bp-#{$bp}-order {
+    .grid\@#{$bp}-order {
       @each $order in $grid-order {
         &__#{$order} {
           @include change-order($order);
@@ -86,7 +86,7 @@ $grid-rhythm: $rh-sml !default;
 }
 
 // Creates all the grid item classes
-// Examples: .grid__6
+// Example: .grid__6
 @each $column in $grid-columns {
   .grid__#{$column} {
     @include make-column($column);
@@ -94,12 +94,12 @@ $grid-rhythm: $rh-sml !default;
 }
 
 // Creates all the breakpoint grid classes
-// Examples: .grid--bp-med-2-col, .grid--bp-sml-1-col
+// Examples: .grid--2-col@med, .grid--3-col@lrg
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, min-width) {
-    .grid--bp-#{$bp} {
+    .grid {
       @each $column in $grids {
-        &-#{$column}-col {
+        &--#{$column}-col\@#{$bp} {
           > .grid__item {
             @include make-repeating-column($column);
           }
@@ -110,12 +110,12 @@ $grid-rhythm: $rh-sml !default;
 }
 
 // Creates all the breakpoint grid ITEM classes
-// Example: .grid--bp-med__8
+// Example: .grid__8@med
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, 'min-width') {
-    .grid--bp-#{$bp} {
+    .grid {
       @each $column in $grid-columns {
-        &__#{$column} {
+        &__#{$column}\@#{$bp} {
           @include make-column($column);
         }
       }
@@ -124,27 +124,15 @@ $grid-rhythm: $rh-sml !default;
 }
 
 // Creates all the offset class
-// Example: .grid__item--med-offset-2
-// @each $bp, $px in $breakpoints {
-//   @include breakpoint($px, 'min-width') {
-//     .grid__item--#{$bp}-offset {
-//       @each $column in $grid-columns-push {
-//         &-#{$column} {
-//           @include make-column-push($column);
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @each $bp, $px in $breakpoints {
-//   @include breakpoint($px, 'min-width') {
-//     .grid--bp-#{$bp}__offset {
-//       @each $column in $grid-columns {
-//         &-#{$column} {
-//           @include make-column-push($column);
-//         }
-//       }
-//     }
-//   }
-// }
+// Example: .grid__offset-2@med
+@each $bp, $px in $breakpoints {
+  @include breakpoint($px, 'min-width') {
+    .grid__offset {
+      @each $column in $grid-columns {
+        &-#{$column}\@#{$bp} {
+          @include make-column-push($column);
+        }
+      }
+    }
+  }
+}

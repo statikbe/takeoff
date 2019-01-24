@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
     <style>
         .grid--flush {
             margin: 0;
@@ -14,11 +13,12 @@
         }
         .sidebar {
             position: fixed;
+            display: none;
             top: 0;
             left: 0;
             bottom: 0;
-            width: 25%;
             overflow: auto;
+            width: 15%;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
         pre {
@@ -30,8 +30,23 @@
             padding: 24px;
             border: 1px solid #E5E5E5;
         }
+        .grid__4\@lrg {
+            display: none;
+        }
+        @media (min-width: 980px) {
+            .sidebar {
+                display: block;
+            }
+            .grid__4\@lrg {
+                display: block;
+                width: 15%;
+            }
+            .grid__8\@lrg {
+                width: 85%;
+            }
+        }
     </style>
-    <title></title>
+    <title>[PROJECT CODE] | Takeoff Docs</title>
 </head>
 <body>
     <div class="section section--no-padding section--dark">
@@ -45,7 +60,7 @@
     </div>
     <div class="section section--no-padding section--overflow">
         <div class="grid grid--flush">
-            <div class="grid__12 grid--bp-med__3">
+            <div class="grid__12 grid__4@lrg">
                 <div class="panel panel--light sidebar">
                     <h3>
                         <a href="#section-core">Concepts</a>
@@ -57,9 +72,9 @@
                         <li>
                             <a href="#section-rhythm">Rhythm</a>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a href="#section-breakpoints">Breakpoints</a>
-                        </li> -->
+                        </li>
                     </ul>
                     <h3>
                         <a href="#section-core">Core</a>
@@ -163,6 +178,9 @@
                         <li>
                             <a href="#section-tabs">Tabs</a>
                         </li>
+                        <li>
+                            <a href="#section-filter">Filter</a>
+                        </li>
                     </ul>
 <!--                     <h3>
                         <a href="#section-utility">Utility</a>
@@ -177,7 +195,7 @@
                     </ul> -->
                 </div>
             </div>
-            <div class="grid__12 grid--bp-med__9">
+            <div class="grid__12 grid__8@lrg">
                 <div class="section section--dark">
                     <div class="container">
                         <div class="section__content text--center">
@@ -248,7 +266,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="section section--light text--center" id="section-breakpoints">
+                <div class="section section--light text--center" id="section-breakpoints">
                     <div class="container">
                         <h2>Breakpoints</h2>
                     </div>
@@ -256,10 +274,17 @@
                 <div class="section section--default">
                     <div class="container">
                         <div class="spacer--lrg">
-                            <p></p>
+                            <div class="flex flex-justify-between">
+                                <div><strong>xxs</strong> (320px)</div>
+                                <div><strong>xsm</strong> (440px)</div>
+                                <div><strong>sml</strong> (660px)</div>
+                                <div><strong>med</strong> (820px)</div>
+                                <div><strong>lrg</strong> (980px)</div>
+                                <div><strong>xlr</strong> (1200px)</div>
+                            </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <div class="section section--dark">
                     <div class="container">
                         <div class="section__content text--center">
@@ -436,25 +461,37 @@
                             <h3>Repeating grid</h3>
                             <p>In a repeating grid, every grid item has the same width. The <strong>parent element class</strong> decides the layout:</p>
                             <p>
-                                <code>grid--[bp-&lt;breakpoint&gt;-]&lt;n&gt;-col</code>
+                                <strong><code>grid--&lt;n&gt;-col@&lt;breakpoint&gt;</code></strong>
                             </p>
                             <p>
                                 <code>&lt;breakpoint&gt;</code> refers to the minimum viewport width for this class to apply. See <a href="#section-breakpoints">breakpoints</a>.<br>
                                 <code>&lt;n&gt;</code> refers to the number of colums.
                             </p>
-                            <p>Child elements <strong>must always</strong> have the <code>grid__item</code> class, and preferably no other classes.</p>
+                            <p>Child elements <strong>must always</strong> have the <code>grid__item</code> class, and preferably <strong>no other classes</strong>.</p>
                             <p>Let's create a repeating grid that starts out as a single column, and scales up to 3 columns on larger screens. Try resizing your screen to see the result!</p>
                             <div class="spacer--sml">
                                 <pre><code class="html"></code></pre>
                             </div>
                             <div class="spacer--sml js-code-block">
-                                <div class="grid grid--bp-med-2-col grid--bp-lrg-3-col">
-                                    <div class="grid__item">One</div>
-                                    <div class="grid__item">Two</div>
-                                    <div class="grid__item">Three</div>
-                                    <div class="grid__item">Four</div>
-                                    <div class="grid__item">Five</div>
-                                    <div class="grid__item">Six</div>
+                                <div class="grid grid--2-col@med grid--3-col@lrg">
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">One</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Two</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Three</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Four</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Five</div>
+                                    </div>
+                                    <div class="grid__item">
+                                        <div class="panel panel--light">Six</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -462,21 +499,26 @@
                             <h3>Custom grid</h3>
                             <p>In a custom grid, grid items can have different widths. This is mostly used for creating layouts. The <strong>child element class</strong> decides the layout:</p>
                             <p>
-                                <code>grid[--bp-&lt;breakpoint&gt;]__&lt;n&gt;</code>
+                                <strong><code>grid__&lt;n&gt;@&lt;breakpoint&gt;</code></strong>
                             </p>
                             <p>
                                 <code>&lt;breakpoint&gt;</code> refers to the minimum viewport width for this class to apply. See <a href="#section-breakpoints">breakpoints</a>.<br>
-                                <code>&lt;n&gt;</code> refers to the number of colums this child spans. We use a 12 column grid system.
+                                <code>&lt;n&gt;</code> refers to the number of colums this child spans. We use a 12 column grid system. <br>
+                                <strong>Note:</strong> do not forget the <code>grid__12</code> class.
                             </p>
-                            <p>Parent elements <strong>must always</strong> have the <code>grid</code> class, and preferably no other classes.</p>
+                            <p>Parent elements <strong>must always</strong> have the <code>grid</code> class, and preferably no other classes. (except for the spacer class)</p>
                             <p>Let's create a basic responsive layout that starts out with full width children and scales up to a 25% / 75% layout on larger screens.</p>
                             <div class="spacer--sml">
                                 <pre><code class="html"></code></pre>
                             </div>
                             <div class="spacer--sml js-code-block">
                                 <div class="grid">
-                                    <div class="grid__12 grid--bp-med__3">One</div>
-                                    <div class="grid__12 grid--bp-med__9">Two</div>
+                                    <div class="grid__12 grid__5@med">
+                                        <div class="panel panel--light">One</div>
+                                    </div>
+                                    <div class="grid__12 grid__7@med">
+                                        <div class="panel panel--light">Two</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1551,43 +1593,113 @@
                         </div>
                     </div>
                 </div> -->
+                <div class="section section--light text--center" id="section-filter">
+                    <div class="container">
+                        <h2>Filter</h2>
+                        <code>takeoff/js/components/filter.js</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer--lrg js-code-block">
+                            <div class="grid">
+                                <div class="grid__12 grid--bp-med__3">
+                                    <div class="panel panel--light">
+                                        <form action="" class="form js-filter-form">
+                                            <div class="form__item">
+                                                <label class="form__label">Select</label>
+                                                <div class="form__element">
+                                                    <div class="form__icon form__icon--select" aria-hidden="true"></div>
+                                                    <select class="form__select" required="" name="filter-example-select">
+                                                        <option value=""></option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form__help">Select an item from the list</div>
+                                            </div>
+                                            <div class="form__group">
+                                                <div class="form__item">
+                                                    <input type="checkbox" id="filter-example-check-1" name="filter-example-check[]" class="form__checkbox"
+                                                           required="">
+                                                    <label for="filter-example-check-1" class="form__label">Checkbox 1</label>
+                                                </div>
+                                                <div class="form__item">
+                                                    <input type="checkbox" id="filter-example-check-2" name="filter-example-check[]" class="form__checkbox"
+                                                           required="">
+                                                    <label for="filter-example-check-2" class="form__label">Checkbox 2</label>
+                                                </div>
+                                            </div>
+                                            <div class="form__group">
+                                                <div class="form__item">
+                                                    <input type="radio" id="filter-example-radio-1" name="filter-example-radio" class="form__radio" required="">
+                                                    <label for="filter-example-radio-1" class="form__label">Radio 1</label>
+                                                </div>
+                                                <div class="form__item">
+                                                    <input type="radio" id="filter-example-radio-2" name="filter-example-radio" class="form__radio" required="">
+                                                    <label for="filter-example-radio-2" class="form__label">Radio 2</label>
+                                                </div>
+                                            </div>
+                                            <div class="form__actions js-filter-submit">
+                                                <button type="submit" class="btn form__btn">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="grid__12 grid--bp-med__9">
+                                    <div class="js-filter-loading">
+                                        Loading...
+                                    </div>
+                                    <div class="js-filter-results">
+                                        <div class="spacer">
+                                            <div class="spacer panel panel--primary">
+                                                Item
+                                            </div>
+                                            <div class="spacer panel panel--primary">
+                                                Item
+                                            </div>
+                                            <div class="spacer panel panel--primary">
+                                                Item
+                                            </div>
+                                        </div>
+                                        <div class="spacer">
+                                            <div class="js-filter-pagination">
+                                                <ul class="pagination">
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__link pagination__prev">Previous</a>
+                                                    </li>
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__btn">1</a>
+                                                    </li>
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__btn">2</a>
+                                                    </li>
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__btn">3</a>
+                                                    </li>
+                                                    <li class="pagination__item">
+                                                        <a href="" class="pagination__link pagination__next">Next</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer spacer--med">
+                            <div class="grid">
+                                <div class="grid__12">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>
-        $(function () {
-
-            $('.js-code-block').each(function () {
-
-                var $this = $(this);
-                var $parent = $this.parent();
-                var $target = [];
-
-                while (!$target.length) {
-                    $target = $parent.find('pre code');
-                    $parent = $parent.parent();
-                }
-
-                if (!$target) return;
-
-                var sourceCodeLines = $this.html().trim().split('\n');
-                var lastSourceCodeLine = sourceCodeLines[sourceCodeLines.length - 1];
-                var sourceCodeWhitespace = lastSourceCodeLine.slice(0, lastSourceCodeLine.search(/\S/));
-
-                $.each(sourceCodeLines, function (i, line) {
-                    sourceCodeLines[i] = line.replace(sourceCodeWhitespace, '');
-                });
-
-                $target.text(sourceCodeLines.join('\n'));
-            });
-
-            $('pre code').each(function (i, b) {
-                hljs.highlightBlock(b);
-            });
-        });
-    </script>
+    <script src="../js/docs.js"></script>
 </body>
 </html>

@@ -48,10 +48,10 @@
 .u-float-left {
   float: left !important;
 }
-// .u-float--bp-med--left
+// .u-float@med-left
 // @each $bp, $px in $breakpoints {
 //   @include breakpoint($px, min-width) {
-//     .u-float--bp-#{$bp}-left {
+//     .u-float\@#{$bp}-left {
 //       float: left !important;
 //     }
 //   }
@@ -60,10 +60,10 @@
 .u-float-right {
   float: right !important;
 }
-// .u-float--bp-med--right
+// .u-float@med-right
 // @each $bp, $px in $breakpoints {
 //   @include breakpoint($px, min-width) {
-//     .u-float--bp-#{$bp}--right {
+//     .u-float\@#{$bp}-right {
 //       float: right;
 //     }
 //   }
@@ -76,7 +76,7 @@
 // .u-show@med
 @each $bp, $px in $breakpoints {
   @include breakpoint($px, max-width) {
-    .u-show\@-#{$bp} {
+    .u-show\@#{$bp} {
       display: none !important;
     }
   }

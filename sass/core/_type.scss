@@ -46,7 +46,7 @@ $headings-color-alt: null !default;
   }
   &--2 {
     @extend %ext-heading;
-    @include fsRem($font-size-h2 * .85);
+    @include fsRem($font-size-h2 * .75);
     @include breakpoint(sml) {
       @include fsRem($font-size-h2);
     }

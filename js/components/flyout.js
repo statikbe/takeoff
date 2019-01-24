@@ -1,5 +1,7 @@
 'use strict';
 
+import $ from 'jquery';
+
 const $document = $(document);
 const $body = $('body');
 

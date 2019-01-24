@@ -1,6 +1,10 @@
 'use strict';
 
+import $ from 'jquery';
 import { debounce, isBreakpointActive } from './helpers';
+
+window.app = window.app || {};
+window.app.variables = window.app.variables || {};
 
 const $document = $(document);
 const $window = $(window);
