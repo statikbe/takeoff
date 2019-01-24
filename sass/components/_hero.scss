@@ -12,11 +12,11 @@ $hero-text-width: 750px;
   position: relative;
   background-position: center;
   background-size: cover;
-  padding: ($rh-xlr * 2) 0;
+  padding: $rh-med 0;
   color: $hero-text-color;
   min-height: $hero-min-height;
-  @include breakpoint(map-get($breakpoints, sml)) {
-    padding: ($rh-xlr * 1.5) 0;
+  @include breakpoint(sml) {
+    padding: ($rh-xlr * 2) 0;
   };
 
   &:before {

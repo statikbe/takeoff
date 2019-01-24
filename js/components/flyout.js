@@ -1,48 +1,44 @@
-window.app = window.app || {};
+'use strict';
 
-app.flyout = (function flyoutComponent($, undefined) {
+import $ from 'jquery';
 
-    var $document = $(document);
-    var $body = $('body');
+const $document = $(document);
+const $body = $('body');
 
-    $('.js-flyout-toggle').each(function () {
+$('.js-flyout-toggle').each(function () {
 
-        var $this = $(this);
-        var $flyoutRegion = $($this.attr('href'));
+    const $this = $(this);
+    const $flyoutRegion = $($this.attr('href'));
 
-        $body.addClass('flyout-enabled');
+    $body.addClass('flyout-enabled');
 
-        $this.on('click', function (event) {
-            event.preventDefault();
-            $body.addClass('flyout-active');
-        });
-
-        $document.on('click', '.flyout__close, .flyout__overlay', function (event) {
-            event.preventDefault();
-            $body.removeClass('flyout-active');
-        });
-
-        //  Multi-level flyout menu
-        $flyoutRegion.find('a + ul').each(function () {
-
-            var $submenu = $(this);
-            var $anchor = $submenu.prev();
-            var $backItem = $('<li><a href="#" class="flyout__back">Back</a></li>');
-
-            $(this).prepend($backItem);
-
-            $anchor.on('click', function (event) {
-                event.preventDefault();
-                $(this).parent().addClass('is-active');
-            });
-
-            $backItem.find('.flyout__back').on('click', function (event) {
-                event.preventDefault();
-                $(this).closest('li.is-active').removeClass('is-active');
-            });
-
-        });
-
+    $this.on('click', function (e) {
+        e.preventDefault();
+        $body.addClass('flyout-active');
     });
 
-})(jQuery);
+    $document.on('click', '.flyout__close, .flyout__overlay', function (e) {
+        e.preventDefault();
+        $body.removeClass('flyout-active');
+    });
+
+    //  Multi-level flyout menu
+    $flyoutRegion.find('a + ul').each(function () {
+
+        const $submenu = $(this);
+        const $anchor = $submenu.prev();
+        const $backItem = $('<li><a href="#" class="flyout__back">Back</a></li>');
+
+        $(this).prepend($backItem);
+
+        $anchor.on('click', function (e) {
+            e.preventDefault();
+            $(this).parent().addClass('is-active');
+        });
+
+        $backItem.find('.flyout__back').on('click', function (e) {
+            e.preventDefault();
+            $(this).closest('li.is-active').removeClass('is-active');
+        });
+    });
+});

@@ -1,74 +1,66 @@
-$list-item-spacing: round($line-height-base / 4);
+$list-item-spacing: $rh-xxs;
 
 %list {
+
   @include listreset();
-  margin: 0 0 $line-height-base;
+  margin: 0 0 $rh-sml;
+
   li {
-    @extend %list-li;
-    + li,
-    > ul,
-    > ol {
+
+    position: relative;
+    padding-left: $rh-sml;
+
+    + li {
       margin-top: $list-item-spacing;
     }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      color: $color-primary;
+    }
   }
+
   ul, ol {
     @include listreset();
     margin-bottom: 0;
   }
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
-%list-li {
-  position: relative;
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    color: $color-primary;
-  }
-}
+%unordered-list {
 
-%ul-li {
-  padding-left: 1em;
-  &:before {
-    content: "\203a";
-    top: -0.25em;
-    font-family: $font-family-icons;
-    font-size: 130%;
-  }
-}
-
-%ul {
   @extend %list;
+
   li {
-    @extend %ul-li;
-  }
-}
-%ol {
-  @extend %list;
-  counter-reset: numbering;
-  li {
-    padding-left: 1.6em;
     &:before {
-      content: counter(numbering) ".";
-      counter-increment: numbering;
-      position: absolute;
-      width: 1.4em;
+      @extend %ext-icon;
+      @extend %ext-icon-arrow-right;
+    }
+  }
+}
+%ordered-list {
+
+  @extend %list;
+  counter-reset: orderedList;
+
+  li {
+    &:before {
+      content: counter(orderedList) '.';
+      counter-increment: orderedList;
     }
     ol {
-      counter-reset: numbering;
+      counter-reset: orderedList;
     }
   }
 }
 
 .list--unordered {
-  @extend %ul;
+  @extend %unordered-list;
 }
 .list--ordered {
-  @extend %ol;
+  @extend %ordered-list;
 }
 
 .list {

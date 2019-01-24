@@ -1,76 +1,52 @@
+'use strict';
+
+import $ from 'jquery';
+import { debounce, isBreakpointActive } from './helpers';
+
 window.app = window.app || {};
+window.app.variables = window.app.variables || {};
 
-app.common = (function commonComponent($, undefined) {
+const $document = $(document);
+const $window = $(window);
+const $html = $('html');
+const $body = $('body');
 
-    let $document = $(document);
-    let $window = $(window);
-    let $html = $('html');
-    let $body = $('body');
+windowResize();
 
-    function initialize() {
+$window.on('resize', debounce(windowResize, 250, false));
 
-        //  Set initial variables
-        this.windowResize();
+$window.on('load', jsDone);
 
-        $window.on('resize', app.helpers.debounce(this.windowResize, 250, false));
+setTimeout(jsDone, 4000);
 
-        colorbox();
+$('.js-notice-close').on('click', function (e) {
 
+    e.preventDefault();
+
+    const $notice = $(this).closest('.notice');
+
+    $notice.slideToggle(250, () => {
+        $notice.remove();
+    });
+});
+
+function windowResize() {
+
+    const isFlyoutActive = isBreakpointActive('flyout');
+    const windowWidth = $window.width();
+    const windowHeight = $window.height();
+
+    if (!isFlyoutActive) {
+        $body.removeClass('flyout-active');
     }
 
-    function windowResize() {
+    $.extend(window.app.variables, {
+        isFlyoutActive,
+        windowWidth,
+        windowHeight
+    });
+}
 
-        var isFlyoutActive = app.helpers.isBreakpointActive('flyout');
-
-        if (!isFlyoutActive) {
-            $body.removeClass('flyout-active');
-        }
-
-        $.extend(app.variables, {
-            windowWidth: $window.width(),
-            windowHeight: $window.height(),
-            isFlyoutActive: isFlyoutActive
-        });
-
-    }
-
-    function colorbox() {
-
-        if (typeof $.colorbox == 'undefined') return;
-
-        var defaultOptions = {
-            close: '&times;',
-            next: '&rsaquo;',
-            previous: '&lsaquo;',
-            maxWidth: '90%',
-            maxHeight: '90%'
-        };
-
-        $('.js-gallery-image').colorbox(defaultOptions);
-
-        $('.js-gallery-video').colorbox($.extend({}, defaultOptions, {
-            iframe: true,
-            innerWidth: 640,
-            innerHeight: 480
-        }));
-    }
-
-    function finalize() {
-
-        function jsDone() {
-            $html.addClass('js-done');
-        }
-
-        $window.on('load', jsDone);
-
-        setTimeout(jsDone, 4000);
-
-    }
-
-    return {
-        init: initialize,
-        windowResize: windowResize,
-        finalize: finalize
-    };
-
-})(jQuery);
+function jsDone() {
+    $html.addClass('js-done');
+}

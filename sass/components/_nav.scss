@@ -130,7 +130,7 @@
     display: inline-block;
     .nav__item {
       padding: $rh-xsm;
-      @include breakpoint(map-get($breakpoints, xsm), max-width) {
+      @include breakpoint(xsm, max-width) {
         padding-top: 0;
       };
       &:first-of-type {

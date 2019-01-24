@@ -6,17 +6,14 @@
 @import 'core/mixins';
 @import 'core/extends';
 
-@import 'utility/flexbox';
-@import 'utility/spacing';
-
 @import 'core/scaffold';
+@import 'core/fonts';
 @import 'core/grid';
 @import 'core/type';
 @import 'core/buttons';
 @import 'core/lists';
 @import 'core/tables';
 @import 'core/links';
-@import 'core/fonts';
 @import 'core/forms';
 @import 'core/images';
 
@@ -28,7 +25,7 @@
 @import 'components/meta';
 @import 'components/breadcrumbs';
 
-@import 'components/block';
+@import 'components/panel';
 @import 'components/card';
 @import 'components/hero';
 @import 'components/pagination';
@@ -40,18 +37,20 @@
 @import 'components/footer';
 @import 'components/nav';
 
+@import 'components/map';
+@import 'components/tabs';
 // @import 'components/assets';
 // @import 'components/navbar';
-@import 'components/map';
 // @import 'components/download';
-// @import 'components/gallery';
+// @import 'components/modaal';
 // @import 'components/carousel';
 // @import 'components/dropdown';
-@import 'components/tabs';
 // @import 'components/button-group';
 
-// Helpers
-@import 'core/helpers';
+// Utility's
+@import 'utility/flexbox';
+@import 'utility/spacing';
+@import 'utility/helpers';
 
 // Print
 @import 'core/print';
