@@ -136,18 +136,18 @@ h5 {
   white-space: nowrap;
 }
 
-// E.g.: .text--bp-med--left
+// E.g.: .text--left@med
 @each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
-    .text--bp-#{$bp}--left {
+  @include breakpoint($bp) {
+    .text--left\@#{$bp} {
       text-align: left;
     }
   }
 }
-// E.g.: .text--bp-med--right
+// E.g.: .text--right@med
 @each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
-    .text--bp-#{$bp}--right {
+  @include breakpoint($bp) {
+    .text--right\@#{$bp} {
       text-align: right;
     }
   }

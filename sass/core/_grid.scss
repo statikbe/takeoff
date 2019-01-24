@@ -72,14 +72,17 @@ $grid-rhythm: $rh-sml !default;
 }
 
 // changes flexbox item order
-// Example: .grid@med-order__2
-@each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
-    .grid\@#{$bp}-order {
-      @each $order in $grid-order {
-        &__#{$order} {
-          @include change-order($order);
-        }
+// Example: .grid__order-2@med
+@each $order in $grid-order {
+
+  .grid__order-#{$order} {
+    @include change-order($order);
+  }
+
+  @each $bp, $px in $breakpoints {
+    @include breakpoint($bp) {
+      .grid__order-#{$order}\@#{$bp} {
+        @include change-order($order);
       }
     }
   }
@@ -96,7 +99,7 @@ $grid-rhythm: $rh-sml !default;
 // Creates all the breakpoint grid classes
 // Examples: .grid--2-col@med, .grid--3-col@lrg
 @each $bp, $px in $breakpoints {
-  @include breakpoint($px, min-width) {
+  @include breakpoint($bp) {
     .grid {
       @each $column in $grids {
         &--#{$column}-col\@#{$bp} {
@@ -112,7 +115,7 @@ $grid-rhythm: $rh-sml !default;
 // Creates all the breakpoint grid ITEM classes
 // Example: .grid__8@med
 @each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
+  @include breakpoint($bp) {
     .grid {
       @each $column in $grid-columns {
         &__#{$column}\@#{$bp} {
@@ -126,7 +129,7 @@ $grid-rhythm: $rh-sml !default;
 // Creates all the offset class
 // Example: .grid__offset-2@med
 @each $bp, $px in $breakpoints {
-  @include breakpoint($px, 'min-width') {
+  @include breakpoint($bp) {
     .grid__offset {
       @each $column in $grid-columns {
         &-#{$column}\@#{$bp} {

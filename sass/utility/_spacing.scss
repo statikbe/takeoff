@@ -1,7 +1,7 @@
 $spacing-breakpoints: ();
 $spacing-rhythm: (sml med lrg);
 
-.ml {
+.u-ml {
 
   @each $rh in $spacing-rhythm {
 
@@ -21,15 +21,15 @@ $spacing-rhythm: (sml med lrg);
 
       @include breakpoint($bp) {
 
-        &\@#{$bp}-#{$rh} {
+        &-#{$rh}\@#{$bp} {
           margin-left: map-get($rhythm, $rh);
         }
 
-        &\@#{$bp}-a {
+        &-a\@#{$bp} {
           margin-left: auto;
         }
 
-        &\@#{$bp}-0 {
+        &-0\@#{$bp} {
           margin-left: 0;
         }
       }
@@ -37,7 +37,7 @@ $spacing-rhythm: (sml med lrg);
   }
 }
 
-.mr {
+.u-mr {
 
   @each $rh in $spacing-rhythm {
 
@@ -57,15 +57,15 @@ $spacing-rhythm: (sml med lrg);
 
       @include breakpoint($bp) {
 
-        &\@#{$bp}-#{$rh} {
+        &-#{$rh}\@#{$bp} {
           margin-right: map-get($rhythm, $rh);
         }
 
-        &\@#{$bp}-a {
+        &-a\@#{$bp} {
           margin-right: auto;
         }
 
-        &\@#{$bp}-0 {
+        &-0\@#{$bp} {
           margin-right: 0;
         }
       }
@@ -73,7 +73,7 @@ $spacing-rhythm: (sml med lrg);
   }
 }
 
-.mt {
+.u-mt {
 
   @each $rh in $spacing-rhythm {
 
@@ -93,15 +93,15 @@ $spacing-rhythm: (sml med lrg);
 
       @include breakpoint($bp) {
 
-        &\@#{$bp}-#{$rh} {
+        &-#{$rh}\@#{$bp} {
           margin-top: map-get($rhythm, $rh);
         }
 
-        &\@#{$bp}-a {
+        &-a\@#{$bp} {
           margin-top: auto;
         }
 
-        &\@#{$bp}-0 {
+        &-0\@#{$bp} {
           margin-top: 0;
         }
       }
@@ -109,7 +109,7 @@ $spacing-rhythm: (sml med lrg);
   }
 }
 
-.mb {
+.u-mb {
 
   @each $rh in $spacing-rhythm {
 
@@ -129,15 +129,15 @@ $spacing-rhythm: (sml med lrg);
 
       @include breakpoint($bp) {
 
-        &\@#{$bp}-#{$rh} {
+        &-#{$rh}\@#{$bp} {
           margin-bottom: map-get($rhythm, $rh);
         }
 
-        &\@#{$bp}-a {
+        &-a\@#{$bp} {
           margin-bottom: auto;
         }
 
-        &\@#{$bp}-0 {
+        &-0\@#{$bp} {
           margin-bottom: 0;
         }
       }
@@ -145,7 +145,7 @@ $spacing-rhythm: (sml med lrg);
   }
 }
 
-.mh {
+.u-mh {
 
   @each $rh in $spacing-rhythm {
 
@@ -168,17 +168,17 @@ $spacing-rhythm: (sml med lrg);
 
       @include breakpoint($bp) {
 
-        &\@#{$bp}-#{$rh} {
+        &-#{$rh}\@#{$bp} {
           margin-left: map-get($rhythm, $rh);
           margin-right: map-get($rhythm, $rh);
         }
 
-        &\@#{$bp}-a {
+        &-a\@#{$bp} {
           margin-left: auto;
           margin-right: auto;
         }
 
-        &\@#{$bp}-0 {
+        &-0\@#{$bp} {
           margin-left: 0;
           margin-right: 0;
         }
@@ -187,7 +187,7 @@ $spacing-rhythm: (sml med lrg);
   }
 }
 
-.mv {
+.u-mv {
 
   @each $rh in $spacing-rhythm {
 
@@ -210,17 +210,17 @@ $spacing-rhythm: (sml med lrg);
 
       @include breakpoint($bp) {
 
-        &\@#{$bp}-#{$rh} {
+        &-#{$rh}\@#{$bp} {
           margin-top: map-get($rhythm, $rh);
           margin-bottom: map-get($rhythm, $rh);
         }
 
-        &\@#{$bp}-a {
+        &-a\@#{$bp} {
           margin-top: auto;
           margin-bottom: auto;
         }
 
-        &\@#{$bp}-0 {
+        &-0\@#{$bp} {
           margin-top: 0;
           margin-bottom: 0;
         }

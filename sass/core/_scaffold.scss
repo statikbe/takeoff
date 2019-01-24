@@ -75,7 +75,7 @@ body {
   }
   &:after {
     @each $bp, $px in $breakpoints {
-      @include breakpoint($px, 'min-width') {
+      @include breakpoint($bp) {
         $currentBreakpoints: append(
           $currentBreakpoints,
           #{$bp},
