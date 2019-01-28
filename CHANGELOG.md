@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.0.0] - unreleased
+## [2.0.1] - Released
+
+### Added
+- Accessible skip to main content link
+
+### Changed
+- Update btn--link
+
+## [2.0.0] - Released
 
 ### Added
 - Added icons for checkboxes and radio buttons
