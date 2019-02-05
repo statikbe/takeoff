@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Accessible skip to main content link
+- Added text-decoration: none styling for abbr[title]
 
 ### Changed
 - Update btn--link
