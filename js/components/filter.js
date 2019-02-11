@@ -1,7 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
-
 var $form = $('.js-filter-form');
 var $submit = $('.js-filter-submit').hide();
 var $loader = $('.js-filter-loading').hide();
