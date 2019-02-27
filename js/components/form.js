@@ -1,6 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
 import Parsley from 'parsleyjs';
 import { extend } from './helpers';
 

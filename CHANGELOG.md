@@ -4,10 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+### Changed
+- Remove jQuery imports in js components
+
 ## [2.0.1] - 2019-01-28
 
 ### Added
 - Accessible skip to main content link
+- Added text-decoration: none styling for abbr[title]
 
 ### Changed
 - Update btn--link

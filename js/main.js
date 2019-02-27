@@ -1,7 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
-
 import './components/common';
 import './components/form';
 import './components/flyout';

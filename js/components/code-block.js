@@ -1,6 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
 import hljs from 'highlight.js/lib/highlight';
 import 'highlight.js/styles/github.css';
 
