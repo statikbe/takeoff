@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Remove jQuery imports in js components
+- Spacer.scss updated now you can use breakpoints and select your own rhythms
 
 ## [2.0.1] - 2019-01-28
 
