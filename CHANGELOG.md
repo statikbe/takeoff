@@ -4,11 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## [2.0.2] - 2019-03-01
 
 ### Changed
-- Remove jQuery imports in js components
 - Spacer.scss updated now you can use breakpoints and select your own rhythms
+
+## Removed
+- Remove jQuery imports in js components
 
 ## [2.0.1] - 2019-01-28
 
