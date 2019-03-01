@@ -1,6 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
 import { debounce, isBreakpointActive } from './helpers';
 
 window.app = window.app || {};

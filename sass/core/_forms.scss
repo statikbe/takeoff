@@ -55,7 +55,7 @@ $input-icon-padding: ($input-padding-h * 2);
     cursor: not-allowed;
     background: $gray-0;
   }
-  
+
   .has-error & {
     background-color: $error-background;
     border-color: $error-color;
@@ -83,10 +83,12 @@ $input-icon-padding: ($input-padding-h * 2);
   //  `form__group` is a wrapper for checkboxes and radio buttons
   &__group {
 
-    margin-bottom: $rh-sml;
-
     .form__item {
-      margin-bottom: $rh-xsm;
+      margin: 0 0 $rh-xxs 0 !important;
+
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
     }
   }
 
@@ -112,7 +114,7 @@ $input-icon-padding: ($input-padding-h * 2);
     .form__item {
       flex: 1 1 100%;
       margin: 0 $rh-xsm;
-      
+
     }
     .form__actions {
       flex: 0 0 180px;
@@ -320,22 +322,35 @@ $input-icon-padding: ($input-padding-h * 2);
     }
   }
 
-  &__errors {
+  &__errors,
+  .errors {
 
     @include listreset;
     @include fsRem(14px);
     color: map-get($notice-colors, 'danger');
     font-weight: $font-weight-bold;
     clear: both;
-    
+
     li {
       margin-top: $rh-xxs;
     }
   }
 }
 
+.errors {
+  @include listreset;
+  @include fsRem(14px);
+  color: map-get($notice-colors, 'danger');
+  font-weight: $font-weight-bold;
+  clear: both;
+
+  li {
+    margin-top: $rh-xxs;
+  }
+}
+
 //  Inline forms
-//  
+//
 //    `form__items`s are horizontally aligned
 //
 //  Example HTML:
