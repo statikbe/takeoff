@@ -6,7 +6,7 @@ $spacing-rhythm: (sml);
     margin-top: $rh-sml;
   }
 
-  // spacer--lrg
+  // .spacer--sml
   @each $rh in $spacing-rhythm {
     &--#{$rh} {
       [class*="spacer"] + & {
@@ -14,11 +14,13 @@ $spacing-rhythm: (sml);
       }
     }
 
-    // spacer--lrg@med
+    // .spacer--sml@med
     @each $bp in $spacing-breakpoints {
       @include breakpoint($bp) {
-        &--#{$rh}\@#{$bp} + & {
-          margin-top: map-get($rhythm, $rh) !important;
+        &--#{$rh}\@#{$bp} {
+          [class*="spacer"] + & {
+            margin-top: map-get($rhythm, $rh) !important;
+          }
         }
       }
     }
