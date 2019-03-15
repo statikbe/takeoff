@@ -35,6 +35,11 @@ $input-icon-padding: ($input-padding-h * 2);
   border-radius: 4px;
   box-shadow: none;
 
+  &::placeholder {
+    color: lighten($input-text-color, 5%);
+    opacity: 1;
+  }
+
   &:focus {
 
     outline: none;
