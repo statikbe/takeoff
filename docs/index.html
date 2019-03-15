@@ -45,6 +45,33 @@
                 width: 85%;
             }
         }
+        .spacer + .spacer {
+          margin-top: 24px;
+        }
+        [class*=spacer] + .spacer--xxs {
+          margin-top: 6px;
+        }
+        @media (min-width: 820px) {
+          .spacer--xxs\@med + .spacer {
+            margin-top: 6px !important;
+          }
+        }
+        [class*=spacer] + .spacer--sml {
+          margin-top: 24px;
+        }
+        @media (min-width: 820px) {
+          .spacer--sml\@med + .spacer {
+            margin-top: 24px !important;
+          }
+        }
+        [class*=spacer] + .spacer--xlr {
+          margin-top: 60px;
+        }
+        @media (min-width: 820px) {
+          .spacer--xlr\@med + .spacer {
+            margin-top: 60px !important;
+          }
+        }
     </style>
     <title>[PROJECT CODE] | Takeoff Docs</title>
 </head>
@@ -335,6 +362,57 @@
                                 <div class="grid__4">
                                     <div class="js-code-block">
                                         <a href="" class="btn btn--ext">Extended button</a>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer spacer--xlr">
+                            <div class="grid">
+                                <div class="grid__4">
+                                    <div class="js-code-block">
+                                        <a href="" class="btn btn--sml">Button sml</a>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer spacer--xlr">
+                            <div class="grid">
+                                <div class="grid__4">
+                                    <div class="js-code-block">
+                                        <a href="" class="btn btn--lrg">Button lrg</a>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer spacer--xlr">
+                            <div class="grid">
+                                <div class="grid__4">
+                                    <div class="js-code-block">
+                                        <a href="" class="btn btn--link btn--ext">Button link</a>
+                                    </div>
+                                </div>
+                                <div class="grid__8">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer spacer--xlr">
+                            <h3>Example</h3>
+                            <div class="grid">
+                                <div class="grid__4">
+                                    <div class="js-code-block">
+                                        <div class="inline">
+                                            <div class="inline__item"><a href="" class="btn btn--ext">Default button</a> </div><div class="inline__item"><a href="" class="btn btn--link btn--ext">Button link</a></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="grid__8">
