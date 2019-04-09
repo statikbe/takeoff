@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Changed
 - `Spacer.scss` gave the spacer its own breakpoint and rhythm variables for more lightweight
 - Updated the button documentation
+- Replaced the google plus icon with the regular google icon
 
 ## [2.0.2] - 2019-03-01
 
