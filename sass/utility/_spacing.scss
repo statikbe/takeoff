@@ -3,18 +3,18 @@ $spacing-rhythm: (sml);
 
 .u-ml {
 
+  &-a {
+    margin-left: auto;
+  }
+
+  &-0 {
+    margin-left: 0;
+  }
+
   @each $rh in $spacing-rhythm {
 
     &-#{$rh} {
       margin-left: map-get($rhythm, $rh);
-    }
-
-    &-a {
-      margin-left: auto;
-    }
-
-    &-0 {
-      margin-left: 0;
     }
 
     @each $bp in $spacing-breakpoints {
@@ -39,18 +39,18 @@ $spacing-rhythm: (sml);
 
 .u-mr {
 
+  &-a {
+    margin-right: auto;
+  }
+
+  &-0 {
+    margin-right: 0;
+  }
+
   @each $rh in $spacing-rhythm {
 
     &-#{$rh} {
       margin-right: map-get($rhythm, $rh);
-    }
-
-    &-a {
-      margin-right: auto;
-    }
-
-    &-0 {
-      margin-right: 0;
     }
 
     @each $bp in $spacing-breakpoints {
@@ -75,18 +75,18 @@ $spacing-rhythm: (sml);
 
 .u-mt {
 
+  &-a {
+    margin-top: auto;
+  }
+
+  &-0 {
+    margin-top: 0;
+  }
+
   @each $rh in $spacing-rhythm {
 
     &-#{$rh} {
       margin-top: map-get($rhythm, $rh);
-    }
-
-    &-a {
-      margin-top: auto;
-    }
-
-    &-0 {
-      margin-top: 0;
     }
 
     @each $bp in $spacing-breakpoints {
@@ -111,18 +111,18 @@ $spacing-rhythm: (sml);
 
 .u-mb {
 
+  &-a {
+    margin-bottom: auto;
+  }
+
+  &-0 {
+    margin-bottom: 0;
+  }
+
   @each $rh in $spacing-rhythm {
 
     &-#{$rh} {
       margin-bottom: map-get($rhythm, $rh);
-    }
-
-    &-a {
-      margin-bottom: auto;
-    }
-
-    &-0 {
-      margin-bottom: 0;
     }
 
     @each $bp in $spacing-breakpoints {
@@ -147,21 +147,21 @@ $spacing-rhythm: (sml);
 
 .u-mh {
 
+  &-a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-0 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   @each $rh in $spacing-rhythm {
 
     &-#{$rh} {
       margin-left: map-get($rhythm, $rh);
       margin-right: map-get($rhythm, $rh);
-    }
-
-    &-a {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    &-0 {
-      margin-left: 0;
-      margin-right: 0;
     }
 
     @each $bp in $spacing-breakpoints {
@@ -189,21 +189,21 @@ $spacing-rhythm: (sml);
 
 .u-mv {
 
+  &-a {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   @each $rh in $spacing-rhythm {
 
     &-#{$rh} {
       margin-top: map-get($rhythm, $rh);
       margin-bottom: map-get($rhythm, $rh);
-    }
-
-    &-a {
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-
-    &-0 {
-      margin-top: 0;
-      margin-bottom: 0;
     }
 
     @each $bp in $spacing-breakpoints {
