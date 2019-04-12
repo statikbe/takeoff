@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.5] - 2019-04-12
+
+## Changed
+- Remove API keys
+
 ## [2.0.4] - 2019-04-09
 
 ## Changed

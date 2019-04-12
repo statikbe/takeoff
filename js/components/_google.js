@@ -3,7 +3,7 @@ window.app = window.app || {};
 app.google = (function googleComponent($, undefined) {
 
     //  Change this for your current project
-    const GOOGLE_API_KEY = 'AIzaSyCFIKnBciGvF_gpPaJFquYCklX2sszvkic';
+    const GOOGLE_API_KEY = '';
 
     function initialize() {
 
@@ -66,7 +66,7 @@ app.google = (function googleComponent($, undefined) {
                 });
 
                 bounds.extend(marker.getPosition());
-                    
+
                 markers.push(marker);
             });
 
