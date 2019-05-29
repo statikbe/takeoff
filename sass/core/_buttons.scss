@@ -22,6 +22,7 @@ $btn-padding-v: ($btn-height - ($btn-font-size * $btn-line-height) - (2 * $btn-b
   &__icon {
     display: inline-block;
     vertical-align: bottom;
+
     &:before {
       display: block;
     }
