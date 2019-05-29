@@ -18,15 +18,16 @@
     @extend %ext-default-nav;
     @extend %ext-horizontal-nav;
     @include fsRem(14px);
-    float: right;
-    margin-top: $rh-xsm;
     line-height: 1;
+
     .nav__item {
       padding: 0 $rh-xsm;
+
       + .nav__item {
         border-left: 1px solid;
       }
     }
+
     .nav__link {
       @include link-variant($color-text, $color-primary);
     }
@@ -35,9 +36,11 @@
   &--main {
     @extend %ext-default-nav;
     @extend %ext-horizontal-nav;
+
     .nav__item {
       margin: 0 $rh-sml;
     }
+
     .nav__link {
       @include link-variant($color-text, $color-primary);
       display: block;
@@ -46,6 +49,7 @@
       background-repeat: no-repeat;
       background-position: center bottom;
       background-size: 0 2px;
+
       &:hover,
       &:focus,
       &.active {
@@ -57,56 +61,40 @@
   &--language {
     @extend %ext-default-nav;
     @extend %ext-horizontal-nav;
-    float: right;
-    font-weight: $font-weight-bold;
     line-height: 1;
     text-transform: uppercase;
+
     .nav__link {
-      @include link-variant($white);
+      @include link-variant($color-text, $color-primary);
       display: block;
-      padding: $rh-xsm;
-      background: $gray-100;
-      &:hover,
-      &:focus,
+      padding: $rh-xxs;
+
       &.active {
-        background: $color-primary;
+        color: $color-primary;
       }
     }
   } // end .--language
 
   &--social {
+    @include cf;
     @extend %ext-default-nav;
     @extend %ext-horizontal-nav;
-    @include cf;
-    margin-top: -4px;
     display: inline-block;
-    &__title {
-      float: left;
-      padding: 7px 0;
-      margin: 0 $rh-xsm 0 0;
-      font-size: 16px;
-      font-weight: $font-weight-light;
-      color: $gray-25;
-    }
-    .nav__menu {
-      float: left;
-    }
+
     .nav__item {
       padding: 0 $rh-xxs;
-      font-weight: $font-weight-semi-bold;
     }
+
     .nav__link {
       @include fsRem(22px);
       @include link-variant($color-primary, darken($color-primary, 10%));
     }
+
+
+    // Modifiers
     &-share {
       @include cf;
-      h2 {
-        float: left;
-        @include fsRem(30px);
-        padding: 2px 0;
-        margin-right: $rh-xsm;
-      }
+
       .nav__link {
         @include link-variant($color-primary, darken($color-primary, 10%));
       }
@@ -115,10 +103,16 @@
 
   &--doormat {
     @extend %ext-default-nav;
+
     .nav__link {
       @include link-variant($color-text);
       display: block;
       text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
     }
   } // end .--doormat
 
@@ -128,21 +122,27 @@
     @extend %ext-horizontal-nav;
     line-height: 1;
     display: inline-block;
+
     .nav__item {
       padding: $rh-xsm;
+
       @include breakpoint(xsm, max-width) {
         padding-top: 0;
       };
+
       &:first-of-type {
         padding-left: 0;
       }
+
       &:last-of-type {
         padding-right: 0;
       }
     }
+
     .nav__link {
       @include link-variant($color-primary);
       display: block;
+
       &:hover,
       &:focus,
       &.active {
