@@ -37,9 +37,11 @@ $headings-color-alt: null !default;
     @include breakpoint(xsm) {
       @include fsRem($font-size-h1 * .75);
     }
+
     @include breakpoint(sml) {
       @include fsRem($font-size-h1 * .9);
     }
+
     @include breakpoint(med) {
       @include fsRem($font-size-h1);
     }
@@ -47,6 +49,7 @@ $headings-color-alt: null !default;
   &--2 {
     @extend %ext-heading;
     @include fsRem($font-size-h2 * .75);
+
     @include breakpoint(sml) {
       @include fsRem($font-size-h2);
     }
@@ -98,6 +101,7 @@ h5 {
   @include breakpoint(sml) {
     @include fsRem($font-size-lrg * .9);
   }
+
   @include breakpoint(med) {
     @include fsRem($font-size-lrg);
   }
