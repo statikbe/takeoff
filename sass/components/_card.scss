@@ -66,11 +66,13 @@
 
 a.card,
 .card--link {
+
   @include link-variant(inherit);
   text-decoration: none;
+
   &:hover,
   &:focus {
-    
+
     .card__title {
       color: inherit;
     }

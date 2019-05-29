@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden;
   margin-bottom: $rh-xsm;
+
   &:after {
     content: '';
     display: block;
@@ -29,10 +30,12 @@
   text-align: center;
   border: 1px solid $gray-25;
   border-bottom: 0;
+
   & + .tabs__tab {
     border-left: 0;
     margin-left: -4px;
   }
+
   &.active {
     border-top-color: $color-primary;
     border-bottom-color: $white;
@@ -45,10 +48,12 @@
       }
     }
   }
+
   span {
     font-weight: $font-weight-bold;
     text-transform: uppercase;
   }
+
   a {
     display: block;
     text-decoration: none;
@@ -63,9 +68,11 @@
 }
 
 .tabs__content {
+
   > .tabs__pane {
     display: none;
   }
+
   > .active {
     display: block;
   }

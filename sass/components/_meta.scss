@@ -2,10 +2,12 @@
   display: block;
   color: $gray-25;
   line-height: 1.2;
+
   &__item {
     position: relative;
     display: inline-block;
     padding-right: $rh-sml;
+
     &:after {
       content: '';
       height: .9em;
@@ -15,8 +17,10 @@
       display: inline-block;
       border-left: 1px solid;
     }
+
     &:last-child {
       padding-right: 0;
+
       &:after {
         display: none;
       }

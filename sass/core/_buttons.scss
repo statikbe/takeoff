@@ -22,6 +22,7 @@ $btn-padding-v: ($btn-height - ($btn-font-size * $btn-line-height) - (2 * $btn-b
   &__icon {
     display: inline-block;
     vertical-align: bottom;
+
     &:before {
       display: block;
     }
@@ -40,6 +41,15 @@ $btn-padding-v: ($btn-height - ($btn-font-size * $btn-line-height) - (2 * $btn-b
     }
   }
 
+  &--download {
+    &:after {
+      @extend %ext-icon;
+      @extend %ext-icon-download;
+      margin-left: $rh-xxs;
+      vertical-align: bottom;
+    }
+  }
+
   &:active,
   &.active {
     outline: 0;
@@ -52,28 +62,23 @@ $btn-padding-v: ($btn-height - ($btn-font-size * $btn-line-height) - (2 * $btn-b
     cursor: not-allowed;
   }
 
-  // // Modifiers
-  // @each $type, $color in $notice-colors {
-  //   &--#{$type} {
-  //     @include button-variant($white, hsl(hue($color), 50%, 60%), hsl(hue($color), 50%, 50%));
-  //   }
-  // }
-
   &--link {
     @include fsRem($font-size-base);
     display: inline-block;
     background: none;
     border-width: $btn-border-width;
     border-color: transparent;
-    padding-left: 2px;
-    padding-right: 2px;
     color: $color-link;
+    padding-left: 0;
+    padding-right: 0;
     line-height: lh($line-height-base);
     text-transform: none;
     text-decoration: underline;
+
     &:visited {
       color: $color-link-visited;
     }
+
     &:hover {
       color: $color-link-hover;
       background: none;
@@ -85,6 +90,7 @@ $btn-padding-v: ($btn-height - ($btn-font-size * $btn-line-height) - (2 * $btn-b
   &--lrg {
     @include fsRem(20px);
   }
+
   &--sml {
     @include fsRem(12px);
   }
@@ -93,5 +99,12 @@ $btn-padding-v: ($btn-height - ($btn-font-size * $btn-line-height) - (2 * $btn-b
     display: block;
     width: 100%;
   }
+
+  // // Modifiers
+  // @each $type, $color in $notice-colors {
+  //   &--#{$type} {
+  //     @include button-variant($white, hsl(hue($color), 50%, 60%), hsl(hue($color), 50%, 50%));
+  //   }
+  // }
 }
 

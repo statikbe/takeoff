@@ -5,13 +5,16 @@
     @extend %ext-context-dark;
     background: $color-primary;
   }
+
   &--light {
     background: $gray-0;
   }
+
   &--dark {
     @extend %ext-context-dark;
     background: $gray-100;
   }
+
   &--border {
     border-top: 1px solid $gray-25;
   }
@@ -21,6 +24,7 @@
       padding-top: 0;
     }
   }
+
   &--no-padding {
     padding: 0 !important;
   }
