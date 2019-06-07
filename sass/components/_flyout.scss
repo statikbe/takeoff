@@ -33,21 +33,25 @@
 .flyout__link {
   @include link-variant($black);
   text-decoration: none;
+
   &:before {
     @extend %ext-icon;
     @extend %ext-icon-menu;
   }
+
   @include breakpoint($breakpoint-flyout) {
     display: none;
   }
 }
 
 .flyout-active {
+
   .page-wrap {
     height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
   }
+
 }
 
 .overlay {
@@ -60,6 +64,7 @@
   opacity: 0;
   height: 100vh;
   cursor: pointer;
+
   .flyout-active & {
     display: block;
     opacity: 1;
@@ -67,17 +72,20 @@
 }
 
 .nav--flyout {
-  ul {
+
+  .nav__menu {
     @include listreset;
     width: 100%;
     .nav__item + .nav__item {
       border-top: 1px solid $gray-0;
     }
   }
-  a {
+
+  .nav__link {
     @include link-variant($color-text);
     display: block;
     padding: $rh-xsm;
     text-decoration: none;
   }
+
 }
