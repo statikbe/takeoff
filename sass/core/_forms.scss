@@ -223,7 +223,6 @@ $input-icon-padding: ($input-padding-h * 2);
 
     @extend %ext-input-style;
     display: block;
-    height: $input-height;
     cursor: pointer;
     appearance: none;
 
