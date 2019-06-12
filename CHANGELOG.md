@@ -6,10 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.0.7] - Awaiting for release
 
+## Added
+- Add padding utility classes in `_spacing.scss`
+- Add utility documentation
+
 ## Changed
 - Cleanup flyout
+
+## Removed
 - Remove fixed height form `.form__select`
-- Add padding utility classes in `_spacing.scss`
 
 ## [2.0.6] - 2019-05-29
 
