@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Changed
 - Cleanup flyout
 - Remove fixed height form `.form__select`
+- Add padding utility classes in `_spacing.scss`
 
 ## [2.0.6] - 2019-05-29
 
