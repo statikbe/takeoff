@@ -100,4 +100,8 @@
   &-align-self-stretch {
     align-self: stretch;
   }
+
+  &-shrink-0 {
+    flex-shrink: 0;
+  }
 }

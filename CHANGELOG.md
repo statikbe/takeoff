@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.7] - Awaiting for release
+
+## Added
+- Padding utility classes in `_spacing.scss` disabled by default
+- Utility documentation
+
+## Changed
+- Cleanup flyout
+- Prefixed the print classes with `u-`
+
+## Removed
+- Remove fixed height form `.form__select`
+
 ## [2.0.6] - 2019-05-29
 
 ## Added

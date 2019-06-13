@@ -11,11 +11,13 @@
   // height: 0;
   overflow: hidden;
   width: 100%;
+
   &:before {
     content: '';
     display: block;
     padding-bottom: 56.25%;
   }
+
   iframe, object, embed {
     position: absolute;
     top: 0;
@@ -104,6 +106,7 @@
   padding: 0;
   overflow: hidden;
   position: absolute;
+
   &.focusable:active,
   &.focusable:focus {
     clip: auto;
@@ -118,13 +121,13 @@
 // Print classes
 // ----
 //
-.print-only,
-.print-only-inline {
+.u-print-only,
+.u-print-only-inline {
   display: none;
 }
-.screen-only {
+.u-screen-only {
   display: block;
 }
-.screen-only-inline {
+.u-screen-only-inline {
   display: inline;
 }
