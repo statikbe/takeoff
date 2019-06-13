@@ -206,23 +206,26 @@
                             <a href="#section-tabs">Tabs</a>
                         </li>
                     </ul>
-<!--                     <h3>
-                        <a href="#section-utility">Utility</a>
-                    </h3>
-                    <ul class="list list--unstyled">
-                        <li>
-                            <a href="#section-flexbox">Flexbox</a>
-                        </li>
-                        <li>
-                            <a href="#section-spacing">Spacing</a>
-                        </li>
-                    </ul> -->
                     <h3>
                         <a href="#section-javascript">Javascript</a>
                     </h3>
                     <ul class="list list--unstyled">
                         <li>
                             <a href="#section-filter">Filter</a>
+                        </li>
+                    </ul>
+                    <h3>
+                        <a href="#section-utility">Utility</a>
+                    </h3>
+                    <ul class="list list--unstyled u-mb-sml">
+                        <li>
+                            <a href="#section-flexbox">Flexbox</a>
+                        </li>
+                        <li>
+                            <a href="#section-spacing">Spacing</a>
+                        </li>
+                        <li>
+                            <a href="#section-helpers">Helpers</a>
                         </li>
                     </ul>
                 </div>
@@ -1610,8 +1613,11 @@
                 </div>
                 <div class="section section--default">
                     <div class="container">
-                        <p>Spacers are used to provide some vertical margin between consecutive elements.</p>
-                        <div class="spacer--lrg">
+                        <div class="spacer">
+                            <p>Spacers are used to provide some vertical margin between consecutive elements.</p>
+                            <span class="text--danger">Note: you have to add the rhythms yourself in the component.</span>
+                        </div>
+                        <div class="spacer">
                             <div class="grid">
                                 <div class="grid__6 js-code-block">
                                     <div class="spacer spacer--xxs">Spacer xxs</div>
@@ -1626,90 +1632,6 @@
                                 </div>
                                 <div class="grid__6">
                                     <pre><code class="html"></code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section section--dark">
-                    <div class="container">
-                        <div class="section__content text--center">
-                            <h2>Utility</h2>
-                            <code>takeoff/sass/utility/_*.scss</code>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="section section--light text--center" id="section-flexbox">
-                    <div class="container">
-                        <h2>Flexbox</h2>
-                        <code>takeoff/sass/utility/_flexbox.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer--lrg">
-                            <div class="grid">
-                                <div class="grid__6 js-code-block">
-
-                                </div>
-                                <div class="grid__6">
-                                    <pre><code class="html"></code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="section section--light text--center" id="section-spacing">
-                    <div class="container">
-                        <h2>Spacing</h2>
-                        <code>takeoff/sass/utility/_spacing.scss</code>
-                    </div>
-                </div>
-                <div class="section section--default">
-                    <div class="container">
-                        <div class="spacer">
-                            Prefixed with <b>u-</b> for utility. <br><br>
-                            <b>Choose between margin or padding:</b>
-                            <ul class="list--unordered">
-                                <li><b>m</b> - for classes that set margin</li>
-                                <li><b>p</b> - for classes that set padding</li>
-                            </ul>
-
-                            <b>Choose where:</b>
-                            <ul class="list--unordered">
-                                <li><b>t</b> - for classes that set margin-top or padding-top</li>
-                                <li><b>b</b> - for classes that set margin-bottom or padding-bottom</li>
-                                <li><b>l</b> - for classes that set margin-left or padding-left</li>
-                                <li><b>r</b> - for classes that set margin-right or padding-right</li>
-                                <li><b>h</b> - for classes that set both *-left and *-right</li>
-                                <li><b>v</b> - for classes that set both *-top and *-bottom</li>
-                            </ul>
-
-                            <b>Choose the sizes:</b>
-                            Check our <a href="#section-rhythm">rhythms</a>. <br>
-                            <i>Note: you have to add the rhythms yourself in the component!</i>
-                        </div>
-
-                        <div class="spacer">
-                            <div class="grid">
-                                <div class="grid__6">
-                                    <pre><code class="html"></code></pre>
-                                </div>
-                                <div class="grid__6 js-code-block">
-                                    <div class="u-mt-xxs"></div>
-                                    <div class="u-mr-xsm"></div>
-                                    <div class="u-mb-sml"></div>
-                                    <div class="u-ml-med"></div>
-                                    <div class="u-mv-lrg"></div>
-                                    <div class="u-mh-xlr"></div>
-
-                                    <div class="u-pt-xxs"></div>
-                                    <div class="u-pr-xsm"></div>
-                                    <div class="u-pb-sml"></div>
-                                    <div class="u-pl-med"></div>
-                                    <div class="u-pv-lrg"></div>
-                                    <div class="u-ph-xlr"></div>
-
                                 </div>
                             </div>
                         </div>
@@ -1822,6 +1744,127 @@
                             <div class="grid">
                                 <div class="grid__12">
                                     <pre><code class="html"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--dark">
+                    <div class="container">
+                        <div class="section__content text--center">
+                            <h2>Utility</h2>
+                            <code>takeoff/sass/utility/_*.scss</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-flexbox">
+                    <div class="container">
+                        <h2>Flexbox</h2>
+                        <code>takeoff/sass/utility/_flexbox.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer">
+                            Flexbox classes can come in handy for some quick styling.
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-spacing">
+                    <div class="container">
+                        <h2>Spacing</h2>
+                        <code>takeoff/sass/utility/_spacing.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer">
+                            <p>Prefixed with <b>u-</b> for utility.</p>
+                            <b>Choose between margin or padding:</b>
+                            <ul class="list--unordered">
+                                <li><b>m</b> - for classes that set margin</li>
+                                <li><b>p</b> - for classes that set padding</li>
+                            </ul>
+
+                            <b>Choose where:</b>
+                            <ul class="list--unordered">
+                                <li><b>t</b> - for classes that set margin-top or padding-top</li>
+                                <li><b>b</b> - for classes that set margin-bottom or padding-bottom</li>
+                                <li><b>l</b> - for classes that set margin-left or padding-left</li>
+                                <li><b>r</b> - for classes that set margin-right or padding-right</li>
+                                <li><b>h</b> - for classes that set both *-left and *-right</li>
+                                <li><b>v</b> - for classes that set both *-top and *-bottom</li>
+                            </ul>
+
+                            <b>Choose the sizes:</b>
+                            <p>Check our <a href="#section-rhythm">rhythms</a>.</p>
+                            <span class="text--danger">Note: you have to add the rhythms yourself in the component and the padding classes are disabled by default.</span>
+                        </div>
+
+                        <div class="spacer">
+                            <div class="grid">
+                                <div class="grid__6">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                                <div class="grid__6 js-code-block">
+                                    <div class="u-mt-xxs"></div>
+                                    <div class="u-mr-xsm"></div>
+                                    <div class="u-mb-sml"></div>
+                                    <div class="u-ml-med"></div>
+                                    <div class="u-mv-lrg"></div>
+                                    <div class="u-mh-xlr"></div>
+
+                                    <div class="u-pt-xxs"></div>
+                                    <div class="u-pr-xsm"></div>
+                                    <div class="u-pb-sml"></div>
+                                    <div class="u-pl-med"></div>
+                                    <div class="u-pv-lrg"></div>
+                                    <div class="u-ph-xlr"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--light text--center" id="section-helpers">
+                    <div class="container">
+                        <h2>Helpers</h2>
+                        <code>takeoff/sass/utility/_helpers.scss</code>
+                    </div>
+                </div>
+                <div class="section section--default">
+                    <div class="container">
+                        <div class="spacer">
+                            Inside helpers we have some handy classes like <b>display classes</b> and <b>print classes</b>.<br>
+                            We also have some <b>general helpers</b>, <b>positioning helpers</b> and <b>visibility helpers</b>.
+                        </div>
+
+                        <div class="spacer">
+                            <div class="grid">
+                                <div class="grid__6">
+                                    <pre><code class="html"></code></pre>
+                                </div>
+                                <div class="grid__6 js-code-block">
+                                    <div class="u-clearfix"></div>
+                                    <div class="embed-container"></div>
+                                    <div class="u-pointer"></div>
+
+                                    <div class="u-display-block"></div>
+                                    <div class="u-display-inline-block"></div>
+
+                                    <div class="u-float-left"></div>
+                                    <div class="u-float-right"></div>
+
+                                    <div class="u-show@{$rhythm}"></div>
+                                    <div class="u-hide@{$rhythm}"></div>
+
+                                    <div class="superhidden"></div>
+                                    <div class="visuallyhidden"></div>
+
+                                    <div class="print-only"></div>
+                                    <div class="print-only-inline"></div>
+                                    <div class="screen-only"></div>
+                                    <div class="screen-only-inline"></div>
                                 </div>
                             </div>
                         </div>
