@@ -4,7 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.0.7] - Awaiting for release
+## [2.0.8] - Awaiting for release
+
+## Changed
+- Update `filter.js` use const and let instead of var
+
+## [2.0.7] - 2019-06-13
 
 ## Added
 - Padding utility classes in `_spacing.scss` disabled by default
