@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Changed
 - Update `filter.js` use const and let instead of var
+- Update `README.md`
 
 ## [2.0.7] - 2019-06-13
 
