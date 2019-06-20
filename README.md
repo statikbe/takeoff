@@ -19,18 +19,18 @@ You have to specify the **package.json** path in `takeoff/icons/iconfont.font.js
 
 ## Needed before you can use our takeoff
 
-## Webpack boiler plate
+### Webpack boiler plate
 
 ```
 https://github.com/statikbe/webpack
 ```
 
-## Node.js and npm
+### Node.js and npm
 ```
 https://docs.npmjs.com/getting-started/installing-node
 ```
 
-## Yarn
+### Yarn
 ```
 npm install -g yarn
 ```
