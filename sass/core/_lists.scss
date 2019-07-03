@@ -43,15 +43,15 @@ $list-item-spacing: $rh-xxs;
 %ordered-list {
 
   @extend %list;
-  counter-reset: orderedList;
+  counter-reset: item;
 
   li {
     &:before {
-      content: counter(orderedList) '.';
-      counter-increment: orderedList;
-    }
-    ol {
-      counter-reset: orderedList;
+      display: block;
+      content: counters(item, ".") " ";
+      counter-increment: item;
+      text-align: center;
+      color: $color-primary;
     }
   }
 }
@@ -72,6 +72,72 @@ $list-item-spacing: $rh-xxs;
     li {
       + li {
         margin-top: $list-item-spacing;
+      }
+    }
+  }
+}
+
+// This is for the contentbuilder in craft cms
+.block--lists {
+
+  ul, ol {
+    margin-bottom: $rh-sml !important;
+
+    ul, ol {
+      @include listreset();
+      display: block;
+      margin-top: 4px;
+    }
+
+    // Avoid to much margin
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+      margin-top: 0 !important;
+    }
+  }
+
+  ul {
+    @extend %unordered-list;
+    text-align: left;
+    margin-bottom: $rh-sml !important;
+
+    li {
+      + li {
+        margin-top: $rh-xsm;
+      }
+      a {
+        @include link-variant($color-text);
+      }
+    }
+  }
+
+  ol {
+    @extend %ordered-list;
+    margin-bottom: $rh-sml !important;
+
+    li {
+      padding-left: $font-size-base * 1.2;
+      text-align: left;
+
+      ol li {
+        padding-left: $font-size-base * 1.6;
+
+        ol li {
+          padding-left: $font-size-base * 2.4;
+        }
+      }
+
+      &:before {
+        display: block;
+        content: counters(item, ".") " ";
+        counter-increment: item;
+        width: 24px;
+        text-align: center;
+        color: $color-primary;
       }
     }
   }

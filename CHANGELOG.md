@@ -4,12 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.0.9] - awaiting release
+## [2.0.9] - 2019-07-03
 
 ## Added
-- added `modaal.js`
-- added `slider.js`
-- added `slider.scss`
+- Added `modaal.js`
+- Added `slider.js`
+- Added `slider.scss`
+
+## Changed
+- Updated `list.scss` for better usage with our contentbuilder / redactor / temp fix
 
 ## [2.0.8] - 2019-06-20
 
