@@ -6,3 +6,5 @@ import './components/flyout';
 
 //  Icon font generation - do not remove
 import '../icons/iconfont.font';
+import '../sass/main.scss';
+
